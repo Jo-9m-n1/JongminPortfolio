@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Dr. Bob</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('dr_bob.static', filename='style.css') }}">
+    <script>
+        // Immediately apply saved theme from local storage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'medical';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    </head>
+<body>
+    
+    <div class="auth-glass">
+        <h2 class="auth-title" id="ui-title">Welcome Back</h2>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="username" id="ui-user" class="auth-input" placeholder="Username" required>
+            <input type="password" name="password" id="ui-pass" class="auth-input" placeholder="Password" required>
+            <button type="submit" class="auth-btn" id="ui-btn">Sign In</button>
+        </form>
+        
+        <div class="auth-link">
+            <span id="ui-new">New here?</span> 
+            <a href="{{ url_for('dr_bob.signup') }}" id="ui-create">Create an account</a>
+            <br><br>
+            <a href="{{ url_for('dr_bob.index') }}" style="color:#94a3b8; font-weight:normal;" id="ui-back">&larr; Return to Chat</a>
+        </div>
+    </div>
+
+<script>
+    const authTranslations = {
+        en: {
+            title: "Welcome Back",
+            user: "Username",
+            pass: "Password",
+            btn: "Sign In",
+            new: "New here?",
+            create: "Create an account",
+            back: "← Return to Chat",
+            dir: "ltr"
+        },
+        fr: {
+            title: "Bon retour",
+            user: "Nom d'utilisateur",
+            pass: "Mot de passe",
+            btn: "Se connecter",
+            new: "Nouveau ici ?",
+            create: "Créer un compte",
+            back: "← Retour au chat",
+            dir: "ltr"
+        },
+        ko: {
+            title: "환영합니다",
+            user: "아이디",
+            pass: "비밀번호",
+            btn: "로그인",
+            new: "계정이 없으신가요?",
+            create: "회원가입",
+            back: "← 채팅으로 돌아가기",
+            dir: "ltr"
+        },
+        ar: {
+            title: "مرحبًا بعودتك",
+            user: "اسم المستخدم",
+            pass: "كلمة المرور",
+            btn: "تسجيل الدخول",
+            new: "جديد هنا؟",
+            create: "إنشاء حساب",
+            back: "← العودة للمحادثة",
+            dir: "rtl"
+        },
+        zh: {
+            title: "欢迎回来",
+            user: "用户名",
+            pass: "密码",
+            btn: "登录",
+            new: "新用户?",
+            create: "创建账户",
+            back: "← 返回聊天",
+            dir: "ltr"
+        }
+    };
+
+    window.onload = function() {
+        const savedLang = localStorage.getItem('dr_bob_lang') || 'en';
+
+        const t = authTranslations[savedLang] || authTranslations.en;
+
+        document.documentElement.setAttribute('dir', t.dir);
+
+        if(document.getElementById('ui-title')) document.getElementById('ui-title').innerText = t.title;
+        if(document.getElementById('ui-user')) document.getElementById('ui-user').placeholder = t.user;
+        if(document.getElementById('ui-pass')) document.getElementById('ui-pass').placeholder = t.pass;
+        if(document.getElementById('ui-btn')) document.getElementById('ui-btn').innerText = t.btn;
+        if(document.getElementById('ui-new')) document.getElementById('ui-new').innerText = t.new;
+        if(document.getElementById('ui-create')) document.getElementById('ui-create').innerText = t.create;
+        if(document.getElementById('ui-back')) document.getElementById('ui-back').innerText = t.back;
+    };
+</script>
+</body>
+</html>

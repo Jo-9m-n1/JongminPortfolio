@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jongmin Lee | Engineering Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
+        </div>
+    </nav>
+
+    {% block body %}
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Engineering the Future</h1>
+            <p class="lead text-muted mb-4">Computer Scientist at Dawson College</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#projects" class="btn btn-primary btn-lg px-4">View Projects</a>
+                <a href="{{ url_for('achievements') }}" class="btn btn-outline-dark btn-lg px-4">Achievements</a>            </div>
+        </div>
+    </header>
+
+    <div class="container my-5" id="projects">
+        <h2 class="display-6 fw-bold mb-5">Technical Projects</h2>
+        <div class="row g-4">
+            {% for p in projects %}
+            <div class="col-md-6">
+                <div class="card h-100 project-card shadow-sm">
+                    <div class="card-body p-4">
+                        {% if p.award %}
+                        <div class="award-banner">
+                            {{ p.award }}
+                        </div>
+                        {% endif %}
+
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
+                        </div>
+                        <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
+                        <p class="card-text text-muted mb-4">{{ p.description }}</p>
+                        
+                        <div class="mb-4">
+                            {% for t in p.tech %}
+                            <span class="badge badge-tech rounded-1 me-1">{{ t }}</span>
+                            {% endfor %}
+                        </div>
+
+                        {% if p.collaborators %}
+                        <div class="collaborators mb-4">
+                            <small class="text-muted d-block mb-1" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Teammates</small>
+                            <div class="d-flex gap-2">
+                                {% for person in p.collaborators %}
+                                <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
+                                    <i class="fa-solid fa-user-group me-1" style="font-size: 0.6rem;"></i> {{ person }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            
+                            {% if p.blueprint_name %}
+                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary">Launch Live App →</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+<footer>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <p class="copyright">
+            &copy; 2026 Jongmin Lee | <span class="location">Montreal, QC</span>
+        </p>
+        <div class="footer-links">
+            <a href="https://github.com/jo-9m-n1" target="_blank" class="footer-link">GitHub</a>
+        </div>
+    </div>
+</footer>
+</html>

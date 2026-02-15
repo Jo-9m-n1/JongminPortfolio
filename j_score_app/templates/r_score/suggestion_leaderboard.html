@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+<title>Previous Suggestions - J-Score</title>
+
+{% endblock %}
+
+{% block body %}
+
+<main>
+    <p>
+        Previous Suggestions:
+    </p>
+    <ul>
+        {% for key in user_suggestions %}
+        <li>{{ key }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        <a href="{{ url_for('j_score.r_score') }}">Submit Again</a>
+    </p>
+</main>
+
+{% endblock %}

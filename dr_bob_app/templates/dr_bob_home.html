@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Dr. Bob - AI Medical Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('dr_bob.static', filename='style.css') }}"> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'medical';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <script src="{{ url_for('dr_bob.static', filename='script.js') }}" defer></script>
+</head>
+
+<body data-logged-in="{{ 'true' if current_user.is_authenticated else 'false' }}">
+    <div class="universal-portfolio-nav">
+        <a href="/" class="uni-back-link">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Back to Portfolio</span>
+        </a>
+    </div>
+<div class="mobile-frame">
+
+    <div id="themeModal" class="glass-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="ui-theme-title">Personalize Dr. Bob</h3>
+                <button onclick="closeThemeModal()" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="accessibility-card">
+                <button id="elderlyModeBtn" class="elderly-toggle-btn" onclick="toggleElderlyMode()">
+                    <i class="fa-solid fa-person-cane"></i>
+                    <strong>Elderly Mode</strong>
+                </button>
+            </div>
+            <div class="theme-grid">
+                <div class="theme-card medical" onclick="setTheme('medical')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Medical</span>
+                </div>
+                <div class="theme-card dark" onclick="setTheme('dark')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Night</span>
+                </div>
+                <div class="theme-card comfort" onclick="setTheme('comfort')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Comfort</span>
+                </div>
+                <div class="theme-card forest" onclick="setTheme('forest')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Forest</span>
+                </div>
+                <div class="theme-card lavender" onclick="setTheme('lavender')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Lavender</span>
+                </div>
+                <div class="theme-card crimson" onclick="setTheme('crimson')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Crimson</span>
+                </div>
+                <div class="theme-card midnight" onclick="setTheme('midnight')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Midnight</span>
+                </div>
+                <div class="theme-card sand" onclick="setTheme('sand')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Sand</span>
+                </div>
+                <div class="theme-card cyberpunk" onclick="setTheme('cyberpunk')">
+                    <div class="theme-preview"><div class="p-header"></div><div class="p-msg"></div></div>
+                    <span class="theme-label">Neon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="medicalModal" class="glass-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="ui-med-title">Medical Profile</h3>
+                <button onclick="closeMedical()" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="med-scroll-container">
+                <p id="ui-med-desc" class="med-description">Dr. Bob will share this info with clinics when calling.</p>
+                
+                <div class="med-section">
+                    <label class="med-label" id="label-address">Addresses</label>
+                    <div class="add-condition-box">
+                        <input type="text" id="inputAddress" placeholder="Add address...">
+                        <button onclick="addContact('address')"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="listAddress" class="condition-list"></div>
+                </div>
+
+                <div class="med-section">
+                    <label class="med-label" id="label-email">Emails</label>
+                    <div class="add-condition-box">
+                        <input type="email" id="inputEmail" placeholder="Add email...">
+                        <button onclick="addContact('email')"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="listEmail" class="condition-list"></div>
+                </div>
+
+                <div class="med-section">
+                    <label class="med-label" id="label-phone">Phone Numbers</label>
+                    <div class="add-condition-box">
+                        <input type="tel" id="inputPhone" placeholder="Add phone (+1XXXXXXXXXX)...">
+                        <button onclick="addContact('phone')"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="listPhone" class="condition-list"></div>
+                </div>
+
+                <div class="med-section">
+                    <label class="med-label" id="label-condition">Conditions & Allergies</label>
+                    <div class="add-condition-box">
+                        <input type="text" id="conditionInput" placeholder="Add condition...">
+                        <button onclick="addCondition()"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="conditionList" class="condition-list"></div>
+                </div>
+
+                <div class="med-section">
+                    <label class="med-label" id="label-insurance">Insurance Information</label>
+                    <div class="add-condition-box" style="flex-direction: column; gap: 8px;">
+                        <input type="text" id="inputInsuranceProvider" placeholder="Provider (e.g. SunLife)">
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="inputInsurancePolicy" placeholder="Policy Number" style="flex: 1;">
+                            <button onclick="saveInsurance()"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div id="listInsurance" class="condition-list"></div>
+                </div>
+                <div class="med-section" style="margin-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button onclick="window.location.href='{{ url_for('dr_bob.export_medical_summary') }}'" class="export-pdf-btn">                        <i class="fa-solid fa-file-pdf"></i> Export Medical Summary
+                    </button>
+                    <p class="export-footnote">It creates a Medical Summary only by looking at the most recent conversation and your medical profile. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactsModal" class="glass-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="ui-contacts-title">Trusted Clinics</h3>
+                <button onclick="closeContacts()" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p id="ui-contacts-desc">Dr. Bob will prioritize these saved clinics.</p>
+            <div class="add-condition-box" style="flex-direction: column; gap: 10px;">
+                <input type="text" id="contactName" placeholder="Clinic Name">
+                <input type="text" id="contactPhone" placeholder="Phone Number (+1XXXXXXXXXX)">
+                <button onclick="saveClinic()" id="ui-add-contact-btn" style="width: 100%; padding: 13px; margin-top: 10px; font-weight: 600;">
+                    Add to Trusted
+                </button>
+            </div>
+            <div id="contactList" class="condition-list"></div>
+        </div>
+    </div>
+
+    <div id="healthStatsModal" class="glass-modal">
+        <div class="modal-content" style="width: 90%; max-width: 500px;">
+            <div class="modal-header">
+                <h3 id="ui-health-insight-title">Health Analytics</h3>
+                <button onclick="closeHealthStats()" class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="med-scroll-container">
+                <div class="chart-container" style="height: 200px; margin-bottom: 20px;">
+                    <canvas id="fullHealthChart"></canvas>
+                </div>
+                <div class="med-section">
+                    <label class="med-label" id="ui-bob-summary-label">Bob's Analysis</label>
+                    <div id="bobAnalysisText" class="condition-item" style="display: block; line-height: 1.6; font-size: 0.85rem;">
+                        <i>Bob is analyzing your history...</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            {% if current_user.is_authenticated %}
+                <h3 id="ui-history">History</h3>
+            {% else %}
+                <span></span>
+            {% endif %}
+            <button onclick="toggleSidebar()" class="close-sidebar"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+        
+        {% if current_user.is_authenticated %}
+            <button onclick="startNewChat()" class="new-chat-btn" id="ui-new-chat">
+                <i class="fa-solid fa-plus"></i> New Consultation
+            </button>
+
+            <div class="sidebar-stats" onclick="openHealthDashboard()" title="View full history">
+                <div class="stats-card">
+                    <div class="stats-header">
+                        <span id="ui-sidebar-stats"><i class="fa-solid fa-chart-line"></i> Health Insights</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                    
+                    <div class="chart-mini-container" style="position: relative; min-height: 50px;">
+                        <div id="sidebarAnalyzing" class="sidebar-analyzing-overlay">
+                            <div class="analyzing-dots"><span></span><span></span><span></span></div>
+                            <span style="font-size: 0.7rem;">Analyzing...</span>
+                        </div>
+                        <canvas id="healthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conversation-list" id="conversationList"></div>
+        {% else %}
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.3; padding-bottom: 50px;">
+                <i class="fa-solid fa-lock" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <span style="font-size: 0.8rem;" id="ui-guest-text">Guest Mode</span>
+            </div>
+        {% endif %}
+
+        <div class="sidebar-footer">
+            {% if current_user.is_authenticated %}
+                <div class="profile-menu">
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <button onclick="openMedical()"><i class="fa-solid fa-file-medical"></i> <span id="ui-menu-med">Medical Profile</span></button>
+                        <button onclick="openContacts()"><i class="fa-solid fa-address-book"></i> <span id="ui-menu-clinics">Trusted Clinics</span></button>
+                        <hr>
+                        <a href="{{ url_for('dr_bob.logout') }}" class="logout-link">
+                            <i class="fa-solid fa-right-from-bracket"></i> <span id="ui-logout">Logout</span>
+                        </a>
+                    </div>
+                    <div class="user-item" onclick="toggleProfileMenu(event)">
+                        <i class="fa-solid fa-user-circle"></i> 
+                        <span style="flex: 1;">{{ current_user.username }}</span>
+                        <i class="fa-solid fa-chevron-up menu-arrow"></i>
+                    </div>
+                </div>
+            {% else %}
+                <a href="{{ url_for('dr_bob.login') }}" class="login-link" id="ui-login-link">Login to save history</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="app-screen">
+        <div class="header">
+            <button onclick="toggleSidebar()" class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="header-title bob-container">
+                <h2>Dr. Bob</h2>
+                <div class="status-badge"><div class="dot"></div> <span id="ui-status">Online</span></div>
+                
+                <div class="bob-info-card">
+                    <div class="bob-card-header">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span id="ui-bob-title">Assistant Profile</span>
+                    </div>
+                    <div class="bob-card-body">
+                        <p id="ui-bob-desc1">Bob is a very friendly agent.</p>
+                        <p id="ui-bob-desc2">He loves chocolates!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <div class="custom-dropdown" id="langDropdown">
+                    <div class="selected-option" onclick="toggleLangMenu(event)">
+                        <span id="currentLangDisplay">EN</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="options-list">
+                        <li onclick="selectLang('en', 'EN')">EN</li>
+                        <li onclick="selectLang('fr', 'FR')">FR</li>
+                        <li onclick="selectLang('ko', 'KR')">KR</li>
+                        <li onclick="selectLang('ar', 'AR')">AR</li>
+                        <li onclick="selectLang('zh', 'CN')">CN</li>
+                    </ul>
+                    <input type="hidden" id="langSelector" value="en">
+                </div>
+                <button onclick="openThemeModal()" class="menu-btn" id="themeBtn" title="Change Theme">
+                    <i class="fa-solid fa-palette"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="messages" class="messages">
+            <div id="typingIndicator" class="msg bot" style="display: none;">
+                <div class="typing-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+
+        <button id="scrollToBottomBtn" class="scroll-bottom-btn">
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+
+        <div class="input-area">
+            <div id="imagePreviewContainer" style="display: none; padding: 10px; position: relative; background: rgba(0,0,0,0.03);">
+                <img id="imagePreview" src="" style="max-height: 80px; border-radius: 6px; border: 1px solid var(--border-color);">
+                <button onclick="clearImagePreview()" class="clear-img-btn">&times;</button>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="file" id="imageInput" accept="image/*" style="display:none" onchange="previewImage(event)">
+                <button onclick="document.getElementById('imageInput').click()" id="cameraBtn" title="Upload Photo">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <input type="text" id="userInput" placeholder="Describe symptoms..." autocomplete="off">
+                <div class="input-actions">
+                    <button onclick="startVoiceRecognition()" id="micBtn" title="Speak">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <button onclick="sendMessage()" id="sendBtn" title="Send">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="ai-disclaimer">Bob can make mistakes. Check important info.</p>
+        </div>
+        <audio id="bobVoice" style="display:none;"></audio>
+    </div>
+</div>
+</body>
+</html>

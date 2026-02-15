@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Dr. Bob</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('dr_bob.static', filename='style.css') }}">
+    <script>
+        // Immediately apply saved theme from local storage
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'medical';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+
+    <div class="auth-glass">
+        <h2 class="auth-title" id="ui-title">Join Dr. Bob</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="username" id="ui-user" class="auth-input signup-focus" placeholder="Choose Username" required>
+            <input type="password" name="password" id="ui-pass" class="auth-input signup-focus" placeholder="Choose Password" required>
+            
+            <button type="submit" class="auth-btn signup-btn" id="ui-btn">Create Account</button>
+        </form>
+        
+        <div class="auth-link signup-link">
+            <span id="ui-has-account">Already have an account?</span> 
+            <a href="{{ url_for('dr_bob.login') }}" id="ui-login">Login</a>
+            <br><br>
+            <a href="{{ url_for('dr_bob.index') }}" style="color:#94a3b8; font-weight:normal;" id="ui-back">&larr; Return to Chat</a>
+        </div>
+    </div>
+
+<script>
+    const translations = {
+        en: {
+            title: "Join Dr. Bob",
+            user_ph: "Choose Username",
+            pass_ph: "Choose Password",
+            btn: "Create Account",
+            has_account: "Already have an account?",
+            login_link: "Login",
+            back_link: "← Return to Chat",
+            dir: "ltr"
+        },
+        fr: {
+            title: "Rejoindre Dr. Bob",
+            user_ph: "Choisir un pseudo",
+            pass_ph: "Choisir un mot de passe",
+            btn: "Créer un compte",
+            has_account: "Vous avez déjà un compte ?",
+            login_link: "Se connecter",
+            back_link: "← Retour au chat",
+            dir: "ltr"
+        },
+        ko: {
+            title: "Dr. Bob 가입하기",
+            user_ph: "아이디 선택",
+            pass_ph: "비밀번호 선택",
+            btn: "계정 생성",
+            has_account: "이미 계정이 있으신가요?",
+            login_link: "로그인",
+            back_link: "← 채팅으로 돌아가기",
+            dir: "ltr"
+        },
+        ar: {
+            title: "انضم إلى د. بوب",
+            user_ph: "اختر اسم المستخدم",
+            pass_ph: "اختر كلمة المرور",
+            btn: "إنشاء حساب",
+            has_account: "هل لديك حساب بالفعل؟",
+            login_link: "تسجيل الدخول",
+            back_link: "← العودة للمحادثة",
+            dir: "rtl"
+        },
+        zh: {
+            title: "加入 Dr. Bob",
+            user_ph: "选择用户名",
+            pass_ph: "选择密码",
+            btn: "创建账户",
+            has_account: "已有账户？",
+            login_link: "登录",
+            back_link: "← 返回聊天",
+            dir: "ltr"
+        }
+    };
+
+    function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        
+        document.documentElement.setAttribute('dir', t.dir);
+
+        document.getElementById('ui-title').innerText = t.title;
+        document.getElementById('ui-user').placeholder = t.user_ph;
+        document.getElementById('ui-pass').placeholder = t.pass_ph;
+        document.getElementById('ui-btn').innerText = t.btn;
+        document.getElementById('ui-has-account').innerText = t.has_account;
+        document.getElementById('ui-login').innerText = t.login_link;
+        document.getElementById('ui-back').innerText = t.back_link;
+        
+        document.getElementById('langSelector').value = lang;
+    }
+
+    function changeLanguage() {
+        const selectedLang = document.getElementById('langSelector').value;
+        localStorage.setItem('dr_bob_lang', selectedLang);
+        applyLanguage(selectedLang);
+    }
+
+    window.onload = function() {
+        const savedLang = localStorage.getItem('dr_bob_lang');
+        if (savedLang && translations[savedLang]) {
+            applyLanguage(savedLang);
+        } else {
+            applyLanguage('en');
+        }
+    };
+</script>
+</body>
+</html>

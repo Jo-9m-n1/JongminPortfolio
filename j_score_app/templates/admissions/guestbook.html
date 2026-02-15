@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+<title>Guestbook - J-Score</title>
+
+{% endblock %}
+
+{% block body %}
+<p>
+    Answers Submitted:
+</p>
+<ul>
+    {% for item in user_ans %}
+        <li>Nickname: {{ item }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('j_score.admissions') }}">Try Again!</a>
+{% endblock %}
