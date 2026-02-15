@@ -13,9 +13,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
     </nav>
 
@@ -32,14 +29,43 @@
     </header>
 
     <div class="container my-5" id="projects">
-        <h2 class="display-6 fw-bold mb-5">Technical Projects</h2>
+        <div class="d-flex align-items-center justify-content-between mb-5">
+            <h2 class="display-6 fw-bold m-0">Technical Projects</h2>
+        </div>
+
         <div class="row g-4">
             {% for p in projects %}
             <div class="col-md-6">
-                <div class="card h-100 project-card shadow-sm border-0 transition-up">
-                    <div class="card-body p-4">
+                <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">
+                    
+                    <div class="project-media-container">
+                        {% if p.images and p.images|length > 1 %}
+                            <div id="carousel-{{ loop.index }}" class="carousel slide h-100" data-bs-ride="false" data-bs-interval="false">                            <div class="carousel-inner h-100">
+                                {% for img in p.images %}
+                                <div class="carousel-item h-100 {{ 'active' if loop.first else '' }}">
+                                    <img src="{{ img }}" class="d-block w-100 h-100" alt="Project slide">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        {% elif p.image_url %}
+                        <img src="{{ p.image_url }}" alt="{{ p.title }}">
+                        {% elif p.video_url %}
+                        <div class="ratio ratio-16x9 h-100">
+                            <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="card-body p-4 d-flex flex-column">
                         {% if p.award %}
-                        <div class="badge bg-warning text-dark mb-2">
+                        <div class="badge bg-warning text-dark mb-3 align-self-start">
                            <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
                         </div>
                         {% endif %}
@@ -47,6 +73,7 @@
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
                         </div>
+                        
                         <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
                         <p class="card-text text-muted mb-4">{{ p.description }}</p>
                         
@@ -58,7 +85,9 @@
 
                         {% if p.collaborators %}
                         <div class="collaborators mb-4">
-                            <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">Teammates</small>
+                            <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
+                                Teammate{{ 's' if p.collaborators|length > 1 else '' }}
+                            </small>
                             <div class="d-flex flex-wrap gap-2">
                                 {% for person in p.collaborators %}
                                 <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
@@ -71,7 +100,9 @@
 
                         <div class="mt-auto">
                             {% if p.blueprint_name %}
-                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary w-100 w-md-auto">Launch Live App <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary w-100 w-md-auto">
+                                    Launch Live App <i class="fa-solid fa-arrow-right ms-1"></i>
+                                </a>
                             {% endif %}
                         </div>
                     </div>

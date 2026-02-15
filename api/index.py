@@ -10,15 +10,34 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
+        'id': 'personal-website',
+        'title': 'Personal Website',
+        'category': 'Personal Project 2026',
+        'description': 'Developed a responsive personal portfolio website using Flask and Python for backend architecture',
+        'tech': ['Python', 'JS'],
+        'images': ["/static/MyPersonalWebsite1.png", 
+                   "/static/MyPersonalWebsite2.png"]
+    },
+    {
         'id': 'dr-bob',
         'title': 'Dr. Bob',
         'award': '2nd Place: Dialogue Challenge at ConUHacks', 
         'category': 'Hackathon 2026',
-        'description': 'Medical triage assistant using Flask and Twilio for patient communication.',
+        'description': 'Medical triage assistant using Flask and Twilio for patient communication. It is offered in 5 different languages and 9 different themes.',
         'full_story': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
         'tech': ['Python', 'JS', 'SQLite', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API'],
-        'collaborators': ['Oliver']
-
+        'collaborators': ['Oliver'],
+        'images': ["/static/DrBob1.png", 
+                   "/static/DrBob2.png", 
+                   "/static/DrBob3.png",
+                   "/static/DrBob4.png", 
+                   "/static/DrBob5.png", 
+                   "/static/DrBob6.png", 
+                   "/static/DrBob7.png", 
+                   "/static/DrBob8.png",
+                   "/static/DrBob9.png",
+                   "/static/DrBob10.png",
+                   "/static/DrBob11.png",]
     },
     {
         'id': 'j-score',
@@ -26,7 +45,10 @@ PROJECTS = [
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using standard deviation.',
         'tech': ['Python', 'JS', 'CSV'],
-        'collaborators': ['James']
+        'collaborators': ['James'],
+        'images': ["/static/J-score1.png",
+                   "/static/J-score2.png",
+                   "/static/J-score3.png"]
     }
 ]
 
@@ -93,7 +115,7 @@ def achievements():
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
             'desc': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments.',
-            'category': 'software health API canada stem'
+            'category': 'software health canada stem'
         },
         {
             'title': '2nd Place: Dialogue Challenge at ConUHacks X',
@@ -101,7 +123,7 @@ def achievements():
             'date': '2026. 01. 24. - 2026. 01. 25.',
             'desc': "Competed in Quebec's largest 24 hour hackathon and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
-            'category': 'software health API canada stem'
+            'category': 'software health canada stem'
         },
         {
             'title': 'Best Use of Gemini API: HackDécouverte',
@@ -109,7 +131,7 @@ def achievements():
             'date': '2025. 11. 29.',
             'desc': "Developed 'BudgetX', an AI budeting website using Gemini API and others.",
             'color': '#D4AF37',
-            'category': 'software API canada stem'
+            'category': 'software canada stem'
         },
         {
             'title': '2nd Place: Dawson Robotics Hackathon',
@@ -123,7 +145,7 @@ def achievements():
             'title': 'Participated: Dawson Science On Tourne',
             'event': 'Dawson College',
             'date': '2025. 04. 04.',
-            'desc': 'Made a drone using 3D printers.',
+            'desc': 'Designed a drone using 3D printers.',
             'category': 'software hardware canada stem'
         },
         {
@@ -242,7 +264,7 @@ def achievements():
             'event': 'Rosemount High School',
             'date': 'February 2024 - June 2024',
             'desc': "Tutored math and science to peers.",
-            'category': 'volunteering canada job'
+            'category': 'volunteering canada job stem math'
         },
         {
             'title': 'Music Award',
