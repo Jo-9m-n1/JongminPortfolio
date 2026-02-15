@@ -4,7 +4,7 @@ from dr_bob_app.routes import User, dr_bob_bp, db
 from j_score_app.routes import j_score_bp
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SECRET_KEY'] = 'OliverIsDumb'
 
 app.register_blueprint(dr_bob_bp, url_prefix='/dr-bob')
