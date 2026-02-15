@@ -1,5 +1,4 @@
 import sys
-import os
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -7,14 +6,16 @@ from flask import Flask, render_template, abort
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
-
 PROJECTS = [
     {
         'id': 'personal-website',
         'title': 'Personal Website',
         'category': 'Personal Project 2026',
+        'tech': ['Python', 'JavaScript'],
         'description': 'Developed a responsive personal portfolio website using Flask and Python for backend architecture',
-        'tech': ['Python', 'JS'],
+        'full_story': 'EMPTY',
+        'full_tech': ['Python', 'JavaScript'],
+        'troubles': 'EMPTY',
         'images': ["/static/MyPersonalWebsite1.png", 
                    "/static/MyPersonalWebsite2.png"]
     },
@@ -23,9 +24,11 @@ PROJECTS = [
         'title': 'Dr. Bob',
         'award': '2nd Place: Dialogue Challenge at ConUHacks', 
         'category': 'Hackathon 2026',
-        'description': 'Medical triage assistant using Flask and Twilio for patient communication. It is offered in 5 different languages and 9 different themes.',
-        'full_story': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-        'tech': ['Python', 'JS', 'SQLite', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API'],
+        'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
+        'description': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
+        'full_story': 'EMPTY',
+        'full_tech': ['Python', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security'],
+        'troubles': 'The most complex technical achievement was synchronizing the Twilio recording with Gemini API. I had to architect an asynchronous pipeline that captured live patient audio, retrieved the remote recording via webhooks, and processed the binary data for AI analysis, while maintaining a low-latency user experience essential for medical triage.',
         'collaborators': ['Oliver'],
         'images': ["/static/DrBob1.png", 
                    "/static/DrBob2.png", 
@@ -33,18 +36,19 @@ PROJECTS = [
                    "/static/DrBob4.png", 
                    "/static/DrBob5.png", 
                    "/static/DrBob6.png", 
-                   "/static/DrBob7.png", 
                    "/static/DrBob8.png",
                    "/static/DrBob9.png",
-                   "/static/DrBob10.png",
-                   "/static/DrBob11.png",]
+                   "/static/DrBob11.png"]
     },
     {
         'id': 'j-score',
         'title': 'J-Score Calculator',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using standard deviation.',
-        'tech': ['Python', 'JS', 'CSV'],
+        'tech': ['Python', 'JavaScript', 'CSV'],
+        'full_story': 'James and I developed the J-Score as the final project for my third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me make application as a team and win few hackathons.',
+        'full_tech': ['Python', 'JavaScript', 'CSV'],
+        'troubles': "Initially, the Flask application couldn't distinguish which user was requesting a deletion; it would simply remove the top line of the CSV database, regardless of who it belonged to. This created a major data integrity issue. To solve this, I researched how to pass contextual data through the frontend without cluttering the UI. I implemented hidden HTML inputs to bind specific user metadata to the request. This allowed the backend to verify the user’s identity and target the correct row in the CSV file, ensuring that users could only modify their own data. This challenge taught me the vital importance of state management and request context in web applications.",
         'collaborators': ['James'],
         'images': ["/static/J-score1.png",
                    "/static/J-score2.png",
@@ -309,6 +313,13 @@ def achievements():
         }
     ]
     return render_template('achievements.html', competitions=competitions, certificates=certificates)
+
+@app.route('/project/<int:project_id>')
+def project_detail(project_id):
+    if 0 <= project_id < len(PROJECTS):
+        project = PROJECTS[project_id]
+        return render_template('project_detail.html', p=project)
+    return "Project not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)

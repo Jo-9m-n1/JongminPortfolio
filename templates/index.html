@@ -36,77 +36,75 @@
         <div class="row g-4">
             {% for p in projects %}
             <div class="col-md-6">
-                <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">
-                    
-                    <div class="project-media-container">
-                        {% if p.images and p.images|length > 1 %}
-                            <div id="carousel-{{ loop.index }}" class="carousel slide h-100" data-bs-ride="false" data-bs-interval="false">                            <div class="carousel-inner h-100">
-                                {% for img in p.images %}
-                                <div class="carousel-item h-100 {{ 'active' if loop.first else '' }}">
-                                    <img src="{{ img }}" class="d-block w-100 h-100" alt="Project slide">
+                <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
+                    <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
+                        <div class="project-media-container">
+                            {% if p.images and p.images|length > 1 %}
+                                <div id="carousel-{{ loop.index }}" class="carousel slide h-100" data-bs-ride="false" data-bs-interval="false">
+                                    <div class="carousel-inner h-100">
+                                        {% for img in p.images %}
+                                        <div class="carousel-item h-100 {{ 'active' if loop.first else '' }}">
+                                            <img src="{{ img }}" class="d-block w-100 h-100" alt="Project slide">
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </button>
                                 </div>
-                                {% endfor %}
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        {% elif p.image_url %}
-                        <img src="{{ p.image_url }}" alt="{{ p.title }}">
-                        {% elif p.video_url %}
-                        <div class="ratio ratio-16x9 h-100">
-                            <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
-                        </div>
-                        {% endif %}
-                    </div>
-
-                    <div class="card-body p-4 d-flex flex-column">
-                        {% if p.award %}
-                        <div class="badge bg-warning text-dark mb-3 align-self-start">
-                           <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
-                        </div>
-                        {% endif %}
-
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
-                        </div>
-                        
-                        <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
-                        <p class="card-text text-muted mb-4">{{ p.description }}</p>
-                        
-                        <div class="mb-4">
-                            {% for t in p.tech %}
-                            <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ t }}</span>
-                            {% endfor %}
-                        </div>
-
-                        {% if p.collaborators %}
-                        <div class="collaborators mb-4">
-                            <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
-                                Teammate{{ 's' if p.collaborators|length > 1 else '' }}
-                            </small>
-                            <div class="d-flex flex-wrap gap-2">
-                                {% for person in p.collaborators %}
-                                <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
-                                    <i class="fa-solid fa-user me-1"></i> {{ person }}
-                                </span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        {% endif %}
-
-                        <div class="mt-auto">
-                            {% if p.blueprint_name %}
-                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary w-100 w-md-auto">
-                                    Launch Live App <i class="fa-solid fa-arrow-right ms-1"></i>
-                                </a>
+                            {% elif p.image_url %}
+                                <img src="{{ p.image_url }}" alt="{{ p.title }}">
+                            {% elif p.video_url %}
+                                <div class="ratio ratio-16x9 h-100">
+                                    <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
+                                </div>
                             {% endif %}
                         </div>
+
+                        <div class="card-body p-4 d-flex flex-column">
+                            {% if p.award %}
+                            <div class="badge bg-warning text-dark mb-3 align-self-start">
+                               <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
+                            </div>
+                            {% endif %}
+
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
+                            </div>
+                            
+                            <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
+                            <p class="card-text text-muted mb-4">{{ p.description }}</p>
+                            
+                            <div class="mb-4">
+                                {% for t in p.tech %}
+                                <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ t }}</span>
+                                {% endfor %}
+                            </div>
+
+                            {% if p.collaborators %}
+                            <div class="collaborators mb-4">
+                                <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
+                                    Teammate{{ 's' if p.collaborators|length > 1 else '' }}
+                                </small>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for person in p.collaborators %}
+                                    <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
+                                        <i class="fa-solid fa-user me-1"></i> {{ person }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <div class="mt-auto">
+                                <small class="text-primary fw-bold">Read the full story <i class="fa-solid fa-chevron-right ms-1"></i></small>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             {% else %}
             <div class="col-12 text-center text-muted">
