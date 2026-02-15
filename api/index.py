@@ -216,11 +216,11 @@ def achievements():
             'category': 'health'
         },        
         {
-            'title': 'Member of Dawson Graph Theory Research Team',
-            'event': 'Dawson College',
-            'date': 'Winter 2025',
-            'desc': 'Did research on graph theory.',
-            'category': 'stem math canada'
+            'title': 'Engineering Intern',
+            'event': 'GIO Engineering',
+            'date': 'June 2025 - August 2025',
+            'desc': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
+            'category': 'stem math job'
         },
         {
             'title': "Dean's List",
@@ -236,6 +236,13 @@ def achievements():
             'date': '2024. 10. 20.',
             'desc': "Volunteered for Dawson's science open house event.",
             'category': 'volunteering canada'
+        },
+        {
+            'title': 'Peer Tutoring',
+            'event': 'Rosemount High School',
+            'date': 'February 2024 - June 2024',
+            'desc': "Tutored math and science to peers.",
+            'category': 'volunteering canada job'
         },
         {
             'title': 'Music Award',

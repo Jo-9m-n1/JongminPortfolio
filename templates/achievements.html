@@ -19,6 +19,7 @@
             <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
             <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">Gold</button>
             <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
+            <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Job</button>
             <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
             <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
             <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
@@ -60,7 +61,7 @@
         </div>
 
         <div class="col-md-6">
-            <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Activities</h3>
+            <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Experiences</h3>
             <div class="timeline-container certificate-line">
                 {% for honor in certificates %}
                 <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#10b981') }};">
