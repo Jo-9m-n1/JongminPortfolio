@@ -1,6 +1,6 @@
 import time
 import requests
-from google import genai
+import google.genai as genai
 from google.genai import types
 from geopy.distance import geodesic
 from dotenv import load_dotenv
