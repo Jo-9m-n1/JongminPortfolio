@@ -6,21 +6,8 @@
     --border-color: #e2e8f0;
     --bg-light: #f8fafc;
     --black: #1e293b;
-}
-
-.timeline-container {
-    position: relative;
-    padding-left: 0;
-    margin-left: 40px; 
-    border-left: none; 
-}
-
-.event-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
+    --canada-red: #D80621;
+    --canada-red-glow: rgba(216, 6, 33, 0.4);
 }
 
 html {
@@ -45,48 +32,53 @@ footer {
     flex-shrink: 0;
 }
 
-.line-segment {
+.timeline-container {
+    position: relative;
+    padding-left: 0;
+    margin-left: 20px;
+}
+
+.timeline-container::before {
+    content: '';
     position: absolute;
-    left: -1px;
-    top: -15px;
-    bottom: -40px;
+    left: 0;
+    top: 24px;
+    bottom: 0;
     width: 2px;
+    background-color: var(--border-color);
     z-index: 1;
-    
-    mix-blend-mode: screen; 
-    
-    transition: all 0.3s ease;
 }
 
-.timeline-dot {
-    z-index: 10;
-    position: relative; 
-    background-color: #ffffff;
+.competition-line::before {
+    background-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
 }
 
-.competition-line .timeline-row { --accent-color: #2563eb; --accent-color-rgb: 37, 99, 235; }
-.competition-line .line-segment { background-color: var(--accent-color); box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.3); }
+.certificate-line::before {
+    background-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
 
-.certificate-line .timeline-row { --accent-color: #10b981; --accent-color-rgb: 16, 185, 129; }
-.certificate-line .line-segment { background-color: var(--accent-color); box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.3); }
-
+.line-segment {
+    display: none !important;
+}
 
 .timeline-row {
     position: relative;
-    margin-bottom: 2.5rem; 
+    margin-bottom: 2.5rem;
     padding-left: 45px;
     perspective: 1200px;
+    z-index: 2;
 }
 
 .timeline-card {
     background: #ffffff;
     border: 1.5px solid var(--border-color);
     border-radius: 12px;
-    padding: 1.5rem; 
+    padding: 1.5rem;
     position: relative;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 5;
 }
 
 .timeline-row:hover .timeline-card {
@@ -97,7 +89,7 @@ footer {
 
 .timeline-dot {
     position: absolute;
-    left: -0.6px;
+    left: 1px;
     transform: translateX(-50%);
     top: 24px;
     width: 28px;
@@ -117,14 +109,14 @@ footer {
 .timeline-dot.gold-glow {
     --accent-color: var(--gold);
     --accent-color-rgb: 212, 175, 55;
-    background-color: white !important; 
+    background-color: white !important;
     border: 3.5px solid var(--gold) !important;
     box-shadow: inset 0 0 9px rgba(212, 175, 55, 0.3), 0 0 12px var(--gold), 0 0 25px rgba(212, 175, 55, 0.5);
     animation: gold-breath 3s infinite ease-in-out;
 }
 
 .timeline-row:hover .timeline-dot.gold-glow {
-    background: var(--gold) !important; 
+    background: var(--gold) !important;
 }
 
 @keyframes gold-breath {
@@ -151,14 +143,8 @@ footer {
 }
 
 @keyframes filterFlyIn {
-    0% { 
-        opacity: 0; 
-        transform: translateY(20px) scale(0.98); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-    }
+    0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .filter-animate {
@@ -178,21 +164,10 @@ footer {
     box-shadow: 0 0px 10px rgba(30, 41, 59, 0.3);
 }
 
-.filter-btn.all {
-    border: 1px solid var(--black);
-    color: var(--black);
-    background: white;
-}
-
-.filter-btn.all:hover {
-    box-shadow: 0 0 10px  #1e293b;
-}
-
 .filter-btn.all.active {
     background: var(--black) !important;
     color: white !important;
     border-color: var(--black) !important;
-    box-shadow: 0 0 10px  #1e293b;
 }
 
 .filter-btn.btn-gold {
@@ -201,27 +176,18 @@ footer {
     background: linear-gradient(145deg, #ffffff, #fffcf0);
 }
 
-.filter-btn.btn-gold:hover {
-    box-shadow: 0 0 11.5px rgba(212, 175, 55, 0.95);
-}
-
 .filter-btn.btn-gold.active {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
     color: white !important;
-    border-color: var(--gold-dark) !important;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .btn-canada {
     border-color: var(--canada-red);
-    --canada-red: #D80621;
     color: var(--canada-red);
-    --canada-red-glow: rgba(216, 6, 33, 0.4);
 }
 
 .btn-canada:hover {
-    color: var(--canada-red);
-    border-color: var(--canada-red);
     background: rgba(216, 6, 33, 0.05);
     box-shadow: 0 0 10px #D80621;
 }
@@ -229,7 +195,6 @@ footer {
 .btn-canada.active {
     background: var(--canada-red) !important;
     color: white !important;
-    border-color: var(--canada-red) !important;
     box-shadow: 0 0px 10px var(--canada-red-glow);
 }
 
@@ -240,15 +205,12 @@ footer {
     bottom: 2px;
     font-size: 1.4rem;
     opacity: 0.2;
-    transform: rotate(-15deg); 
-    transform-origin: center;
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: rotate(-15deg);
     pointer-events: none;
 }
 
 .btn-canada.active::after {
     opacity: 0;
-    transform: translateY(5px);
 }
 
 .uni-back-link {
@@ -266,17 +228,34 @@ footer {
     transition: all 0.2s ease;
 }
 
-.uni-back-link:hover { background: #1e293b; color: white; }
-
-.timeline-date { font-size: 0.75rem; font-weight: 800; color: #64748b; background: #f1f5f9; padding: 4px 12px; border-radius: 6px; margin-bottom: 0.8rem; display: inline-block; }
-.event-name { font-size: 0.95rem; font-weight: 700; color: var(--accent-color); margin-bottom: 0.5rem; }
-.desc-text { font-size: 0.9rem; color: #475569; line-height: 1.6; }
-
-@media (max-width: 768px) {
-    .timeline-row { padding-left: 35px; }
-    .timeline-container { margin-left: 25px; }
+.uni-back-link:hover {
+    background: #1e293b;
+    color: white;
 }
 
+.timeline-date {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+}
+
+.event-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.desc-text {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+}
 
 .site-footer {
     margin-top: 5rem;
@@ -284,36 +263,11 @@ footer {
     background: #ffffff;
     border-top: 1px solid var(--border-color);
     text-align: center;
-    font-family: inherit;
 }
 
 .footer-content {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.made-by {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #475569;
-    margin-bottom: 0.5rem;
-}
-
-.tech-stack {
-    color: var(--black);
-    position: relative;
-    padding: 0 4px;
-}
-
-.tech-stack::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--accent-color);
-    opacity: 0.3;
 }
 
 .copyright {
@@ -325,7 +279,6 @@ footer {
 .footer-links {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 15px;
 }
 
@@ -334,26 +287,23 @@ footer {
     color: #64748b;
     font-size: 0.9rem;
     font-weight: 700;
-    transition: all 0.2s ease;
 }
 
-.footer-link:hover {
-    color: var(--accent-color);
+.hero {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.divider {
-    color: #cbd5e1;
+.project-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    background: white;
 }
 
-@media (max-width: 768px) {
-    .site-footer {
-        padding: 2rem 1rem;
-    }
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
-.hero { padding: 100px 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
-.project-card { transition: all 0.3s ease; border: none; border-radius: 15px; background: white; }
-.project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-.badge-tech { font-size: 0.75rem; background-color: #f1f3f5; color: #495057; border: 1px solid #dee2e6; }
 
 .award-banner {
     background: linear-gradient(45deg, #ffd700, #ffae00);
@@ -366,5 +316,10 @@ footer {
     align-items: center;
     gap: 6px;
     margin-bottom: 15px;
-    border: 1px solid rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+    .timeline-row { padding-left: 35px; }
+    .timeline-container { margin-left: 20px; }
+    .site-footer { padding: 2rem 1rem; }
 }
