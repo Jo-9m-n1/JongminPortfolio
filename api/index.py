@@ -241,8 +241,25 @@ def achievements():
             'title': 'Music Award',
             'event': 'Rosemount High School',
             'date': '2023',
-            'desc': "Won a highschool music award.",
+            'desc': "Won a highschool music award (trumpet).",
             'color': '#D4AF37',
+            'category': 'canada arts'
+
+        },
+        {
+            'title': 'Music Award',
+            'event': 'Rosemount High School',
+            'date': '2022',
+            'desc': "Won a highschool music award (trumpet).",
+            'color': '#D4AF37',
+            'category': 'canada arts'
+
+        },
+        {
+            'title': 'Junior Jazz Band',
+            'event': 'Rosemount High School',
+            'date': 'Fall 2021 - Winter 2022',
+            'desc': "Part of the junior jazz band.",
             'category': 'canada arts'
 
         },

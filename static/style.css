@@ -27,6 +27,24 @@ html {
     overflow-y: scroll;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main, .container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 .line-segment {
     position: absolute;
     left: -1px;

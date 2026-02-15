@@ -108,41 +108,24 @@ function applyFilterEffect() {
     let visibleCount = 0;
 
     for (let item of items) {
-        item.style.opacity = "0";
-        setTimeout(() => {
+        let isMatch = activeFilters.includes('all') || 
+                      activeFilters.every(filter => item.classList.contains(filter));
+        
+        if (isMatch) {
+            item.style.display = "block";
+            item.style.opacity = "1";
+            item.classList.add("filter-animate");
+            visibleCount++;
+        } else {
             item.style.display = "none";
-        }, 200);
-        item.classList.remove("filter-animate");
+            item.style.opacity = "0";
+            item.classList.remove("filter-animate");
+        }
     }
 
-    setTimeout(() => {
-        for (let item of items) {
-            let isMatch = false;
-            if (activeFilters.includes('all')) {
-                isMatch = true;
-            } else {
-                isMatch = activeFilters.every(filter => item.classList.contains(filter));
-            }
-            
-            if (isMatch) {
-                item.style.display = "block";
-                void item.offsetWidth; 
-                item.classList.add("filter-animate");
-                item.style.opacity = "1";
-                visibleCount++;
-            }
-        }
-
-        if (visibleCount === 0) {
-            noResultsMsg.style.display = "block";
-            achievementsRow.style.display = "none";
-        } else {
-            noResultsMsg.style.display = "none";
-            achievementsRow.style.display = "flex";
-        }
-    }, 250);
+    noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
+    achievementsRow.style.display = (visibleCount === 0) ? "none" : "flex";
 }
-
 function updateUI() {
     const buttons = document.getElementsByClassName("filter-btn");
     for (let btn of buttons) {
