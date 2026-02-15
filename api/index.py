@@ -1,3 +1,8 @@
+import sys
+import os
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
 from flask import Flask, render_template, abort
 from flask_login import LoginManager
 from dr_bob_app.routes import User, dr_bob_bp, db
