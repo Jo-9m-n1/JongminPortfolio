@@ -4,65 +4,37 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from flask import Flask, render_template, abort
-from flask_login import LoginManager
-from dr_bob_app.routes import User, dr_bob_bp, db
-from j_score_app.routes import j_score_bp
-from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
-app.config['SECRET_KEY'] = 'OliverIsDumb'
 
-app.register_blueprint(dr_bob_bp, url_prefix='/dr-bob')
-app.register_blueprint(j_score_bp, url_prefix='/j-score')
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'dr_bob.login'
-app.config['SECRET_KEY'] = 'OliverIsDumb'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
 
 PROJECTS = [
     {
         'id': 'dr-bob',
         'title': 'Dr. Bob',
         'award': '2nd Place: Dialogue Challenge at ConUHacks', 
-        'blueprint_name': 'dr_bob',
         'category': 'Hackathon 2026',
         'description': 'Medical triage assistant using Flask and Twilio for patient communication.',
         'full_story': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
         'tech': ['Python', 'JS', 'SQLite', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API'],
-        'image': 'dr-bob.png',
         'collaborators': ['Oliver']
 
     },
     {
         'id': 'j-score',
         'title': 'J-Score Calculator',
-        'blueprint_name': 'j_score',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using standard deviation.',
         'tech': ['Python', 'JS', 'CSV'],
         'collaborators': ['James']
-    },
-
+    }
 ]
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 @app.route('/')
 def home():
     return render_template('index.html', projects=PROJECTS)
 
-@app.route('/project/<project_id>')
-def project_detail(project_id):
-    project = next((p for p in PROJECTS if p['id'] == project_id), None)
-    if project is None:
-        abort(404)
-    return render_template('project.html', project=project)
 
 @app.route('/achievements')
 def achievements():

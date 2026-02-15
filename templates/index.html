@@ -4,26 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jongmin Lee | Engineering Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% block styles %}{% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('achievements') }}">Achievements</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     {% block body %}
-    <header class="hero text-center">
+    <header class="hero text-center py-5 bg-light">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Engineering the Future</h1>
             <p class="lead text-muted mb-4">Computer Scientist at Dawson College</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#projects" class="btn btn-primary btn-lg px-4">View Projects</a>
-                <a href="{{ url_for('achievements') }}" class="btn btn-outline-dark btn-lg px-4">Achievements</a>            </div>
+                <a href="#projects" class="btn btn-primary btn-lg px-4">View My Work</a>
+                <a href="{{ url_for('achievements') }}" class="btn btn-outline-dark btn-lg px-4">Achievements</a>
+            </div>
         </div>
     </header>
 
@@ -32,15 +42,15 @@
         <div class="row g-4">
             {% for p in projects %}
             <div class="col-md-6">
-                <div class="card h-100 project-card shadow-sm">
+                <div class="card h-100 project-card shadow-sm border-0 transition-up">
                     <div class="card-body p-4">
                         {% if p.award %}
-                        <div class="award-banner">
-                            {{ p.award }}
+                        <div class="badge bg-warning text-dark mb-2">
+                           <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
                         </div>
                         {% endif %}
 
-                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
                             <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
                         </div>
                         <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
@@ -48,46 +58,51 @@
                         
                         <div class="mb-4">
                             {% for t in p.tech %}
-                            <span class="badge badge-tech rounded-1 me-1">{{ t }}</span>
+                            <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ t }}</span>
                             {% endfor %}
                         </div>
 
                         {% if p.collaborators %}
                         <div class="collaborators mb-4">
-                            <small class="text-muted d-block mb-1" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Teammates</small>
-                            <div class="d-flex gap-2">
+                            <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">Teammates</small>
+                            <div class="d-flex flex-wrap gap-2">
                                 {% for person in p.collaborators %}
                                 <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
-                                    <i class="fa-solid fa-user-group me-1" style="font-size: 0.6rem;"></i> {{ person }}
+                                    <i class="fa-solid fa-user me-1"></i> {{ person }}
                                 </span>
                                 {% endfor %}
                             </div>
                         </div>
                         {% endif %}
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            
+                        <div class="mt-auto">
                             {% if p.blueprint_name %}
-                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary">Launch Live App →</a>
+                                <a href="{{ url_for(p.blueprint_name + '.index') }}" class="btn btn-sm btn-primary w-100 w-md-auto">Launch Live App <i class="fa-solid fa-arrow-right ms-1"></i></a>
                             {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
+            {% else %}
+            <div class="col-12 text-center text-muted">
+                <p>No projects to display at the moment.</p>
+            </div>
             {% endfor %}
         </div>
     </div>
     {% endblock %}
-</body>
-<footer>
-    <footer class="site-footer">
-    <div class="footer-content">
-        <p class="copyright">
-            &copy; 2026 Jongmin Lee | <span class="location">Montreal, QC</span>
-        </p>
-        <div class="footer-links">
-            <a href="https://github.com/jo-9m-n1" target="_blank" class="footer-link">GitHub</a>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 Jongmin Lee | <span class="text-muted">Montreal, QC</span></p>
+            <div class="d-flex justify-content-center gap-3 mt-2">
+                <a href="https://github.com/jo-9m-n1" target="_blank" class="text-white-50 text-decoration-none">
+                    <i class="fa-brands fa-github me-1"></i> GitHub
+                </a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
