@@ -268,7 +268,6 @@ def achievements():
             'event': 'Rosemount High School',
             'date': 'Fall 2019 - Winter 2024',
             'desc': 'The Art-Études program is a specialized Quebec academic stream that compresses the standard curriculum into half-days to allow for intensive, professional-level training in the fine arts. It is designed for high-achieving students who possess the discipline to maintain top grades while dedicating significant daily hours to creative mastery and technical studio work.',
-            'color': '#D4AF37',
             'category': 'arts canada'
         },
         {
