@@ -219,6 +219,10 @@ footer {
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.timeline-card .event-name {
+    font-weight: 555;
+}
+
 .timeline-row:hover .timeline-card {
     transform: translateY(-5px) rotateY(-2deg);
     border-color: var(--accent-color);
