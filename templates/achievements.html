@@ -17,7 +17,9 @@
     <div class="filter-wrapper mb-5">
         <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
             <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
-            <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">Gold</button>
+            <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
+                <i class="fa-solid fa-trophy me-1"></i>Gold
+            </button>
             <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
             <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
             <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
@@ -32,7 +34,7 @@
     </div>
 
     <div id="no-results" class="text-center my-5 py-5" style="display: none;">
-        <i class="fa-solid fa-magnifying-glass-blur display-1 text-muted mb-3"></i>
+        <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
         <h3 class="text-muted">No milestones match these filters.</h3>
         <p class="text-muted">Try selecting a different combination of tags.</p>
         <button class="btn btn-outline-primary mt-2" onclick="filterSelection('all')">Reset Filters</button>

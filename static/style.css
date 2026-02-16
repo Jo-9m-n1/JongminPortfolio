@@ -19,7 +19,9 @@
 }
 
 body {
-    padding-top: 70px; 
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
 }
 
 .fixed-back-container {
@@ -33,11 +35,6 @@ html {
 html, body {
     height: 100%;
     margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
 }
 
 main, .container {
@@ -128,6 +125,41 @@ footer {
 }
 
 .project-card:hover .project-media-container::after {
+    opacity: 1;
+}
+
+.teammate-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 14px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #475569;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.teammate-pill.linked {
+    cursor: pointer;
+}
+
+.teammate-pill.linked:hover {
+    background-color: #eef2ff;
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.small-icon {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.teammate-pill.linked:hover .small-icon {
     opacity: 1;
 }
 

@@ -9,6 +9,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 PROJECTS = [
     {
         'id': 'chemically-bonding',
+        'tags': ['school'],
         'title': 'Chemically Bonding',
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
@@ -16,11 +17,12 @@ PROJECTS = [
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API'],
         'troubles': 'Currently developing the website',
-        'collaborators': ['James', 'Alexander'],
+        'collaborators': [{'name': 'James'}, {'name': 'Alex'}],
         'images': []
     },
     {
         'id': 'personal-website',
+        'tags': ['personal'],
         'title': 'Personal Website',
         'category': 'Personal Project 2026',
         'tech': ['Python', 'JavaScript'],
@@ -33,6 +35,7 @@ PROJECTS = [
     },
     {
         'id': 'dr-bob',
+        'tags': ['hackathon'],
         'title': 'Dr. Bob',
         'award': '2nd Place: Dialogue Challenge at ConUHacks', 
         'category': 'Hackathon 2026',
@@ -41,7 +44,7 @@ PROJECTS = [
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': 'The most complex technical achievement was synchronizing the Twilio recording with Gemini API. I had to architect an asynchronous pipeline that captured live patient audio, retrieved the remote recording via webhooks, and processed the binary data for AI analysis, while maintaining a low-latency user experience essential for medical triage.',
-        'collaborators': ['Oliver'],
+        'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
         'images': ["/static/DrBob5.png", 
                    "/static/DrBob1.png", 
                    "/static/DrBob3.png",
@@ -54,6 +57,7 @@ PROJECTS = [
     },
     {
         'id': 'meeting-app',
+        'tags': ['personal'],
         'title': 'Meeting App',
         'category': 'Personal Project 2025',
         'description': 'A tool to find mutual breaks with your friends.',
@@ -67,6 +71,7 @@ PROJECTS = [
     },
     {
         'id': 'j-score',
+        'tags': ['school'],
         'title': 'J-Score*',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation.',

@@ -17,14 +17,14 @@
     </nav>
 
     <div class="fixed-back-container d-none d-lg-block">
-        <a href="/" class="uni-back-link shadow-sm">
+        <a href="/" class="uni-back-link shadow-sm text-decoration-none">
             <i class="fa-solid fa-arrow-left"></i> Back to Home
         </a>
     </div>
 
     <main class="container py-5">
         <div class="d-lg-none mb-4">
-            <a href="/" class="uni-back-link">
+            <a href="/" class="uni-back-link text-decoration-none">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </a>
         </div>
@@ -99,15 +99,33 @@
 
                     {% if p.collaborators %}
                     <div class="card border-0 shadow-sm rounded-4 mb-4">
-                        <div class="card-body p-4">
-                            <h5 class="fw-bold mb-3">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold mb-3 text-muted text-uppercase small" style="letter-spacing: 1px;">
                                 <i class="fa-solid fa-users text-primary me-2"></i>Teammate{{ 's' if p.collaborators|length > 1 else '' }}
-                            </h5>
-                            <ul class="list-unstyled mb-0">
+                            </h6>
+                            <div class="d-flex flex-wrap gap-2">
                                 {% for person in p.collaborators %}
-                                <li class="text-muted mb-2"><i class="fa-solid fa-user-circle me-2"></i>{{ person }}</li>
+                                    {% if person is mapping %} 
+                                        {# Case: Dictionary with LinkedIn #}
+                                        {% if person.linkedin %}
+                                            <a href="{{ person.linkedin }}" target="_blank" class="teammate-pill linked">
+                                                <i class="fa-solid fa-user-circle me-1"></i> {{ person.name }}
+                                                <i class="fa-brands fa-linkedin ms-1 small-icon"></i>
+                                            </a>
+                                        {% else %}
+                                            {# Case: Dictionary without LinkedIn #}
+                                            <span class="teammate-pill">
+                                                <i class="fa-solid fa-user-circle me-1"></i> {{ person.name }}
+                                            </span>
+                                        {% endif %}
+                                    {% else %} 
+                                        {# Case: Simple string #}
+                                        <span class="teammate-pill">
+                                            <i class="fa-solid fa-user-circle me-1"></i> {{ person }}
+                                        </span>
+                                    {% endif %}
                                 {% endfor %}
-                            </ul>
+                            </div>
                         </div>
                     </div>
                     {% endif %}
@@ -122,9 +140,20 @@
         </div>
     </main>
 
-    <footer class="bg-dark text-white py-5 mt-5">
-        <div class="container text-center text-white-50">
-            <p class="mb-0">&copy; 2026 Jongmin Lee | Engineering the Future</p>
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 Jongmin Lee | Montreal, QC</p>
+            <div class="d-flex justify-content-center gap-3 mt-2">
+                <a href="https://www.linkedin.com/in/jo-9m-n1/" target="_blank" class="text-white-50 text-decoration-none">
+                    <i class="fa-brands fa-linkedin ms-1"></i> LinkedIn
+                </a>
+                <a href="https://github.com/jo-9m-n1" target="_blank" class="text-white-50 text-decoration-none">
+                    <i class="fa-brands fa-github me-1"></i> GitHub
+                </a>
+                <a href="https://gitlab.com/Jo_9m_n1" target="_blank" class="text-white-50 text-decoration-none">
+                    <i class="fa-brands fa-gitlab me-1"></i> GitLab
+                </a>
+            </div>
         </div>
     </footer>
 

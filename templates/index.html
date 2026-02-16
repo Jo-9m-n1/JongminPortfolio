@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    {% block styles %}{% endblock %}
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
@@ -33,18 +32,37 @@
             <h2 class="display-6 fw-bold m-0">Projects</h2>
         </div>
 
-        <div class="row g-4">
+        <div class="filter-wrapper mb-5">
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn btn-gold" data-filter="award-filter" onclick="filterSelection('award-filter')">
+                    <i class="fa-solid fa-trophy me-1"></i> Gold
+                </button>
+                <button class="filter-btn" data-filter="hackathon" onclick="filterSelection('hackathon')">Hackathon</button>
+                <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">School</button>
+                <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">Personal</button>
+            </div>
+        </div>
+
+        <div id="no-results" class="text-center my-5 py-5" style="display: none;">
+            <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
+            <h3 class="text-muted">No projects match these filters.</h3>
+            <p class="text-muted">Try selecting a different combination of tags.</p>
+            <button class="btn btn-outline-primary mt-2" onclick="filterSelection('all')">Reset Filters</button>
+        </div>
+
+        <div class="row g-4" id="projects-row">
             {% for p in projects %}
-            <div class="col-md-6">
+            <div class="col-md-6 filter-item {% for tag in p.tags %}{{ tag }} {% endfor %} {{ 'award-filter' if p.award }}">
                 <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
                     <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
                         
                         {% if p.images or p.image_url or p.video_url %}
-                        <div class="project-media-container">
+                        <div class="project-media-container" style="height: 250px; overflow: hidden;">
                             {% if p.images %}
-                                <img src="{{ p.images[0] }}" class="d-block w-100 h-100" alt="{{ p.title }} thumbnail" style="object-fit: cover;">
+                                <img src="{{ p.images[0] }}" class="d-block w-100 h-100" alt="{{ p.title }}" style="object-fit: cover;">
                             {% elif p.image_url %}
-                                <img src="{{ p.image_url }}" alt="{{ p.title }}">
+                                <img src="{{ p.image_url }}" alt="{{ p.title }}" class="w-100 h-100" style="object-fit: cover;">
                             {% elif p.video_url %}
                                 <div class="ratio ratio-16x9 h-100">
                                     <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
@@ -81,7 +99,9 @@
                                 <div class="d-flex flex-wrap gap-2">
                                     {% for person in p.collaborators %}
                                     <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
-                                        <i class="fa-solid fa-user me-1"></i> {{ person }}
+                                        <i class="fa-solid fa-user me-1"></i> 
+                                        {# This check handles both dictionaries and simple strings #}
+                                        {{ person.name if person is mapping else person }}
                                     </span>
                                     {% endfor %}
                                 </div>
@@ -108,6 +128,9 @@
         <div class="container text-center">
             <p class="mb-1">&copy; 2026 Jongmin Lee | Montreal, QC</p>
             <div class="d-flex justify-content-center gap-3 mt-2">
+                <a href="https://www.linkedin.com/in/jo-9m-n1/" target="_blank" class="text-white-50 text-decoration-none">
+                    <i class="fa-brands fa-linkedin ms-1"></i> LinkedIn
+                </a>
                 <a href="https://github.com/jo-9m-n1" target="_blank" class="text-white-50 text-decoration-none">
                     <i class="fa-brands fa-github me-1"></i> GitHub
                 </a>
@@ -119,5 +142,62 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let activeFilters = ['all'];
+
+        function filterSelection(c) {
+            if (c === 'all') {
+                activeFilters = ['all'];
+            } else {
+                activeFilters = activeFilters.filter(f => f !== 'all');
+                if (activeFilters.includes(c)) {
+                    activeFilters = activeFilters.filter(f => f !== c);
+                } else {
+                    activeFilters.push(c);
+                }
+                if (activeFilters.length === 0) activeFilters = ['all'];
+            }
+            updateUI();
+            applyFilterEffect();
+        }
+
+        function applyFilterEffect() {
+            const items = document.getElementsByClassName("filter-item");
+            const noResultsMsg = document.getElementById("no-results");
+            const projectsRow = document.getElementById("projects-row");
+            let visibleCount = 0;
+
+            for (let item of items) {
+                let isMatch = activeFilters.includes('all') || 
+                              activeFilters.every(filter => item.classList.contains(filter));
+                
+                if (isMatch) {
+                    item.style.display = "block";
+                    setTimeout(() => { item.style.opacity = "1"; }, 10);
+                    item.classList.add("filter-animate");
+                    visibleCount++;
+                } else {
+                    item.style.display = "none";
+                    item.style.opacity = "0";
+                    item.classList.remove("filter-animate");
+                }
+            }
+
+            if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
+            if (projectsRow) projectsRow.style.display = (visibleCount === 0) ? "none" : "flex";
+        }
+
+        function updateUI() {
+            const buttons = document.getElementsByClassName("filter-btn");
+            for (let btn of buttons) {
+                const filterVal = btn.getAttribute('data-filter');
+                if (activeFilters.includes(filterVal)) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
