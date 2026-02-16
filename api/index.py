@@ -168,7 +168,7 @@ def achievements():
             'color': '#D4AF37',
             'category': 'software canada stem',
             'link_type': 'mentormates',
-            'link': 'https://www.mentormates.ai/projects/8191e37d-b814-48a1-8389-6616ec1491bd'
+            'link': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd'
         },
         {
             'title': '2nd Place: Dawson Robotics Hackathon',
