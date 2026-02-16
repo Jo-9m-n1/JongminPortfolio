@@ -20,7 +20,7 @@
     <header class="hero text-center py-5 bg-light">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Engineering the Future</h1>
-            <p class="lead text-muted mb-4">Computer Scientist at Dawson College</p>
+            <p class="lead text-muted mb-4">Jongmin Lee: Computer Scientist at Dawson College</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="#projects" class="btn btn-primary btn-lg px-4">View My Work</a>
                 <a href="{{ url_for('achievements') }}" class="btn btn-outline-dark btn-lg px-4">Achievements</a>
@@ -30,7 +30,7 @@
 
     <div class="container my-5" id="projects">
         <div class="d-flex align-items-center justify-content-between mb-5">
-            <h2 class="display-6 fw-bold m-0">Technical Projects</h2>
+            <h2 class="display-6 fw-bold m-0">Projects</h2>
         </div>
 
         <div class="row g-4">
@@ -38,23 +38,11 @@
             <div class="col-md-6">
                 <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
                     <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
+                        
+                        {% if p.images or p.image_url or p.video_url %}
                         <div class="project-media-container">
-                            {% if p.images and p.images|length > 1 %}
-                                <div id="carousel-{{ loop.index }}" class="carousel slide h-100" data-bs-ride="false" data-bs-interval="false">
-                                    <div class="carousel-inner h-100">
-                                        {% for img in p.images %}
-                                        <div class="carousel-item h-100 {{ 'active' if loop.first else '' }}">
-                                            <img src="{{ img }}" class="d-block w-100 h-100" alt="Project slide">
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ loop.index }}" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    </button>
-                                </div>
+                            {% if p.images %}
+                                <img src="{{ p.images[0] }}" class="d-block w-100 h-100" alt="{{ p.title }} thumbnail" style="object-fit: cover;">
                             {% elif p.image_url %}
                                 <img src="{{ p.image_url }}" alt="{{ p.title }}">
                             {% elif p.video_url %}
@@ -63,6 +51,7 @@
                                 </div>
                             {% endif %}
                         </div>
+                        {% endif %}
 
                         <div class="card-body p-4 d-flex flex-column">
                             {% if p.award %}

@@ -225,7 +225,7 @@ footer {
 
 .timeline-row:hover .timeline-dot {
     background-color: var(--accent-color);
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%);
 }
 
 .timeline-dot.gold-glow {
