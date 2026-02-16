@@ -1,10 +1,11 @@
 {% extends "index.html" %}
 
 {% block body %}
+
 <div class="fixed-back-container">
-    <a href="/" class="uni-back-link">
+    <a href="/" class="uni-back-link shadow-sm text-decoration-none">
         <i class="fa-solid fa-chevron-left"></i>
-        <span>Back to Home
+        <span>Back to Home</span>
     </a>
 </div>
 
@@ -34,7 +35,7 @@
     </div>
 
     <div id="no-results" class="text-center my-5 py-5" style="display: none;">
-        <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
+        <i class="fa-solid fa-magnifying-glass-blur display-1 text-muted mb-3"></i>
         <h3 class="text-muted">No milestones match these filters.</h3>
         <p class="text-muted">Try selecting a different combination of tags.</p>
         <button class="btn btn-outline-primary mt-2" onclick="filterSelection('all')">Reset Filters</button>
@@ -48,13 +49,40 @@
                 <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#2563eb') }};">
                     <div class="line-segment"></div>
                     <div class="timeline-dot"></div> 
-                    <div class="timeline-card"> 
+                    <div class="timeline-card shadow-sm border-0"> 
                         <div class="card-header-custom">
                             <span class="timeline-date">{{ honor.date }}</span>
                         </div>
                         <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
                         <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
-                        <p class="desc-text">{{ honor.desc }}</p>
+                        <p class="desc-text text-muted small">{{ honor.desc }}</p>
+
+                        {% if honor.link %}
+                        <div class="mt-3 pt-3 border-top border-light">
+                            <a href="{{ honor.link }}" target="_blank" class="proof-button">
+                                {% if honor.link_type == 'devpost' %}
+                                    <i class="fa-solid fa-code-branch me-2"></i>
+                                    <span>Project on Devpost</span>
+                                {% elif honor.link_type == 'mentormates' %}
+                                    <i class="fa-solid fa-code-branch me-2"></i>
+                                    <span>Project on MentorMates</span>
+                                {% elif honor.link_type == 'github' %}
+                                    <i class="fa-brands fa-github me-2"></i>
+                                    <span>View Source Code</span>
+                                {% elif honor.link_type == 'certificate' %}
+                                    <i class="fa-solid fa-file-pdf me-2"></i>
+                                    <span>View Certificate</span>
+                                {% elif honor.link_type == 'experience' %}
+                                    <i class="fa-solid fa-briefcase me-2"></i>
+                                    <span>Experience Details</span>
+                                {% else %}
+                                    <i class="fa-solid fa-link me-2"></i>
+                                    <span>View Proof</span>
+                                {% endif %}
+                                <i class="fa-solid fa-chevron-right ms-auto ms-2 small opacity-50"></i>
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -62,19 +90,28 @@
         </div>
 
         <div class="col-md-6">
-            <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Experiences</h3>
+            <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates & Awards</h3>
             <div class="timeline-container certificate-line">
                 {% for honor in certificates %}
                 <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#10b981') }};">
                     <div class="line-segment"></div>
                     <div class="timeline-dot"></div> 
-                    <div class="timeline-card"> 
+                    <div class="timeline-card shadow-sm border-0"> 
                         <div class="card-header-custom">
                             <span class="timeline-date">{{ honor.date }}</span>
                         </div>
                         <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
                         <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
-                        <p class="desc-text">{{ honor.desc }}</p>
+                        <p class="desc-text text-muted small">{{ honor.desc }}</p>
+
+                        {% if honor.link %}
+                        <div class="mt-3 pt-2 border-top">
+                            <a href="{{ honor.link }}" target="_blank" class="proof-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                                View Certificate
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -128,6 +165,7 @@ function applyFilterEffect() {
     noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
     achievementsRow.style.display = (visibleCount === 0) ? "none" : "flex";
 }
+
 function updateUI() {
     const buttons = document.getElementsByClassName("filter-btn");
     for (let btn of buttons) {

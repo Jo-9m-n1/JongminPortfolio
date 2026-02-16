@@ -128,6 +128,47 @@ footer {
     opacity: 1;
 }
 
+.proof-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.proof-button i {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.proof-button span {
+    letter-spacing: 0.3px;
+}
+
+.proof-button:hover {
+    background-color: white;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.proof-button .fa-chevron-right {
+    opacity: 0.3;
+    transition: transform 0.2s ease;
+}
+
+.proof-button:hover .fa-chevron-right {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
 .teammate-pill {
     display: inline-flex;
     align-items: center;

@@ -109,8 +109,7 @@ def achievements():
             'date': '2026. 04. 17. - 2026. 04. 18.',
             'desc': 'Will do something...',
             'color': '#cbd5e1',
-            'category': 'software canada stem'
-
+            'category': 'software canada stem',
         },
         {
             'title': 'Will Participate: JacHacks',
@@ -157,7 +156,9 @@ def achievements():
             'date': '2026. 01. 24. - 2026. 01. 25.',
             'desc': "Competed in Quebec's largest 24 hour hackathon and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
-            'category': 'software health canada stem'
+            'category': 'software health canada stem',
+            'link_type': 'devpost',
+            'link': "https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA.."
         },
         {
             'title': 'Best Use of Gemini API: HackDécouverte',
@@ -165,7 +166,9 @@ def achievements():
             'date': '2025. 11. 29.',
             'desc': "Developed 'BudgetX', an AI budeting website using Gemini API and others.",
             'color': '#D4AF37',
-            'category': 'software canada stem'
+            'category': 'software canada stem',
+            'link_type': 'mentormates',
+            'link': 'https://www.mentormates.ai/projects/8191e37d-b814-48a1-8389-6616ec1491bd'
         },
         {
             'title': '2nd Place: Dawson Robotics Hackathon',
