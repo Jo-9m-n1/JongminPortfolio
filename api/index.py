@@ -66,8 +66,8 @@ PROJECTS = [
                    "/static/MeetingApp5.png"]
     },
     {
-        'id': 'j-score*',
-        'title': 'J-Score',
+        'id': 'j-score',
+        'title': 'J-Score*',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation.',
         'tech': ['Python', 'JavaScript', 'CSV'],
