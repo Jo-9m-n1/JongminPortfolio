@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from flask import Flask, render_template, abort
+from flask import Flask, render_template
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
@@ -13,7 +13,7 @@ PROJECTS = [
         'title': 'Chemically Bonding',
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
-        'description': 'Currently developing the website',
+        'description': 'Currently developing the website.',
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API'],
         'troubles': 'Currently developing the website',
@@ -26,7 +26,7 @@ PROJECTS = [
         'title': 'Personal Website',
         'category': 'Personal Project 2026',
         'tech': ['Python', 'JavaScript'],
-        'description': 'Developed a responsive personal portfolio website using Flask and Python for backend architecture',
+        'description': 'Developed a responsive personal portfolio website using Flask and Python for backend.',
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript'],
         'troubles': 'Detailed analysis forthcoming.',
@@ -43,7 +43,7 @@ PROJECTS = [
         'description': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
-        'troubles': 'The most complex technical achievement was synchronizing the Twilio recording with Gemini API. I had to architect an asynchronous pipeline that captured live patient audio, retrieved the remote recording via webhooks, and processed the binary data for AI analysis, while maintaining a low-latency user experience essential for medical triage.',
+        'troubles': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a low-latency user experience.',
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
         'images': ["/static/DrBob5.png", 
                    "/static/DrBob1.png", 
@@ -258,14 +258,14 @@ def achievements():
             'date': 'Ongoing',
             'desc': '100+ hours of certified community service, demonstrating long-term civic commitment and leadership through various volunteer initiatives.',
             'color': '#D4AF37',
-            'category': 'volunteering canada'
+            'category': 'canada job'
         },
         {
             'title': 'Recognition of Student Involvement',
             'event': 'Dawson College',
             'date': 'Fall 2025',
             'desc': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester.',
-            'category': 'volunteering canada'
+            'category': 'job canada'
         },
         {
             'title': 'Be There Certificate',
@@ -294,14 +294,14 @@ def achievements():
             'event': 'Dawson College',
             'date': '2024. 10. 20.',
             'desc': "Volunteered for Dawson's science open house event.",
-            'category': 'volunteering canada'
+            'category': 'job canada'
         },
         {
             'title': 'Peer Tutoring',
             'event': 'Rosemount High School',
             'date': 'February 2024 - June 2024',
             'desc': "Tutored math and science to peers.",
-            'category': 'volunteering canada job stem math'
+            'category': 'canada job stem math'
         },
         {
             'title': 'Music Award',
