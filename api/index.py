@@ -17,7 +17,7 @@ PROJECTS = [
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API'],
         'troubles': 'Currently developing the website',
-        'collaborators': [{'name': 'James'}, {'name': 'Alex'}],
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex'}],
         'images': []
     },
     {
@@ -79,7 +79,7 @@ PROJECTS = [
         'full_story': 'James and I developed the J-Score as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me make application as a team and win few hackathons.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'CSV'],
         'troubles': "Initially, the Flask application couldn't distinguish which user was requesting a deletion; it would simply remove the top line of the CSV database, regardless of who it belonged to. This created a major data integrity issue. To solve this, I researched how to pass contextual data through the frontend without cluttering the UI. I implemented hidden HTML inputs to bind specific user metadata to the request. This allowed the backend to verify the user’s identity and target the correct row in the CSV file, ensuring that users could only modify their own data. This challenge taught me the vital importance of state management and request context in web applications.",
-        'collaborators': ['James'],
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
         'images': ["/static/J-score1.png",
                    "/static/J-score2.png",
                    "/static/J-score3.png"]
