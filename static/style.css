@@ -154,7 +154,6 @@ footer {
 .proof-button:hover {
     background-color: white;
     border-color: var(--accent-color);
-    color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -342,10 +341,6 @@ footer {
     100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.filter-animate {
-    animation: filterFlyIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
 .filter-btn:hover {
     transform: translateY(-2px);
     border-color: var(--black);
@@ -522,4 +517,19 @@ footer {
     .timeline-row { padding-left: 35px; }
     .timeline-container { margin-left: 20px; }
     .site-footer { padding: 2rem 1rem; }
+}
+
+.award-border {
+    border: 2px solid #D4AF37 !important;
+    background: linear-gradient(to bottom right, #ffffff, #fffdf0) !important;
+    position: relative;
+}
+
+.gold-glow .timeline-card:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4) !important;
+}
+
+.timeline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
 }
