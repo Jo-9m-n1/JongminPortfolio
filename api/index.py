@@ -17,7 +17,7 @@ PROJECTS = [
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API'],
         'troubles': 'Currently developing the website',
-        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex'}],
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': []
     },
     {
