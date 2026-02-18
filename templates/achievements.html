@@ -9,6 +9,21 @@
     </a>
 </div>
 
+<div class="floating-menu-wrapper">
+    <button class="menu-trigger" id="menuTrigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu-dropdown" id="menuDropdown">
+        <div class="menu-header">Menu</div>
+        <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
+        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+    </div>
+</div>
+
 <div class="container my-5 pt-5">
     <div class="text-center mb-4">
         <h2 class="display-5 fw-bold">Academic & Competitive Milestones</h2>
@@ -179,5 +194,19 @@ function updateUI() {
         }
     }
 }
+
+const menuTrigger = document.getElementById('menuTrigger');
+const menuDropdown = document.getElementById('menuDropdown');
+
+menuTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuTrigger.classList.toggle('active');
+    menuDropdown.classList.toggle('active');
+});
+
+document.addEventListener('click', () => {
+    menuTrigger.classList.remove('active');
+    menuDropdown.classList.remove('active');
+});
 </script>
 {% endblock %}

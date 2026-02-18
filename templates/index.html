@@ -16,6 +16,20 @@
     </nav>
 
     {% block body %}
+    <div class="floating-menu-wrapper">
+        <button class="menu-trigger" id="menuTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu-dropdown" id="menuDropdown">
+            <div class="menu-header">Menu</div>
+            <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
+            <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+        </div>
+    </div>
     <header class="hero text-center">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Jongmin Lee</h1>
@@ -198,6 +212,20 @@
                 }
             }
         }
+
+        const menuTrigger = document.getElementById('menuTrigger');
+        const menuDropdown = document.getElementById('menuDropdown');
+
+        menuTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuTrigger.classList.toggle('active');
+            menuDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            menuTrigger.classList.remove('active');
+            menuDropdown.classList.remove('active');
+        });
     </script>
 </body>
 </html>

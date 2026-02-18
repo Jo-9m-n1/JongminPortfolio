@@ -41,7 +41,6 @@
 }
 
 .navbar-brand:hover {
-    transform: scale(1.015);
     color: #000000 !important;
 }
 
@@ -57,13 +56,20 @@
 body {
     background-color: #f8fafc;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.1) 0px, transparent 50%),
-        radial-gradient(at 0% 50%, rgba(167, 139, 250, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(220, 38, 38, 0.05) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(20, 184, 166, 0.05) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 100%),
+        radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.08) 0px, transparent 100%),
+        radial-gradient(at 0% 50%, rgba(167, 139, 250, 0.08) 0px, transparent 100%),
+        radial-gradient(at 100% 100%, rgba(220, 38, 38, 0.04) 0px, transparent 100%),
+        radial-gradient(at 50% 50%, rgba(20, 184, 166, 0.04) 0px, transparent 100%);
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: cover;
+}
+
+.fixed-back-container {
+    position: fixed;
+    top: 75px !important; 
+    left: 20px;
+    z-index: 2500 !important;
 }
 
 .fixed-back-container {
@@ -101,6 +107,172 @@ body {
     box-shadow: 
         0 8px 25px rgba(0, 0, 0, 0.1),
         0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.floating-menu-wrapper {
+    position: fixed;
+    top: 70px;
+    right: 11px;
+    z-index: 2500;
+}
+
+.menu-trigger {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 54px;
+    height: 54px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.08), 
+        inset 0 2px 4px rgba(255, 255, 255, 0.4);
+        
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    outline: none;
+    padding: 0;
+}
+
+.menu-trigger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(30, 41, 59, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.menu-trigger:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.menu-trigger:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.menu-trigger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #475569;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+.menu-trigger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #1e293b; }
+.menu-trigger.active span:nth-child(2) { opacity: 0; }
+.menu-trigger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #1e293b; }
+
+.menu-dropdown {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(30px) saturate(250%);
+    -webkit-backdrop-filter: blur(30px) saturate(250%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 28px;
+    padding: 14px;
+    box-shadow: 
+        0 24px 48px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    
+    opacity: 0;
+    transform: translateY(-20px) rotateX(-10deg) scale(0.9);
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top right;
+}
+
+.menu-dropdown.active {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+    pointer-events: auto;
+}
+
+.menu-header {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: rgba(30, 41, 59, 0.35);
+    text-transform: uppercase;
+    padding: 12px 20px 8px;
+    letter-spacing: 2px;
+}
+
+.menu-dropdown a {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    margin: 4px 0;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 18px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-dropdown a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease;
+}
+
+.menu-dropdown a:hover {
+    color: var(--accent-color);
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.menu-dropdown a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.menu-dropdown a i {
+    font-size: 1.15rem;
+    color: var(--accent-color);
+    filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.2));
+}
+
+.home-link {
+    margin-top: 8px !important;
+    background: rgba(30, 41, 59, 0.03) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 html {
