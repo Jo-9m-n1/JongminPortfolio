@@ -3,7 +3,11 @@
 {% block body %}
 <main class="container">
     <div class="interactive-bg">
-        <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-cursor" id="cursorBlob"></div> </div>
+        <div class="glow-blob"></div> 
+        <div class="glow-blob"></div> 
+        <div class="glow-blob"></div> 
+        <div class="glow-cursor" id="cursorBlob"></div> 
+    </div>
 
     <div class="fixed-back-container">
         <a href="/" class="uni-back-link shadow-sm text-decoration-none">
@@ -57,9 +61,15 @@
 
         <div class="row g-3 mb-5 text-center">
             <div class="col-6 col-md-3">
+                <div class="timeline-card p-3 h-100">
+                    <div class="display-6 fw-bold text-warning counter" data-target="10">0</div>
+                    <div class="small text-muted fw-bold">Wins</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
                 <div class="timeline-card p-3 h-100 gold-glow">
                     <div class="display-6 fw-bold text-primary counter" data-target="3">0</div>
-                    <div class="small text-muted fw-bold">Hackathons Won</div>
+                    <div class="small text-muted fw-bold">Hackathons Wins</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
@@ -70,14 +80,8 @@
             </div>
             <div class="col-6 col-md-3">
                 <div class="timeline-card p-3 h-100">
-                    <div class="display-6 fw-bold text-warning counter" data-target="3" data-plus="true">0</div>
-                    <div class="small text-muted fw-bold">Math Awards</div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="timeline-card p-3 h-100">
-                    <div class="display-6 fw-bold text-info counter" data-target="200" data-plus="true">0</div>
-                    <div class="small text-muted fw-bold">Code Commits</div>
+                    <div class="display-6 fw-bold text-info counter" data-target="5">0</div>
+                    <div class="small text-muted fw-bold">Projects</div>
                 </div>
             </div>
         </div>
@@ -307,7 +311,7 @@ themeToggle.addEventListener('click', () => {
 
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
-    const duration = 2200;
+    const duration = 1100;
 
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');

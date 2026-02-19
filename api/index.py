@@ -144,6 +144,14 @@ def achievements():
             'category': 'software canada stem'
         },
         {
+            'title': 'Will Participate: Champlain College Code Quest',
+            'event': 'Champlain College',
+            'date': '2026. 02. 08.',
+            'desc': 'Will do something...',
+            'color': '#cbd5e1',
+            'category': 'software canada stem'
+        },
+        {
             'title': 'Participated: Dialogue Employees Hackathon',
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
