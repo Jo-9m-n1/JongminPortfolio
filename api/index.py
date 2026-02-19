@@ -191,7 +191,7 @@ def achievements():
             'event': 'Dawson College',
             'date': '2025. 04. 04.',
             'desc': 'Designed a drone using 3D printers.',
-            'category': 'software hardware canada stem'
+            'category': 'software hardware canada stem math'
         },
         {
             'title': 'School Champion: Waterloo Cayley Math Contest',
