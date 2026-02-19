@@ -1087,7 +1087,7 @@ aside .card:hover {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     
     color: #475569;
     box-shadow: 
@@ -1314,6 +1314,7 @@ body.dark-mode .timeline-dot {
 
 body.dark-mode .menu-trigger span {
     background: #f8fafc;
+    background-color: #ffffff !important;
 }
 
 body.dark-mode .theme-toggle {
