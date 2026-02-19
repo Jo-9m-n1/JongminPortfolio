@@ -71,7 +71,7 @@
             <div class="col-6 col-md-3">
                 <div class="timeline-card p-3 h-100">
                     <div class="display-6 fw-bold text-warning counter" data-target="3" data-plus="true">0</div>
-                    <div class="small text-muted fw-bold">Math Laureate</div>
+                    <div class="small text-muted fw-bold">Math Awards</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
@@ -307,24 +307,28 @@ themeToggle.addEventListener('click', () => {
 
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
-    const speed = 200;
+    const duration = 2200;
 
     counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const hasPlus = counter.getAttribute('data-plus') === 'true';
-            const count = +counter.innerText.replace(/,/g, '');
-            const inc = target / speed;
+        const target = +counter.getAttribute('data-target');
+        const hasPlus = counter.getAttribute('data-plus') === 'true';
+        let startTime = null;
 
-            if (count < target) {
-                const nextCount = Math.ceil(count + inc);
-                counter.innerText = nextCount.toLocaleString();
-                setTimeout(updateCount, 1);
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            const currentValue = Math.floor(progress * target);
+            counter.innerText = currentValue.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
             } else {
                 counter.innerText = target.toLocaleString() + (hasPlus ? "+" : "");
             }
         };
-        updateCount();
+
+        requestAnimationFrame(step);
     });
 };
 

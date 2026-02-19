@@ -202,7 +202,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': 'Honors: National HME Math Contest',
+            'title': 'National Honors: National HME Math Contest',
             'event': 'South Korea',
             'date': '2016. 06. 08.',
             'desc': 'Recognized for outstanding mathematical logic and problem-solving skills at a national level.',
