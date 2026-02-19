@@ -188,66 +188,67 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        let activeFilters = ['all'];
+<script>
+    let activeFilters = ['all'];
 
-        function filterSelection(c) {
-            if (c === 'all') {
-                activeFilters = ['all'];
+    function filterSelection(c) {
+        if (c === 'all') {
+            activeFilters = ['all'];
+        } else {
+            activeFilters = activeFilters.filter(f => f !== 'all');
+            if (activeFilters.includes(c)) {
+                activeFilters = activeFilters.filter(f => f !== c);
             } else {
-                activeFilters = activeFilters.filter(f => f !== 'all');
-                if (activeFilters.includes(c)) {
-                    activeFilters = activeFilters.filter(f => f !== c);
-                } else {
-                    activeFilters.push(c);
-                }
-                if (activeFilters.length === 0) activeFilters = ['all'];
+                activeFilters.push(c);
             }
-            updateUI();
-            applyFilterEffect();
+            if (activeFilters.length === 0) activeFilters = ['all'];
         }
+        updateUI();
+        applyFilterEffect();
+    }
 
-        function applyFilterEffect() {
-            const items = document.getElementsByClassName("filter-item");
-            const noResultsMsg = document.getElementById("no-results");
-            const projectsRow = document.getElementById("projects-row");
-            let visibleCount = 0;
+    function applyFilterEffect() {
+        const items = document.getElementsByClassName("filter-item");
+        const noResultsMsg = document.getElementById("no-results");
+        const projectsRow = document.getElementById("projects-row");
+        let visibleCount = 0;
 
-            for (let item of items) {
-                let isMatch = activeFilters.includes('all') || 
-                              activeFilters.every(filter => item.classList.contains(filter));
-                
-                if (isMatch) {
-                    item.style.display = "block";
-                    setTimeout(() => { item.style.opacity = "1"; }, 10);
-                    item.classList.add("filter-animate");
-                    visibleCount++;
-                } else {
-                    item.style.display = "none";
-                    item.style.opacity = "0";
-                    item.classList.remove("filter-animate");
-                }
-            }
-
-            if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
-            if (projectsRow) projectsRow.style.display = (visibleCount === 0) ? "none" : "flex";
-        }
-
-        function updateUI() {
-            const buttons = document.getElementsByClassName("filter-btn");
-            for (let btn of buttons) {
-                const filterVal = btn.getAttribute('data-filter');
-                if (activeFilters.includes(filterVal)) {
-                    btn.classList.add("active");
-                } else {
-                    btn.classList.remove("active");
-                }
+        for (let item of items) {
+            let isMatch = activeFilters.includes('all') || 
+                          activeFilters.every(filter => item.classList.contains(filter));
+            
+            if (isMatch) {
+                item.style.display = "block";
+                setTimeout(() => { item.style.opacity = "1"; }, 10);
+                item.classList.add("filter-animate");
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+                item.style.opacity = "0";
+                item.classList.remove("filter-animate");
             }
         }
 
-        const menuTrigger = document.getElementById('menuTrigger');
-        const menuDropdown = document.getElementById('menuDropdown');
+        if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
+        if (projectsRow) projectsRow.style.display = (visibleCount === 0) ? "none" : "flex";
+    }
 
+    function updateUI() {
+        const buttons = document.getElementsByClassName("filter-btn");
+        for (let btn of buttons) {
+            const filterVal = btn.getAttribute('data-filter');
+            if (activeFilters.includes(filterVal)) {
+                btn.classList.add("active");
+            } else {
+                btn.classList.remove("active");
+            }
+        }
+    }
+
+    const menuTrigger = document.getElementById('menuTrigger');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    if (menuTrigger && menuDropdown) {
         menuTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
             menuTrigger.classList.toggle('active');
@@ -258,67 +259,103 @@
             menuTrigger.classList.remove('active');
             menuDropdown.classList.remove('active');
         });
+    }
 
-        document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            const blobs = document.querySelectorAll('.glow-blob');
-            const cursorBlob = document.getElementById('cursorBlob');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
 
-            if (cursorBlob) {
-                cursorBlob.style.left = `${clientX}px`;
-                cursorBlob.style.top = `${clientY}px`;
-            }
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-            blobs.forEach((blob, index) => {
-                const moveX = (clientX - window.innerWidth / 2) / (20 + index * 5);
-                const moveY = (clientY - window.innerHeight / 2) / (20 + index * 5);
-                
-                blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
+    function animateBlobs() {
+        currentX += (mouseX - currentX) * 0.15;
+        currentY += (mouseY - currentY) * 0.15;
+
+        const cursorBlob = document.getElementById('cursorBlob');
+        const blobs = document.querySelectorAll('.glow-blob');
+
+        if (cursorBlob) {
+            cursorBlob.style.left = `${currentX}px`;
+            cursorBlob.style.top = `${currentY}px`;
+        }
+
+        blobs.forEach((blob, index) => {
+            const moveX = (currentX - window.innerWidth / 2) / (25 + index * 5);
+            const moveY = (currentY - window.innerHeight / 2) / (25 + index * 5);
+            blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
 
-        document.addEventListener('mousedown', () => {
-            const cursorBlob = document.getElementById('cursorBlob');
-            if (cursorBlob) cursorBlob.style.width = '700px';
-        });
+        requestAnimationFrame(animateBlobs);
+    }
+    animateBlobs();
 
-        document.addEventListener('mouseup', () => {
-            const cursorBlob = document.getElementById('cursorBlob');
-            if (cursorBlob) cursorBlob.style.width = '500px';
-        });
+    document.addEventListener('mousedown', () => {
+        const cursorBlob = document.getElementById('cursorBlob');
+        if (cursorBlob) cursorBlob.style.width = '700px';
+    });
 
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
+    document.addEventListener('mouseup', () => {
+        const cursorBlob = document.getElementById('cursorBlob');
+        if (cursorBlob) cursorBlob.style.width = '500px';
+    });
 
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const html = document.documentElement;
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (icon) {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
         }
+    }
 
+    if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
+            html.classList.toggle('dark-mode');
             
+            const _ = body.offsetHeight; 
+
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                icon.style.transform = 'rotate(360deg)';
-                setTimeout(() => {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                    icon.style.transform = 'rotate(0deg)';
-                }, 200);
+                html.style.backgroundColor = '#0f172a';
+                if (icon) {
+                    icon.style.transform = 'rotate(360deg)';
+                    setTimeout(() => {
+                        icon.classList.replace('fa-moon', 'fa-sun');
+                        icon.style.transform = 'rotate(0deg)';
+                    }, 200);
+                }
             } else {
                 localStorage.setItem('theme', 'light');
-                icon.style.transform = 'rotate(-360deg)';
-                setTimeout(() => {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                    icon.style.transform = 'rotate(0deg)';
-                }, 200);
+                html.style.backgroundColor = '';
+                if (icon) {
+                    icon.style.transform = 'rotate(-360deg)';
+                    setTimeout(() => {
+                        icon.classList.replace('fa-sun', 'fa-moon');
+                        icon.style.transform = 'rotate(0deg)';
+                    }, 200);
+                }
             }
         });
-    </script>
+    }
+    document.addEventListener('mousemove', (e) => {
+        const heroContent = document.querySelector('.hero .container');
+        if (!heroContent) return;
+
+        const x = (window.innerWidth / 2 - e.clientX) / 50;
+        const y = (window.innerHeight / 2 - e.clientY) / 50;
+
+        heroContent.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+</script>
 </body>
 </html>
