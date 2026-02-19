@@ -1,30 +1,37 @@
 {% extends "index.html" %}
 
 {% block body %}
+<main class="container pt-5 mt-5">
+    <div class="interactive-bg">
+        <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-cursor" id="cursorBlob"></div> </div>
 
-<div class="fixed-back-container">
-    <a href="/" class="uni-back-link shadow-sm text-decoration-none">
-        <i class="fa-solid fa-chevron-left"></i>
-        <span>Back to Home</span>
-    </a>
-</div>
-
-<div class="floating-menu-wrapper">
-    <button class="menu-trigger" id="menuTrigger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <div class="menu-dropdown" id="menuDropdown">
-        <div class="menu-header">Menu</div>
-        <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
-        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+    <div class="fixed-back-container">
+        <a href="/" class="uni-back-link shadow-sm text-decoration-none">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Back to Home</span>
+        </a>
     </div>
-</div>
 
-<main class="container py-5">
+    <div class="floating-menu-wrapper d-flex align-items-center gap-3">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="menu-trigger" id="menuTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu-dropdown" id="menuDropdown">
+            <div class="menu-header">Menu</div>
+            <a href="/#projects"><i class="fa-solid fa-code"></i> Projects</a>
+            <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+            <a href="/#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="/" class="home-link"><i class="fa-solid fa-house"></i> Home</a>
+        </div>
+    </div>
+
     <div class="row g-5">
         <div class="col-lg-8">
             <header class="mb-5">
@@ -152,6 +159,67 @@
     document.addEventListener('click', () => {
         menuTrigger.classList.remove('active');
         menuDropdown.classList.remove('active');
+});
+
+document.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const blobs = document.querySelectorAll('.glow-blob');
+    const cursorBlob = document.getElementById('cursorBlob');
+
+    if (cursorBlob) {
+        cursorBlob.style.left = `${clientX}px`;
+        cursorBlob.style.top = `${clientY}px`;
+    }
+
+    blobs.forEach((blob, index) => {
+        const moveX = (clientX - window.innerWidth / 2) / (20 + index * 5);
+        const moveY = (clientY - window.innerHeight / 2) / (20 + index * 5);
+        
+        blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+});
+
+document.addEventListener('mousedown', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '700px';
+});
+
+document.addEventListener('mouseup', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '500px';
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const icon = themeToggle.querySelector('i');
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            icon.style.transform = 'rotate(0deg)';
+        }, 200);
+    } else {
+        localStorage.setItem('theme', 'light');
+        icon.style.transform = 'rotate(-360deg)';
+        setTimeout(() => {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            icon.style.transform = 'rotate(0deg)';
+        }, 200);
+    }
 });
 </script>
 {% endblock %}

@@ -1,141 +1,150 @@
 {% extends "index.html" %}
 
 {% block body %}
+<main class="container pt-5 mt-5">
+    <div class="interactive-bg">
+        <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-blob"></div> <div class="glow-cursor" id="cursorBlob"></div> </div>
 
-<div class="fixed-back-container">
-    <a href="/" class="uni-back-link shadow-sm text-decoration-none">
-        <i class="fa-solid fa-chevron-left"></i>
-        <span>Back to Home</span>
-    </a>
-</div>
-
-<div class="floating-menu-wrapper">
-    <button class="menu-trigger" id="menuTrigger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <div class="menu-dropdown" id="menuDropdown">
-        <div class="menu-header">Menu</div>
-        <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
-        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
-    </div>
-</div>
-
-<div class="container my-5 pt-5">
-    <div class="text-center mb-4">
-        <h2 class="display-5 fw-bold">Academic & Competitive Milestones</h2>
-        <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
+    <div class="fixed-back-container">
+        <a href="/" class="uni-back-link shadow-sm text-decoration-none">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Back to Home</span>
+        </a>
     </div>
 
-    <div class="filter-wrapper mb-5">
-        <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
-            <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
-            <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
-                <i class="fa-solid fa-trophy me-1"></i>Gold
-            </button>
-            <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
-            <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
-            <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
-            <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
-            <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
-            <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">Hardware</button>
-            <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">Math</button>
-            <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">Health</button>
-            <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">Academic</button>
+    <div class="floating-menu-wrapper d-flex align-items-center gap-3">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="menu-trigger" id="menuTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu-dropdown" id="menuDropdown">
+            <div class="menu-header">Menu</div>
+            <a href="/#projects"><i class="fa-solid fa-code"></i> Projects</a>
+            <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+            <a href="/#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="/" class="home-link"><i class="fa-solid fa-house"></i> Home</a>
         </div>
     </div>
 
-    <div id="no-results" class="text-center my-5 py-5" style="display: none;">
-        <i class="fa-solid fa-magnifying-glass-blur display-1 text-muted mb-3"></i>
-        <h3 class="text-muted">No milestones match these filters.</h3>
-        <p class="text-muted">Try selecting a different combination of tags.</p>
-        <button class="btn btn-outline-primary mt-2" onclick="filterSelection('all')">Reset Filters</button>
-    </div>
+    <div class="container my-5 pt-5">
+        <div class="text-center mb-4">
+            <h2 class="display-5 fw-bold">Academic & Competitive Milestones</h2>
+            <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
+        </div>
 
-    <div class="row" id="achievements-row">
-        <div class="col-md-6">
-            <h3 class="h4 mb-4"><i class="fa-solid fa-trophy text-primary me-2"></i> Competitions</h3>
-            <div class="timeline-container competition-line">
-                {% for honor in competitions %}
-                <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#2563eb') }};">
-                    <div class="line-segment"></div>
-                    <div class="timeline-dot"></div> 
-                    <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
-                        <div class="card-header-custom">
-                            <span class="timeline-date">{{ honor.date }}</span>
-                        </div>
-                        <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
-                        <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
-                        <p class="desc-text text-muted small">{{ honor.desc }}</p>
-
-                        {% if honor.link %}
-                        <div class="mt-3 pt-3 border-top border-light">
-                            <a href="{{ honor.link }}" target="_blank" class="proof-button">
-                                {% if honor.link_type == 'devpost' %}
-                                    <i class="fa-solid fa-code-branch me-2"></i>
-                                    <span>Project on Devpost</span>
-                                {% elif honor.link_type == 'mentormates' %}
-                                    <i class="fa-solid fa-code-branch me-2"></i>
-                                    <span>Project on MentorMates</span>
-                                {% elif honor.link_type == 'github' %}
-                                    <i class="fa-brands fa-github me-2"></i>
-                                    <span>View Source Code</span>
-                                {% elif honor.link_type == 'github' %}
-                                    <i class="fa-brands fa-gitlab me-2"></i>
-                                    <span>View Source Code</span>
-                                {% elif honor.link_type == 'certificate' %}
-                                    <i class="fa-solid fa-file-pdf me-2"></i>
-                                    <span>View Certificate</span>
-                                {% elif honor.link_type == 'experience' %}
-                                    <i class="fa-solid fa-briefcase me-2"></i>
-                                    <span>Experience Details</span>
-                                {% else %}
-                                    <i class="fa-solid fa-link me-2"></i>
-                                    <span>View Proof</span>
-                                {% endif %}
-                                <i class="fa-solid fa-chevron-right ms-auto ms-2 small opacity-50"></i>
-                            </a>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
+        <div class="filter-wrapper mb-5">
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
+                    <i class="fa-solid fa-trophy me-1"></i>Gold
+                </button>
+                <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
+                <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
+                <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
+                <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
+                <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
+                <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">Hardware</button>
+                <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">Math</button>
+                <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">Health</button>
+                <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">Academic</button>
             </div>
         </div>
 
-        <div class="col-md-6">
-            <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Experience</h3>
-            <div class="timeline-container certificate-line">
-                {% for honor in certificates %}
-                <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#10b981') }};">
-                    <div class="line-segment"></div>
-                    <div class="timeline-dot"></div> 
-                    <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
-                        <div class="card-header-custom">
-                            <span class="timeline-date">{{ honor.date }}</span>
-                        </div>
-                        <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
-                        <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
-                        <p class="desc-text text-muted small">{{ honor.desc }}</p>
+        <div id="no-results" class="text-center my-5 py-5" style="display: none;">
+            <i class="fa-solid fa-magnifying-glass-blur display-1 text-muted mb-3"></i>
+            <h3 class="text-muted">No milestones match these filters.</h3>
+            <p class="text-muted">Try selecting a different combination of tags.</p>
+            <button class="btn btn-outline-primary mt-2" onclick="filterSelection('all')">Reset Filters</button>
+        </div>
 
-                        {% if honor.link %}
-                        <div class="mt-3 pt-2 border-top">
-                            <a href="{{ honor.link }}" target="_blank" class="proof-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
-                                View Certificate
-                            </a>
+        <div class="row" id="achievements-row">
+            <div class="col-md-6">
+                <h3 class="h4 mb-4"><i class="fa-solid fa-trophy text-primary me-2"></i> Competitions</h3>
+                <div class="timeline-container competition-line">
+                    {% for honor in competitions %}
+                    <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#2563eb') }};">
+                        <div class="line-segment"></div>
+                        <div class="timeline-dot"></div> 
+                        <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
+                            <div class="card-header-custom">
+                                <span class="timeline-date">{{ honor.date }}</span>
+                            </div>
+                            <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
+                            <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
+                            <p class="desc-text text-muted small">{{ honor.desc }}</p>
+
+                            {% if honor.link %}
+                            <div class="mt-3 pt-3 border-top border-light">
+                                <a href="{{ honor.link }}" target="_blank" class="proof-button">
+                                    {% if honor.link_type == 'devpost' %}
+                                        <i class="fa-solid fa-code-branch me-2"></i>
+                                        <span>Project on Devpost</span>
+                                    {% elif honor.link_type == 'mentormates' %}
+                                        <i class="fa-solid fa-code-branch me-2"></i>
+                                        <span>Project on MentorMates</span>
+                                    {% elif honor.link_type == 'github' %}
+                                        <i class="fa-brands fa-github me-2"></i>
+                                        <span>View Source Code</span>
+                                    {% elif honor.link_type == 'github' %}
+                                        <i class="fa-brands fa-gitlab me-2"></i>
+                                        <span>View Source Code</span>
+                                    {% elif honor.link_type == 'certificate' %}
+                                        <i class="fa-solid fa-file-pdf me-2"></i>
+                                        <span>View Certificate</span>
+                                    {% elif honor.link_type == 'experience' %}
+                                        <i class="fa-solid fa-briefcase me-2"></i>
+                                        <span>Experience Details</span>
+                                    {% else %}
+                                        <i class="fa-solid fa-link me-2"></i>
+                                        <span>View Proof</span>
+                                    {% endif %}
+                                    <i class="fa-solid fa-chevron-right ms-auto ms-2 small opacity-50"></i>
+                                </a>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Experience</h3>
+                <div class="timeline-container certificate-line">
+                    {% for honor in certificates %}
+                    <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#10b981') }};">
+                        <div class="line-segment"></div>
+                        <div class="timeline-dot"></div> 
+                        <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
+                            <div class="card-header-custom">
+                                <span class="timeline-date">{{ honor.date }}</span>
+                            </div>
+                            <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
+                            <p class="event-name" style="color: var(--accent-color);">{{ honor.event }}</p>
+                            <p class="desc-text text-muted small">{{ honor.desc }}</p>
+
+                            {% if honor.link %}
+                            <div class="mt-3 pt-2 border-top">
+                                <a href="{{ honor.link }}" target="_blank" class="proof-link">
+                                    <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
+                                    View Certificate
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <script>
 let activeFilters = ['all'];
@@ -207,6 +216,67 @@ menuTrigger.addEventListener('click', (e) => {
 document.addEventListener('click', () => {
     menuTrigger.classList.remove('active');
     menuDropdown.classList.remove('active');
+});
+
+document.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const blobs = document.querySelectorAll('.glow-blob');
+    const cursorBlob = document.getElementById('cursorBlob');
+
+    if (cursorBlob) {
+        cursorBlob.style.left = `${clientX}px`;
+        cursorBlob.style.top = `${clientY}px`;
+    }
+
+    blobs.forEach((blob, index) => {
+        const moveX = (clientX - window.innerWidth / 2) / (20 + index * 5);
+        const moveY = (clientY - window.innerHeight / 2) / (20 + index * 5);
+        
+        blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+});
+
+document.addEventListener('mousedown', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '700px';
+});
+
+document.addEventListener('mouseup', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '500px';
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const icon = themeToggle.querySelector('i');
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            icon.style.transform = 'rotate(0deg)';
+        }, 200);
+    } else {
+        localStorage.setItem('theme', 'light');
+        icon.style.transform = 'rotate(-360deg)';
+        setTimeout(() => {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            icon.style.transform = 'rotate(0deg)';
+        }, 200);
+    }
 });
 </script>
 {% endblock %}
