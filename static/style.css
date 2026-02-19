@@ -2,8 +2,8 @@
 .card, 
 .project-card, 
 .timeline-card, 
-.interactive-bg, 
-body {
+.interactive-bg
+{
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -35,6 +35,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     position: fixed !important;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 2000 !important;
 }
@@ -131,13 +132,6 @@ main.container {
     top: 75px !important; 
     left: 20px;
     z-index: 2500 !important;
-}
-
-.fixed-back-container {
-    position: fixed;
-    top: 70px !important;
-    left: 20px;
-    z-index: 1900;
 }
 
 .uni-back-link {
@@ -700,13 +694,6 @@ aside .card:hover {
 .timeline-row:hover .timeline-card {
     transform: translateY(-8px) scale(1.01);
     border-color: rgba(255, 255, 255, 0.9) !important;
-    
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
-    
-    box-shadow: 0 15px 30px rgba(var(--accent-color-rgb), 0.15), 
-                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
 .timeline-dot {
@@ -777,36 +764,10 @@ aside .card:hover {
     color: var(--gold-dark) !important;
 }
 
-.filter-btn.btn-gold:hover {
-    background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(212, 175, 55, 0.5) 100%
-    ) !important;
-    outline: none !important;
-    box-shadow: 
-        0 8px 20px rgba(220, 38, 38, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
-    transform: translateY(-3px);
-}
-
 .filter-btn.btn-canada {
     border-color: transparent !important;
     background: rgba(255, 255, 255, 0.5) !important;
     color: var(--canada-red) !important;
-}
-
-.filter-btn.btn-canada:hover {
-    background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(220, 38, 38, 0.2) 100%
-    ) !important;
-    outline: none !important;
-    box-shadow: 
-        0 8px 20px rgba(220, 38, 38, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 1);
-    transform: translateY(-3px);
 }
 
 .filter-btn.active {
@@ -857,21 +818,9 @@ aside .card:hover {
     border-color: var(--black) !important;
 }
 
-.btn-gold:hover {
-    border-color: var(--gold) !important;
-    box-shadow: 0 0 11px rgba(212, 175, 55, 0.5);
-}
-
 .btn-canada {
     border-color: var(--canada-red);
     color: var(--canada-red);
-}
-
-.btn-canada:hover {
-    background: rgba(216, 6, 33, 0.05);
-    border-color: var(--canada-red) !important;
-    box-shadow: 0 0 8px #D80621;
-    color: var(--canada-red) !important;
 }
 
 .btn-canada.active {
@@ -895,13 +844,6 @@ aside .card:hover {
 
 .btn-canada.active::after {
     opacity: 0;
-}
-
-.fixed-back-container {
-    position: fixed;
-    top: 75px;
-    left: 10px;
-    z-index: 1000;
 }
 
 .timeline-date {
