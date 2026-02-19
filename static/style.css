@@ -324,6 +324,7 @@ main.container {
 
 html {
     overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
 }
 
 html, body {
