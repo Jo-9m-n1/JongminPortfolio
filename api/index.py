@@ -146,7 +146,7 @@ def achievements():
         {
             'title': 'Will Participate: Champlain College Code Quest',
             'event': 'Champlain College',
-            'date': '2026. 02. 08.',
+            'date': '2026. 02. 28.',
             'desc': 'Will do something...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
@@ -280,7 +280,9 @@ def achievements():
             'event': 'Online',
             'date': '2025. 08. 02.',
             'desc': 'Completed comprehensive mental health support training to better assist people in distress.',
-            'category': 'health'
+            'category': 'health',
+            'link_type': 'certificate',
+            'link': "/static/BeThereCertificate.pdf"
         },        
         {
             'title': 'Engineering Intern',
@@ -302,7 +304,8 @@ def achievements():
             'event': 'Dawson College',
             'date': '2024. 10. 20.',
             'desc': "Volunteered for Dawson's science open house event.",
-            'category': 'job canada'
+            'category': 'job canada',
+            'link': "/static/Volunteerism.pdf"
         },
         {
             'title': 'Peer Tutoring',

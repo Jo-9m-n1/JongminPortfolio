@@ -160,10 +160,31 @@
                             <p class="desc-text text-muted small">{{ honor.desc }}</p>
 
                             {% if honor.link %}
-                            <div class="mt-3 pt-2 border-top">
-                                <a href="{{ honor.link }}" target="_blank" class="proof-link">
-                                    <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
-                                    View Certificate
+                            <div class="mt-3 pt-3">
+                                <a href="{{ honor.link }}" target="_blank" class="proof-button">
+                                    {% if honor.link_type == 'devpost' %}
+                                        <i class="fa-solid fa-code-branch me-2"></i>
+                                        <span>Project on Devpost</span>
+                                    {% elif honor.link_type == 'mentormates' %}
+                                        <i class="fa-solid fa-code-branch me-2"></i>
+                                        <span>Project on MentorMates</span>
+                                    {% elif honor.link_type == 'github' %}
+                                        <i class="fa-brands fa-github me-2"></i>
+                                        <span>View Source Code</span>
+                                    {% elif honor.link_type == 'gitlab' %}
+                                        <i class="fa-brands fa-gitlab me-2"></i>
+                                        <span>View Source Code</span>
+                                    {% elif honor.link_type == 'certificate' %}
+                                        <i class="fa-solid fa-file-pdf me-2"></i>
+                                        <span>View Certificate</span>
+                                    {% elif honor.link_type == 'experience' %}
+                                        <i class="fa-solid fa-briefcase me-2"></i>
+                                        <span>Experience Details</span>
+                                    {% else %}
+                                        <i class="fa-solid fa-file-pdf me-2"></i>
+                                        <span>View Proof</span>
+                                    {% endif %}
+                                    <i class="fa-solid fa-chevron-right ms-auto ms-2 small opacity-50"></i>
                                 </a>
                             </div>
                             {% endif %}
