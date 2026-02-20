@@ -1158,7 +1158,7 @@ body.dark-mode .badge.border,
 body.dark-mode .teammate-pill,
 body.dark-mode .proof-button,
 body.dark-mode .filter-btn {
-    background: rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.05);
     color: #e2e8f0 !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
@@ -1174,6 +1174,44 @@ body.dark-mode .filter-btn.active {
     background: #3b82f6 !important;
     color: white !important;
     border-color: #3b82f6 !important;
+}
+
+body.dark-mode .filter-btn.btn-gold.active {
+    background: linear-gradient(
+        135deg, 
+        rgba(212, 175, 55, 0.85) 0%, 
+        rgba(184, 134, 11, 0.95) 100%
+    ) !important;
+    border-color: #D4AF37 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark-mode .filter-btn.btn-canada {
+    background: rgba(216, 6, 33, 0.15) !important; 
+    border: 1px solid rgba(216, 6, 33, 0.4) !important;
+    color: #ff8a98 !important;
+}
+
+body.dark-mode .filter-btn.btn-canada:hover {
+    background: rgba(216, 6, 33, 0.25) !important;
+    border-color: rgba(216, 6, 33, 0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(216, 6, 33, 0.2) !important;
+}
+
+body.dark-mode .filter-btn.btn-gold {
+    background: rgba(212, 175, 55, 0.15) !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    color: #FCE694 !important;
+}
+
+body.dark-mode .filter-btn.btn-gold i {
+    color: #FCE694 !important;
+}
+
+body.dark-mode .filter-btn.btn-gold.active i {
+    color: white !important;
 }
 
 body.dark-mode .timeline-container::before {
