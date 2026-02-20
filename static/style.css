@@ -943,7 +943,6 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 .hero .btn-primary, 
 .hero .btn-outline-dark {
     min-width: 200px !important;
-    white-space: nowrap;
 }
 
 @media (max-width: 576px) {
