@@ -62,8 +62,9 @@
 
     <header class="hero text-center">
         <div class="container px-4 px-sm-3"> <h1 class="display-3 fw-bold mb-3">Jongmin Lee</h1>
-            <p class="lead text-muted mb-4">Computer Scientist at Dawson College</p>
-            
+            <p class="lead text-muted mb-4" style="font-size: 1.5rem; font-weight: 600;">
+                I am <span class="typing-text" style="color: var(--accent-color);"></span><span class="typing-cursor">|</span>
+            </p>         
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                 <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg custom-hero-btn">Achievements</a>
                 <a href="#projects" class="btn btn-outline-dark btn-lg custom-hero-btn">View My Work</a>
@@ -455,7 +456,104 @@ const animateCounters = () => {
     });
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const funnyEmojis = ['🤓', '🤡', '🤪', '🥸', '🥴', '🍌'];
+    let typedKeys = "";
+    let isRaining = false;
+
+
+    function triggerOliverRain() {
+        if (isRaining) return;
+        isRaining = true;
+
+        for (let i = 0; i < 80; i++) {
+            setTimeout(() => {
+                const emojiNode = document.createElement('div');
+                emojiNode.classList.add('oliver-emoji-drop');
+                emojiNode.innerText = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
+                
+                emojiNode.style.left = Math.random() * 100 + 'vw';
+                emojiNode.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                emojiNode.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                document.body.appendChild(emojiNode);
+
+                setTimeout(() => {
+                    emojiNode.remove();
+                }, 5000); 
+            }, i * 60);
+        }
+
+        setTimeout(() => {
+            isRaining = false;
+        }, 3000);
+    }
+
+    window.addEventListener("keydown", (e) => {
+        if(e.key.length === 1) {
+            typedKeys += e.key.toLowerCase();
+        }
+        
+        if (typedKeys.length > 12) {
+            typedKeys = typedKeys.slice(-12);
+        }
+        
+        if (typedKeys === "oliverisdumb") {
+            triggerOliverRain();
+            typedKeys = "";
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const words = [
+        "a Computer Science Student.", 
+        "a Full-stack Developer.",  
+        "a Problem Solver."
+    ];
+    
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    const typingElement = document.querySelector(".typing-text");
+    const cursorElement = document.querySelector(".typing-cursor");
+    
+    if(!typingElement) return;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 40 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; // 다 치고 나서 2초 대기
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex++;
+            if (wordIndex >= words.length) {
+                wordIndex = 0;
+            }
+            typeSpeed = 500; // 다 지우고 다음 글자 칠 때까지 0.5초 대기
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    setTimeout(type, 1000); // 페이지 로딩 1초 후 시작
+});
+
 window.addEventListener('load', animateCounters);
+
 </script>
 </body>
 </html>

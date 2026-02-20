@@ -99,7 +99,7 @@ def achievements():
             'title': 'Will Participate: DawsHacks',
             'event': 'Dawson College',
             'date': '2026. 05. 02.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
@@ -107,7 +107,7 @@ def achievements():
             'title': 'Will Participate: MariHacks',
             'event': 'Marianopolis College',
             'date': '2026. 04. 17. - 2026. 04. 18.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem',
         },
@@ -115,7 +115,7 @@ def achievements():
             'title': 'Will Participate: JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
@@ -123,7 +123,7 @@ def achievements():
             'title': 'Will Participate: VanierHacks!',
             'event': 'Vanier College',
             'date': '2026. 03. 21. - 2026. 03. 22.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
@@ -131,7 +131,7 @@ def achievements():
             'title': 'Will Participate: McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software hardware canada stem'
         },
@@ -139,7 +139,7 @@ def achievements():
             'title': 'Will Participate: UdeM Hacks',
             'event': 'University of Montreal',
             'date': '2026. 03. 07. - 2026. 03. 08.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
@@ -147,7 +147,7 @@ def achievements():
             'title': 'Will Participate: Champlain College Code Quest',
             'event': 'Champlain College',
             'date': '2026. 02. 28.',
-            'desc': 'Will do something...',
+            'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
@@ -160,10 +160,10 @@ def achievements():
             'category': 'software health canada stem'
         },
         {
-            'title': '2nd Place: Dialogue Challenge at ConUHacks X',
+            'title': '2nd Place: Dialogue Challenge at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest 24 hour student run hackathon and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in Quebec's largest 24 hour student run hackatho with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'link_type': 'devpost',
