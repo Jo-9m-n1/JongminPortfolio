@@ -29,19 +29,19 @@
 }
 
 .navbar {
-    height: 55px !important;
+    height: 58px !important;
     min-height: 55px !important;
     padding: 0 !important;
-    background: rgba(255, 255, 255, 0.75) !important;
+    background: rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2000 !important;
+    z-index: 9999999999 !important;
+    border: none !important;
 }
 
 .navbar .container, 

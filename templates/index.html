@@ -535,7 +535,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let typeSpeed = isDeleting ? 40 : 100;
 
         if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000; // 다 치고 나서 2초 대기
+            typeSpeed = 2000;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -543,13 +543,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (wordIndex >= words.length) {
                 wordIndex = 0;
             }
-            typeSpeed = 500; // 다 지우고 다음 글자 칠 때까지 0.5초 대기
+            typeSpeed = 500;
         }
 
         setTimeout(type, typeSpeed);
     }
 
-    setTimeout(type, 1000); // 페이지 로딩 1초 후 시작
+    setTimeout(type, 1000);
 });
 
 window.addEventListener('load', animateCounters);
