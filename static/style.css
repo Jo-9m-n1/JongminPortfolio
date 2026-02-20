@@ -143,8 +143,8 @@ main.container {
 .floating-control-pill:hover { transform: translateY(-3px); }
 
 .floating-control-pill {
-    width: 110px !important;
-    height: 50px !important; 
+    width: 140px !important;
+    height: 60px !important; 
     padding: 0 !important;
     display: flex !important;
     justify-content: center !important;
@@ -160,8 +160,8 @@ main.container {
 
 .expandable-pill {
     position: relative;
-    width: 110px;
-    height: 50px;
+    width: 140px;
+    height: 60px;
     
     display: flex;
     flex-direction: column;
@@ -189,11 +189,11 @@ main.container {
 
 .pill-trigger-area {
     position: relative; 
-    height: 55px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 18px;
     padding: 0;
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -243,8 +243,8 @@ main.container {
 }
 
 .theme-toggle {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     opacity: 1;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -260,10 +260,10 @@ main.container {
 }
 
 .menu-trigger {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 28px;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .menu-trigger span {
@@ -280,9 +280,19 @@ main.container {
     justify-content: flex-end; 
     padding-right: 25px; 
 }
-.menu-trigger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-trigger.active span:nth-child(2) { opacity: 0; transform: scale(0); }
-.menu-trigger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.menu-trigger.active span:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg) !important; 
+}
+
+.menu-trigger.active span:nth-child(2) { 
+    opacity: 0 !important; 
+    transform: scale(0) !important; 
+}
+
+.menu-trigger.active span:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg) !important; 
+}
 
 .pill-menu-content {
     position: absolute;
@@ -310,17 +320,6 @@ main.container {
     color: #475569; text-decoration: none; font-weight: 700; border-radius: 15px; transition: 0.2s;
 }
 .pill-menu-content a:hover { background: rgba(255, 255, 255, 0.5); transform: translateX(5px); color: var(--accent-color); }
-
-html {
-    overflow-y: scroll;
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-}
 
 main, .container {
     flex: 1 0 auto;
@@ -436,6 +435,7 @@ body.dark-mode .card.bg-danger-subtle:hover p {
 .project-card .card-body {
     padding: 1.5rem;
     background: transparent;
+    overflow-y: visible !important;
 }
 
 .project-media-container::after {
@@ -963,7 +963,8 @@ body.dark-mode .timeline-row:hover .timeline-dot {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    
+    height: 58px;
+    font-size:1.15rem;
     padding: 16px 40px !important; 
     min-width: 170px !important;
     font-size: 1.2rem !important;
@@ -1322,7 +1323,7 @@ body.dark-mode .pill-menu-content a { color: #cbd5e1; }
 body.dark-mode .theme-toggle { color: #fbbf24; }
 body.dark-mode .dynamic-menu-title { color: rgba(255, 255, 255, 0.6); }
 
-main.project-detail-content { padding-top: 100px !important; min-height: 100vh; }
+main.project-detail-content { padding-top: 160px !important; min-height: 100vh; }
 
 .gold-glow .timeline-card {
     background: rgba(255, 253, 240, 0.3) !important;
@@ -1401,4 +1402,27 @@ body.dark-mode .project-card.award-border .badge.bg-warning {
 
 body.dark-mode .project-card.award-border .badge.bg-warning i {
     color: #000000 !important;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    overflow-y: scroll !important; 
+    overflow-x: hidden !important; 
+}
+
+body {
+    overflow: hidden !important; 
+    margin: 0;
+}
+
+.interactive-bg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
 }
