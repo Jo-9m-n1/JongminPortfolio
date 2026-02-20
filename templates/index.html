@@ -45,9 +45,9 @@
 
         <div class="menu-dropdown" id="menuDropdown">
             <div class="menu-header">Menu</div>
-            <a href="/#projects"><i class="fa-solid fa-code"></i> Projects</a>
+            <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
             <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-            <a href="/#about"><i class="fa-solid fa-user"></i> About</a>
+            <a href="#about"><i class="fa-solid fa-user"></i> About</a>
         </div>
     </div>
 
@@ -65,13 +65,51 @@
     <section id="about" class="container mt-4 mb-5 py-4">
         <div class="row justify-content-center">
             <div class="col-lg-10">
+                <div class="row g-3 mb-5 text-center">
+                    <div class="col-6 col-md-3">
+                        <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
+                            <div class="timeline-card p-3 h-100">
+                                <div class="display-6 fw-bold text-warning counter" data-target="10" data-plus="true">0</div>
+                                <div class="small text-muted fw-bold">Competition Awards</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="#about" class="text-decoration-none d-block h-100 hologram-btn">
+                            <div class="timeline-card p-3 h-100 gold-glow">
+                                <div class="display-6 fw-bold text-primary counter" data-target="18">0</div>
+                                <div class="small text-muted fw-bold">Years Old</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
+                            <div class="timeline-card p-3 h-100">
+                                <div class="display-6 fw-bold text-success counter" data-target="100" data-plus="true">0</div>
+                                <div class="small text-muted fw-bold">Volunteering Hours</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="#projects" class="text-decoration-none d-block h-100 hologram-btn">
+                            <div class="timeline-card p-3 h-100">
+                                <div class="display-6 fw-bold text-info counter" data-target="5">0</div>
+                                <div class="small text-muted fw-bold">Projects</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
                 <h3 class="h4 mb-3">
                     <i class="fa-solid fa-user me-2"></i> About Me
                 </h3>
                 <div class="timeline-card">
                     <p class="desc-text">
-                        My name is <strong>Jongmin Lee</strong>. I am a Korean living in <strong>Montreal, Canada</strong>. 
-                        I am currently studying at <strong>Dawson College</strong> and am proud to be trilingual, speaking Korean, English and French.
+                        My name is <strong>Jongmin Lee</strong>. I am a 18-year-old Korean student living in <strong>Montreal, Canada</strong>. 
+                        I am currently studying at <strong>Dawson College</strong> and proud to be trilingual, speaking Korean, English and French.
                     </p>
                 </div>
             </div>
@@ -175,193 +213,225 @@
     </div>
     {% endblock %}
 
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="site-footer mt-5">
         <div class="container text-center">
-            <p class="mb-1">&copy; 2026 Jongmin Lee | Montreal, QC</p>
-            <div class="d-flex justify-content-center gap-3 mt-2">
-                <a href="https://www.linkedin.com/in/jo-9m-n1/" target="_blank" class="text-white-50 text-decoration-none">
-                    <i class="fa-brands fa-linkedin ms-1"></i> LinkedIn
-                </a>
-                <a href="https://github.com/jo-9m-n1" target="_blank" class="text-white-50 text-decoration-none">
-                    <i class="fa-brands fa-github me-1"></i> GitHub
-                </a>
-                <a href="https://gitlab.com/Jo_9m_n1" target="_blank" class="text-white-50 text-decoration-none">
-                    <i class="fa-brands fa-gitlab me-1"></i> GitLab
-                </a>
+            <div class="footer-main-row">
+                <span class="fw-bold">&copy; 2026 Jongmin Lee</span>
+                <span class="footer-sep">|</span>
+                <span>Montreal, QC</span>
+            </div>
+
+            <div class="footer-sub-row">
+                <span class="oliver-credit">Dawson College, QC</span>
+            </div>
+
+            <div class="footer-social-row mt-2">
+                <a href="https://www.linkedin.com/in/jo-9m-n1/" target="_blank" class="footer-link"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/jo-9m-n1" target="_blank" class="footer-link git-hub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://gitlab.com/Jo_9m_n1" target="_blank" class="footer-link git-lab"><i class="fa-brands fa-gitlab"></i></a>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    let activeFilters = ['all'];
+let activeFilters = ['all'];
 
-    function filterSelection(c) {
-        if (c === 'all') {
-            activeFilters = ['all'];
+function filterSelection(c) {
+    if (c === 'all') {
+        activeFilters = ['all'];
+    } else {
+        activeFilters = activeFilters.filter(f => f !== 'all');
+        if (activeFilters.includes(c)) {
+            activeFilters = activeFilters.filter(f => f !== c);
         } else {
-            activeFilters = activeFilters.filter(f => f !== 'all');
-            if (activeFilters.includes(c)) {
-                activeFilters = activeFilters.filter(f => f !== c);
-            } else {
-                activeFilters.push(c);
-            }
-            if (activeFilters.length === 0) activeFilters = ['all'];
+            activeFilters.push(c);
         }
-        updateUI();
-        applyFilterEffect();
+        if (activeFilters.length === 0) activeFilters = ['all'];
+    }
+    updateUI();
+    applyFilterEffect();
+}
+
+function applyFilterEffect() {
+    const items = document.getElementsByClassName("filter-item");
+    const noResultsMsg = document.getElementById("no-results");
+    const projectsRow = document.getElementById("projects-row");
+    let visibleCount = 0;
+
+    for (let item of items) {
+        let isMatch = activeFilters.includes('all') || 
+                        activeFilters.every(filter => item.classList.contains(filter));
+        
+        if (isMatch) {
+            item.style.display = "block";
+            setTimeout(() => { item.style.opacity = "1"; }, 10);
+            item.classList.add("filter-animate");
+            visibleCount++;
+        } else {
+            item.style.display = "none";
+            item.style.opacity = "0";
+            item.classList.remove("filter-animate");
+        }
     }
 
-    function applyFilterEffect() {
-        const items = document.getElementsByClassName("filter-item");
-        const noResultsMsg = document.getElementById("no-results");
-        const projectsRow = document.getElementById("projects-row");
-        let visibleCount = 0;
+    if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
+    if (projectsRow) projectsRow.style.display = (visibleCount === 0) ? "none" : "flex";
+}
 
-        for (let item of items) {
-            let isMatch = activeFilters.includes('all') || 
-                          activeFilters.every(filter => item.classList.contains(filter));
+function updateUI() {
+    const buttons = document.getElementsByClassName("filter-btn");
+    for (let btn of buttons) {
+        const filterVal = btn.getAttribute('data-filter');
+        if (activeFilters.includes(filterVal)) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    }
+}
+
+const menuTrigger = document.getElementById('menuTrigger');
+const menuDropdown = document.getElementById('menuDropdown');
+
+if (menuTrigger && menuDropdown) {
+    menuTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuTrigger.classList.toggle('active');
+        menuDropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+        menuTrigger.classList.remove('active');
+        menuDropdown.classList.remove('active');
+    });
+}
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let currentX = mouseX;
+let currentY = mouseY;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateBlobs() {
+    currentX += (mouseX - currentX) * 0.15;
+    currentY += (mouseY - currentY) * 0.15;
+
+    const cursorBlob = document.getElementById('cursorBlob');
+    const blobs = document.querySelectorAll('.glow-blob');
+
+    if (cursorBlob) {
+        cursorBlob.style.left = `${currentX}px`;
+        cursorBlob.style.top = `${currentY}px`;
+    }
+
+    blobs.forEach((blob, index) => {
+        const moveX = (currentX - window.innerWidth / 2) / (25 + index * 5);
+        const moveY = (currentY - window.innerHeight / 2) / (25 + index * 5);
+        blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    requestAnimationFrame(animateBlobs);
+}
+animateBlobs();
+
+document.addEventListener('mousedown', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '700px';
+});
+
+document.addEventListener('mouseup', () => {
+    const cursorBlob = document.getElementById('cursorBlob');
+    if (cursorBlob) cursorBlob.style.width = '500px';
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const html = document.documentElement;
+const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    if (icon) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        html.classList.toggle('dark-mode');
+        
+        const _ = body.offsetHeight; 
+
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            html.style.backgroundColor = '#0f172a';
+            if (icon) {
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                    icon.style.transform = 'rotate(0deg)';
+                }, 200);
+            }
+        } else {
+            localStorage.setItem('theme', 'light');
+            html.style.backgroundColor = '';
+            if (icon) {
+                icon.style.transform = 'rotate(-360deg)';
+                setTimeout(() => {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                    icon.style.transform = 'rotate(0deg)';
+                }, 200);
+            }
+        }
+        location.reload();
+    });
+}
+document.addEventListener('mousemove', (e) => {
+    const heroContent = document.querySelector('.hero .container');
+    if (!heroContent) return;
+
+    const x = (window.innerWidth / 2 - e.clientX) / 50;
+    const y = (window.innerHeight / 2 - e.clientY) / 50;
+
+    heroContent.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+});
+
+const animateCounters = () => {
+    const counters = document.querySelectorAll('.counter');
+    const duration = 1100;
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const hasPlus = counter.getAttribute('data-plus') === 'true';
+        let startTime = null;
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
             
-            if (isMatch) {
-                item.style.display = "block";
-                setTimeout(() => { item.style.opacity = "1"; }, 10);
-                item.classList.add("filter-animate");
-                visibleCount++;
+            const currentValue = Math.floor(progress * target);
+            counter.innerText = currentValue.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
             } else {
-                item.style.display = "none";
-                item.style.opacity = "0";
-                item.classList.remove("filter-animate");
+                counter.innerText = target.toLocaleString() + (hasPlus ? "+" : "");
             }
-        }
+        };
 
-        if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
-        if (projectsRow) projectsRow.style.display = (visibleCount === 0) ? "none" : "flex";
-    }
-
-    function updateUI() {
-        const buttons = document.getElementsByClassName("filter-btn");
-        for (let btn of buttons) {
-            const filterVal = btn.getAttribute('data-filter');
-            if (activeFilters.includes(filterVal)) {
-                btn.classList.add("active");
-            } else {
-                btn.classList.remove("active");
-            }
-        }
-    }
-
-    const menuTrigger = document.getElementById('menuTrigger');
-    const menuDropdown = document.getElementById('menuDropdown');
-
-    if (menuTrigger && menuDropdown) {
-        menuTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menuTrigger.classList.toggle('active');
-            menuDropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', () => {
-            menuTrigger.classList.remove('active');
-            menuDropdown.classList.remove('active');
-        });
-    }
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        requestAnimationFrame(step);
     });
+};
 
-    function animateBlobs() {
-        currentX += (mouseX - currentX) * 0.15;
-        currentY += (mouseY - currentY) * 0.15;
-
-        const cursorBlob = document.getElementById('cursorBlob');
-        const blobs = document.querySelectorAll('.glow-blob');
-
-        if (cursorBlob) {
-            cursorBlob.style.left = `${currentX}px`;
-            cursorBlob.style.top = `${currentY}px`;
-        }
-
-        blobs.forEach((blob, index) => {
-            const moveX = (currentX - window.innerWidth / 2) / (25 + index * 5);
-            const moveY = (currentY - window.innerHeight / 2) / (25 + index * 5);
-            blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-
-        requestAnimationFrame(animateBlobs);
-    }
-    animateBlobs();
-
-    document.addEventListener('mousedown', () => {
-        const cursorBlob = document.getElementById('cursorBlob');
-        if (cursorBlob) cursorBlob.style.width = '700px';
-    });
-
-    document.addEventListener('mouseup', () => {
-        const cursorBlob = document.getElementById('cursorBlob');
-        if (cursorBlob) cursorBlob.style.width = '500px';
-    });
-
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const html = document.documentElement;
-    const icon = themeToggle ? themeToggle.querySelector('i') : null;
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        if (icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            html.classList.toggle('dark-mode');
-            
-            const _ = body.offsetHeight; 
-
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                html.style.backgroundColor = '#0f172a';
-                if (icon) {
-                    icon.style.transform = 'rotate(360deg)';
-                    setTimeout(() => {
-                        icon.classList.replace('fa-moon', 'fa-sun');
-                        icon.style.transform = 'rotate(0deg)';
-                    }, 200);
-                }
-            } else {
-                localStorage.setItem('theme', 'light');
-                html.style.backgroundColor = '';
-                if (icon) {
-                    icon.style.transform = 'rotate(-360deg)';
-                    setTimeout(() => {
-                        icon.classList.replace('fa-sun', 'fa-moon');
-                        icon.style.transform = 'rotate(0deg)';
-                    }, 200);
-                }
-            }
-            location.reload();
-        });
-    }
-    document.addEventListener('mousemove', (e) => {
-        const heroContent = document.querySelector('.hero .container');
-        if (!heroContent) return;
-
-        const x = (window.innerWidth / 2 - e.clientX) / 50;
-        const y = (window.innerHeight / 2 - e.clientY) / 50;
-
-        heroContent.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-    });
+window.addEventListener('load', animateCounters);
 </script>
 </body>
 </html>
