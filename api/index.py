@@ -360,7 +360,7 @@ def achievements():
             'title': 'High honor or honor roll',
             'event': 'Rosemount High School',
             'date': 'Fall 2019 - Winter 2024',
-            'desc': 'High honor or honor roll in high school every semester.',
+            'desc': 'High honor or honor roll in high school every semester, demonstrating a high performance academically.',
             'color': '#D4AF37',
             'category': 'academic canada'
         }
