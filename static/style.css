@@ -1547,13 +1547,13 @@ body.dark-mode .next-challenge-widget {
 }
 
 .countdown-display {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 2.1rem;
+    font-weight: 650;
     color: var(--accent-color);
-    letter-spacing: 2px;
-    line-height: 1;
+    letter-spacing: -1px;
+    line-height: 1.15;
     text-shadow: 0 0 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+    text-align: right;
 }
 
 .next-challenge-widget {
@@ -1561,18 +1561,9 @@ body.dark-mode .next-challenge-widget {
     border-radius: 30px;
 }
 
-.countdown-display {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    letter-spacing: -1px;
-    text-align: right;
-}
-
 @media (max-width: 992px) {
     .countdown-display {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 }
 
