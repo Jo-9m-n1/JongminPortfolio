@@ -1582,37 +1582,43 @@ body.dark-mode .next-challenge-widget {
 }
 
 @media (max-width: 768px) {
+    .next-challenge-widget {
+        padding: 2rem 1.5rem !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
     .widget-content {
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-    }
-
-    .timer-side {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 1rem;
-        flex-shrink: 0;
-        white-space: nowrap;
-    }
-
-    .countdown-display {
-        width: 100%;
-        text-align: center;
-        font-size: 1.8rem;
-        display: block;
-        margin: 0 auto;
-        font-size: clamp(1.5rem, 5vw, 3.2rem);
     }
 
     .info-side {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 100% !important;
+        margin-bottom: 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .timer-side {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+
+    .countdown-display {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 1.6rem !important;
     }
 }
 
