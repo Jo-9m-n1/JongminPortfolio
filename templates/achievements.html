@@ -53,25 +53,31 @@
             <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
         </div>
 
-        <div class="filter-wrapper mb-5">
-            <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
-                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
-                <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
-                    <i class="fa-solid fa-trophy me-1"></i>Gold
-                </button>
-                <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
-                <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
-                <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
-                <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
-                <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
-                <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">Hardware</button>
-                <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">Math</button>
-                <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">Health</button>
-                <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">Academic</button>
+        <div class="row mb-4" id="countdown-wrapper">
+            <div class="col-12">
+                <div class="next-challenge-widget" id="countdown-widget" data-events='{{ competitions | tojson | safe }}'>
+                    <div class="widget-content d-flex flex-column flex-md-row align-items-center justify-content-between position-relative z-1 w-100">
+                        
+                        <div class="info-side text-center text-md-start mb-3 mb-md-0">
+                            <span class="badge bg-primary mb-2 rounded-pill px-3 py-2 fw-bold">
+                                NEXT CHALLENGE
+                            </span>
+                            <h3 id="next-event-title" class="fw-bold mt-2 mb-1"></h3>
+                            <p id="next-event-date" class="text-muted small mb-0"></p>
+                        </div>
+
+                        <div class="timer-side">
+                            <div class="countdown-display" id="countdown-timer">
+                                00 Days Left 00:00:00
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row g-3 mb-5 text-center">
+        <div class="row g-4 mb-5 text-center">
             <div class="col-6 col-md-3">
                 <div class="timeline-card p-3 h-100">
                     <div class="display-6 fw-bold text-warning counter" data-target="10" data-plus="true">0</div>
@@ -95,6 +101,24 @@
                     <div class="display-6 fw-bold text-info counter" data-target="5">0</div>
                     <div class="small text-muted fw-bold">Projects</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="filter-wrapper mb-5">
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
+                    <i class="fa-solid fa-trophy me-1"></i>Gold
+                </button>
+                <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
+                <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
+                <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
+                <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
+                <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
+                <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">Hardware</button>
+                <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">Math</button>
+                <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">Health</button>
+                <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">Academic</button>
             </div>
         </div>
 

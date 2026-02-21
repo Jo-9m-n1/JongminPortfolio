@@ -369,4 +369,135 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById('countdown-wrapper');
+    const widget = document.getElementById('countdown-widget');
+    
+    if (!widget) return;
+
+    const rawData = widget.getAttribute('data-events');
+    if (!rawData || rawData === "[]") {
+        if (wrapper) wrapper.style.display = 'none';
+        return;
+    }
+    
+    const allEvents = JSON.parse(rawData);
+
+    const rawEvents = allEvents.filter(ev => 
+        ev.title && ev.title.includes("Will Participate") && ev['start-date'] && ev['end-date']
+    );
+
+    const now = new Date();
+    let targetEvent = null;
+    let isOngoing = false;
+    let minDiff = Infinity;
+
+    rawEvents.forEach(ev => {
+        const startDate = new Date(ev['start-date']);
+        const endDate = new Date(ev['end-date']);
+
+        if (now >= startDate && now <= endDate) {
+            targetEvent = {
+                title: ev.title.replace("Will Participate: ", ""),
+                dateStr: ev.date,
+                startDate: startDate,
+                endDate: endDate
+            };
+            isOngoing = true;
+        } else if (!isOngoing && startDate > now) {
+            const diff = startDate - now;
+            if (diff < minDiff) {
+                minDiff = diff;
+                targetEvent = {
+                    title: ev.title.replace("Will Participate: ", ""),
+                    dateStr: ev.date,
+                    startDate: startDate,
+                    endDate: endDate
+                };
+            }
+        }
+    });
+
+    if (!targetEvent) {
+        if (wrapper) wrapper.style.display = 'none';
+        return;
+    }
+
+    const titleEl = document.getElementById('next-event-title');
+    const dateEl = document.getElementById('next-event-date');
+    const timerEl = document.getElementById('countdown-timer');
+
+    if (titleEl) titleEl.innerText = targetEvent.title;
+
+    if (isOngoing) {
+        if (dateEl) dateEl.innerText = "HACKING IN PROGRESS...";
+        if (timerEl) {
+            timerEl.style.fontSize = "1.8rem";
+            timerEl.innerHTML = "I am currently in this competition!";
+        }
+        const badge = widget.querySelector('.badge');
+        if (badge) {
+            badge.className = "badge bg-danger mb-2 rounded-pill px-3 py-2 fw-bold";
+            badge.innerHTML = `LIVE NOW`;
+        }
+        return; 
+    }
+
+    if (dateEl) dateEl.innerText = `Scheduled for: ${targetEvent.dateStr}`;
+
+    let isInitialLoad = true;
+
+    function updateCountdown() {
+        const currentTime = new Date();
+        const timeRemaining = targetEvent.startDate - currentTime;
+
+        if (timeRemaining <= 0) {
+            location.reload(); 
+            return;
+        }
+
+        const targetDays = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const targetHours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const targetMinutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const targetSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        if (isInitialLoad) {
+            isInitialLoad = false;
+            let startTimestamp = null;
+            const duration = 2000; 
+
+            function step(timestamp) {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                
+                const d = Math.floor(progress * targetDays);
+                const h = String(Math.floor(progress * targetHours)).padStart(2, '0');
+                const m = String(Math.floor(progress * targetMinutes)).padStart(2, '0');
+                const s = String(Math.floor(progress * targetSeconds)).padStart(2, '0');
+
+                if (timerEl) {
+                    timerEl.innerText = `${d} Days Left ${h}:${m}:${s}`;
+                }
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    setInterval(updateCountdown, 1000);
+                }
+            }
+            window.requestAnimationFrame(step);
+        } else {
+            const h = String(targetHours).padStart(2, '0');
+            const m = String(targetMinutes).padStart(2, '0');
+            const s = String(targetSeconds).padStart(2, '0');
+
+            if (timerEl) {
+                timerEl.innerText = `${targetDays} Days Left ${h}:${m}:${s}`;
+            }
+        }
+    }
+
+    updateCountdown();
+});
+
 window.addEventListener('load', animateCounters);
