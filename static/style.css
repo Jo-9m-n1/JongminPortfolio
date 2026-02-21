@@ -212,6 +212,8 @@ main.container {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    z-index: 100;
+    position: relative;
     cursor: pointer;
 }
 
@@ -296,8 +298,8 @@ main.container {
 
 .pill-menu-content {
     position: absolute;
-    top: 30px;
-    left: 0;
+    top: 35px;
+    left: -5px;
     width: 100%;
     
     padding: 10px 15px; 
