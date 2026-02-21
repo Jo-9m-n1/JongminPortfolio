@@ -775,15 +775,6 @@ body.dark-mode .timeline-row:hover .timeline-dot {
     color: white !important;
 }
 
-.filter-btn.btn-canada.active {
-    background: color-mix(in srgb, var(--canada-red), transparent 15%) !important;
-    box-shadow: 
-        0 8px 25px -5px var(--canada-red-glow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: color-mix(in srgb, var(--canada-red), transparent 60%);
-    color: white !important;
-}
-
 .filter-item {
     transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -806,9 +797,8 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 
 .btn-canada.active {
     background: var(--canada-red) !important;
-    border-color: var(--canada-red) !important;
     color: white !important;
-    box-shadow: 0 0px 10px var(--canada-red-glow);
+    border-color: var(--canada-red) !important;
 }
 
 .btn-canada::after {
@@ -1451,4 +1441,29 @@ body {
 body.dark-mode .typing-text,
 body.dark-mode .typing-cursor { 
     color: #60a5fa !important; 
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: #0052D4;
+    z-index: 10001;
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+.dark-mode #progress-bar, 
+[data-theme='dark'] #progress-bar {
+    background: #ffffff !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.8) !important;
+    height: 10px;
+}
+
+body.dark-mode .filter-btn.btn-canada.active {
+    background-color: #FF1A35 !important;
+    border-color: #FF1A35 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(255, 26, 53, 0.6) !important;
 }
