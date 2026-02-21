@@ -170,7 +170,7 @@ document.addEventListener('mousemove', (e) => {
 
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
-    const duration = 1100;
+    const duration = 1500;
 
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
@@ -461,10 +461,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetMinutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const targetSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
+        function getTimerHTML(d, h, m, s) {
+            if (d > 0) {
+                const dayLabel = (d === 1) ? "Day" : "Days";
+                return `<span class="day-part">${d} ${dayLabel} Left</span>
+                        <span class="time-digits">${h}:${m}:${s}</span>`;
+            } else {
+                return `<span class="time-digits">${h}:${m}:${s}</span>`;
+            }
+        }
+
         if (isInitialLoad) {
             isInitialLoad = false;
             let startTimestamp = null;
-            const duration = 2000; 
+            const duration = 2000;
 
             function step(timestamp) {
                 if (!startTimestamp) startTimestamp = timestamp;
@@ -476,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const s = String(Math.floor(progress * targetSeconds)).padStart(2, '0');
 
                 if (timerEl) {
-                    timerEl.innerText = `${d} Days Left ${h}:${m}:${s}`;
+                    timerEl.innerHTML = getTimerHTML(d, h, m, s);
                 }
 
                 if (progress < 1) {
@@ -492,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const s = String(targetSeconds).padStart(2, '0');
 
             if (timerEl) {
-                timerEl.innerText = `${targetDays} Days Left ${h}:${m}:${s}`;
+                timerEl.innerHTML = getTimerHTML(targetDays, h, m, s);
             }
         }
     }
