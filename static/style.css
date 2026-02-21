@@ -1511,3 +1511,11 @@ body.dark-mode .filter-btn.btn-canada.active {
     color: #ffffff !important;
     box-shadow: 0 0 20px rgba(255, 26, 53, 0.6) !important;
 }
+
+#about-me {
+    scroll-margin-top: 100px;
+}
+
+#projects {
+    scroll-margin-top: 100px;
+}
