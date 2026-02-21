@@ -382,55 +382,6 @@ if (themeBtn) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const funnyEmojis = ['🤓', '🤡', '🤪', '🥸', '🥴', '🍌'];
-    let typedKeys = "";
-    let isRaining = false;
-
-
-    function triggerOliverRain() {
-        if (isRaining) return;
-        isRaining = true;
-
-        for (let i = 0; i < 80; i++) {
-            setTimeout(() => {
-                const emojiNode = document.createElement('div');
-                emojiNode.classList.add('oliver-emoji-drop');
-                emojiNode.innerText = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
-                
-                emojiNode.style.left = Math.random() * 100 + 'vw';
-                emojiNode.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
-                emojiNode.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                
-                document.body.appendChild(emojiNode);
-
-                setTimeout(() => {
-                    emojiNode.remove();
-                }, 5000); 
-            }, i * 60);
-        }
-
-        setTimeout(() => {
-            isRaining = false;
-        }, 3000);
-    }
-
-    window.addEventListener("keydown", (e) => {
-        if(e.key.length === 1) {
-            typedKeys += e.key.toLowerCase();
-        }
-        
-        if (typedKeys.length > 12) {
-            typedKeys = typedKeys.slice(-12);
-        }
-        
-        if (typedKeys === "oliverisdumb") {
-            triggerOliverRain();
-            typedKeys = "";
-        }
-    });
-});
-
 window.addEventListener('load', animateCounters);
 </script>
 {% endblock %}

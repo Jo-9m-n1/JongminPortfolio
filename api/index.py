@@ -211,10 +211,18 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': 'National Honors: National HME Math Contest',
+            'title': 'Special Merit Award: Sekwang Student Piano Competition',
             'event': 'South Korea',
             'date': '2016. 06. 08.',
-            'desc': 'Recognized for outstanding mathematical logic and problem-solving skills at a national level.',
+            'desc': 'Recognized for exceptional musical interpretation and technical proficiency at a national piano competition.',
+            'color': '#D4AF37',
+            'category': 'arts'
+        },
+        {
+            'title': 'National 1st Place: National HME Math Contest',
+            'event': 'South Korea',
+            'date': '2015. 11. 28.',
+            'desc': 'Top 1% in South Korea and scored a perfect score.',
             'color': '#D4AF37',
             'category': 'math academic stem'
         },
