@@ -305,7 +305,7 @@ main.container {
     padding: 10px 15px; 
     pointer-events: none;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8x);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10;
 }
