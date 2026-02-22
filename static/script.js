@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (now >= startDate && now <= endDate) {
             targetEvent = {
-                title: ev.title.replace("Will Participate: ", ""),
+                title: ev.title.replace("Will Participate | ", ""),
                 dateStr: ev.date,
                 startDate: startDate,
                 endDate: endDate
@@ -408,7 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (diff < minDiff) {
                 minDiff = diff;
                 targetEvent = {
-                    title: ev.title.replace("Will Participate: ", ""),
+                    title: ev.title.replace("Will Participate | ", ""),
                     dateStr: ev.date,
                     startDate: startDate,
                     endDate: endDate

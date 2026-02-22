@@ -289,7 +289,7 @@ def achievements():
             'date': 'Working on it',
             'desc': 'SPACE Certificate (Sciences Participating with Arts and Culture in Education).',
             'color': '#cbd5e1',
-            'category': 'software hardware canada stem'
+            'category': 'software hardware canada stem math'
         },
         {
             'title': 'Volunteered more than 100 hours',
