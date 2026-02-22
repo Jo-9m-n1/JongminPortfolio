@@ -1620,3 +1620,15 @@ body.dark-mode .next-challenge-widget {
     transform: translateY(-10px);
     opacity: 0;
 }
+
+.h-badge {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    background: rgba(206, 206, 206, 0.45); 
+    color: rgb(81, 81, 81); 
+}

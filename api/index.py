@@ -96,7 +96,7 @@ def home():
 def achievements():
     competitions = [
         {
-            'title': 'Will Participate: DawsHacks',
+            'title': 'Will Participate | DawsHacks',
             'event': 'Dawson College',
             'date': '2026. 05. 02.',
             'start-date': '2026-05-02T08:30:00',
@@ -106,7 +106,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Will Participate: MariHacks',
+            'title': 'Will Participate | MariHacks',
             'event': 'Marianopolis College',
             'date': '2026. 04. 17. - 2026. 04. 18.',
             'start-date': '',
@@ -116,7 +116,7 @@ def achievements():
             'category': 'software canada stem',
         },
         {
-            'title': 'Will Participate: JacHacks',
+            'title': 'Will Participate | JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
             'start-date': '',
@@ -126,7 +126,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Will Participate: VanierHacks!',
+            'title': 'Will Participate | VanierHacks!',
             'event': 'Vanier College',
             'date': '2026. 03. 21. - 2026. 03. 22.',
             'start-date': '',
@@ -136,7 +136,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Will Participate: McGill AeroHacks',
+            'title': 'Will Participate | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
             'start-date': '2026-03-13T12:00:00',
@@ -146,7 +146,7 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Will Participate: UdeM Hacks',
+            'title': 'Will Participate | UdeM Hacks',
             'event': 'University of Montreal',
             'date': '2026. 03. 07. - 2026. 03. 08.',
             'start-date': '',
@@ -156,7 +156,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Will Participate: Champlain College Code Quest',
+            'title': 'Will Participate | Champlain College Code Quest',
             'event': 'Champlain College',
             'date': '2026. 02. 28.',
             'start-date': '2026-02-28T08:00:00',
@@ -166,7 +166,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Winner: Dialogue Employees Hackathon',
+            'title': 'Winner | Dialogue Employees Hackathon',
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
             'desc': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments using Skinive API.',
@@ -174,27 +174,27 @@ def achievements():
             'category': 'software health canada stem'
         },
         {
-            'title': '2nd Place: Dialogue Track at ConUHacks',
+            'title': '2nd Place | Dialogue Track at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest 24 hour student run hackathon with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in Quebec's largest hackathon and Canada's second-largest student-run hackathon with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'link_type': 'devpost',
             'link': "https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA.."
         },
         {
-            'title': 'Best Use of Gemini API: HackDécouverte',
+            'title': 'Best Use of Gemini API | HackDécouverte',
             'event': 'Concordia University',
             'date': '2025. 11. 29.',
-            'desc': "Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
+            'desc': "Competed in Quebec's largest pre-university hackathon. Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
             'color': '#D4AF37',
             'category': 'software canada stem',
             'link_type': 'mentormates',
             'link': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd'
         },
         {
-            'title': '2nd Place: Dawson Robotics Hackathon',
+            'title': '2nd Place | Dawson Robotics Hackathon',
             'event': 'Dawson College',
             'date': '2025. 05. 09.',
             'desc': 'Built and programmed autonomous black line following robotic system and IR remoted control functionality using C++ and the Arduino framework.',
@@ -202,14 +202,14 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Participated: Dawson Science On Tourne',
+            'title': 'Participated | Dawson Science On Tourne',
             'event': 'Dawson College',
             'date': '2025. 04. 04.',
             'desc': 'Designed a drone using 3D printers.',
             'category': 'software hardware canada stem math'
         },
         {
-            'title': 'School Champion: Waterloo Cayley Math Contest',
+            'title': 'School Champion | Waterloo Cayley Math Contest',
             'event': 'International',
             'date': '2022. 02. 22.',
             'desc': 'Top 25% in the world and school champion.',
@@ -217,7 +217,15 @@ def achievements():
             'category': 'math academic canada stem'
         },
         {
-            'title': "Honorable Mention: 'Bright Society' Creative Writing Contest",
+            'title': 'Excellence in Mathematics | The Ultimate Math League',
+            'event': 'English Montreal School Board',
+            'date': '2019',
+            'desc': 'Selected as a school representative and awarded for achieving a top-tier score in a board-wide competitive mathematics league. Recognized for elite problem-solving and analytical reasoning among selected representatives from schools across the English Montreal School Board (EMSB).',
+            'color': '#D4AF37',
+            'category': 'math academic canada stem'
+        },
+        {
+            'title': "Honorable Mention | 'Bright Society' Creative Writing Contest",
             'event': 'Ministry of Justice of the Republic of Korea',
             'date': '2016. 07. 07.',
             'desc': 'Recognized by the Ministry of Justice for an essay on social ethics and civic values, demonstrating strong communication skills and a deep understanding of community justice.',
@@ -225,7 +233,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': 'National Honors: National HME Math Contest',
+            'title': 'National Honors | National HME Math Contest',
             'event': 'South Korea',
             'date': '2016. 06. 08.',
             'desc': 'Recognized for outstanding mathematical logic and problem-solving skills at a national level.',
@@ -233,7 +241,7 @@ def achievements():
             'category': 'math academic stem'
         },
         {
-            'title': 'Special Merit Award: Sekwang Student Piano Competition',
+            'title': 'Special Merit Award | Sekwang Student Piano Competition',
             'event': 'South Korea',
             'date': '2015. 11. 28.',
             'desc': 'Recognized for exceptional musical interpretation and technical proficiency at a national piano competition.',
@@ -241,7 +249,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': 'National 1st Place: National HME Math Contest',
+            'title': 'National 1st Place | National HME Math Contest',
             'event': 'South Korea',
             'date': '2014. 05. 24.',
             'desc': 'Top 1% in South Korea and scored a perfect score.',
@@ -249,7 +257,7 @@ def achievements():
             'category': 'math academic stem'
         },
         {
-            'title': '3rd Place: Dental Health Awareness Art Contest',
+            'title': '3rd Place | Dental Health Awareness Art Contest',
             'event': 'Gwangju Dental Association',
             'date': '2013. 06. 11.',
             'desc': 'Awarded for creative work in the "Oral Health Awareness" category.',
@@ -257,7 +265,7 @@ def achievements():
             'category': 'health arts'
         },
         {
-            'title': "Special Merit Award: International Children's Art Grand Exhibition",
+            'title': "Special Merit Award | International Children's Art Grand Exhibition",
             'event': 'International Culture and Art Education Association',
             'date': '2011. 07. 04.',
             'desc': 'Awarded for exceptional creative vision.',
@@ -265,7 +273,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': "1st Place: 10th Children's Day Art Competition",
+            'title': "1st Place | 10th Children's Day Art Competition",
             'event': 'Kwangju Bank',
             'date': '2011. 05. 27.',
             'desc': 'Awarded the highest honor for exceptional creative expression among preschool participants.',
