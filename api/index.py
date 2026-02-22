@@ -174,10 +174,10 @@ def achievements():
             'category': 'software health canada stem'
         },
         {
-            'title': '2nd Place: Dialogue Challenge at ConUHacks',
+            'title': '2nd Place: Dialogue Track at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest 24 hour student run hackatho with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in Quebec's largest 24 hour student run hackathon with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'link_type': 'devpost',
