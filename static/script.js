@@ -382,7 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const allEvents = JSON.parse(rawData);
-
     const rawEvents = allEvents.filter(ev => 
         ev.title && ev.title.includes("Will Participate") && ev['start-date'] && ev['end-date']
     );
@@ -426,20 +425,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const titleEl = document.getElementById('next-event-title');
     const dateEl = document.getElementById('next-event-date');
     const timerEl = document.getElementById('countdown-timer');
+    const badge = widget.querySelector('.badge');
 
     if (titleEl) titleEl.innerText = targetEvent.title;
 
-    if (isOngoing) {
+    function switchToLiveTheme() {
         if (dateEl) dateEl.innerText = "HACKING IN PROGRESS...";
         if (timerEl) {
             timerEl.style.fontSize = "1.8rem";
             timerEl.innerHTML = "I am currently in this competition!";
+            timerEl.style.color = "#ff4757";
         }
-        const badge = widget.querySelector('.badge');
         if (badge) {
-            badge.className = "badge bg-danger mb-2 rounded-pill px-3 py-2 fw-bold";
+            badge.className = "badge bg-danger mb-2 rounded-pill px-3 py-2 fw-bold text-white";
             badge.innerHTML = `LIVE NOW`;
         }
+    }
+
+    function launchCelebration() {
+        if (typeof confetti === 'undefined') return;
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+        const interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return clearInterval(interval);
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3, y: Math.random() - 0.2 } });
+            confetti({ ...defaults, particleCount, origin: { x: Math.random() * 0.3 + 0.7, y: Math.random() - 0.2 } });
+        }, 250);
+    }
+
+    let hasCelebrated = false;
+    function handleIntersectionCelebration() {
+        if (hasCelebrated) return;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasCelebrated) {
+                    hasCelebrated = true;
+                    launchCelebration();
+                    switchToLiveTheme();
+                    observer.unobserve(widget);
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(widget);
+    }
+
+    if (isOngoing) {
+        switchToLiveTheme();
         return; 
     }
 
@@ -452,7 +487,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const timeRemaining = targetEvent.startDate - currentTime;
 
         if (timeRemaining <= 0) {
-            location.reload(); 
+            handleIntersectionCelebration();
             return;
         }
 
@@ -462,12 +497,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
         function getTimerHTML(d, h, m, s) {
+            const hStr = String(h).padStart(2, '0');
+            const mStr = String(m).padStart(2, '0');
+            const sStr = String(s).padStart(2, '0');
             if (d > 0) {
                 const dayLabel = (d === 1) ? "Day" : "Days";
                 return `<span class="day-part">${d} ${dayLabel} Left</span>
-                        <span class="time-digits">${h}:${m}:${s}</span>`;
+                        <span class="time-digits">${hStr}:${mStr}:${sStr}</span>`;
             } else {
-                return `<span class="time-digits">${h}:${m}:${s}</span>`;
+                return `<span class="time-digits">${hStr}:${mStr}:${sStr}</span>`;
             }
         }
 
@@ -481,13 +519,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                 
                 const d = Math.floor(progress * targetDays);
-                const h = String(Math.floor(progress * targetHours)).padStart(2, '0');
-                const m = String(Math.floor(progress * targetMinutes)).padStart(2, '0');
-                const s = String(Math.floor(progress * targetSeconds)).padStart(2, '0');
+                const h = Math.floor(progress * targetHours);
+                const m = Math.floor(progress * targetMinutes);
+                const s = Math.floor(progress * targetSeconds);
 
-                if (timerEl) {
-                    timerEl.innerHTML = getTimerHTML(d, h, m, s);
-                }
+                if (timerEl) timerEl.innerHTML = getTimerHTML(d, h, m, s);
 
                 if (progress < 1) {
                     window.requestAnimationFrame(step);
@@ -497,13 +533,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             window.requestAnimationFrame(step);
         } else {
-            const h = String(targetHours).padStart(2, '0');
-            const m = String(targetMinutes).padStart(2, '0');
-            const s = String(targetSeconds).padStart(2, '0');
-
-            if (timerEl) {
-                timerEl.innerHTML = getTimerHTML(targetDays, h, m, s);
-            }
+            if (timerEl) timerEl.innerHTML = getTimerHTML(targetDays, targetHours, targetMinutes, targetSeconds);
         }
     }
 
