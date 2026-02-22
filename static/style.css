@@ -1547,12 +1547,10 @@ body.dark-mode .next-challenge-widget {
 }
 
 .countdown-display {
-    font-size: 2.1rem;
+    font-size: 2rem;
     font-weight: 650;
-    color: var(--accent-color);
     letter-spacing: -1px;
     line-height: 1.15;
-    text-shadow: 0 0 20px color-mix(in srgb, var(--accent-color), transparent 50%);
     text-align: right;
 }
 
@@ -1563,7 +1561,7 @@ body.dark-mode .next-challenge-widget {
 
 @media (max-width: 992px) {
     .countdown-display {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
     }
 }
 
