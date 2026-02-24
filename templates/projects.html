@@ -1,0 +1,152 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+<main class="container">
+    <div class="interactive-bg">
+        <div class="glow-blob"></div> 
+        <div class="glow-blob"></div> 
+        <div class="glow-blob"></div> 
+        <div class="glow-cursor" id="cursorBlob"></div> 
+    </div>
+
+    <div class="control-header-system">
+        <div class="container d-flex justify-content-between align-items-start">
+            
+            <div class="fixed-back-container">
+                <div class="floating-control-pill">
+                    <a href="/" class="w-100 h-100 d-flex justify-content-center align-items-center gap-2 text-decoration-none" style="color: inherit;">
+                        <i class="fa-solid fa-chevron-left" style="font-size: 1.1rem;"></i>
+                        <span class="fw-bold" style="font-size: 1.1rem;">Home</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="floating-menu-wrapper">
+                <div class="expandable-pill" id="expandablePill">
+                    <div class="pill-trigger-area">
+                        <div class="theme-toggle" id="themeToggle">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        
+                        <div class="dynamic-menu-title">Navigation</div>
+                        
+                        <div class="menu-trigger" id="menuTrigger">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="pill-menu-content">
+                        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+                        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+                        <a href="/projects"><i class="fa-solid fa-code"></i> Projects</a>
+                        <a href="/#about"><i class="fa-solid fa-user"></i> About Me</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container my-5" id="projects">
+        <div class="container my-5 pt-5">
+            <div class="text-center mb-4">
+                <h2 class="display-5 fw-bold">Projects</h2>
+                <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
+            </div>
+        </div>
+
+        <div class="filter-wrapper mb-5">
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn btn-gold" data-filter="award-filter" onclick="filterSelection('award-filter')">
+                    <i class="fa-solid fa-trophy me-1"></i> Gold
+                </button>
+                <button class="filter-btn" data-filter="hackathon" onclick="filterSelection('hackathon')">Hackathon</button>
+                <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">School</button>
+                <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">Personal</button>
+            </div>
+        </div>
+
+        <div id="no-results" class="text-center my-5 py-5" style="display: none;">
+            <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
+            <h3 class="text-muted">No projects match these filters.</h3>
+            <p class="text-muted">Try selecting a different combination of tags.</p>
+            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">Reset Filters</button>
+        </div>
+
+        <div class="row g-4" id="projects-row">
+            {% for p in projects %}
+            <div class="col-md-6 filter-item {% for tag in p.tags %}{{ tag }} {% endfor %} {{ 'award-filter' if p.award }}">
+                <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
+                    <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
+                        
+                        {% if p.images or p.image_url or p.video_url %}
+                        <div class="project-media-container" style="height: 250px; overflow: hidden;">
+                            {% if p.images %}
+                                <img src="{{ p.images[0] }}" class="d-block w-100 h-100" alt="{{ p.title }}" style="object-fit: cover;">
+                            {% elif p.image_url %}
+                                <img src="{{ p.image_url }}" alt="{{ p.title }}" class="w-100 h-100" style="object-fit: cover;">
+                            {% elif p.video_url %}
+                                <div class="ratio ratio-16x9 h-100">
+                                    <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        <div class="card-body p-4 d-flex flex-column">
+                            {% if p.award %}
+                            <div class="badge bg-warning text-dark mb-3 align-self-start">
+                            <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
+                            </div>
+                            {% endif %}
+
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary rounded-pill px-3">{{ p.category }}</span>
+                            </div>
+                            
+                            <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
+                            <p class="card-text text-muted mb-4">{{ p.description }}</p>
+                            
+                            <div class="mb-4">
+                                {% for t in p.tech %}
+                                <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ t }}</span>
+                                {% endfor %}
+                            </div>
+
+                            {% if p.collaborators %}
+                            <div class="collaborators mb-4">
+                                <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
+                                    Teammate{{ 's' if p.collaborators|length > 1 else '' }}
+                                </small>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for person in p.collaborators %}
+                                    <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
+                                        <i class="fa-solid fa-user me-1"></i> 
+                                        {# This check handles both dictionaries and simple strings #}
+                                        {{ person.name if person is mapping else person }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <div class="mt-auto pt-3 text-end">
+                                <span class="small fw-bold text-primary">
+                                    Read the full story <i class="fa-solid fa-chevron-right ms-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% else %}
+            <div class="col-12 text-center text-muted">
+                <p>No projects to display at the moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

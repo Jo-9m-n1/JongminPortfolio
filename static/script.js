@@ -61,7 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 let activeFilters = ['all'];
 
-
 function filterSelection(c) {
     if (c === 'all') {
         activeFilters = ['all'];
@@ -400,7 +399,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 title: ev.title.replace("Will Participate | ", ""),
                 dateStr: ev.date,
                 startDate: startDate,
-                endDate: endDate
+                endDate: endDate,
+                rawStartDate: ev['start-date']
             };
             isOngoing = true;
         } else if (!isOngoing && startDate > now) {
@@ -411,7 +411,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     title: ev.title.replace("Will Participate | ", ""),
                     dateStr: ev.date,
                     startDate: startDate,
-                    endDate: endDate
+                    endDate: endDate,
+                    rawStartDate: ev['start-date']
                 };
             }
         }
@@ -434,14 +435,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (timerEl) {
             timerEl.style.fontSize = "1.8rem";
             timerEl.innerHTML = "I am currently in this competition!";
-            timerEl.style.color = "#ff4757";
+            timerEl.style.color = "#fe4a59";
         }
         if (badge) {
             badge.className = "badge bg-danger mb-2 rounded-pill px-3 py-2 fw-bold text-white";
             badge.innerHTML = `LIVE NOW`;
         }
     }
-
+    
     function launchCelebration() {
         if (typeof confetti === 'undefined') return;
         const duration = 5 * 1000;
@@ -484,6 +485,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCountdown() {
         const currentTime = new Date();
+        
+        const todayAtMidnight = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate()).getTime();
+        const dateParts = targetEvent.rawStartDate.split('T')[0].split('-');
+        const eventAtMidnight = new Date(
+            parseInt(dateParts[0]), 
+            parseInt(dateParts[1]) - 1, 
+            parseInt(dateParts[2])
+        ).getTime();
+
+        const dayDiff = eventAtMidnight - todayAtMidnight;
+        const targetDays = Math.ceil(dayDiff / (1000 * 60 * 60 * 24));
+
         const timeRemaining = targetEvent.startDate - currentTime;
 
         if (timeRemaining <= 0) {
@@ -491,8 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const targetDays = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const targetHours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const targetHours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const targetMinutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const targetSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 

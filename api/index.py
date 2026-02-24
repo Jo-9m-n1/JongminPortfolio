@@ -89,8 +89,11 @@ PROJECTS = [
 
 @app.route('/')
 def home():
-    return render_template('index.html', projects=PROJECTS)
+    return render_template('index.html')
 
+@app.route('/projects')
+def projects():
+    return render_template('projects.html', projects=PROJECTS)
 
 @app.route('/achievements')
 def achievements():
@@ -146,20 +149,10 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Will Participate | UdeM Hacks',
-            'event': 'University of Montreal',
-            'date': '2026. 03. 07. - 2026. 03. 08.',
-            'start-date': '',
-            'end-date': '',
-            'desc': 'Currently preparing for this upcoming hackathon...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
-        },
-        {
             'title': 'Will Participate | Champlain College Code Quest',
             'event': 'Champlain College',
             'date': '2026. 02. 28.',
-            'start-date': '2026-02-28T08:00:00',
+            'start-date': '2026-02-24T15:16:00',
             'end-date': '2026-02-28T20:00:00',
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
