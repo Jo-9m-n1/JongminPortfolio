@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const targetHours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const targetHours = Math.floor((timeRemaining / (1000 * 60 * 60)));
         const targetMinutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const targetSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
