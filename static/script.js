@@ -704,7 +704,7 @@ Type 'help' to see a list of available commands.
         }, 50); 
      });
     
-    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'git', 'npm', 'ping', 'history', 'env', 'df'];
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'git', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
     const directories = ['projects', 'achievements'];
     const files = ['skills.txt', 'contact.txt', 'hackathons.txt', '.bashrc'];
 
@@ -782,19 +782,23 @@ function processCommand(cmd, outputArea, overlay) {
         case 'help':
             outputArea.innerHTML += `
 Available commands:
-  <span class="term-keyword">neofetch</span>     - Display system information
-  <span class="term-keyword">whoami</span>       - Display current user info
-  <span class="term-keyword">ls [-la]</span>     - List directory contents
-  <span class="term-keyword">cd [dir]</span>     - Navigate to a directory
-  <span class="term-keyword">cat [file]</span>   - Read a file
-  <span class="term-keyword">df</span>           - Report disk space usage
-  <span class="term-keyword">history</span>      - Display command history
-  <span class="term-keyword">date</span>         - Print system date and time
-  <span class="term-keyword">uptime</span>       - Display how long the system has been running
-  <span class="term-keyword">env</span>          - List environment variables
-  <span class="term-keyword">ping [host]</span>  - Send ICMP ECHO_REQUEST
-  <span class="term-keyword">clear</span>        - Clear the terminal screen
-  <span class="term-keyword">exit</span>         - Close the terminal
+  <span class="term-keyword">neofetch</span>      - Display system information
+  <span class="term-keyword">whoami</span>        - Display current user info
+  <span class="term-keyword">ls [-la]</span>      - List directory contents
+  <span class="term-keyword">cd [dir]</span>      - Navigate to a directory
+  <span class="term-keyword">cat [file]</span>    - Read a file
+  <span class="term-keyword">df</span>            - Report disk space usage
+  <span class="term-keyword">history</span>       - Display command history
+  <span class="term-keyword">date</span>          - Print system date and time
+  <span class="term-keyword">uptime</span>        - Display how long the system has been running
+  <span class="term-keyword">env</span>           - List environment variables
+  <span class="term-keyword">echo [text]</span>   - Display a line of text or a string
+  <span class="term-keyword">ping [host]</span>   - Send ICMP ECHO_REQUEST
+  <span class="term-keyword">cal</span>           - Display a calendar
+  <span class="term-keyword">sudo [cmd]</span>    - Execute a command as the superuser
+  <span class="term-keyword">reboot</span>        - Restart the system (Reload page)
+  <span class="term-keyword">clear</span>         - Clear the terminal screen
+  <span class="term-keyword">exit</span>          - Close the terminal
 `;
             break;
 
@@ -810,6 +814,109 @@ Available commands:
 \n`;
             break;
 
+        case 'sl':
+            const train = [
+                "      ====        ________                ___________ ",
+                "  _D _|  |_______/        \\__   _________|           |",
+                "   \\_ |===============H======| |   JONGMIN   |_______|",
+                "    |=============H==============| |   LEE   |       |",
+                "    |_____________oooooooooooooo_| |_________|_______|",
+                "     OoooOoooOoooOoooOoooOoooOoooO  OoooOoooOoooOoooO "
+            ];
+
+            const slOverlay = document.createElement('div');
+            slOverlay.style.position = 'absolute'; 
+            slOverlay.style.left = overlay.offsetWidth + 'px';
+            slOverlay.style.whiteSpace = 'pre';
+            slOverlay.style.fontFamily = 'monospace';
+            slOverlay.style.color = '#fff'; 
+            slOverlay.style.zIndex = '1000';
+            slOverlay.style.pointerEvents = 'none'; 
+            slOverlay.innerHTML = train.join('\n');
+            overlay.appendChild(slOverlay);
+
+            let currentPos = overlay.offsetWidth;
+            const trainWidth = 550;
+
+            const slInterval = setInterval(() => {
+                currentPos -= 10; 
+                slOverlay.style.left = currentPos + 'px';
+
+                slOverlay.style.top = (overlay.scrollTop + 20) + 'px';
+
+                if (currentPos < -trainWidth) {
+                    clearInterval(slInterval);
+                    slOverlay.remove();
+                    inputField.focus(); 
+                }
+            }, 33); 
+
+            outputArea.innerHTML += `<span style="color: #666;">Look! A wild Steam Locomotive appeared!</span>\n`;
+            overlay.scrollTop = overlay.scrollHeight;
+            
+            break;
+
+        case 'cal':
+            const rightnow = new Date();
+            const year = rightnow.getFullYear();
+            const month = rightnow.getMonth();
+            const today = rightnow.getDate();
+
+            const monthName = rightnow.toLocaleString('default', { month: 'long' });
+            
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            let calOutput = `      ${monthName} ${year}\n`;
+            calOutput += `Su Mo Tu We Th Fr Sa\n`;
+
+            for (let i = 0; i < firstDay; i++) {
+                calOutput += `   `;
+            }
+
+            for (let date = 1; date <= lastDate; date++) {
+                if (date === today) {
+                    calOutput += `<span style="color: #c5c5c5; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
+                } else {
+                    calOutput += `${date.toString().padStart(2, ' ')} `;
+                }
+
+                if ((date + firstDay) % 7 === 0) {
+                    calOutput += `\n`;
+                }
+            }
+
+            outputArea.innerHTML += `<pre style="font-family: monospace; line-height: 1.2;">${calOutput}\n</pre>`;
+            break;
+
+        case 'sudo':
+            outputArea.innerHTML += `<span class="term-error">[sudo] password for jongmin: </span>\n`;
+            outputArea.innerHTML += `<span class="term-error">Sorry, try again. This incident has been reported to the root user.</span>\n`;
+            break;
+
+        case 'echo':
+            const message = args.slice(1).join(' ');
+            if (!message) {
+                outputArea.innerHTML += `\n`;
+            } else {
+                outputArea.innerHTML += `${message}\n`;
+            }
+            break;
+
+        case 'catsay':
+            const msg = args.slice(1).join(' ') || "Meow! Code is compiling...";
+            const border = "-".repeat(msg.length + 4);
+            outputArea.innerHTML += `
+  ${border}
+  < ${msg} >
+  ${border}
+   \\
+    \\  /\\_/\\
+      ( o.o )
+       > ^ <
+\n`;
+            break;
+
         case 'df':
             outputArea.innerHTML += `
 Filesystem           Size      Used     Avail  Use%  Mounted on
@@ -819,6 +926,13 @@ Filesystem           Size      Used     Avail  Use%  Mounted on
 <span class="term-keyword">Status:</span> 4/4 Hackathons won. 
 Win Rate: <span style="color:#00ff00;">100%</span> [██████████]
 \n`;
+            break;
+
+        case 'reboot':
+            outputArea.innerHTML += `System is going down for reboot NOW!\n`;
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
             break;
 
         case 'history':
@@ -849,7 +963,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">proj
 drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achievements</span>
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
--rw-r--r--  1 jongmin jongmin   512 Feb 20 18:45 contact.txt
+-rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
 \n`;
             } else {
                 outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt\n`;
