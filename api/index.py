@@ -111,7 +111,7 @@ def achievements():
         {
             'title': 'Will Participate | MariHacks',
             'event': 'Marianopolis College',
-            'date': '2026. 04. 17. - 2026. 04. 18.',
+            'date': '2026. 04. 17. — 2026. 04. 18.',
             'start-date': '',
             'end-date': '',
             'desc': 'Currently preparing for this upcoming hackathon...',
@@ -121,7 +121,7 @@ def achievements():
         {
             'title': 'Will Participate | JacHacks',
             'event': 'John Abbott College',
-            'date': '2026. 04. 11. - 2026. 04. 12.',
+            'date': '2026. 04. 11. — 2026. 04. 12.',
             'start-date': '',
             'end-date': '',
             'desc': 'Currently preparing for this upcoming hackathon...',
@@ -131,7 +131,7 @@ def achievements():
         {
             'title': 'Will Participate | VanierHacks!',
             'event': 'Vanier College',
-            'date': '2026. 03. 21. - 2026. 03. 22.',
+            'date': '2026. 03. 21. — 2026. 03. 22.',
             'start-date': '',
             'end-date': '',
             'desc': 'Currently preparing for this upcoming hackathon...',
@@ -141,7 +141,7 @@ def achievements():
         {
             'title': 'Will Participate | McGill AeroHacks',
             'event': 'McGill University',
-            'date': '2026. 03. 13. - 2026. 03. 15.',
+            'date': '2026. 03. 13. — 2026. 03. 15.',
             'start-date': '2026-03-13T12:00:00',
             'end-date': '2026-03-15T17:00:00',
             'desc': 'Currently preparing for this upcoming hackathon...',
