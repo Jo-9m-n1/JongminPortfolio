@@ -50,6 +50,40 @@ window.addEventListener('DOMContentLoaded', () => {
             menuTrigger.classList.toggle('active');
         });
 
+        const menuLinks = menuDropdown.querySelectorAll('.pill-menu-content a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                const currPath = window.location.pathname;
+                
+                const isSimpleAnchor = href.startsWith('#');
+                
+                const isSamePage = href === currPath || (href === '/' && currPath === '/');
+                
+                const isPathAnchor = href.includes('#') && (href.split('#')[0] === currPath || href.split('#')[0] === '');
+
+                if (isSimpleAnchor || isSamePage || isPathAnchor) {
+                    
+                    if (isSamePage && !href.includes('#')) {
+                        e.preventDefault(); 
+                    }
+
+                    menuDropdown.classList.remove('active');
+                    menuTrigger.classList.remove('active');
+
+                    if (href.includes('#')) {
+                        const targetId = href.split('#')[1];
+                        const targetElem = document.getElementById(targetId);
+                        if (targetElem) {
+                            e.preventDefault();
+                            targetElem.scrollIntoView({ behavior: 'smooth' });
+                            history.pushState(null, null, href);
+                        }
+                    }
+                }
+            });
+        });
+
         document.addEventListener('click', (e) => {
             if (!menuDropdown.contains(e.target)) {
                 menuDropdown.classList.remove('active');
