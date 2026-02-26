@@ -149,11 +149,11 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Will Participate | Champlain College Code Quest',
-            'event': 'Champlain College',
-            'date': '2026. 02. 28.',
-            'start-date': '2026-02-28T08:00:00',
-            'end-date': '2026-02-28T20:00:00',
+            'title': 'Will Participate | UdeM GameJam',
+            'event': 'University of Montreal',
+            'date': '2026. 02. 27. - 2026. 03. 01.',
+            'start-date': '2026-02-27T09:00:00',
+            'end-date': '2026-03-01T18:00:00',
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'

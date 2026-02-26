@@ -976,7 +976,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `Github: github.com/jo-9m-n1\nLinkedIn: linkedin.com/in/jo-9m-n1\n`;
             } else if (args[1] === 'hackathons.txt') {
-                outputArea.innerHTML += `Dawson Robotics Hackathon (May 2025)\nHackDécouverte (Nov 2025)\nConUHacks (Jan 2026)\nDialogue Employees Hackathon (Feb 2026)`;
+                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nFeb 2026 | Planned: UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack`;
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
