@@ -587,3 +587,354 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener('load', animateCounters);
+
+let winterCode1 = "montreal";
+let winterCode2 = "snow";
+let winterInput = "";
+
+document.addEventListener("keydown", (e) => {
+    winterInput += e.key.toLowerCase();
+    
+    if (winterInput.length > winterCode1.length) {
+        winterInput = winterInput.slice(-winterCode1.length);
+    }
+    
+    if (winterInput.includes(winterCode1) || winterInput.includes(winterCode2)) {
+        startBlizzard();
+        winterInput = "";
+    }
+});
+
+function startBlizzard() {
+    if (document.body.classList.contains('blizzard-mode')) return;
+
+    document.body.classList.add('blizzard-mode');
+
+    const snowContainer = document.createElement('div');
+    snowContainer.className = 'snow-container';
+    snowContainer.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        pointer-events: none; z-index: 99999; overflow: hidden;
+        opacity: 0; transition: opacity 2s ease;
+    `;
+    document.body.appendChild(snowContainer);
+
+    setTimeout(() => snowContainer.style.opacity = "1", 50);
+
+    for (let i = 0; i < 100; i++) {
+        let snowflake = document.createElement('div');
+        let size = Math.random() * 4 + 2;
+        let left = Math.random() * 100;
+        let duration = Math.random() * 3 + 2;
+        let delay = Math.random() * 2;
+
+        snowflake.style.cssText = `
+            position: absolute; top: -10px; left: ${left}vw;
+            width: ${size}px; height: ${size}px;
+            background: white; border-radius: 50%;
+            opacity: ${Math.random() * 0.8 + 0.2};
+            filter: blur(${Math.random() * 2}px);
+            animation: fall ${duration}s linear ${delay}s infinite;
+        `;
+        snowContainer.appendChild(snowflake);
+    }
+
+    if (!document.getElementById('blizzard-style')) {
+        const style = document.createElement('style');
+        style.id = 'blizzard-style';
+        style.innerHTML = `
+            @keyframes fall {
+                0% { transform: translateY(-10vh) translateX(0); }
+                100% { transform: translateY(110vh) translateX(${Math.random() * 20 - 10}vw); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    setTimeout(() => {
+        document.body.classList.remove('blizzard-mode');
+        
+        snowContainer.style.opacity = "0";
+        
+        setTimeout(() => {
+            snowContainer.remove();
+        }, 2000); 
+    }, 15000);
+}
+const terminalSecret = "terminal";
+let terminalKeys = "";
+let sessionHistory = [];
+let historyIndex = -1;
+
+document.addEventListener("keydown", (e) => {
+    if (document.getElementById('terminal-overlay')) return;
+    terminalKeys += e.key.toLowerCase();
+    if (terminalKeys.length > terminalSecret.length) {
+        terminalKeys = terminalKeys.slice(-terminalSecret.length);
+    }
+    if (terminalKeys === terminalSecret) {
+        initTerminal();
+        terminalKeys = "";
+    }
+});
+
+function initTerminal() {
+    document.body.classList.add('terminal-active');
+    const terminalHTML = `
+        <div id="terminal-overlay">
+            <div class="terminal-output" id="term-output">
+Jongmin OS [Version 1.0.0]
+(c) 2026 Jongmin Lee. All rights reserved.
+
+Type 'help' to see a list of available commands.
+            </div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">jongmin@portfolio:~$</span>
+                <input type="text" id="terminal-input-field" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', terminalHTML);
+    const overlay = document.getElementById('terminal-overlay');
+    const inputField = document.getElementById('terminal-input-field');
+    const outputArea = document.getElementById('term-output');
+    requestAnimationFrame(() => { overlay.classList.add('active');
+        setTimeout(() => {
+            inputField.focus();
+        }, 50); 
+     });
+    
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'git', 'npm', 'ping', 'history', 'env', 'df'];
+    const directories = ['projects', 'achievements'];
+    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', '.bashrc'];
+
+    inputField.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            
+            const words = this.value.toLowerCase().split(' ');
+            const currentWord = words[words.length - 1]; 
+            let matches = [];
+
+            if (words.length === 1) {
+                matches = commands.filter(cmd => cmd.startsWith(currentWord));
+                if (matches.length === 1) this.value = matches[0] + " ";
+            } 
+            else if (words.length === 2 && words[0] === 'cd') {
+                matches = directories.filter(dir => dir.startsWith(currentWord));
+                if (matches.length === 1) this.value = `cd ${matches[0]}`;
+            }
+            else if (words.length === 2 && words[0] === 'cat') {
+                matches = files.filter(f => f.startsWith(currentWord));
+                if (matches.length === 1) this.value = `cat ${matches[0]}`;
+            }
+
+            if (matches.length > 1) {
+                return;
+            }
+        }
+    });
+
+    overlay.addEventListener('click', () => inputField.focus());
+
+    inputField.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const cmd = this.value.trim();
+            this.value = '';
+            if (cmd) {
+                sessionHistory.push(cmd);
+                historyIndex = -1;
+                outputArea.innerHTML += `\n<span class="terminal-prompt">jongmin@portfolio:~$</span> ${cmd}\n`;
+                processCommand(cmd, outputArea, overlay);
+            }
+            overlay.scrollTop = overlay.scrollHeight;
+        } else if (e.key === 'ArrowUp') {
+            if (sessionHistory.length > 0) {
+                if (historyIndex === -1) historyIndex = sessionHistory.length;
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    this.value = sessionHistory[historyIndex];
+                }
+            }
+            e.preventDefault();
+        } else if (e.key === 'ArrowDown') {
+            if (historyIndex !== -1) {
+                if (historyIndex < sessionHistory.length - 1) {
+                    historyIndex++;
+                    this.value = sessionHistory[historyIndex];
+                } else {
+                    historyIndex = -1;
+                    this.value = "";
+                }
+            }
+        } else if (e.key === 'Escape') {
+            closeTerminal(overlay);
+        }
+    });
+}
+
+function processCommand(cmd, outputArea, overlay) {
+    const args = cmd.toLowerCase().split(' ');
+    const mainCmd = args[0];
+    if (!mainCmd) return;
+
+    switch(mainCmd) {
+        case 'help':
+            outputArea.innerHTML += `
+Available commands:
+  <span class="term-keyword">neofetch</span>     - Display system information
+  <span class="term-keyword">whoami</span>       - Display current user info
+  <span class="term-keyword">ls [-la]</span>     - List directory contents
+  <span class="term-keyword">cd [dir]</span>     - Navigate to a directory
+  <span class="term-keyword">cat [file]</span>   - Read a file
+  <span class="term-keyword">df</span>           - Report disk space usage
+  <span class="term-keyword">history</span>      - Display command history
+  <span class="term-keyword">date</span>         - Print system date and time
+  <span class="term-keyword">uptime</span>       - Display how long the system has been running
+  <span class="term-keyword">env</span>          - List environment variables
+  <span class="term-keyword">ping [host]</span>  - Send ICMP ECHO_REQUEST
+  <span class="term-keyword">clear</span>        - Clear the terminal screen
+  <span class="term-keyword">exit</span>         - Close the terminal
+`;
+            break;
+
+        case 'neofetch':
+            outputArea.innerHTML += `
+<span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">OS:</span> JongminOS v1.0
+<span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Host:</span> Montreal, QC
+<span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
+<span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Uptime:</span> 18 years
+<span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
+                 <span class="term-keyword">Languages:</span> EN, FR, KO
+                 <span class="term-keyword">Hobbies:</span> Badminton, Watching Movies
+\n`;
+            break;
+
+        case 'df':
+            outputArea.innerHTML += `
+Filesystem           Size      Used     Avail  Use%  Mounted on
+<span style="color:#FFD700;">/dev/hackathons      4.0G      4.0G      0.0G  100%  /mnt/trophy-case</span>
+/dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
+
+<span class="term-keyword">Status:</span> 4/4 Hackathons won. 
+Win Rate: <span style="color:#00ff00;">100%</span> [██████████]
+\n`;
+            break;
+
+        case 'history':
+            let historyList = "";
+            sessionHistory.forEach((item, index) => {
+                historyList += `  ${index + 1}  ${item}\n`;
+            });
+            outputArea.innerHTML += historyList;
+            break;
+
+        case 'env':
+            outputArea.innerHTML += `USER=jongmin\nSHELL=/bin/bash\nLANG=en_CA.UTF-8\nLOCATION=Montreal\nSTATUS=Available_For_Hire\n`;
+            break;
+
+        case 'date':
+            const now = new Date();
+            outputArea.innerHTML += `${now.toDateString()} ${now.toTimeString().split(' ')[0]}\n`;
+            break;
+
+        case 'whoami':
+            outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | Student at Dawson College\n`;
+            break;
+
+        case 'ls':
+            if (args[1] === '-la' || args[1] === '-l') {
+                outputArea.innerHTML += `
+drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">projects</span>
+drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achievements</span>
+-rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
+-rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
+-rw-r--r--  1 jongmin jongmin   512 Feb 20 18:45 contact.txt
+\n`;
+            } else {
+                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt\n`;
+            }
+            break;
+
+        case 'cat':
+            if (args[1] === 'skills.txt') {
+                outputArea.innerHTML += `[Languages] Python, JavaScript, HTML, CSS\n[Frameworks] Next.js, Flask\n`;
+            } else if (args[1] === 'contact.txt') {
+                outputArea.innerHTML += `Github: github.com/jo-9m-n1\nLinkedIn: linkedin.com/in/jo-9m-n1\n`;
+            } else if (args[1] === 'hackathons.txt') {
+                outputArea.innerHTML += `Dawson Robotics Hackathon (May 2025)\nHackDécouverte (Nov 2025)\nConUHacks (Jan 2026)\nDialogue Employees Hackathon (Feb 2026)`;
+            } else if (!args[1]) {
+                outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
+            } else {
+                outputArea.innerHTML += `<span class="term-error">cat: ${args[1]}: No such file</span>\n`;
+            }
+            break;
+
+        case 'ping':
+            const target = args[1] || 'localhost';
+            if (target.includes('mcgill')) {
+                outputArea.innerHTML += `Pinging mcgill.ca [128.100.0.1]: time=12ms\n<span style="color:#00ff00;">Application status: Accepted</span>\n`;
+            } else {
+                outputArea.innerHTML += `Pinging ${target} [127.0.0.1]: time&lt;1ms\n`;
+            }
+            break;
+
+        case 'cd':
+            let dest = args[1] ? args[1].replace('/', '') : '';
+            
+            if (!dest || dest === '~' || dest === 'home') {
+                outputArea.innerHTML += `Redirecting to Home...\n`;
+                setTimeout(() => {
+                    closeTerminal(overlay);
+                    setTimeout(() => { window.location.href = '/'; }, 350);
+                }, 800);
+            } else {
+                const targetElement = document.getElementById(dest);
+                if (['projects', 'achievements'].includes(dest)) {
+                    outputArea.innerHTML += `Navigating to /${dest}...\n`;
+                    setTimeout(() => {
+                        window.location.href = '/' + dest;
+                    }, 800);
+                } else {
+                    const suggestions = {
+                        'project': 'projects',
+                        'achievement': 'achievements'
+                    };
+
+                    const inputDir = args[1];
+                    const correction = suggestions[inputDir];
+
+                    if (correction) {
+                        outputArea.innerHTML += `<span class="term-error">cd: ${inputDir}: No such directory. Did you mean '${correction}'?</span>\n`;
+                    } else {
+                        outputArea.innerHTML += `<span class="term-error">cd: ${inputDir || ''}: No such directory</span>\n`;
+                    }
+                }
+            }
+            break;
+
+        case 'clear':
+            outputArea.innerHTML = '';
+            break;
+
+        case 'exit':
+            outputArea.innerHTML += `Logging out...\n`;
+            setTimeout(() => closeTerminal(overlay), 500);
+            break;
+
+        case 'uptime':
+            const date = new Date();
+            const timeString = date.toTimeString().split(' ')[0];
+            outputArea.innerHTML += ` ${timeString} up 18 years, 3 users, load average: 0.00, 0.01, 0.05\n`;
+            break;
+
+        default:
+            outputArea.innerHTML += `<span class="term-error">Command not found: ${mainCmd}</span>\n`;
+    }
+}
+
+function closeTerminal(overlay) {
+    overlay.classList.remove('active');
+    document.body.classList.remove('terminal-active');
+    setTimeout(() => { overlay.remove(); }, 500);
+}
