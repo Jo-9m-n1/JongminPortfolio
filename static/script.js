@@ -704,7 +704,7 @@ Type 'help' to see a list of available commands.
         }, 50); 
      });
     
-    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'git', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
     const directories = ['projects', 'achievements'];
     const files = ['skills.txt', 'contact.txt', 'hackathons.txt', '.bashrc'];
 
@@ -782,20 +782,22 @@ function processCommand(cmd, outputArea, overlay) {
         case 'help':
             outputArea.innerHTML += 
 `Available commands:
+  <span class="term-keyword" style="display: inline-block; width: 120px;">npm install</span>  - Install a new package
+  <span class="term-keyword" style="display: inline-block; width: 120px;">npm run dev</span>  - Start local development server
   <span class="term-keyword">neofetch</span>      - Display system information
   <span class="term-keyword">whoami</span>        - Display current user info
-  <span class="term-keyword">ls [-la]</span>      - List directory contents
-  <span class="term-keyword">cd [dir]</span>      - Navigate to a directory
-  <span class="term-keyword">cat [file]</span>    - Read a file
+  <span class="term-keyword">ls</span>            - List directory contents
+  <span class="term-keyword">cd</span>            - Navigate to a directory
+  <span class="term-keyword">cat</span>           - Read a file
   <span class="term-keyword">df</span>            - Report disk space usage
   <span class="term-keyword">history</span>       - Display command history
   <span class="term-keyword">date</span>          - Print system date and time
   <span class="term-keyword">uptime</span>        - Display how long the system has been running
   <span class="term-keyword">env</span>           - List environment variables
-  <span class="term-keyword">echo [text]</span>   - Display a line of text or a string
-  <span class="term-keyword">ping [host]</span>   - Send ICMP ECHO_REQUEST
+  <span class="term-keyword">echo</span>          - Display a line of text or a string
+  <span class="term-keyword">ping</span>          - Send ICMP ECHO_REQUEST
   <span class="term-keyword">cal</span>           - Display a calendar
-  <span class="term-keyword">sudo [cmd]</span>    - Execute a command as the superuser
+  <span class="term-keyword">sudo</span>          - Execute a command as the superuser
   <span class="term-keyword">reboot</span>        - Restart the system (Reload page)
   <span class="term-keyword">clear</span>         - Clear the terminal screen
   <span class="term-keyword">exit</span>          - Close the terminal
@@ -809,9 +811,53 @@ function processCommand(cmd, outputArea, overlay) {
 <span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
 <span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 18 years
 <span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
-<span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, EN
+<span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, FR
                  <span class="term-keyword">Hobbies:</span> Badminton, Watching Movies
 `;
+            break;
+
+        case 'npm':
+            const subCmd = args[1];
+            const pkg = args[2];
+
+            if (subCmd === 'install' || subCmd === 'i') {
+                if (!pkg) {
+                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> install: Provide a package name\n`;
+                    break;
+                }
+
+                outputArea.innerHTML += `npm <span style="color: #4ade80;">installing</span> ${pkg}...\n`;
+                
+                const progressId = 'progress-' + Math.random().toString(36).substr(2, 9);
+                outputArea.innerHTML += `<div id="${progressId}">[          ] 0%</div>`;
+                overlay.scrollTop = overlay.scrollHeight;
+
+                let progress = 0;
+                const progressBar = document.getElementById(progressId);
+                
+                const interval = setInterval(() => {
+                    progress += 10;
+                    const dots = "=".repeat(progress / 10);
+                    const spaces = " ".repeat(10 - (progress / 10));
+                    progressBar.innerHTML = `[${dots}${spaces}] ${progress}%`;
+
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        outputArea.innerHTML += `<span style="color: #4ade80;">added 1 package and audited 2 packages in 2s</span>\n`;
+                        outputArea.innerHTML += `found <span style="color: #4ade80;">0</span> vulnerabilities\n`;
+                        overlay.scrollTop = overlay.scrollHeight;
+                        inputField.focus();
+                    }
+                }, 200);
+            } 
+            else if (subCmd === 'run' && pkg === 'dev') {
+                outputArea.innerHTML += `<span style="color: #4ade80;">> next dev</span>\n`;
+                outputArea.innerHTML += `ready - started server on 0.0.0.0:3000, url: http://localhost:3000\n`;
+                outputArea.innerHTML += `event - compiled successfully\n`;
+            }
+            else {
+                outputArea.innerHTML += `Usage: npm install [package] | npm run dev\n`;
+            }
             break;
 
         case 'sl':
@@ -876,7 +922,7 @@ function processCommand(cmd, outputArea, overlay) {
 
             for (let date = 1; date <= lastDate; date++) {
                 if (date === today) {
-                    calOutput += `<span style="color: #c5c5c5; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
+                    calOutput += `<span style="color: #ffffff; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
                 } else {
                     calOutput += `${date.toString().padStart(2, ' ')} `;
                 }
