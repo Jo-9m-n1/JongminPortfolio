@@ -886,7 +886,7 @@ function processCommand(cmd, outputArea, overlay) {
                 }
             }
 
-            outputArea.innerHTML += `<pre style="font-family: monospace; line-height: 1.2;">${calOutput}\n</pre>`;
+            outputArea.innerHTML += `<pre style="font-family: monospace; line-height: 1.2;">${calOutput}</pre>`;
             break;
 
         case 'sudo':
@@ -914,7 +914,7 @@ function processCommand(cmd, outputArea, overlay) {
     \\  /\\_/\\
       ( o.o )
        > ^ <
-\n`;
+`;
             break;
 
         case 'df':
@@ -964,7 +964,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
-\n`;
+`;
             } else {
                 outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt\n`;
             }
@@ -1056,7 +1056,7 @@ function closeTerminal(overlay) {
 const wins = [
     "[2ND] DAWSON ROBOTICS HACKATHON",
     "[WINNER] DIALOGUE EMPLOYEES HACKATHON",
-    "[AWARD] CONCORDIA HACKDÉCOUVERTE",
+    "[AWARD] HACKDÉCOUVERTE",
     "[1ST] HME MATH CONTEST",
     "[STREAK] 4 CONSECUTIVE HACKATHON WINS",
     "[2ND] CONUHACKS DIALOGUE TRACK"
