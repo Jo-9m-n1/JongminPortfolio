@@ -1052,3 +1052,24 @@ function closeTerminal(overlay) {
     document.body.classList.remove('terminal-active');
     setTimeout(() => { overlay.remove(); }, 500);
 }
+
+const wins = [
+    "[2ND] DAWSON ROBOTICS HACKATHON",
+    "[WINNER] DIALOGUE EMPLOYEES HACKATHON",
+    "[AWARD] CONCORDIA HACKDÉCOUVERTE",
+    "[1ST] HME MATH CONTEST",
+    "[STREAK] 4 CONSECUTIVE HACKATHON WINS",
+    "[2ND] CONUHACKS DIALOGUE TRACK"
+];
+
+function initializeTicker() {
+    const track = document.getElementById('ticker-track');
+    
+    const fullList = [...wins, ...wins];
+    
+    track.innerHTML = fullList.map(item => `
+        <span class="ticker-text">${item}</span>
+    `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', initializeTicker);

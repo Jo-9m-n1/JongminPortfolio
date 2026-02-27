@@ -1815,3 +1815,95 @@ body.dark-mode .terminal-prompt {
 .terminal-icon {
     stroke-width: 2.5;
 }
+
+.minimal-ticker {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0; 
+    background: transparent;
+    
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-loop 40s linear infinite;
+}
+
+.ticker-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888888;
+    letter-spacing: 0.1em;
+    padding: 0 50px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+@keyframes scroll-loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.minimal-ticker {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    background: transparent;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.site-footer {
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+.footer-main-row {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+.footer-sub-row p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.footer-social-row {
+    margin-top: 5px !important;
+}
+
+.footer-link {
+    margin: 0 8px;
+    font-size: 1.1rem;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-loop 40s linear infinite;
+}
+
+.ticker-text {
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 0.1em;
+    padding: 0 50px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@keyframes scroll-loop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.minimal-ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
