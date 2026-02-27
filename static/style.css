@@ -1903,7 +1903,3 @@ body.dark-mode .terminal-prompt {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-
-.minimal-ticker:hover .ticker-track {
-    animation-play-state: paused;
-}
