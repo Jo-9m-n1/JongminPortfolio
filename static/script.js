@@ -680,8 +680,8 @@ document.addEventListener("keydown", (e) => {
 
 function initTerminal() {
     document.body.classList.add('terminal-active');
-    const terminalHTML = `
-        <div id="terminal-overlay">
+    const terminalHTML = 
+`        <div id="terminal-overlay">
             <div class="terminal-output" id="term-output">
 Jongmin OS [Version 1.0.0]
 (c) 2026 Jongmin Lee. All rights reserved.
@@ -780,8 +780,8 @@ function processCommand(cmd, outputArea, overlay) {
 
     switch(mainCmd) {
         case 'help':
-            outputArea.innerHTML += `
-Available commands:
+            outputArea.innerHTML += 
+`Available commands:
   <span class="term-keyword">neofetch</span>      - Display system information
   <span class="term-keyword">whoami</span>        - Display current user info
   <span class="term-keyword">ls [-la]</span>      - List directory contents
@@ -803,15 +803,15 @@ Available commands:
             break;
 
         case 'neofetch':
-            outputArea.innerHTML += `
-<span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">OS:</span> JongminOS v1.0
-<span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Host:</span> Montreal, QC
-<span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
-<span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Uptime:</span> 18 years
-<span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
-                 <span class="term-keyword">Languages:</span> EN, FR, KO
+            outputArea.innerHTML += 
+`                 <span class="term-keyword">OS:</span> JongminOS v1.0
+<span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">Host:</span> Montreal, QC
+<span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
+<span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 18 years
+<span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
+<span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, EN
                  <span class="term-keyword">Hobbies:</span> Badminton, Watching Movies
-\n`;
+`;
             break;
 
         case 'sl':
@@ -918,14 +918,14 @@ Available commands:
             break;
 
         case 'df':
-            outputArea.innerHTML += `
-Filesystem           Size      Used     Avail  Use%  Mounted on
+            outputArea.innerHTML += 
+`Filesystem           Size      Used     Avail  Use%  Mounted on
 <span style="color:#FFD700;">/dev/hackathons      4.0G      4.0G      0.0G  100%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
 <span class="term-keyword">Status:</span> 4/4 Hackathons won. 
 Win Rate: <span style="color:#00ff00;">100%</span> [██████████]
-\n`;
+`;
             break;
 
         case 'reboot':
@@ -958,8 +958,8 @@ Win Rate: <span style="color:#00ff00;">100%</span> [█████████�
 
         case 'ls':
             if (args[1] === '-la' || args[1] === '-l') {
-                outputArea.innerHTML += `
-drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">projects</span>
+                outputArea.innerHTML += 
+`drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">projects</span>
 drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achievements</span>
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
