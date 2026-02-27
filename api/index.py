@@ -180,7 +180,7 @@ def achievements():
             'title': 'Best Use of Gemini API | HackDécouverte',
             'event': 'Concordia University',
             'date': '2025. 11. 29.',
-            'desc': "Competed in Quebec's largest pre-university hackathon. Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
+            'desc': "Competed in Concordia's first pre-university hackathon. Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
             'color': '#D4AF37',
             'category': 'software canada stem',
             'link_type': 'mentormates',

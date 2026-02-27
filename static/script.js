@@ -678,6 +678,8 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+let virtualPackages = ['dev']; 
+
 function initTerminal() {
     document.body.classList.add('terminal-active');
     const terminalHTML = 
@@ -822,10 +824,9 @@ function processCommand(cmd, outputArea, overlay) {
 
             if (subCmd === 'install' || subCmd === 'i') {
                 if (!pkg) {
-                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> install: Provide a package name\n`;
+                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> install: Provide a package name.\n`;
                     break;
                 }
-
                 outputArea.innerHTML += `npm <span style="color: #4ade80;">installing</span> ${pkg}...\n`;
                 
                 const progressId = 'progress-' + Math.random().toString(36).substr(2, 9);
@@ -839,24 +840,45 @@ function processCommand(cmd, outputArea, overlay) {
                     progress += 10;
                     const dots = "=".repeat(progress / 10);
                     const spaces = " ".repeat(10 - (progress / 10));
-                    progressBar.innerHTML = `[${dots}${spaces}] ${progress}%`;
+                    if (progressBar) progressBar.innerHTML = `[${dots}${spaces}] ${progress}%`;
 
                     if (progress >= 100) {
                         clearInterval(interval);
-                        outputArea.innerHTML += `<span style="color: #4ade80;">added 1 package and audited 2 packages in 2s</span>\n`;
+                        
+                        if (!virtualPackages.includes(pkg)) {
+                            virtualPackages.push(pkg);
+                        }
+
+                        outputArea.innerHTML += `<span style="color: #4ade80;">added 1 package and audited 2 packages in 0.8s</span>\n`;
                         outputArea.innerHTML += `found <span style="color: #4ade80;">0</span> vulnerabilities\n`;
                         overlay.scrollTop = overlay.scrollHeight;
-                        inputField.focus();
+                        
+                        const inputField = document.getElementById('terminal-input-field');
+                        if (inputField) inputField.focus();
                     }
-                }, 200);
+                }, 150); 
             } 
-            else if (subCmd === 'run' && pkg === 'dev') {
-                outputArea.innerHTML += `<span style="color: #4ade80;">> next dev</span>\n`;
-                outputArea.innerHTML += `ready - started server on 0.0.0.0:3000, url: http://localhost:3000\n`;
-                outputArea.innerHTML += `event - compiled successfully\n`;
-            }
-            else {
-                outputArea.innerHTML += `Usage: npm install [package] | npm run dev\n`;
+            else if (subCmd === 'run') {
+                if (!pkg) {
+                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> run: Provide a script name\n`;
+                    break;
+                }
+
+                if (virtualPackages.includes(pkg)) {
+                    outputArea.innerHTML += `<span style="color: #4ade80;">> ${pkg}@1.0.0 start</span>\n`;
+                    outputArea.innerHTML += `<span style="color: #4ade80;">> node index.js</span>\n\n`;
+                    
+                    setTimeout(() => {
+                        outputArea.innerHTML += `[info] Initializing <span style="color: #3b82f6;">${pkg}</span> build...\n`;
+                        outputArea.innerHTML += `<span style="color: #4ade80;">[SUCCESS]</span> App is running on port ${Math.floor(Math.random() * 5000 + 3000)}\n`;
+                        overlay.scrollTop = overlay.scrollHeight;
+                    }, 600);
+                } else {
+                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> missing script: ${pkg}\n`;
+                    outputArea.innerHTML += `<span style="color: #666;">Tip: Try running 'npm install ${pkg}' first.</span>\n`;
+                }
+            } else {
+                outputArea.innerHTML += `Usage: npm install [package] | npm run [package]\n`;
             }
             break;
 
