@@ -827,6 +827,12 @@ function processCommand(cmd, outputArea, overlay) {
                     outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> install: Provide a package name.\n`;
                     break;
                 }
+
+                if (virtualPackages.includes(pkg)) {
+                    outputArea.innerHTML += `npm <span style="color: #fbbf24;">info</span> ${pkg} is already installed in the virtual_registry.\n`;
+                    break;
+                }
+                
                 outputArea.innerHTML += `npm <span style="color: #4ade80;">installing</span> ${pkg}...\n`;
                 
                 const progressId = 'progress-' + Math.random().toString(36).substr(2, 9);
@@ -1042,7 +1048,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             if (args[1] === 'skills.txt') {
                 outputArea.innerHTML += `[Languages] Python, JavaScript, HTML, CSS\n[Frameworks] Next.js, Flask\n`;
             } else if (args[1] === 'contact.txt') {
-                outputArea.innerHTML += `Github: github.com/jo-9m-n1\nLinkedIn: linkedin.com/in/jo-9m-n1\n`;
+                outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/Jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nFeb 2026 | Planned: UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack`;
             } else if (!args[1]) {
