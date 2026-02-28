@@ -162,12 +162,12 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Will Participate | UdeM GameJam',
+            'title': 'Currently Participating | UdeM GameJam',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
             'start-date': '2026-02-27T16:00:00',
             'end-date': '2026-03-01T17:00:00',
-            'desc': 'Currently preparing for this upcoming hackathon...',
+            'desc': 'Currently in this hackathon.',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },

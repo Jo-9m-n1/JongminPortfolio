@@ -416,7 +416,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const allEvents = JSON.parse(rawData);
     const rawEvents = allEvents.filter(ev => 
-        ev.title && ev.title.includes("Will Participate") && ev['start-date'] && ev['end-date']
+        ev.title && 
+        (ev.title.includes("Will Participate") || ev.title.includes("Currently Participating")) && 
+        ev['start-date'] && 
+        ev['end-date']
     );
 
     const now = new Date();
@@ -430,8 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (now >= startDate && now <= endDate) {
             targetEvent = {
-                title: ev.title.replace("Will Participate | ", ""),
-                dateStr: ev.date,
+                title: ev.title.replace(/(Will Participate \| |Currently Participating \| )/, ""),                dateStr: ev.date,
                 startDate: startDate,
                 endDate: endDate,
                 rawStartDate: ev['start-date']
