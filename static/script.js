@@ -1149,3 +1149,209 @@ function initializeTicker() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeTicker);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const trophies = [
+        { name: "ConUHacks", type: "Hackathon", year: "2026" },
+        { name: "HackDécouverte", type: "Hackathon", year: "2025" },
+        { name: "Dawson Robotics Hackathon", type: "Hackathon", year: "2025" },
+        { name: "Waterloo Cayley Math Contest", type: "Contest", year: "2022" },
+        { name: "The Ultimate Math League", type: "Contest", year: "2019" },
+        { name: "Ministry of Justice of the Republic of Korea", type: "Contest", year: "2016" },
+        { name: "HME Math Contest", type: "Contest", year: "2016" },
+        { name: "Sekwang Student Piano Competition", type: "Contest", year: "2015" },
+        { name: "HME Math Contest", type: "Contest", year: "2016" },
+        { name: "Dental Health Awareness Art Contest", type: "Contest", year: "2013" },
+        { name: "International Children's Art Grand Exhibition", type: "Contest", year: "2011" },
+        { name: "Children's Day Art Competition", type: "Contest", year: "2011" }
+    ];
+
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === konamiCode[konamiIndex].toLowerCase() || e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                openTrophyRoom();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+
+        if (e.key === 'Escape' && document.getElementById('trophy-room')) {
+            closeTrophyRoom();
+        }
+    });
+
+    function openTrophyRoom() {
+        if (document.getElementById('trophy-room')) return;
+
+        const room = document.createElement('div');
+        room.id = 'trophy-room';
+        room.innerHTML = `
+            <div class="trophy-content">
+                <button class="close-btn" onclick="document.getElementById('trophy-room').remove()">✕</button>
+                <h2 class="trophy-title">THE VAULT</h2>
+                <p class="trophy-subtitle">12 COMPETITION AWARDS</p>
+                <div class="shelf-grid">
+                    ${trophies.map(t => `
+                        <div class="trophy-item">
+                            <i class="fa-solid fa-trophy trophy-icon"></i>
+                            <div class="trophy-info">
+                                <span class="t-name">${t.name}</span>
+                                <span class="t-year">${t.year}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        document.body.appendChild(room);
+
+        requestAnimationFrame(() => {
+            room.classList.add('active');
+        });
+    }
+
+    function closeTrophyRoom() {
+        const room = document.getElementById('trophy-room');
+        room.classList.remove('active');
+        setTimeout(() => room.remove(), 400);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buildNumber = document.getElementById('build-number');
+    let tapCount = 0;
+    let tapTimer;
+    let isDeveloper = false;
+    let toastTimeout;
+
+    const toast = document.createElement('div');
+    toast.id = 'android-toast';
+    document.body.appendChild(toast);
+
+    function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }
+
+    if (buildNumber) {
+        buildNumber.addEventListener('click', () => {
+            if (isDeveloper) {
+                showToast("System is already running in Developer Mode.");
+                return;
+            }
+
+            tapCount++;
+            clearTimeout(tapTimer);
+
+            const remaining = 7 - tapCount;
+
+            if (remaining > 0 && remaining <= 3) {
+                showToast(`[SYSTEM] ${remaining} steps away from Developer mode.`);
+            } else if (remaining === 0) {
+                isDeveloper = true;
+                showToast("ACCESS GRANTED: Developer Mode activated.");
+                activateDeveloperMode();
+            }
+
+            tapTimer = setTimeout(() => { 
+                if (!isDeveloper) tapCount = 0; 
+            }, 1500);
+        });
+    }
+
+    function activateDeveloperMode() {
+        document.body.spellcheck = false;
+        document.designMode = "on";
+        document.body.classList.add('developer-mode');
+
+        const styleId = 'dev-mode-styles';
+        if (!document.getElementById(styleId)) {
+            const style = document.createElement('style');
+            style.id = styleId;
+            style.innerHTML = `
+                body { animation: screenShake 0.4s ease-in-out; }
+                
+                /* 🎯 인디케이터를 제외한 요소에만 주황색 박스 표시 */
+                .developer-mode *:not(#dev-badge):not(#dev-badge *) :hover {
+                    outline: 2px solid #ffae00 !important;
+                    outline-offset: 4px;
+                    background-color: rgba(255, 174, 0, 0.05) !important;
+                    cursor: text !important;
+                }
+
+                /* 인디케이터 박스 내부는 편집 및 호버 효과 차단 */
+                #dev-badge {
+                    user-select: none !important;
+                    -webkit-user-modify: read-only !important;
+                }
+
+                @keyframes screenShake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+                    20%, 40%, 60%, 80% { transform: translateX(2px); }
+                }
+
+                @keyframes badgeEntrance {
+                    from { opacity: 0; transform: translateX(-50%) translateY(-20px) scale(0.9); }
+                    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        const badge = document.createElement('div');
+        badge.id = 'dev-badge';
+        badge.setAttribute('contenteditable', 'false');
+        
+        badge.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px; pointer-events: none;">
+                <div style="width: 8px; height: 8px; background: #ffae00; border-radius: 50%; box-shadow: 0 0 8px #ffae00;"></div>
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; line-height: 1;">You can edit text</span>
+                    <span style="font-size: 13px; color: #fff; font-weight: 700; margin-top: 4px;">DEVELOPER MODE</span>
+                </div>
+            </div>
+            <div id="exit-btn" style="margin-left: 15px; padding: 4px 10px; background: rgba(255,68,68,0.1); border-radius: 4px; font-size: 10px; color: #ff4444; font-weight: bold; border: 1px solid rgba(255,68,68,0.3); transition: 0.2s;">EXIT</div>
+        `;
+
+        badge.style.cssText = `
+            position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center;
+            background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 22px; border-radius: 100px;
+            z-index: 2147483647; font-family: 'Inter', sans-serif; cursor: default;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: badgeEntrance 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 0.3s ease;
+        `;
+
+        const exitBtn = badge.querySelector('#exit-btn');
+        exitBtn.style.cursor = 'pointer';
+        exitBtn.onmouseover = () => { exitBtn.style.background = "rgba(255,68,68,0.2)"; };
+        exitBtn.onmouseout = () => { exitBtn.style.background = "rgba(255,68,68,0.1)"; };
+
+        exitBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.designMode = "off";
+            document.body.spellcheck = true;
+            document.body.classList.remove('developer-mode');
+            isDeveloper = false;
+            tapCount = 0;
+            badge.style.opacity = "0";
+            badge.style.transform = "translateX(-50%) translateY(-20px)";
+            setTimeout(() => badge.remove(), 300);
+            showToast("Developer mode disabled.");
+        });
+
+        document.body.appendChild(badge);
+    }
+});

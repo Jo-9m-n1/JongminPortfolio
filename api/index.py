@@ -172,7 +172,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Winner | Dialogue Employees Hackathon',
+            'title': 'Award Winner | Dialogue Employees Hackathon',
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
             'desc': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments using Skinive API.',
