@@ -8,6 +8,19 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
+        'id': 'deckmots',
+        'tags': ['hackathon'],
+        'title': 'DeckMots',
+        'category': 'Hackathon 2026',
+        'tech': [],
+        'description': 'Currently developing the website.',
+        'full_story': 'Detailed analysis forthcoming.',
+        'full_tech': [],
+        'troubles': 'Currently developing the website',
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
+        'images': []
+    },
+    {
         'id': 'chemically-bonding',
         'tags': ['school'],
         'title': 'Chemically Bonding',
@@ -15,7 +28,7 @@ PROJECTS = [
         'tech': ['Python', 'JavaScript', 'Gemini API'],
         'description': 'Currently developing the website.',
         'full_story': 'Detailed analysis forthcoming.',
-        'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API'],
+        'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
         'troubles': 'Currently developing the website',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': []
