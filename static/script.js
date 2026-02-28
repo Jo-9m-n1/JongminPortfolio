@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (titleEl) titleEl.innerText = targetEvent.title;
 
     function switchToLiveTheme() {
-        if (dateEl) dateEl.innerText = "HACKING IN PROGRESS...";
+        if (dateEl) dateEl.innerText = "IN PROGRESS...";
         if (timerEl) {
             timerEl.style.fontSize = "1.8rem";
             timerEl.innerHTML = "I am currently in this competition!";
