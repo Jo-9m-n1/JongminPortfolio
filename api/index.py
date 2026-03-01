@@ -16,7 +16,7 @@ PROJECTS = [
         'description': 'Currently developing the website.',
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
-        'troubles': 'Currently developing the website',
+        'troubles': 'Currently developing the website.',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': []
     },
@@ -26,17 +26,20 @@ PROJECTS = [
         'title': 'DeckMots',
         'category': 'Hackathon 2026',
         'tech': ['C#', 'Unity'],
-        'description': 'DeckMots is designed for two players sharing the same device. Each player drafts a team of unique characters (Slimes, Knights, Orcs, Totems), each with their own stats and difficulty level. When a unit strikes, the defending player must answer a timed French language question to avoid taking damage.',
+        'description': 'Developed at a French GameJam, DeckMots uses Unity and C#. It is designed for two players sharing the same device. Each player drafts a team of unique characters (Slimes, Knights, Orcs, Totems), each with their own stats and difficulty level. When a unit strikes, the defending player must answer a timed French language question to avoid taking damage.',
         'full_story': 'Detailed analysis forthcoming.',
         'full_tech': ['C#', 'Unity', 'JSON'],
-        'troubles': 'Currently developing the website',
+        'troubles': 'Detailed analysis forthcoming.',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': ["/static/DeckMot.webp",
                    "/static/DeckMot1.png",
                    "/static/DeckMot2.png",
                    "/static/DeckMot3.png",
                    "/static/DeckMot4.png",
-                   "/static/DeckMot5.png"]
+                   "/static/DeckMot5.png"],
+        'external_links': [
+            {'name': 'Project on Itch.io', 'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079', 'icon': 'fa-solid fa-code-branch'}
+        ]
     },
     {
         'id': 'personal-website',
@@ -55,7 +58,7 @@ PROJECTS = [
         'id': 'dr-bob',
         'tags': ['hackathon'],
         'title': 'Dr. Bob',
-        'award': '2nd Place: Dialogue Challenge at ConUHacks', 
+        'award': '2nd Place: Dialogue Track at ConUHacks', 
         'category': 'Hackathon 2026',
         'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
         'description': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
@@ -71,7 +74,10 @@ PROJECTS = [
                    "/static/DrBob6.png", 
                    "/static/DrBob8.png",
                    "/static/DrBob9.png",
-                   "/static/DrBob11.png"]
+                   "/static/DrBob11.png"],
+        'external_links': [
+            {'name': 'Project on Devpost', 'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 'icon': 'fa-solid fa-code-branch'}
+        ]
     },
     {
         'id': 'meeting-app',
@@ -160,8 +166,8 @@ def achievements():
             'title': 'Will Participate | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
-            'start-date': '2026-03-13T12:00:00',
-            'end-date': '2026-03-15T17:00:00',
+            'start-date': '2026-03-13T17:30:00',
+            'end-date': '2026-03-15T16:00:00',
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software hardware canada stem'
@@ -170,10 +176,15 @@ def achievements():
             'title': 'Participated | UdeM GameJam',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
-            'desc': 'Currently in this hackathon.',
+            'desc': 'Participated in a French GameJam and made "DeckMot", a card game to help users learn French in a fun way using Unity and C#.',
             'category': 'software canada stem',
-            'link_type': 'itch.io',
-            'link': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079'
+            'external_links': [
+                {
+                    'name': 'Project on Itch.io',
+                    'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
         },
         {
             'title': 'Award Winner | Dialogue Internal Hackathon',
@@ -190,8 +201,13 @@ def achievements():
             'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
-            'link_type': 'devpost',
-            'link': "https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA.."
+            'external_links': [
+                {
+                    'name': 'Project on Devpost',
+                    'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
         },
         {
             'title': 'Best Use of Gemini API | HackDécouverte',
@@ -200,8 +216,13 @@ def achievements():
             'desc': "Competed in Concordia's first pre-university hackathon. Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
             'color': '#D4AF37',
             'category': 'software canada stem',
-            'link_type': 'mentormates',
-            'link': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd'
+            'external_links': [
+                {
+                    'name': 'Project on MentorMates',
+                    'url': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
         },
         {
             'title': '2nd Place | Dawson Robotics Hackathon',
@@ -321,9 +342,14 @@ def achievements():
             'event': 'Online',
             'date': '2025. 08. 02.',
             'desc': 'Completed comprehensive mental health support training to better assist people in distress.',
-            'category': 'health',
-            'link_type': 'certificate',
-            'link': "/static/BeThereCertificate.pdf"
+            'category': 'health stem',
+            'external_links': [
+                {
+                    'name': 'View Certificate',
+                    'url': '/static/BeThereCertificate.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
         },        
         {
             'title': 'Engineering Intern',
@@ -346,7 +372,13 @@ def achievements():
             'date': '2024. 10. 20.',
             'desc': "Volunteered for Dawson's science open house event.",
             'category': 'job canada',
-            'link': "/static/Volunteerism.pdf"
+            'external_links': [
+                {
+                    'name': 'View Proof',
+                    'url': '/static/Volunteerism.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
         },
         {
             'title': 'Peer Tutoring',
