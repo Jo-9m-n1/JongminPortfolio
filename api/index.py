@@ -12,10 +12,10 @@ PROJECTS = [
         'tags': ['hackathon'],
         'title': 'DeckMots',
         'category': 'Hackathon 2026',
-        'tech': [],
+        'tech': ['C#', 'Unity'],
         'description': 'Currently developing the website.',
         'full_story': 'Detailed analysis forthcoming.',
-        'full_tech': [],
+        'full_tech': ['C#', 'Unity'],
         'troubles': 'Currently developing the website',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': []
@@ -172,7 +172,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Award Winner | Dialogue Employees Hackathon',
+            'title': 'Award Winner | Dialogue Internal Hackathon',
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
             'desc': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments using Skinive API.',

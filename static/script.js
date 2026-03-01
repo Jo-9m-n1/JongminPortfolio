@@ -1052,7 +1052,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/Jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
-                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nFeb 2026 | Planned: UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack`;
+                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nFeb 2026 | Currently Participating: UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack\n`;
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
@@ -1152,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', initializeTicker);
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
         { name: "ConUHacks", type: "Hackathon", year: "2026" },
         { name: "HackDécouverte", type: "Hackathon", year: "2025" },
         { name: "Dawson Robotics Hackathon", type: "Hackathon", year: "2025" },
@@ -1160,7 +1161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Ministry of Justice of the Republic of Korea", type: "Contest", year: "2016" },
         { name: "HME Math Contest", type: "Contest", year: "2016" },
         { name: "Sekwang Student Piano Competition", type: "Contest", year: "2015" },
-        { name: "HME Math Contest", type: "Contest", year: "2016" },
+        { name: "HME Math Contest", type: "Contest", year: "2014" },
         { name: "Dental Health Awareness Art Contest", type: "Contest", year: "2013" },
         { name: "International Children's Art Grand Exhibition", type: "Contest", year: "2011" },
         { name: "Children's Day Art Competition", type: "Contest", year: "2011" }
@@ -1194,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn" onclick="document.getElementById('trophy-room').remove()">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">12 COMPETITION AWARDS</p>
+                <p class="trophy-subtitle">13 COMPETITION AWARDS</p>
                 <div class="shelf-grid">
                     ${trophies.map(t => `
                         <div class="trophy-item">
@@ -1280,7 +1281,6 @@ document.addEventListener('DOMContentLoaded', () => {
             style.innerHTML = `
                 body { animation: screenShake 0.4s ease-in-out; }
                 
-                /* 🎯 인디케이터를 제외한 요소에만 주황색 박스 표시 */
                 .developer-mode *:not(#dev-badge):not(#dev-badge *) :hover {
                     outline: 2px solid #ffae00 !important;
                     outline-offset: 4px;
@@ -1288,7 +1288,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     cursor: text !important;
                 }
 
-                /* 인디케이터 박스 내부는 편집 및 호버 효과 차단 */
                 #dev-badge {
                     user-select: none !important;
                     -webkit-user-modify: read-only !important;
@@ -1354,4 +1353,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(badge);
     }
+});
+
+let originalTitle = document.title;
+window.addEventListener('blur', () => {
+    document.title = "Don't leave me :(";
+    unlockSecret('tabPrank');
+});
+window.addEventListener('focus', () => {
+    document.title = originalTitle;
 });
