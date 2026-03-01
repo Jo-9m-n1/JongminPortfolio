@@ -786,8 +786,8 @@ function processCommand(cmd, outputArea, overlay) {
         case 'help':
             outputArea.innerHTML += 
 `Available commands:
-  <span class="term-keyword" style="display: inline-block; width: 120px;">npm install</span>  - Install a new package
-  <span class="term-keyword" style="display: inline-block; width: 120px;">npm run dev</span>  - Start local development server
+  <span class="term-keyword">npm install</span>   - Install a new package
+  <span class="term-keyword">npm run dev</span>   - Start local development server
   <span class="term-keyword">neofetch</span>      - Display system information
   <span class="term-keyword">whoami</span>        - Display current user info
   <span class="term-keyword">ls</span>            - List directory contents
@@ -996,11 +996,11 @@ function processCommand(cmd, outputArea, overlay) {
         case 'df':
             outputArea.innerHTML += 
 `Filesystem           Size      Used     Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      4.0G      4.0G      0.0G  100%  /mnt/trophy-case</span>
+<span style="color:#FFD700;">/dev/hackathons      5.0G      4.0G      1.0G   80%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
-<span class="term-keyword">Status:</span> 4/4 Hackathons won. 
-Win Rate: <span style="color:#00ff00;">100%</span> [██████████]
+<span class="term-keyword">Status:</span> 4/5 Hackathons won. 
+Win Rate: <span style="color:#00ff00;">80%</span> [████████░░]
 `;
             break;
 
@@ -1052,7 +1052,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/Jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
-                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nFeb 2026 | Currently Participating: UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack\n`;
+                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nMar 2026 | UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack\n`;
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
@@ -1134,7 +1134,6 @@ const wins = [
     "[WINNER] DIALOGUE EMPLOYEES HACKATHON",
     "[AWARD] HACKDÉCOUVERTE",
     "[1ST] HME MATH CONTEST",
-    "[STREAK] 4 CONSECUTIVE HACKATHON WINS",
     "[2ND] CONUHACKS DIALOGUE TRACK"
 ];
 

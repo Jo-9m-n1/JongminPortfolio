@@ -85,7 +85,7 @@
 
             <div class="col-6 col-md-3">
                 <div class="timeline-card p-3 h-100 shadow-sm text-center">
-                    <div class="display-6 fw-bold text-success counter" data-target="4">0</div>
+                    <div class="display-6 fw-bold text-success counter" data-target="5">0</div>
                     <div class="small text-muted fw-bold">Hackathons</div>
                 </div>
             </div>
@@ -148,6 +148,9 @@
                                     {% elif honor.link_type == 'mentormates' %}
                                         <i class="fa-solid fa-code-branch me-2"></i>
                                         <span>Project on MentorMates</span>
+                                    {% elif honor.link_type == 'itch.io' %}
+                                        <i class="fa-solid fa-code-branch me-2"></i>
+                                        <span>Project on Itcho.io</span>
                                     {% elif honor.link_type == 'github' %}
                                         <i class="fa-brands fa-github me-2"></i>
                                         <span>View Source Code</span>

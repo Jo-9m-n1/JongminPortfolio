@@ -8,19 +8,6 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
-        'id': 'deckmots',
-        'tags': ['hackathon'],
-        'title': 'DeckMots',
-        'category': 'Hackathon 2026',
-        'tech': ['C#', 'Unity'],
-        'description': 'Currently developing the website.',
-        'full_story': 'Detailed analysis forthcoming.',
-        'full_tech': ['C#', 'Unity'],
-        'troubles': 'Currently developing the website',
-        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': []
-    },
-    {
         'id': 'chemically-bonding',
         'tags': ['school'],
         'title': 'Chemically Bonding',
@@ -32,6 +19,24 @@ PROJECTS = [
         'troubles': 'Currently developing the website',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': []
+    },
+    {
+        'id': 'deckmots',
+        'tags': ['hackathon'],
+        'title': 'DeckMots',
+        'category': 'Hackathon 2026',
+        'tech': ['C#', 'Unity'],
+        'description': 'DeckMots is designed for two players sharing the same device. Each player drafts a team of unique characters (Slimes, Knights, Orcs, Totems), each with their own stats and difficulty level. When a unit strikes, the defending player must answer a timed French language question to avoid taking damage.',
+        'full_story': 'Detailed analysis forthcoming.',
+        'full_tech': ['C#', 'Unity', 'JSON'],
+        'troubles': 'Currently developing the website',
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
+        'images': ["/static/DeckMot.webp",
+                   "/static/DeckMot1.png",
+                   "/static/DeckMot2.png",
+                   "/static/DeckMot3.png",
+                   "/static/DeckMot4.png",
+                   "/static/DeckMot5.png"]
     },
     {
         'id': 'personal-website',
@@ -162,14 +167,13 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Currently Participating | UdeM GameJam',
+            'title': 'Participated | UdeM GameJam',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
-            'start-date': '2026-02-27T16:00:00',
-            'end-date': '2026-03-01T17:00:00',
             'desc': 'Currently in this hackathon.',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
+            'category': 'software canada stem',
+            'link_type': 'itch.io',
+            'link': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079'
         },
         {
             'title': 'Award Winner | Dialogue Internal Hackathon',
