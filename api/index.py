@@ -180,7 +180,7 @@ def achievements():
             'category': 'software canada stem',
             'external_links': [
                 {
-                    'name': 'Project on Itch.io',
+                    'name': 'View Project on Itch.io',
                     'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079',
                     'icon': 'fa-solid fa-code-branch'
                 }
@@ -203,7 +203,7 @@ def achievements():
             'category': 'software health canada stem',
             'external_links': [
                 {
-                    'name': 'Project on Devpost',
+                    'name': 'View Project on Devpost',
                     'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..',
                     'icon': 'fa-solid fa-code-branch'
                 }
@@ -218,7 +218,7 @@ def achievements():
             'category': 'software canada stem',
             'external_links': [
                 {
-                    'name': 'Project on MentorMates',
+                    'name': 'View Project on MentorMates',
                     'url': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd',
                     'icon': 'fa-solid fa-code-branch'
                 }

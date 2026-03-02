@@ -810,13 +810,13 @@ function processCommand(cmd, outputArea, overlay) {
 
         case 'neofetch':
             outputArea.innerHTML += 
-`                 <span class="term-keyword">OS:</span> JongminOS v1.0
+`                 <span class="term-keyword">OS:</span> JongminOS v1.0.0
 <span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">Host:</span> Montreal, QC
 <span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
 <span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 18 years
 <span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
 <span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, FR
-                 <span class="term-keyword">Hobbies:</span> Badminton, Watching Movies
+                 <span class="term-keyword">Hobbies:</span> Badminton, Piano, Movies
 `;
             break;
 
@@ -1052,7 +1052,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/Jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
-                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon\nNov 2025 | HackDécouverte\nJan 2026 | ConUHacks\nFeb 2026 | Dialogue Employees Hackathon\nMar 2026 | UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHack\n`;
+                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>\nNov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>\nJan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>\nFeb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>\nMar 2026 | UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHacks\n`;
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
