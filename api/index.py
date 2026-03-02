@@ -98,9 +98,9 @@ PROJECTS = [
         'tags': ['school'],
         'title': 'J-Score*',
         'category': 'School Project 2025',
-        'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation.',
+        'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation, group-strength and more.',
         'tech': ['Python', 'JavaScript', 'CSV'],
-        'full_story': 'James and I developed the J-Score as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me make application as a team and win few hackathons.',
+        'full_story': 'James and I developed the J-Score* as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me make application as a team and win few hackathons.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'CSV'],
         'troubles': "Initially, the Flask application couldn't distinguish which user was requesting a deletion; it would simply remove the top line of the CSV database, regardless of who it belonged to. This created a major data integrity issue. To solve this, I researched how to pass contextual data through the frontend without cluttering the UI. I implemented hidden HTML inputs to bind specific user metadata to the request. This allowed the backend to verify the user’s identity and target the correct row in the CSV file, ensuring that users could only modify their own data. This challenge taught me the vital importance of state management and request context in web applications.",
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
@@ -176,7 +176,7 @@ def achievements():
             'title': 'Participated | UdeM GameJam',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
-            'desc': 'Participated in a French GameJam and made "DeckMot", a card game to help users learn French in a fun way using Unity and C#.',
+            'desc': 'Participated in a French GameJam and made DeckMot, a card game to help users learn French in a fun way using Unity and C#.',
             'category': 'software canada stem',
             'external_links': [
                 {
@@ -198,7 +198,7 @@ def achievements():
             'title': '2nd Place | Dialogue Track at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 850 participants and developed 'Dr. Bob', an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 850 participants and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'external_links': [
@@ -213,7 +213,7 @@ def achievements():
             'title': 'Best Use of Gemini API | HackDécouverte',
             'event': 'Concordia University',
             'date': '2025. 11. 29.',
-            'desc': "Competed in Concordia's first pre-university hackathon. Developed 'BudgetX', an AI budeting website using Next.js, Gemini API and others.",
+            'desc': "Competed in Concordia's first pre-university hackathon. Developed BudgetX, an AI budeting website using Next.js, Gemini API and others.",
             'color': '#D4AF37',
             'category': 'software canada stem',
             'external_links': [
