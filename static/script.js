@@ -1189,10 +1189,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('trophy-room')) return;
 
         const room = document.createElement('div');
-        room.id = 'trophy-room';
+        room.id = 'trophy-room';        
         room.innerHTML = `
             <div class="trophy-content">
-                <button class="close-btn" onclick="document.getElementById('trophy-room').remove()">✕</button>
+                <button class="close-btn">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
                 <p class="trophy-subtitle">13 COMPETITION AWARDS</p>
                 <div class="shelf-grid">
@@ -1210,6 +1210,17 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(room);
 
+        room.addEventListener('click', (e) => {
+            if (e.target === room) {
+                closeTrophyRoom();
+            }
+        });
+
+        const closeBtn = room.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeTrophyRoom);
+        }
+
         requestAnimationFrame(() => {
             room.classList.add('active');
         });
@@ -1217,6 +1228,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeTrophyRoom() {
         const room = document.getElementById('trophy-room');
+        if (!room) return;
+        
         room.classList.remove('active');
         setTimeout(() => room.remove(), 400);
     }
@@ -1357,7 +1370,6 @@ document.addEventListener('DOMContentLoaded', () => {
 let originalTitle = document.title;
 window.addEventListener('blur', () => {
     document.title = "Don't leave me :(";
-    unlockSecret('tabPrank');
 });
 window.addEventListener('focus', () => {
     document.title = originalTitle;
