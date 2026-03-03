@@ -1005,10 +1005,23 @@ Win Rate: <span style="color:#00ff00;">80%</span> [████████░�
             break;
 
         case 'reboot':
-            outputArea.innerHTML += `System is going down for reboot NOW!\n`;
+            const messages = [
+                "System is going down for reboot NOW!",
+                "Stopping system services...",
+                "Unmounting file systems...",
+                "Rebooting..."
+            ];
+
+            messages.forEach((msg, index) => {
+                setTimeout(() => {
+                    outputArea.innerHTML += `${msg}\n`;
+                    outputArea.scrollTop = outputArea.scrollHeight;
+                }, index * 1400);
+            });
+
             setTimeout(() => {
-                location.reload();
-            }, 1000);
+                window.location.href = "/";
+            }, messages.length * 1400);
             break;
 
         case 'history':
