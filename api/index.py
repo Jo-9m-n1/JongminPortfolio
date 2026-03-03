@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 PROJECTS = [
     {
         'id': 'chemically-bonding',
-        'tags': ['school'],
+        'tags': ['school', 'team'],
         'title': 'Chemically Bonding',
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
@@ -22,7 +22,7 @@ PROJECTS = [
     },
     {
         'id': 'deckmots',
-        'tags': ['hackathon'],
+        'tags': ['hackathon', 'team'],
         'title': 'DeckMots',
         'category': 'Hackathon 2026',
         'tech': ['C#', 'Unity'],
@@ -56,7 +56,7 @@ PROJECTS = [
     },
     {
         'id': 'dr-bob',
-        'tags': ['hackathon'],
+        'tags': ['hackathon', 'team'],
         'title': 'Dr. Bob',
         'award': '2nd Place: Dialogue Track at ConUHacks', 
         'category': 'Hackathon 2026',
@@ -95,7 +95,7 @@ PROJECTS = [
     },
     {
         'id': 'j-score',
-        'tags': ['school'],
+        'tags': ['school', 'team'],
         'title': 'J-Score*',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation, group-strength and more.',
