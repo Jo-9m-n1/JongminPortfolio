@@ -125,23 +125,23 @@
                 {% if p.collaborators %}
                 <div class="card border-0 shadow-sm rounded-4 mb-4" style="background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.6) !important;">
                     <div class="card-body p-3">
-                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-users text-primary me-2"></i>Teammate{{ 's' if p.collaborators|length > 1 else '' }}</h5>
-                        <div class="d-flex flex-wrap gap-2">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-users text-primary me-2"></i>Teammate{{ 's' if p.collaborators|length > 1 else '' }}</h5>
+                            <div class="d-flex flex-wrap gap-2">
                             {% for person in p.collaborators %}
                                 {% if person is mapping %} 
                                     {% if person.linkedin %}
                                         <a href="{{ person.linkedin }}" target="_blank" class="teammate-pill linked text-decoration-none">
-                                            <i class="fa-solid fa-user-circle me-1"></i> {{ person.name }}
+                                            <i class="fa-solid fa-user me-1"></i> {{ person.name }}
                                             <i class="fa-brands fa-linkedin ms-1 small-icon"></i>
                                         </a>
                                     {% else %}
                                         <span class="teammate-pill">
-                                            <i class="fa-solid fa-user-circle me-1"></i> {{ person.name }}
+                                            <i class="fa-solid fa-user me-1"></i> {{ person.name }}
                                         </span>
                                     {% endif %}
                                 {% else %} 
                                     <span class="teammate-pill">
-                                        <i class="fa-solid fa-user-circle me-1"></i> {{ person }}
+                                        <i class="fa-solid fa-user me-1"></i> {{ person }}
                                     </span>
                                 {% endif %}
                             {% endfor %}

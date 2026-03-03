@@ -14,7 +14,7 @@ PROJECTS = [
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
         'description': 'Currently developing the website.',
-        'full_story': 'Detailed analysis forthcoming.',
+        'full_story': 'Currently developing the website for our integrative project at Dawson College.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
         'troubles': 'Currently developing the website.',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
@@ -38,7 +38,7 @@ PROJECTS = [
                    "/static/DeckMot4.png",
                    "/static/DeckMot5.png"],
         'external_links': [
-            {'name': 'Project on Itch.io', 'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079', 'icon': 'fa-solid fa-code-branch'}
+            {'name': 'View Project on Itch.io', 'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079', 'icon': 'fa-solid fa-code-branch'}
         ]
     },
     {
@@ -62,7 +62,7 @@ PROJECTS = [
         'category': 'Hackathon 2026',
         'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
         'description': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-        'full_story': 'Detailed analysis forthcoming.',
+        'full_story': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in English or French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI API, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonding which also uses an AI API.",
         'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a low-latency user experience.',
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
@@ -76,7 +76,7 @@ PROJECTS = [
                    "/static/DrBob9.png",
                    "/static/DrBob11.png"],
         'external_links': [
-            {'name': 'Project on Devpost', 'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 'icon': 'fa-solid fa-code-branch'}
+            {'name': 'View Project on Devpost', 'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 'icon': 'fa-solid fa-code-branch'}
         ]
     },
     {
