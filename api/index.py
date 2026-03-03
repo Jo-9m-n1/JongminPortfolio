@@ -48,10 +48,10 @@ PROJECTS = [
         'category': 'Personal Project 2026',
         'tech': ['Python', 'JavaScript'],
         'description': 'Developed a responsive personal portfolio website using Flask and Python for backend.',
-        'full_story': 'Detailed analysis forthcoming.',
+        'full_story': 'I developed this interactive website to provide a deeper look into my background. It includes my key projects, skills, professional experiences and a collection of awards that I have earned throughout my journey (with more being added soon from my archives). As a bonus, I have hidden a few Easter eggs throughout my website for you to find them. Good luck :)',
         'full_tech': ['Python', 'Flask', 'JavaScript'],
         'troubles': 'Detailed analysis forthcoming.',
-        'images': ["/static/MyPersonalWebsite1.png", 
+        'images': ["/static/MyPersonalWebsite1.png",
                    "/static/MyPersonalWebsite2.png",
                    "/static/MyPersonalWebsite3.png"]
     },
