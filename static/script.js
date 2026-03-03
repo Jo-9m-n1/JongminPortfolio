@@ -1063,7 +1063,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             if (args[1] === 'skills.txt') {
                 outputArea.innerHTML += `[Languages] Python, JavaScript, HTML, CSS\n[Frameworks] Next.js, Flask\n`;
             } else if (args[1] === 'contact.txt') {
-                outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/Jo_9m_n1\n`;
+                outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>\nNov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>\nJan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>\nFeb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>\nMar 2026 | UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHacks\n`;
             } else if (!args[1]) {
@@ -1143,7 +1143,7 @@ function closeTerminal(overlay) {
 }
 
 const wins = [
-    "[AWARD] DIALOGUE INTERNAL HACKATHON",
+    "[BEST NEW GENRE] DIALOGUE INTERNAL HACKATHON",
     "[2ND] DAWSON ROBOTICS HACKATHON",
     "[1ST] HME MATH CONTEST",
     "[AWARD] HACKDÉCOUVERTE",

@@ -8,9 +8,9 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
-        'id': 'chemically-bonding',
+        'id': 'chemically-bonded',
         'tags': ['school', 'team'],
-        'title': 'Chemically Bonding',
+        'title': 'Chemically Bonded',
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
         'description': 'Currently developing the website.',
@@ -63,7 +63,7 @@ PROJECTS = [
         'category': 'Hackathon 2026',
         'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
         'description': 'Developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-        'full_story': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in English or French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI API, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonding which also uses an AI API.",
+        'full_story': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in English or French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI API, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses an AI API.",
         'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a low-latency user experience.',
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
@@ -188,7 +188,7 @@ def achievements():
             ]
         },
         {
-            'title': 'Award Winner | Dialogue Internal Hackathon',
+            'title': 'Best New Genre | Dialogue Internal Hackathon',
             'event': 'Dialogue Health Technologies Inc',
             'date': '2026. 02. 12. - 2026. 02. 13.',
             'desc': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments using Skinive API.',
