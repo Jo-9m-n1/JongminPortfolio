@@ -52,7 +52,8 @@ PROJECTS = [
         'full_tech': ['Python', 'Flask', 'JavaScript'],
         'troubles': 'Detailed analysis forthcoming.',
         'images': ["/static/MyPersonalWebsite1.png", 
-                   "/static/MyPersonalWebsite2.png"]
+                   "/static/MyPersonalWebsite2.png",
+                   "/static/MyPersonalWebsite3.png"]
     },
     {
         'id': 'dr-bob',
