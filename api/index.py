@@ -38,7 +38,16 @@ PROJECTS = [
                    "/static/DeckMot4.png",
                    "/static/DeckMot5.png"],
         'external_links': [
-            {'name': 'View Project on Itch.io', 'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079', 'icon': 'fa-solid fa-code-branch'}
+            {
+                'name': 'View Project on Itch.io', 
+                'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079', 
+                'icon': 'fa-solid fa-code-branch'
+            },
+            {
+                'name': 'View Certificate', 
+                'url': '/static/DeckMotCertificate.pdf', 
+                'icon': 'fa-solid fa-file-pdf'
+            }
         ]
     },
     {
@@ -77,7 +86,11 @@ PROJECTS = [
                    "/static/DrBob9.png",
                    "/static/DrBob11.png"],
         'external_links': [
-            {'name': 'View Project on Devpost', 'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 'icon': 'fa-solid fa-code-branch'}
+            {
+                'name': 'View Project on Devpost', 
+                'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 
+                'icon': 'fa-solid fa-code-branch'
+            }
         ]
     },
     {
@@ -184,6 +197,10 @@ def achievements():
                     'name': 'View Project on Itch.io',
                     'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079',
                     'icon': 'fa-solid fa-code-branch'
+                },
+                {'name': 'View Certificate', 
+                 'url': '/static/DeckMotCertificate.pdf', 
+                 'icon': 'fa-solid fa-file-pdf'
                 }
             ]
         },
@@ -410,7 +427,7 @@ def achievements():
             'title': 'Junior Jazz Band',
             'event': 'Rosemount High School',
             'date': 'Fall 2021 - Winter 2022',
-            'desc': "Part of the junior jazz band.",
+            'desc': "Part of the junior jazz band and played the trumpet.",
             'category': 'canada arts'
 
         },
