@@ -280,8 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function() {
     const words = [
         "a Computer Scientist", 
-        "a Full-stack Developer",  
-        "a Problem Solver"
+        "a Full-stack Developer"
     ];
     
     let wordIndex = 0;
@@ -1016,12 +1015,12 @@ Win Rate: <span style="color:#00ff00;">80%</span> [████████░�
                 setTimeout(() => {
                     outputArea.innerHTML += `${msg}\n`;
                     outputArea.scrollTop = outputArea.scrollHeight;
-                }, index * 1400);
+                }, index * 950);
             });
 
             setTimeout(() => {
                 window.location.href = "/";
-            }, messages.length * 1400);
+            }, messages.length * 950);
             break;
 
         case 'history':
