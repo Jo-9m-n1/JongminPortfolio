@@ -27,7 +27,7 @@ PROJECTS = [
         'category': 'Hackathon 2026',
         'tech': ['C#', 'Unity'],
         'description': 'Developed at a French GameJam, DeckMots uses Unity and C#. It is designed for two players sharing the same device. Each player drafts a team of unique characters (Slimes, Knights, Orcs, Totems), each with their own stats and difficulty level. When a unit strikes, the defending player must answer a timed French language question to avoid taking damage.',
-        'full_story': 'My teammates, James, Alex and I developed this game during a hackathon at the University of Montreal (UdeM). This was my first French hackathon and my first time building a game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
+        'full_story': 'My teammates, James, Alex and I developed this game during a hackathon (GameJam) at the University of Montreal (UdeM). This was my first French hackathon and my first time building a game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
         'full_tech': ['C#', 'Unity', 'JSON'],
         'troubles': "Initially, we wanted to develop this as an online multiplayer game. However, after several hours of server development, we realized we did not have the necessary access to utilize Unity Relay. Consequently, we had to pivot our strategy to a local multiplayer format on one device. While an online experience would have been ideal, this constraint allowed us to focus on perfecting the core gameplay mechanics within the hackathon's timeframe of 3 days.",
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
@@ -187,7 +187,7 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Participated | UdeM GameJam',
+            'title': 'Participated | GameJam de la FSÉ',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
             'desc': 'Participated in a French GameJam and made DeckMot, a card game to help users learn French in a fun way using Unity and C#.',
@@ -198,9 +198,10 @@ def achievements():
                     'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079',
                     'icon': 'fa-solid fa-code-branch'
                 },
-                {'name': 'View Certificate', 
-                 'url': '/static/DeckMotCertificate.pdf', 
-                 'icon': 'fa-solid fa-file-pdf'
+                {
+                    'name': 'View Certificate', 
+                    'url': '/static/DeckMotCertificate.pdf', 
+                    'icon': 'fa-solid fa-file-pdf'
                 }
             ]
         },
@@ -406,19 +407,19 @@ def achievements():
             'category': 'canada job stem math'
         },
         {
-            'title': 'Music Award',
+            'title': 'Music achievement Award',
             'event': 'Rosemount High School',
             'date': '2023',
-            'desc': "Won a highschool music award (trumpet).",
+            'desc': "Won a high school music award (trumpet).",
             'color': '#D4AF37',
             'category': 'canada arts'
 
         },
         {
-            'title': 'Music Award',
+            'title': 'Musician Award',
             'event': 'Rosemount High School',
             'date': '2022',
-            'desc': "Won a highschool music award (trumpet).",
+            'desc': "Won a high school music award (trumpet).",
             'color': '#D4AF37',
             'category': 'canada arts'
 
