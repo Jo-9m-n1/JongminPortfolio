@@ -187,6 +187,16 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
+            'title': 'Currently Participating | @Hack',
+            'event': 'Concordia University',
+            'date': '2026. 03. 07. - 2026. 03. 08.',
+            'start-date': '2026-03-07T07:30:00',
+            'end-date': '2026-03-08T14:15:00',
+            'desc': 'Currently in this hackathon...',
+            'color': '#cbd5e1',
+            'category': 'software canada stem'
+        },
+        {
             'title': 'Participated | GameJam de la FSÉ',
             'event': 'University of Montreal',
             'date': '2026. 02. 27. - 2026. 03. 01.',
