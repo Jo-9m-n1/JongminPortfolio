@@ -998,7 +998,7 @@ function processCommand(cmd, outputArea, overlay) {
 <span style="color:#FFD700;">/dev/hackathons      5.0G      4.0G      1.0G   80%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
-<span class="term-keyword">Status:</span> 4/5 Hackathons won. 
+<span class="term-keyword">Status:</span> 4/5 Hackathons won 
 Win Rate: <span style="color:#00ff00;">80%</span> [████████░░]
 `;
             break;
@@ -1064,7 +1064,18 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
-                outputArea.innerHTML += `May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>\nNov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>\nJan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>\nFeb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>\nMar 2026 | UdeM GameJam\nMar 2026 | Planned: McGill AeroHacks\nMar 2026 | Planned: VanierHacks!\nApr 2026 | Planned: JacHacks\nApr 2026 | Planned: MariHacks\nMay 2026 | Planned: DawsHacks\n`;
+                outputArea.innerHTML += 
+`May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
+Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
+Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
+Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
+Mar 2026 | UdeM GameJam
+Mar 2026 | Currently Participating: @HACK
+Mar 2026 | Planned: McGill AeroHacks
+Mar 2026 | Planned: VanierHacks!
+Apr 2026 | Planned: JacHacks
+Apr 2026 | Planned: MariHacks
+May 2026 | Planned: DawsHacks\n`;
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
