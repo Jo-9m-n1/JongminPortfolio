@@ -187,7 +187,7 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Currently Participating | @Hack',
+            'title': 'Currently Participating | @HACK',
             'event': 'Concordia University',
             'date': '2026. 03. 07. - 2026. 03. 08.',
             'start-date': '2026-03-07T07:30:00',
