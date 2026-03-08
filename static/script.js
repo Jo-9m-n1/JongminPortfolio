@@ -994,12 +994,12 @@ function processCommand(cmd, outputArea, overlay) {
 
         case 'df':
             outputArea.innerHTML += 
-`Filesystem           Size      Used     Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      5.0G      4.0G      1.0G   80%  /mnt/trophy-case</span>
+`Filesystem           Size      Used      Avail  Use%  Mounted on
+<span style="color:#FFD700;">/dev/hackathons      6.0G      5.0G      1.0G   83%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
-<span class="term-keyword">Status:</span> 4/5 Hackathons won 
-Win Rate: <span style="color:#00ff00;">80%</span> [████████░░]
+<span class="term-keyword">Status:</span> 5/6 Hackathons won 
+Win Rate: <span style="color:#00ff00;">83%</span> [████████░░]
 `;
             break;
 
@@ -1070,7 +1070,7 @@ Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
 Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
 Mar 2026 | UdeM GameJam
-Mar 2026 | Currently Participating: @HACK
+Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Planned: McGill AeroHacks
 Mar 2026 | Planned: VanierHacks!
 Apr 2026 | Planned: JacHacks
@@ -1174,6 +1174,7 @@ document.addEventListener('DOMContentLoaded', initializeTicker);
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "@HACK", type: "Hackathon", year: "2026" },
         { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
         { name: "ConUHacks", type: "Hackathon", year: "2026" },
         { name: "HackDécouverte", type: "Hackathon", year: "2025" },
@@ -1217,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">13 COMPETITION AWARDS</p>
+                <p class="trophy-subtitle">14 COMPETITION AWARDS</p>
                 <div class="shelf-grid">
                     ${trophies.map(t => `
                         <div class="trophy-item">

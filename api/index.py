@@ -124,7 +124,6 @@ PROJECTS = [
     }
 ]
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -187,14 +186,19 @@ def achievements():
             'category': 'software hardware canada stem'
         },
         {
-            'title': 'Currently Participating | @HACK',
+            'title': '3rd Place | Beginner Track at @HACK',
             'event': 'Concordia University',
             'date': '2026. 03. 07. - 2026. 03. 08.',
-            'start-date': '2026-03-07T07:30:00',
-            'end-date': '2026-03-08T14:15:00',
-            'desc': 'Currently in this hackathon...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
+            'desc': 'Competed in my first-ever Cybersecurity (CTF) hackathon, winning $800 with a score of 4,100 points.',
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': 'View the Progression Chart',
+                    'url': '/static/Progression.png',
+                    'icon': 'fa-solid fa-chart-line'
+                }
+            ]
         },
         {
             'title': 'Participated | GameJam de la FSÉ',
