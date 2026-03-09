@@ -189,7 +189,7 @@ def achievements():
             'title': '3rd Place | Beginner Track at @HACK',
             'event': 'Concordia University',
             'date': '2026. 03. 07. - 2026. 03. 08.',
-            'desc': 'Competed in my first-ever Cybersecurity (CTF) hackathon, winning $800 with a score of 4,100 points.',
+            'desc': 'Competed in my first-ever Cybersecurity (CTF) hackathon, placed at 9th place overall and 3rd place in the beginner track. Scored 4,100 points and won a $800 cash prize.',
             'color': '#D4AF37',
             'category': 'software canada stem',
             'external_links': [
