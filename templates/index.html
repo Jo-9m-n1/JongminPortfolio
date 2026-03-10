@@ -21,22 +21,23 @@
     </head>
     <body>
         <div id="progress-bar"></div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-                <div class="container d-flex justify-content-between align-items-center">
-                    <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
+                
+                <div class="d-flex align-items-center gap-4">
+                    <a href="javascript:void(0)" class="terminal-nav-link" style="color: black;" onclick="initTerminal()">
+                        <i class="me-2">>_</i> 
+                        <span class="d-none d-sm-inline">Terminal</span>
+                    </a>
                     
-                    <div class="d-flex align-items-center gap-4">
-                        <a href="javascript:void(0)" class="terminal-nav-link" style="color: black;" onclick="initTerminal()">
-                            <i>>_ </i>
-                            <span class="d-none d-sm-inline"> Terminal</span>
-                        </a>
-                        <a href="/static/resume.pdf" class="terminal-nav-link" target="_blank" style="color: black;">
-                            <i class="fa-solid fa-file-pdf"></i> 
-                            <span class="d-none d-sm-inline">Resume</span>
-                        </a>
-                    </div>
+                    <a href="/static/resume.pdf" class="terminal-nav-link" target="_blank" style="color: black;">
+                        <i class="fa-solid fa-file-pdf me-2"></i> 
+                        <span class="d-none d-sm-inline">Resume</span>
+                    </a>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
         {% block body %}
         <div class="interactive-bg">

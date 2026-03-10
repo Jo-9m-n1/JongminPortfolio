@@ -1130,6 +1130,20 @@ body.dark-mode .award-border .badge.bg-warning {
     text-shadow: none !important;
 }
 
+body.dark-mode #trophy-room .shelf-grid .trophy-item .trophy-icon,
+body.dark-mode #trophy-room .shelf-grid .trophy-item:hover .trophy-icon {
+    color: rgba(255, 174, 0, 0.7) !important;
+    -webkit-text-fill-color: rgba(255, 174, 0, 0.7) !important;
+    
+    filter: none !important;
+    -webkit-filter: none !important;
+    filter: drop-shadow(0 0 10px rgba(255, 174, 0, 0.6)) !important;
+    
+    color-scheme: light; 
+    
+    background-color: transparent !important;
+}
+
 body.dark-mode .award-border .badge.bg-warning i,
 body.dark-mode .award-border .fa-trophy {
     color: #000000 !important;
