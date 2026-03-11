@@ -951,7 +951,7 @@ function processCommand(cmd, outputArea, overlay) {
 
             for (let date = 1; date <= lastDate; date++) {
                 if (date === today) {
-                    calOutput += `<span style="color: #ffffff; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
+                    calOutput += `<span style="color: #ffffff !important; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
                 } else {
                     calOutput += `${date.toString().padStart(2, ' ')} `;
                 }
@@ -981,8 +981,8 @@ function processCommand(cmd, outputArea, overlay) {
         case 'catsay':
             const msg = args.slice(1).join(' ') || "Meow! Code is compiling...";
             const border = "-".repeat(msg.length + 4);
-            outputArea.innerHTML += `
-  ${border}
+            outputArea.innerHTML += 
+`  ${border}
   < ${msg} >
   ${border}
    \\
