@@ -709,7 +709,7 @@ Type 'help' to see a list of available commands.
     
     const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
     const directories = ['projects', 'achievements'];
-    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', '.bashrc'];
+    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'education.txt', 'projects.txt'];
 
     inputField.addEventListener('keydown', function(e) {
         if (e.key === 'Tab') {
@@ -1049,12 +1049,14 @@ Win Rate: <span style="color:#00ff00;">83%</span> [████████░�
                 outputArea.innerHTML += 
 `drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">projects</span>
 drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achievements</span>
+-rw-r--r--  1 jongmin jongmin  1024 Mar 11 10:19 projects.txt
+-rw-r--r--  1 jongmin jongmin  1024 Mar 11 10:09 education.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
 `;
             } else {
-                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt\n`;
+                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt   education.txt   projects.txt\n`;
             }
             break;
 
@@ -1078,6 +1080,21 @@ Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
 Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
 May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
 `;
+            } else if (args[1] === 'education.txt') {
+                outputArea.innerHTML += 
+`2019 - 2024               | Rosemount High School
+2024 - 2026 (Est.)        | Dawson College
+2026 (Est.) - 2029 (Est.) | McGill University
+`  
+            } else if (args[1] === 'projects.txt') {
+                outputArea.innerHTML += 
+`May 2026 | Chemically Bonded
+Mar 2026 | DeckMots
+Feb 2026 | Personal Website
+Feb 2026 | Dr. Bob <i class="fa-solid fa-trophy"></i>
+Dec 2025 | Meeting App
+Dec 2025 | J-Score*
+` 
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
