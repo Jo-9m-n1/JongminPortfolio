@@ -1082,9 +1082,9 @@ May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
 `;
             } else if (args[1] === 'education.txt') {
                 outputArea.innerHTML += 
-`2019 - 2024               | Rosemount High School
+`2026 (Est.) - 2029 (Est.) | McGill University
 2024 - 2026 (Est.)        | Dawson College
-2026 (Est.) - 2029 (Est.) | McGill University
+2019 - 2024               | Rosemount High School
 `  
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
