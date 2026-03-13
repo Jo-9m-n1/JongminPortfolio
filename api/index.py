@@ -186,7 +186,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Will Participate | McGill AeroHacks',
+            'title': 'Currently Participating | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
             'start-date': '2026-03-13T17:30:00',

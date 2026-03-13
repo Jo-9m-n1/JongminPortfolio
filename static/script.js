@@ -1072,7 +1072,7 @@ Apr 2026 | Upcoming: MariHacks
 Apr 2026 | Upcoming: JacHacks
 Mar 2026 | Upcoming: Championing AI for good
 Mar 2026 | Upcoming: VanierHacks!
-Mar 2026 | Upcoming: McGill AeroHacks
+Mar 2026 | Currently Participating: McGill AeroHacks
 Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 Mar 2026 | UdeM GameJam
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
