@@ -193,7 +193,14 @@ def achievements():
             'end-date': '2026-03-15T16:00:00',
             'desc': 'Currently in this hackathon...',
             'color': '#cbd5e1',
-            'category': 'software hardware canada stem'
+            'category': 'software hardware canada stem',
+            'external_links': [
+                {
+                    'name': 'View Project on Devpost',
+                    'url': 'https://devpost.com/software/the-ganders',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
         },
         {
             'title': '3rd Place | Beginner Track at @HACK',
@@ -247,7 +254,7 @@ def achievements():
             'external_links': [
                 {
                     'name': 'View Project on Devpost',
-                    'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..',
+                    'url': 'https://devpost.com/software/dr-bob',
                     'icon': 'fa-solid fa-code-branch'
                 }
             ]
