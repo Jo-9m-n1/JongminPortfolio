@@ -1074,7 +1074,7 @@ Mar 2026 | Upcoming: Championing AI for good
 Mar 2026 | Upcoming: VanierHacks!
 Mar 2026 | Currently Participating: McGill AeroHacks
 Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
-Mar 2026 | UdeM GameJam
+Mar 2026 | GameJam de la FSÉ
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
 Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
 Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
@@ -1088,7 +1088,7 @@ May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
 `  
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
-`May 2026 | Chemically Bonded
+`May 2026 | Currently Working: Chemically Bonded
 Mar 2026 | DeckMots
 Feb 2026 | Personal Website
 Feb 2026 | Dr. Bob <i class="fa-solid fa-trophy"></i>
