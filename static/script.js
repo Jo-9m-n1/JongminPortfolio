@@ -1171,27 +1171,6 @@ function closeTerminal(overlay) {
     setTimeout(() => { overlay.remove(); }, 500);
 }
 
-const wins = [
-    "[BEST NEW GENRE] DIALOGUE INTERNAL HACKATHON",
-    "[3RD] @HACK BEGINNER TRACK",
-    "[2ND] DAWSON ROBOTICS HACKATHON",
-    "[1ST] HME MATH CONTEST",
-    "[AWARD] HACKDÉCOUVERTE",
-    "[2ND] CONUHACKS DIALOGUE TRACK"
-];
-
-function initializeTicker() {
-    const track = document.getElementById('ticker-track');
-    
-    const fullList = [...wins, ...wins];
-    
-    track.innerHTML = fullList.map(item => `
-        <span class="ticker-text">${item}</span>
-    `).join('');
-}
-
-document.addEventListener('DOMContentLoaded', initializeTicker);
-
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
         { name: "@HACK", type: "Hackathon", year: "2026" },
