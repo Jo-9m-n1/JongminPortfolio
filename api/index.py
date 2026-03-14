@@ -191,7 +191,7 @@ def achievements():
             'date': '2026. 03. 13. - 2026. 03. 15.',
             'start-date': '2026-03-13T17:30:00',
             'end-date': '2026-03-15T16:00:00',
-            'desc': 'Currently preparing for this upcoming hackathon...',
+            'desc': 'Currently in this hackathon...',
             'color': '#cbd5e1',
             'category': 'software hardware canada stem'
         },
