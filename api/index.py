@@ -184,13 +184,11 @@ def achievements():
             'category': 'software canada stem health'
         },
         {
-            'title': 'Currently Participating | McGill AeroHacks',
+            'title': '1st Place | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
-            'start-date': '2026-03-13T17:30:00',
-            'end-date': '2026-03-15T16:00:00',
-            'desc': 'Currently in this hackathon...',
-            'color': '#cbd5e1',
+            'desc': "Won McGill's first drone hackathon with 220+ participants using pocket-sized ESP32-powered drones and Python.",
+            'color': '#D4AF37',
             'category': 'software hardware canada stem',
             'external_links': [
                 {

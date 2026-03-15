@@ -995,11 +995,11 @@ function processCommand(cmd, outputArea, overlay) {
         case 'df':
             outputArea.innerHTML += 
 `Filesystem           Size      Used      Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      6.0G      5.0G      1.0G   83%  /mnt/trophy-case</span>
+<span style="color:#FFD700;">/dev/hackathons      7.0G      6.0G      1.0G   86%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
-<span class="term-keyword">Status:</span> 5/6 Hackathons won 
-Win Rate: <span style="color:#00ff00;">83%</span> [████████░░]
+<span class="term-keyword">Status:</span> 6/7 Hackathons won 
+Win Rate: <span style="color:#00ff00;">86%</span> [█████████░]
 `;
             break;
 
@@ -1071,7 +1071,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 Apr 2026 | Upcoming: MariHacks
 Apr 2026 | Upcoming: JacHacks
 Mar 2026 | Upcoming: Championing AI for good
-Mar 2026 | Currently Participating: McGill AeroHacks
+Mar 2026 | McGill AeroHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 Mar 2026 | GameJam de la FSÉ
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
@@ -1172,6 +1172,7 @@ function closeTerminal(overlay) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "McGill AeroHacks", type: "Hackathon", year: "2026" },
         { name: "@HACK", type: "Hackathon", year: "2026" },
         { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
         { name: "ConUHacks", type: "Hackathon", year: "2026" },
@@ -1216,7 +1217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">14 COMPETITION AWARDS</p>
+                <p class="trophy-subtitle">15+ COMPETITION AWARDS</p>
                 <div class="shelf-grid">
                     ${trophies.map(t => `
                         <div class="trophy-item">
