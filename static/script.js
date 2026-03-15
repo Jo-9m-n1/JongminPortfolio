@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let typeSpeed = isDeleting ? 40 : 100;
 
         if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000;
+            typeSpeed = 3500;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
