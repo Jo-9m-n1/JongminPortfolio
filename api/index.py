@@ -48,7 +48,9 @@ PROJECTS = [
                 'url': '/static/DeckMotCertificate.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
             }
-        ]
+        ],
+        'published': 'March 3, 2026',
+        'updated': 'March 9, 2026'
     },
     {
         'id': 'personal-website',
@@ -62,7 +64,9 @@ PROJECTS = [
         'troubles': 'Detailed analysis forthcoming.',
         'images': ["/static/MyPersonalWebsite1.png",
                    "/static/MyPersonalWebsite2.png",
-                   "/static/MyPersonalWebsite3.png"]
+                   "/static/MyPersonalWebsite3.png"],
+        'published': 'March 3, 2026',
+        'updated': 'March 4, 2026'
     },
     {
         'id': 'dr-bob',
@@ -91,7 +95,9 @@ PROJECTS = [
                 'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 
                 'icon': 'fa-solid fa-code-branch'
             }
-        ]
+        ],
+        'published': 'March 2, 2026',
+        'updated': 'March 4, 2026' 
     },
     {
         'id': 'meeting-app',
@@ -105,7 +111,8 @@ PROJECTS = [
         'troubles': 'Detailed analysis forthcoming.',
         'images': ["/static/MeetingApp1.png",
                    "/static/MeetingApp3.png",
-                   "/static/MeetingApp5.png"]
+                   "/static/MeetingApp5.png"],
+        'published': 'March 4, 2026'
     },
     {
         'id': 'j-score',
@@ -120,7 +127,9 @@ PROJECTS = [
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
         'images': ["/static/J-score1.png",
                    "/static/J-score2.png",
-                   "/static/J-score3.png"]
+                   "/static/J-score3.png"],
+        'published': 'Feburary 15, 2026',
+        'updated': 'March 4, 2026'
     }
 ]
 
