@@ -176,16 +176,6 @@ def achievements():
             'category': 'software canada stem health'
         },
         {
-            'title': 'Will Participate | VanierHacks!',
-            'event': 'Vanier College',
-            'date': '2026. 03. 21. - 2026. 03. 22.',
-            'start-date': '',
-            'end-date': '',
-            'desc': 'Currently preparing for this upcoming hackathon...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
-        },
-        {
             'title': 'Currently Participating | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
@@ -248,7 +238,7 @@ def achievements():
             'title': '2nd Place | Dialogue Track at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 850 participants and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 900 participants and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'external_links': [
