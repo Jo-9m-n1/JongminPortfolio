@@ -1070,7 +1070,8 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 `May 2026 | Upcoming: DawsHacks
 Apr 2026 | Upcoming: MariHacks
 Apr 2026 | Upcoming: JacHacks
-Mar 2026 | Upcoming: Championing AI for good
+Mar 2026 | Currently Participating: Championing AI for good
+Mar 2026 | Upcoming: VanierHacks!
 Mar 2026 | McGill AeroHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 Mar 2026 | GameJam de la FSÉ
