@@ -2063,3 +2063,13 @@ body.dark-mode .terminal-prompt {
 #android-toast.show {
     opacity: 1;
 }
+
+.desc-text strong {
+    font-size: 1.01em;
+    font-weight: 750;
+    color: #333;
+}
+
+body.dark-mode .desc-text strong {
+    color: #ffffff;
+}
