@@ -187,8 +187,8 @@ def achievements():
             'title': 'Will Participate | VanierHacks!',
             'event': 'Vanier College',
             'date': '2026. 03. 21. - 2026. 03. 22.',
-            'start-date': '',
-            'end-date': '',
+            'start-date': '2026-03-21T08:00:00',
+            'end-date': '2026-03-22T17:00:00',
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
