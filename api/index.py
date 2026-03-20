@@ -179,7 +179,7 @@ def achievements():
             'date': '2026. 03. 16. - 2026. 03. 23.',
             'start-date': '2026-03-16T08:30:00',
             'end-date': '2026-03-23T20:00:00',
-            'desc': 'Currently in this hackathon...',
+            'desc': 'Currently in this hackathon with 80 teams...',
             'color': '#cbd5e1',
             'category': 'software canada stem health'
         },
