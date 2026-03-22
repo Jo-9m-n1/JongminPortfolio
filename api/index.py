@@ -147,8 +147,8 @@ def achievements():
             'title': 'Will Participate | DawsHacks',
             'event': 'Dawson College',
             'date': '2026. 05. 02.',
-            'start-date': '2026-05-02T08:30:00',
-            'end-date': '2026-05-02T19:00:00',
+            'start-date': '',
+            'end-date': '',
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
@@ -177,19 +177,17 @@ def achievements():
             'title': 'Currently Participating | Championing AI for good',
             'event': 'Mila',
             'date': '2026. 03. 16. - 2026. 03. 23.',
-            'start-date': '2026-03-16T08:30:00',
-            'end-date': '2026-03-23T20:00:00',
             'desc': 'Currently in this hackathon with 80 teams...',
             'color': '#cbd5e1',
             'category': 'software canada stem health'
         },
         {
-            'title': 'Will Participate | VanierHacks!',
+            'title': 'Currently Participating | VanierHacks!',
             'event': 'Vanier College',
             'date': '2026. 03. 21. - 2026. 03. 22.',
             'start-date': '2026-03-21T08:00:00',
             'end-date': '2026-03-22T17:00:00',
-            'desc': 'Currently preparing for this upcoming hackathon...',
+            'desc': 'Currently in this hackathon with 25 teams...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
         },
