@@ -18,7 +18,19 @@ PROJECTS = [
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
         'troubles': 'Currently developing the website.',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': []
+        'thumbnail': "/static/ChemicallyBonded.png"
+    },
+        {
+        'id': 'liminal',
+        'tags': ['hackathon', 'team'],
+        'title': 'Liminal',
+        'category': 'Hackathon 2026',
+        'tech': ['Python', 'mmBERT', 'NLP', 'Cohere Command-R', 'Mistral Large 3'],
+        'description': 'Developed a dual-tier AI guardrail system to detect mental health crises in youth-facing virtual assistants, improving crisis recall by 9x (102 dataset test).',
+        'full_story': 'Will be posted soon.',
+        'full_tech': ['Python', 'PyTorch', 'HuggingFace Transformers', 'Cohere API', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
+        'troubles': 'Will be posted soon.',
+        'collaborators': [{'name': 'Édouard', 'linkedin': ''}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}]
     },
     {
         'id': 'deckmots',
@@ -31,12 +43,12 @@ PROJECTS = [
         'full_tech': ['C#', 'Unity', 'JSON'],
         'troubles': "Initially, we wanted to develop this as an online multiplayer game. However, after several hours of server development, we realized we did not have the necessary access to utilize Unity Relay. Consequently, we had to pivot our strategy to a local multiplayer format on one device. While an online experience would have been ideal, this constraint allowed us to focus on perfecting the core gameplay mechanics within the hackathon's timeframe of 3 days.",
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': ["/static/DeckMot.webp",
-                   "/static/DeckMot1.png",
+        'images': ["/static/DeckMot1.png",
                    "/static/DeckMot2.png",
                    "/static/DeckMot3.png",
                    "/static/DeckMot4.png",
                    "/static/DeckMot5.png"],
+        'thumbnail': "/static/DeckMot.webp",
         'external_links': [
             {
                 'name': 'View Project on Itch.io', 
@@ -75,7 +87,7 @@ PROJECTS = [
         'category': 'Hackathon 2026',
         'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
         'description': 'An award-winning project developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-        'full_story': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in neither in English nor French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than we did during our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI API, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses an AI API.",
+        'full_story': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English and non-French speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in neither in English nor French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than we did during our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI (Gemini) chatbot, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses a same AI API.",
         'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a low-latency user experience.',
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
@@ -96,7 +108,7 @@ PROJECTS = [
             }
         ],
         'published': 'March 2, 2026',
-        'updated': 'March 14, 2026' 
+        'updated': 'March 23, 2026' 
     },
     {
         'id': 'meeting-app',
@@ -107,7 +119,6 @@ PROJECTS = [
         'tech': ['Python', 'JavaScript'],
         'full_story': "This project began as a 'Tinder-style' concept for Cégep students to discover mutual breaks and schedule some meetups. It eventually evolved into a more versatile application, allowing the users to find common free time with any of their friends.",
         'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'pdfplumber', 'Regex', 'Werkzeug Security'],
-        'troubles': 'Detailed analysis forthcoming.',
         'images': ["/static/MeetingApp1.png",
                    "/static/MeetingApp3.png",
                    "/static/MeetingApp5.png"],
@@ -174,28 +185,31 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': 'Currently Participating | Championing AI for good',
+            'title': 'Participated | Championing AI for good',
             'event': 'Mila',
             'date': '2026. 03. 16. - 2026. 03. 23.',
-            'desc': 'Currently in this hackathon with 80 teams...',
-            'color': '#cbd5e1',
+            'desc': 'Collaborated within Team Liminal to develop an AI-driven solution for youth mental health. Implemented robust AI guardrails and adversarial red-teaming to ensure safe, empathetic interactions for high-stakes social impact.',
             'category': 'software canada stem health'
         },
         {
-            'title': 'Currently Participating | VanierHacks!',
+            'title': 'Participated | VanierHacks',
             'event': 'Vanier College',
             'date': '2026. 03. 21. - 2026. 03. 22.',
-            'start-date': '2026-03-21T08:00:00',
-            'end-date': '2026-03-22T17:00:00',
-            'desc': 'Currently in this hackathon with 25 teams...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
+            'desc': 'Achieved 8th place in a 25-team Cybersecurity CTF hackathon with a total score of 3,035 points.',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': 'View the Progression Chart',
+                    'url': '/static/Progression_Vanier.png',
+                    'icon': 'fa-solid fa-chart-line'
+                }
+            ]
         },
         {
             'title': '1st Place | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
-            'desc': "Won McGill's first drone hackathon with 220+ participants using pocket-sized ESP32-powered drones and Python.",
+            'desc': "Won McGill's first drone hackathon with 220+ participants using a pocket-sized ESP32-powered drone and two webcams.",
             'color': '#D4AF37',
             'category': 'software hardware canada stem',
             'external_links': [
@@ -216,7 +230,7 @@ def achievements():
             'external_links': [
                 {
                     'name': 'View the Progression Chart',
-                    'url': '/static/Progression.png',
+                    'url': '/static/Progression_Concordia.png',
                     'icon': 'fa-solid fa-chart-line'
                 }
             ]

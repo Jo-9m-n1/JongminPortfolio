@@ -995,11 +995,11 @@ function processCommand(cmd, outputArea, overlay) {
         case 'df':
             outputArea.innerHTML += 
 `Filesystem           Size      Used      Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      7.0G      6.0G      1.0G   86%  /mnt/trophy-case</span>
+<span style="color:#FFD700;">/dev/hackathons      9.0G      6.0G      3.0G   67%  /mnt/trophy-case</span>
 /dev/other          16.0G      8.4G      7.6G   52%  /home/jongmin
 
-<span class="term-keyword">Status:</span> 6/7 Hackathons won 
-Win Rate: <span style="color:#00ff00;">86%</span> [█████████░]
+<span class="term-keyword">Status:</span> 6/8 Hackathons won 
+Win Rate: <span style="color:#00ff00;">67%</span> [███████░░░]
 `;
             break;
 
@@ -1070,8 +1070,8 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 `May 2026 | Upcoming: DawsHacks
 Apr 2026 | Upcoming: MariHacks
 Apr 2026 | Upcoming: JacHacks
-Mar 2026 | Currently Participating: Championing AI for good
-Mar 2026 | Currently Participating: VanierHacks!
+Mar 2026 | Championing AI for good
+Mar 2026 | VanierHacks
 Mar 2026 | McGill AeroHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 Mar 2026 | GameJam de la FSÉ
@@ -1089,6 +1089,7 @@ May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
 `May 2026 | Currently Working: Chemically Bonded
+Mar 2026 | Liminal
 Mar 2026 | DeckMots
 Feb 2026 | Personal Website
 Feb 2026 | Dr. Bob <i class="fa-solid fa-trophy"></i>

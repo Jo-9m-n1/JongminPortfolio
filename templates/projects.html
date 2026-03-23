@@ -72,7 +72,6 @@
         <div id="no-results" class="text-center my-5 py-5" style="display: none;">
             <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
             <h3 class="text-muted">No projects match these filters.</h3>
-            <p class="text-muted">Try selecting a different combination of tags.</p>
             <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">Reset Filters</button>
         </div>
 
@@ -82,17 +81,9 @@
                 <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
                     <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
                         
-                        {% if p.images or p.image_url or p.video_url %}
-                        <div class="project-media-container" style="height: 250px; overflow: hidden;">
-                            {% if p.images %}
-                                <img src="{{ p.images[0] }}" class="d-block w-100 h-100" alt="{{ p.title }}" style="object-fit: cover;">
-                            {% elif p.image_url %}
-                                <img src="{{ p.image_url }}" alt="{{ p.title }}" class="w-100 h-100" style="object-fit: cover;">
-                            {% elif p.video_url %}
-                                <div class="ratio ratio-16x9 h-100">
-                                    <iframe src="{{ p.video_url }}" title="{{ p.title }}" allowfullscreen></iframe>
-                                </div>
-                            {% endif %}
+                        {% if p.thumbnail %}
+                        <div class="project-media-container" style="object-fit: cover; display: block; aspect-ratio: 16 / 9; width: 100%; overflow: hidden; background: #fdf6e3;">
+                            <img src="{{ p.thumbnail }}" class="w-100 h-100" alt="{{ p.title }}" style="object-fit: cover;">
                         </div>
                         {% endif %}
 
