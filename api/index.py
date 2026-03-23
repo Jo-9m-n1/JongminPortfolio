@@ -30,7 +30,14 @@ PROJECTS = [
         'full_story': 'Will be posted soon.',
         'full_tech': ['Python', 'PyTorch', 'HuggingFace Transformers', 'Cohere API', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
         'troubles': 'Will be posted soon.',
-        'collaborators': [{'name': 'Édouard', 'linkedin': ''}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}]
+        'collaborators': [{'name': 'Édouard', 'linkedin': ''}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}],
+        'external_links': [
+            {
+                'name': 'View Report', 
+                'url': '/static/report.pdf', 
+                'icon': 'fa-solid fa-file-pdf'
+            }
+        ]
     },
     {
         'id': 'deckmots',
@@ -189,7 +196,14 @@ def achievements():
             'event': 'Mila',
             'date': '2026. 03. 16. - 2026. 03. 23.',
             'desc': 'Collaborated within Team Liminal to develop an AI-driven solution for youth mental health. Implemented robust AI guardrails and adversarial red-teaming to ensure safe, empathetic interactions for high-stakes social impact.',
-            'category': 'software canada stem health'
+            'category': 'software canada stem health',
+            'external_links': [
+                {
+                    'name': 'View Report', 
+                    'url': '/static/report.pdf', 
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
         },
         {
             'title': 'Participated | VanierHacks',
