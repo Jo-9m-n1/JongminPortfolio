@@ -4,15 +4,12 @@
 
 <main class="container">
     <div class="interactive-bg">
-        <div class="glow-blob"></div> 
-        <div class="glow-blob"></div> 
-        <div class="glow-blob"></div> 
+        <div class="glow-blob"></div><div class="glow-blob"></div><div class="glow-blob"></div> 
         <div class="glow-cursor" id="cursorBlob"></div> 
     </div>
 
     <div class="control-header-system">
         <div class="container d-flex justify-content-between align-items-start">
-            
             <div class="fixed-back-container">
                 <div class="floating-control-pill">
                     <a href="/" class="w-100 h-100 d-flex justify-content-center align-items-center gap-2 text-decoration-none" style="color: inherit;">
@@ -21,21 +18,13 @@
                     </a>
                 </div>
             </div>
-
             <div class="floating-menu-wrapper">
                 <div class="expandable-pill" id="expandablePill">
                     <div class="pill-trigger-area">
-                        <div class="theme-toggle" id="themeToggle">
-                            <i class="fa-solid fa-moon"></i>
-                        </div>
-                        
+                        <div class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></div>
                         <div class="dynamic-menu-title">Navigation</div>
-                        
-                        <div class="menu-trigger" id="menuTrigger">
-                            <span></span><span></span><span></span>
-                        </div>
+                        <div class="menu-trigger" id="menuTrigger"><span></span><span></span><span></span></div>
                     </div>
-
                     <div class="pill-menu-content">
                         <a href="/"><i class="fa-solid fa-house"></i> Home</a>
                         <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
@@ -44,16 +33,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <div class="container my-5" id="projects">
-        <div class="container my-5 pt-5">
-            <div class="text-center mb-4">
-                <h2 class="display-5 fw-bold">Projects</h2>
-                <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
-            </div>
+        <div class="container my-5 pt-5 text-center mb-4">
+            <h2 class="display-5 fw-bold">Projects</h2>
+            <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
         </div>
 
         <div class="filter-wrapper mb-5">
@@ -69,39 +55,27 @@
             </div>
         </div>
 
-        <div id="no-results" class="text-center my-5 py-5" style="display: none;">
-            <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
-            <h3 class="text-muted">No projects match these filters.</h3>
-            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">Reset Filters</button>
-        </div>
-
         <div class="row g-4" id="projects-row">
             {% for p in projects %}
             <div class="col-md-6 filter-item {% for tag in p.tags %}{{ tag }} {% endfor %} {{ 'award-filter' if p.award }}">
                 <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
-                    <div class="card h-100 project-card shadow-sm transition-up {{ 'award-border' if p.award else 'border-0' }}">      
+                    
+                    <div class="card h-100 project-card shadow-sm transition-up overflow-hidden border-0 {{ 'award-border' if p.award else '' }}" style="background: white;">      
                         
                         {% if p.thumbnail %}
-                        <div class="project-media-container" style="object-fit: cover; display: block; aspect-ratio: 16 / 9; width: 100%; overflow: hidden; background: #fdf6e3;">
-                            <img src="{{ p.thumbnail }}" class="w-100 h-100" alt="{{ p.title }}" style="object-fit: cover;">
+                        <div class="project-media-container" style="width: calc(100% + 2px); margin-left: -1px; margin-top: -1px; aspect-ratio: 16 / 9; overflow: hidden; background: #fdf6e3; position: relative;">
+                            <img src="{{ p.thumbnail }}" class="w-100 h-100 d-block" alt="{{ p.title }}" style="object-fit: cover;">
                         </div>
                         {% endif %}
 
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="d-flex flex-column align-items-start gap-2 mb-3">
-                                
                                 {% if p.award %}
-                                <div class="badge bg-warning text-dark align-self-start rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left; line-height: 1.4;">
+                                <div class="badge bg-warning text-dark align-self-start rounded-pill px-2" style="line-height: 1.4;">
                                     <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
                                 </div>
                                 {% endif %}
-
-                                <div class="d-flex justify-content-between align-items-start w-100">
-                                    <span class="badge bg-primary rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left;">
-                                        {{ p.category }}
-                                    </span>
-                                </div>
-
+                                <span class="badge bg-primary rounded-pill px-2">{{ p.category }}</span>
                             </div>
                             
                             <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
@@ -115,14 +89,11 @@
 
                             {% if p.collaborators %}
                             <div class="collaborators mb-4">
-                                <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
-                                    Teammate{{ 's' if p.collaborators|length > 1 else '' }}
-                                </small>
+                                <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">Teammates</small>
                                 <div class="d-flex flex-wrap gap-2">
                                     {% for person in p.collaborators %}
                                     <span class="badge bg-light text-dark border rounded-pill px-2 py-1" style="font-size: 0.75rem;">
-                                        <i class="fa-solid fa-user me-1"></i> 
-                                        {{ person.name if person is mapping else person }}
+                                        <i class="fa-solid fa-user me-1"></i> {{ person.name if person is mapping else person }}
                                     </span>
                                     {% endfor %}
                                 </div>
@@ -130,17 +101,11 @@
                             {% endif %}
 
                             <div class="mt-auto pt-3 text-end">
-                                <span class="small fw-bold text-primary">
-                                    Read the full story <i class="fa-solid fa-chevron-right ms-1"></i>
-                                </span>
+                                <span class="small fw-bold text-primary">Read the full story <i class="fa-solid fa-chevron-right ms-1"></i></span>
                             </div>
                         </div>
                     </div>
                 </a>
-            </div>
-            {% else %}
-            <div class="col-12 text-center text-muted">
-                <p>No projects to display at the moment.</p>
             </div>
             {% endfor %}
         </div>
