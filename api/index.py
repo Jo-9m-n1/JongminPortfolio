@@ -29,8 +29,9 @@ PROJECTS = [
         'description': 'Developed a dual-tier AI guardrail system to detect mental health crises in youth-facing virtual assistants, improving crisis recall by 9x (102 dataset test).',
         'full_story': 'Will be posted soon.',
         'full_tech': ['Python', 'PyTorch', 'HuggingFace Transformers', 'Cohere API', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
-        'troubles': 'Will be posted soon.',
-        'collaborators': [{'name': 'Édouard', 'linkedin': ''}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}],
+        'troubles': 'Initially, we trained our model on the provided seed dataset (n=98), achieving a near-perfect F1 score. However, we suspected overfitting due to the small sample size. Test run against an external dataset (n=102) confirmed that our concerns were valid, as performance dropped significantly. To improve the generalization, we leveraged Gemini to generate synthetic data, diversifying our training set and robustifying the model.',
+        'collaborators': [{'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}],
+        'thumbnail': "/static/Liminal.png",
         'external_links': [
             {
                 'name': 'View Report', 
@@ -83,6 +84,7 @@ PROJECTS = [
         'images': ["/static/MyPersonalWebsite1.png",
                    "/static/MyPersonalWebsite2.png",
                    "/static/MyPersonalWebsite3.png"],
+        'thumbnail': "/static/MyPersonalWebsite.png",
         'published': 'March 3, 2026',
         'updated': 'March 4, 2026'
     },
