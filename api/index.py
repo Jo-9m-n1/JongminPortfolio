@@ -147,7 +147,7 @@ PROJECTS = [
         'images': ["/static/J-score1.png",
                    "/static/J-score2.png",
                    "/static/J-score3.png"],
-        'thumbnail': '/static/J-Score.png/',
+        'thumbnail': '/static/J-score.png/',
         'published': 'Feburary 15, 2026',
         'updated': 'March 4, 2026'
     }
