@@ -2074,9 +2074,8 @@ body.dark-mode .desc-text strong {
     color: #ffffff;
 }
 
-/* Add this to your CSS */
 .project-media-container {
-    background-color: #f8f9fa; /* Matches the light background of your project */
+    background-color: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2085,6 +2084,5 @@ body.dark-mode .desc-text strong {
 .project-media-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This will crop it slightly to fill the space */
-    /* Or use 'contain' if you want to see the whole slide without cropping */
+    object-fit: cover;
 }

@@ -109,6 +109,7 @@ PROJECTS = [
                    "/static/DrBob8.png",
                    "/static/DrBob9.png",
                    "/static/DrBob11.png"],
+        'thumbnail': '/static/DrBob.png/',
         'external_links': [
             {
                 'name': 'View Project on Devpost', 
@@ -131,16 +132,17 @@ PROJECTS = [
         'images': ["/static/MeetingApp1.png",
                    "/static/MeetingApp3.png",
                    "/static/MeetingApp5.png"],
+        'thumbnail': '/static/MeetingApp.png/',
         'published': 'March 4, 2026'
     },
     {
         'id': 'j-score',
         'tags': ['school', 'team'],
-        'title': 'J-Score*',
+        'title': 'J-score*',
         'category': 'School Project 2025',
         'description': 'A precision tool for calculating academic standing (r-score) using the standard deviation, group-strength and more.',
         'tech': ['Python', 'JavaScript', 'CSV'],
-        'full_story': 'James and I developed J-Score* as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me build applications within a team and eventually win a few hackathons.',
+        'full_story': 'James and I developed J-score* as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me build applications within a team and eventually win a few hackathons.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'CSV'],
         'troubles': "Initially, the Flask application couldn't distinguish which user was requesting a deletion; it would simply remove the top line of the CSV database, regardless of who it belonged to. This created a major data integrity issue. To solve this, I researched how to pass contextual data through the frontend without cluttering the UI. I implemented hidden HTML inputs to bind specific user metadata to the request. This allowed the backend to verify the user's identity and target the correct row in the CSV file, ensuring that users could only modify their own data. This challenge taught me the vital importance of state management and request context in web applications.",
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
