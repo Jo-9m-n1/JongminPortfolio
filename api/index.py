@@ -233,6 +233,11 @@ def achievements():
             'category': 'software hardware canada stem',
             'external_links': [
                 {
+                    'name': 'View Award',
+                    'url': '/static/AeroHacks.pdf/',
+                    'icon': 'fa-solid fa-award'
+                },
+                {
                     'name': 'View Project on Devpost',
                     'url': 'https://devpost.com/software/the-ganders',
                     'icon': 'fa-solid fa-code-branch'
