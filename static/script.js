@@ -811,8 +811,8 @@ function processCommand(cmd, outputArea, overlay) {
             outputArea.innerHTML += 
 `                 <span class="term-keyword">OS:</span> JongminOS v1.0.0
 <span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">Host:</span> Montreal, QC
-<span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 18.0.0-student
-<span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 18 years
+<span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 19.0.0-student
+<span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 19 years
 <span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
 <span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, FR
                  <span class="term-keyword">Hobbies:</span> Badminton, Piano, Movies
@@ -1158,7 +1158,7 @@ Dec 2025 | J-Score*
         case 'uptime':
             const date = new Date();
             const timeString = date.toTimeString().split(' ')[0];
-            outputArea.innerHTML += ` ${timeString} up 18 years, 3 users, load average: 0.00, 0.01, 0.05\n`;
+            outputArea.innerHTML += ` ${timeString} up 19 years, 3 users, load average: 0.00, 0.01, 0.05\n`;
             break;
 
         default:
