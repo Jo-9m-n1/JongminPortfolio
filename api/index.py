@@ -205,14 +205,19 @@ def achievements():
             'category': 'software canada stem',
         },
         {
-            'title': 'Will Participate | JacHacks',
+            'title': '1st Place | JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
-            'start-date': '',
-            'end-date': '',
-            'desc': 'Currently preparing for this upcoming hackathon...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem'
+            'desc': 'Won first place out of 28 teams.',
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': 'View Project on Devpost',
+                    'url': 'https://devpost.com/software/ourcampus-t2u5fs',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
         },
         {
             'title': 'Participated | Championing AI for good',
