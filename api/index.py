@@ -8,6 +8,24 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
+        'id': 'ourcampus',
+        'tags': ['hackathon', 'team'],
+        'title': 'OurCampus',
+        'category': 'Hackathon 2026',
+        'tech': ['Gemini API'],
+        'description': 'Currently developing the website.',
+        'full_story': 'Currently developing a website for JacHacks.',
+        'full_tech': ['Gemini API'],
+        'troubles': 'Currently developing the website.',
+        'collaborators': [{'name': 'Brian'}, {'name': 'Deven'}, {'name': 'Matteo'}],
+        'images': ["/static/OurCampus1.png",
+                   "/static/OurCampus2.png",
+                   "/static/OurCampus3.png",
+                   "/static/OurCampus4.png",
+                   "/static/OurCampus5.png",
+                   "/static/OurCampus6.png"],
+    },
+    {
         'id': 'chemically-bonded',
         'tags': ['school', 'team'],
         'title': 'Chemically Bonded',
@@ -20,7 +38,7 @@ PROJECTS = [
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'thumbnail': "/static/ChemicallyBonded.png"
     },
-        {
+    {
         'id': 'liminal',
         'tags': ['hackathon', 'team'],
         'title': 'Liminal',
