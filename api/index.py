@@ -221,7 +221,7 @@ def achievements():
             'title': '1st Place | JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
-            'desc': 'Won first place out of 28 teams.',
+            'desc': 'Won first place out of 28 teams and won an $800 cash prize.',
             'color': '#D4AF37',
             'category': 'software canada stem',
             'external_links': [
