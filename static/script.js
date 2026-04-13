@@ -234,14 +234,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let isRaining = false;
 
 
-    function triggerOliverRain() {
+    function triggerRain() {
         if (isRaining) return;
         isRaining = true;
 
         for (let i = 0; i < 80; i++) {
             setTimeout(() => {
                 const emojiNode = document.createElement('div');
-                emojiNode.classList.add('oliver-emoji-drop');
+                emojiNode.classList.add('emoji-drop');
                 emojiNode.innerText = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
                 
                 emojiNode.style.left = Math.random() * 100 + 'vw';
@@ -266,12 +266,12 @@ document.addEventListener("DOMContentLoaded", () => {
             typedKeys += e.key.toLowerCase();
         }
         
-        if (typedKeys.length > 12) {
-            typedKeys = typedKeys.slice(-12);
+        if (typedKeys.length > 5) {
+            typedKeys = typedKeys.slice(-5);
         }
         
-        if (typedKeys === "oliverisdumb") {
-            triggerOliverRain();
+        if (typedKeys === "emoji") {
+            triggerRain();
             typedKeys = "";
         }
     });
@@ -1175,6 +1175,7 @@ function closeTerminal(overlay) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "JACHacks", type: "Hackathon", year: "2026" },
         { name: "McGill AeroHacks", type: "Hackathon", year: "2026" },
         { name: "@HACK", type: "Hackathon", year: "2026" },
         { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
@@ -1220,7 +1221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">15+ COMPETITION AWARDS</p>
+                <p class="trophy-subtitle">16+ COMPETITION AWARDS</p>
                 <div class="shelf-grid">
                     ${trophies.map(t => `
                         <div class="trophy-item">

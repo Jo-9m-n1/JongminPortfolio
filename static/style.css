@@ -1478,18 +1478,18 @@ body {
     overflow: hidden !important;
 }
 
-@keyframes oliverRainFall {
+@keyframes RainFall {
     0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; }
     100% { transform: translateY(110vh) rotate(360deg) scale(1.5); opacity: 0; }
 }
 
-.oliver-emoji-drop {
+.emoji-drop {
     position: fixed;
     top: -10%;
     z-index: 99999 !important;
     pointer-events: none;
     user-select: none;
-    animation: oliverRainFall linear forwards;
+    animation: RainFall linear forwards;
 }
 
 .typing-cursor {
