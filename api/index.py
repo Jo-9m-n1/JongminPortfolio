@@ -25,6 +25,13 @@ PROJECTS = [
                    "/static/OurCampus4.png",
                    "/static/OurCampus5.png",
                    "/static/OurCampus6.png"],
+        'external_links': [
+            {
+                'name': 'View Project on Devpost',
+                'url': 'https://devpost.com/software/ourcampus-t2u5fs',
+                'icon': 'fa-solid fa-code-branch'
+            }
+        ]
     },
     {
         'id': 'chemically-bonded',
