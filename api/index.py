@@ -16,7 +16,7 @@ PROJECTS = [
         'tech': ['Next.js', 'Python', 'Gemini API'],
         'description': 'An award-winning project developped at a hackathon, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
         'full_story': 'Will be posted soon.',
-        'full_tech': ['Next.js', 'Python', 'Gemini API'],
+        'full_tech': ['Next.js', 'Chart.js', 'Node.js', 'TypeScript', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
         'troubles': 'Will be posted soon.',
         'collaborators': [{'name': 'Brian', 'linkedin': 'https://www.linkedin.com/in/brian-kim-33348a354/'}, {'name': 'Deven'}, {'name': 'Matteo', 'linkedin': 'https://www.linkedin.com/in/matteo-rombola-287a3b402/'}],
         'images': ["/static/OurCampus1.png",
@@ -30,6 +30,11 @@ PROJECTS = [
                 'name': 'View Project on Devpost',
                 'url': 'https://devpost.com/software/ourcampus-t2u5fs',
                 'icon': 'fa-solid fa-code-branch'
+            },
+            {
+                'name': 'View Demo Video on YouTube',
+                'url': 'https://www.youtube.com/watch?v=IXy2J-jF7Ec',
+                'icon': 'fa-brands fa-youtube'
             }
         ]
     },
@@ -224,6 +229,11 @@ def achievements():
                     'name': 'View Project on Devpost',
                     'url': 'https://devpost.com/software/ourcampus-t2u5fs',
                     'icon': 'fa-solid fa-code-branch'
+                },
+                {
+                    'name': 'View Demo Video on YouTube',
+                    'url': 'https://www.youtube.com/watch?v=IXy2J-jF7Ec',
+                    'icon': 'fa-brands fa-youtube'
                 }
             ]
         },
