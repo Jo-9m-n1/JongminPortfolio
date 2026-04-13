@@ -8,6 +8,19 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 PROJECTS = [
     {
+        'id': 'chemically-bonded',
+        'tags': ['school', 'team'],
+        'title': 'Chemically Bonded',
+        'category': 'School Project 2026',
+        'tech': ['Python', 'JavaScript', 'Gemini API'],
+        'description': 'Currently developing the website.',
+        'full_story': 'Currently developing a chemistry-related website for our Integrative Project (IP) at Dawson College with James and Alex.',
+        'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
+        'troubles': 'Currently developing the website.',
+        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
+        'thumbnail': "/static/ChemicallyBonded.png"
+    },
+    {
         'id': 'ourcampus',
         'tags': ['hackathon', 'team'],
         'title': 'OurCampus',
@@ -15,7 +28,7 @@ PROJECTS = [
         'category': 'Hackathon 2026',
         'tech': ['Next.js', 'Python', 'Gemini API'],
         'description': 'An award-winning project developped at a hackathon, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
-        'full_story': 'Will be posted soon.',
+        'full_story': 'Our team developed a web platform designed to optimize the student campus experience. The application converts uploaded PDF schedules into structured digital formats by leveraging the Gemini API. The platform also facilitates club management by identifying optimal meeting times based on mutual availability. I specifically coded the Campus Heat Map feature, which provides real-time visualization of room occupnacy. This was achieved by integrating the Unifi API to track device connectivity across campus access points.',
         'full_tech': ['Next.js', 'Chart.js', 'Node.js', 'TypeScript', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
         'troubles': 'Will be posted soon.',
         'collaborators': [{'name': 'Brian', 'linkedin': 'https://www.linkedin.com/in/brian-kim-33348a354/'}, {'name': 'Deven'}, {'name': 'Matteo', 'linkedin': 'https://www.linkedin.com/in/matteo-rombola-287a3b402/'}],
@@ -37,20 +50,9 @@ PROJECTS = [
                 'url': 'https://www.youtube.com/watch?v=IXy2J-jF7Ec',
                 'icon': 'fa-brands fa-youtube'
             }
-        ]
-    },
-    {
-        'id': 'chemically-bonded',
-        'tags': ['school', 'team'],
-        'title': 'Chemically Bonded',
-        'category': 'School Project 2026',
-        'tech': ['Python', 'JavaScript', 'Gemini API'],
-        'description': 'Currently developing the website.',
-        'full_story': 'Currently developing a chemistry-related website for our Integrative Project (IP) at Dawson College with James and Alex.',
-        'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite'],
-        'troubles': 'Currently developing the website.',
-        'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'thumbnail': "/static/ChemicallyBonded.png"
+        ],
+        'published': 'April 13, 2026',
+        'updated': 'April 13, 2026'
     },
     {
         'id': 'liminal',
