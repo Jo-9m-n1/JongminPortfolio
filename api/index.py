@@ -25,6 +25,7 @@ PROJECTS = [
                    "/static/OurCampus4.png",
                    "/static/OurCampus5.png",
                    "/static/OurCampus6.png"],
+        'thumbnail': '/static/OurCampus.png/',
         'external_links': [
             {
                 'name': 'View Project on Devpost',
