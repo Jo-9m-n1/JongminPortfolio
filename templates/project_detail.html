@@ -76,9 +76,11 @@
                 <div class="d-flex align-items-center text-secondary" style="font-size: 0.75rem; opacity: 0.8;">
 
                     <i class="fa-solid fa-clock-rotate-left me-2"></i>
-                    <span>Originally published {{ p.published }} 
-                    {% if p.updated %}    
+                    {% if p.updated %} 
+                    <span>Originally published {{ p.published }}    
                     <span class="mx-2">•</span> <strong>Updated: {{p.updated}}</strong></span>
+                    {% else %}
+                    <span><strong>Published {{ p.published }}</strong> 
                     {% endif %}
                 </div>
                 {% endif %}

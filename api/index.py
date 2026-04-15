@@ -60,8 +60,8 @@ PROJECTS = [
         'title': 'Liminal',
         'category': 'Hackathon 2026',
         'tech': ['Python', 'mmBERT', 'NLP', 'Cohere Command-R', 'Mistral Large 3'],
-        'description': 'Developed a dual-tier AI guardrail system to detect mental health crises in youth-facing virtual assistants, improving crisis recall by 9x (102 dataset test).',
-        'full_story': 'Will be posted soon.',
+        'description': 'Developed a dual-tier AI guardrail system to detect mental health crises in youth facing virtual assistants, improving crisis recall by 9x (102 dataset test).',
+        'full_story': 'During spring break, my team and I developed an AI guardrail system designed to detect mental health crisis in youth interacting with our AI model. Initially, we trained the model on the provided seed dataset; however, we soon realized it was overfitting, as evidenced by perfect 1.000 recall and precision scores. To address this, we engineered a synthetic data pipeline that stress-tested our ungoverned model, successfully diversifying the training data and resolving the overfitting issues.This project taught me a great deal, as it was my first time working with an AI model as a developer. Through this experience, I learned the fundamentals of how to train and refine an AI model, which is an important asset these days.',
         'full_tech': ['Python', 'PyTorch', 'HuggingFace Transformers', 'Cohere API', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
         'troubles': 'Initially, we trained our model on the provided seed dataset (n=98), achieving a near-perfect F1 score. However, we suspected overfitting due to the small sample size. Test run against an external dataset (n=102) confirmed that our concerns were valid, as performance dropped significantly. To improve the generalization, we leveraged Gemini to generate synthetic data, diversifying our training set and robustifying the model.',
         'collaborators': [{'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}],
@@ -77,7 +77,8 @@ PROJECTS = [
                 'url': '/static/LiminalCertificate.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
             }
-        ]
+        ],
+        'published': 'April 15, 2026'
     },
     {
         'id': 'deckmots',
@@ -164,7 +165,7 @@ PROJECTS = [
         'tags': ['personal'],
         'title': 'Meeting App',
         'category': 'Personal Project 2025',
-        'description': 'A social application to find mutual breaks with your friends by uplodaing the PDF version of your school schedule.',
+        'description': 'A social application to find mutual breaks with your friends by uploading the PDF version of your school schedule.',
         'tech': ['Python', 'JavaScript'],
         'full_story': "This project began as a 'Tinder-style' concept for Cégep students to discover mutual breaks and schedule some meetups. It eventually evolved into a more versatile application, allowing the users to find common free time with any of their friends.",
         'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'pdfplumber', 'Regex', 'Werkzeug Security'],
