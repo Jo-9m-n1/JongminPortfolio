@@ -71,6 +71,11 @@ PROJECTS = [
                 'name': 'View Report', 
                 'url': '/static/report.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
+            },
+            {
+                'name': 'View Certificate', 
+                'url': '/static/LiminalCertificate.pdf', 
+                'icon': 'fa-solid fa-file-pdf'
             }
         ]
     },
@@ -250,6 +255,11 @@ def achievements():
                 {
                     'name': 'View Report', 
                     'url': '/static/report.pdf', 
+                    'icon': 'fa-solid fa-file-pdf'
+                },
+                {
+                    'name': 'View Certificate', 
+                    'url': '/static/LiminalCertificate.pdf', 
                     'icon': 'fa-solid fa-file-pdf'
                 }
             ]

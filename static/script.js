@@ -1089,7 +1089,7 @@ May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
 `May 2026 | Currently Working: Chemically Bonded
-Apr 2026 | OurCampus
+Apr 2026 | OurCampus <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Liminal
 Mar 2026 | DeckMots
 Feb 2026 | Personal Website
