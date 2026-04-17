@@ -13,7 +13,7 @@ PROJECTS = [
         'title': 'Chemically Bonded',
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
-        'description': 'Engineered a specialized AI chatbot for chemistry, achieving a <strong>24x reduction in latency</strong> for generating 3D molecular models compared to Gemini 3.1 Pro benchmarks.',
+        'description': 'Engineered a specialized AI chatbot for chemistry, achieving a <strong>24x reduction in latency</strong> for generating 3D molecular models compared to Gemini 3.1 Pro.',
         'full_story': 'Currently developing a chemistry-related website for our Integrative Project (IP) at Dawson College with James and Alex.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite', 'RDKit'],
         'troubles': 'Currently developing the website.',
