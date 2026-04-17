@@ -88,24 +88,27 @@
                         {% endif %}
 
                         <div class="card-body p-4 d-flex flex-column">
-                            <div class="d-flex flex-column align-items-start gap-2 mb-3">
-                                
-                                {% if p.award %}
-                                <div class="badge bg-warning text-dark align-self-start rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left; line-height: 1.4;">
-                                    <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
-                                </div>
-                                {% endif %}
+                            <div class="d-flex flex-column align-items-start gap-2 mb-2">
+                                <div class="d-flex flex-column gap-1">
+                                    {% if p.award %}
+                                    <div class="badge bg-warning text-dark rounded-pill px-2 py-1 text-wrap d-inline-block" 
+                                        style="font-size: 0.75rem; width: fit-content;">
+                                        <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
+                                    </div>
+                                    {% endif %}
 
-                                <div class="d-flex justify-content-between align-items-start w-100">
-                                    <span class="badge bg-primary rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left;">
+                                    {% if p.category %}
+                                    <div class="badge bg-primary rounded-pill px-2 py-1 text-wrap d-inline-block" 
+                                        style="font-size: 0.75rem; width: fit-content;">
                                         {{ p.category }}
-                                    </span>
+                                    </div>
+                                    {% endif %}
                                 </div>
 
                             </div>
                             
                             <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
-                            <p class="card-text text-muted mb-4">{{ p.description|safe }}</p>
+                            <p class="card-text text-muted mb-3">{{ p.description|safe }}</p>
                             
                             <div class="mb-4">
                                 {% for t in p.tech %}
@@ -114,7 +117,7 @@
                             </div>
 
                             {% if p.collaborators %}
-                            <div class="collaborators mb-4">
+                            <div class="collaborators mb-2">
                                 <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
                                     Teammate{{ 's' if p.collaborators|length > 1 else '' }}
                                 </small>
