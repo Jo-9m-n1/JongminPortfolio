@@ -1068,7 +1068,6 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
 `May 2026 | Upcoming: DawsHacks
-Apr 2026 | Upcoming: MariHacks
 Apr 2026 | JacHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Championing AI for good
 Mar 2026 | VanierHacks

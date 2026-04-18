@@ -59,11 +59,13 @@
                     </div>
                     {% endif %}
 
+                    {% if p.category %}
                     <div class="d-flex justify-content-between align-items-start w-100">
                         <span class="badge bg-primary rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left;">
                             {{ p.category }}
                         </span>
                     </div>
+                    {% endif %}
 
                 </div>
             </header>

@@ -30,7 +30,7 @@ PROJECTS = [
         'award': '1st Place | JACHacks', 
         'tech': ['Next.js', 'Python', 'Gemini API'],
         'description': 'An award-winning project developed at a hackathon, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
-        'full_story': 'Our team developed a web platform designed to optimize the student campus experience. The application converts uploaded PDF schedules into structured digital formats by leveraging the Gemini API. The platform also facilitates club management by identifying optimal meeting times based on mutual availability. I specifically coded the Campus Heat Map feature, which provides real-time visualization of room occupnacy. This was achieved by integrating the Unifi API to track device connectivity across campus access points. To ensure the platform was not just a standalone tool, I architected the data pipeline to export access point metrics into CSV files. This decision facilitates interoperability, allowing the campus IT department to audit campus traffic patterns without needing any specialized software.',
+        'full_story': 'Our team developed a web platform designed to optimize the student campus experience. Building on the foundation of my previous project, "MeetingApp", the application leverages the Gemini API to convert uploaded PDF schedules into structured digital formats. The platform also streamlines club management by identifying optimal meeting times based on mutual availability. Additionally, I developed a Campus Heat Map feature that provides real-time visualization of the room occupancy by integrating the Unifi API to track device connectivity across 100+ campus access points. To ensure long-term utility, I architected a data pipeline to export access point metrics into CSV files, enabling the IT and security department to audit traffic patterns without specialized software.',
         'full_tech': ['Next.js', 'Chart.js', 'Node.js', 'TypeScript', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
         'troubles': 'Will be posted soon.',
         'collaborators': [{'name': 'Brian', 'linkedin': 'https://www.linkedin.com/in/brian-kim-33348a354/'}, {'name': 'Deven'}, {'name': 'Matteo', 'linkedin': 'https://www.linkedin.com/in/matteo-rombola-287a3b402/'}],
@@ -54,7 +54,7 @@ PROJECTS = [
             }
         ],
         'published': 'April 13, 2026',
-        'updated': 'April 13, 2026'
+        'updated': 'April 18, 2026'
     },
     {
         'id': 'liminal',
@@ -216,16 +216,6 @@ def achievements():
             'desc': 'Currently preparing for this upcoming hackathon...',
             'color': '#cbd5e1',
             'category': 'software canada stem'
-        },
-        {
-            'title': 'Will Participate | MariHacks',
-            'event': 'Marianopolis College',
-            'date': '2026. 04. 17. - 2026. 04. 18.',
-            'start-date': '',
-            'end-date': '',
-            'desc': 'Currently preparing for this upcoming hackathon...',
-            'color': '#cbd5e1',
-            'category': 'software canada stem',
         },
         {
             'title': '1st Place | JacHacks',
