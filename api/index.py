@@ -221,7 +221,7 @@ def achievements():
             'title': '1st Place | JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
-            'desc': 'Won first place out of 28 teams and won an $800 cash prize.',
+            'desc': 'Won <strong>first place</strong> and won an $800 cash prize.',
             'color': '#D4AF37',
             'category': 'software canada stem',
             'external_links': [
@@ -241,7 +241,7 @@ def achievements():
             'title': 'Participated | Championing AI for good',
             'event': 'Mila',
             'date': '2026. 03. 16. - 2026. 03. 23.',
-            'desc': 'Collaborated within Team Liminal to develop an AI-driven solution for youth mental health. Implemented robust AI guardrails and adversarial red-teaming to ensure safe, empathetic interactions for high-stakes social impact.',
+            'desc': 'Collaborated with Team Liminal to develop an AI-driven solution for youth mental health. Implemented robust AI guardrails and adversarial red-teaming to ensure safe, empathetic interactions for high-stakes social impact, <strong>improving crisis recall by 9x</strong>.',
             'category': 'software canada stem health',
             'external_links': [
                 {
@@ -274,7 +274,7 @@ def achievements():
             'title': '1st Place | McGill AeroHacks',
             'event': 'McGill University',
             'date': '2026. 03. 13. - 2026. 03. 15.',
-            'desc': "Won McGill's first drone hackathon with 220+ participants using a pocket-sized ESP32-powered drone and two webcams.",
+            'desc': "<strong>Won McGill's first drone hackathon with 220+ participants</strong> using a pocket-sized ESP32-powered drone and two webcams.",
             'color': '#D4AF37',
             'category': 'software hardware canada stem',
             'external_links': [
@@ -336,7 +336,7 @@ def achievements():
             'title': '2nd Place | Dialogue Track at ConUHacks',
             'event': 'Concordia University',
             'date': '2026. 01. 24. - 2026. 01. 25.',
-            'desc': "Competed in Quebec's largest and Canada's second-largest student-run hackathon with over 900 participants and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+            'desc': "Competed in <strong>Quebec's largest and Canada's second-largest</strong> student-run hackathon with over <strong>900 participants</strong> and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
             'color': '#D4AF37',
             'category': 'software health canada stem',
             'external_links': [
@@ -562,7 +562,7 @@ def achievements():
             'title': 'High honor or honor roll',
             'event': 'Rosemount High School',
             'date': 'Fall 2019 - Winter 2024',
-            'desc': 'High honor or honor roll in high school every semester, demonstrating a high performance academically.',
+            'desc': 'High honor or honor roll in high school <strong>every semester</strong>, demonstrating a high performance academically.',
             'color': '#D4AF37',
             'category': 'academic canada'
         }
