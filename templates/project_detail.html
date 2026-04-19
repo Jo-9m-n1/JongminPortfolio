@@ -131,7 +131,7 @@
                 <div class="card border-0 shadow-sm rounded-4 bg-danger-subtle border-start border-danger border-5 mb-4" style="background: rgba(220, 38, 38, 0.08);">
                     <div class="card-body p-4">
                         <h5 class="fw-bold text-danger mb-3"><i class="fa-solid fa-screwdriver-wrench me-2"></i>Engineering Challenges</h5>
-                        <p class="text-muted small mb-0" style="line-height: 1.6;">{{ p.troubles }}</p>
+                        <p class="text-muted small mb-0" style="line-height: 1.6;">{{ p.troubles|safe }}</p>
                     </div>
                 </div>
                 {% endif %}
