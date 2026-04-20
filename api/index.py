@@ -154,7 +154,7 @@ PROJECTS = [
         'external_links': [
             {
                 'name': 'View Project on Devpost', 
-                'url': 'https://devpost.com/software/dr-bob?_gl=1*jtzmxn*_gcl_au*NDIyNDEwNzUyLjE3NjkzNTIwMzA.*_ga*MTk0NTUzOTc1NC4xNzY5MzUyMDMx*_ga_0YHJK3Y10M*czE3NzEyNTQ3ODQkbzE1JGcxJHQxNzcxMjU0ODQ0JGo2MCRsMCRoMA..', 
+                'url': 'https://devpost.com/software/dr-bob', 
                 'icon': 'fa-solid fa-code-branch'
             }
         ],
@@ -221,7 +221,7 @@ def achievements():
             'title': '1st Place | JacHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
-            'desc': 'Won <strong>first place</strong> and won an $800 cash prize.',
+            'desc': 'Won first place and won an $800 cash prize.',
             'color': '#D4AF37',
             'category': 'software canada stem',
             'external_links': [
@@ -294,7 +294,7 @@ def achievements():
             'title': '3rd Place | Beginner Track at @HACK',
             'event': 'Concordia University',
             'date': '2026. 03. 07. - 2026. 03. 08.',
-            'desc': 'Competed in my first-ever Cybersecurity CTF hackathon, placing 9th overall out of 120 teams and 3rd in the beginner track out of 87 teams. Scored 4,100 points and won an $800 cash prize.',
+            'desc': 'Competed in my first-ever Cybersecurity CTF hackathon, placing 9th overall <strong>out of 120 teams</strong> and 3rd in the beginner track out of 87 teams. Scored 4,100 points and won an $800 cash prize.',
             'color': '#D4AF37',
             'category': 'software hardware canada stem',
             'external_links': [
