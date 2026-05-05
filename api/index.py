@@ -14,14 +14,21 @@ PROJECTS = [
         'category': 'School Project 2026',
         'tech': ['Python', 'JavaScript', 'Gemini API'],
         'description': 'Engineered a specialized AI chatbot for chemistry, achieving a <strong>27.1x reduction in latency</strong> for generating 3D molecular models compared to Claude Sonnet 4.6 (internal testing).',
-        'full_story': 'Currently developing a chemistry-related website for our Integrative Project (IP) at Dawson College with James and Alex.',
+        'full_story': 'Currently developing a chemistry-related AI website for our Integrative Project (IP) at Dawson College with James and Alex.',
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite', 'RDKit'],
         'troubles': 'Currently developing the website.',
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': ["/static/ChemicallyBonded1.png",
             "/static/ChemicallyBonded2.png",
             "/static/ChemicallyBonded3.png"],
-        'thumbnail': "/static/ChemicallyBonded.png"
+        'thumbnail': "/static/ChemicallyBonded.png",
+        'external_links': [
+            {
+                'name': 'View Report', 
+                'url': '/static/Chemically_Bonded_report_draft.pdf', 
+                'icon': 'fa-solid fa-file-pdf'
+            }
+        ]
     },
     {
         'id': 'ourcampus',
@@ -71,7 +78,7 @@ PROJECTS = [
         'external_links': [
             {
                 'name': 'View Report', 
-                'url': '/static/report.pdf', 
+                'url': '/static/Mila_report.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
             },
             {
