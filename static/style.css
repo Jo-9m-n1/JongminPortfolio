@@ -2110,7 +2110,7 @@ body.dark-mode .desc-text strong {
 
 .custom-tooltip .tooltip-text {
     visibility: hidden;
-    width: 350px;
+    width: 315px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
