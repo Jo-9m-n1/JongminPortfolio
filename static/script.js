@@ -191,16 +191,6 @@ document.addEventListener('mouseup', () => {
     if (cursorBlob) cursorBlob.style.width = '500px';
 });
 
-document.addEventListener('mousemove', (e) => {
-    const heroContent = document.querySelector('.hero .container');
-    if (!heroContent) return;
-
-    const x = (window.innerWidth / 2 - e.clientX) / 50;
-    const y = (window.innerHeight / 2 - e.clientY) / 50;
-
-    heroContent.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-});
-
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
     const duration = 1500;

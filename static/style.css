@@ -8,8 +8,6 @@
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    
-    will-change: background-color, color, backdrop-filter;
 }
 
 .tooltip-text {
@@ -318,7 +316,7 @@ main.container {
     padding: 10px 15px; 
     pointer-events: none;
     opacity: 0;
-    transform: translateY(8x);
+    transform: translateY(8px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10;
 }
@@ -362,7 +360,7 @@ footer {
 }
 
 .award-border:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-12px);
     
     border-color: rgba(212, 175, 55, 0.8) !important;
     
@@ -437,7 +435,7 @@ body.dark-mode .card.bg-danger-subtle:hover p {
 }
 
 .project-card:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-12px);
 }
 
 .project-media-container {
@@ -616,7 +614,7 @@ aside .card:hover {
 }
 
 .project-card:hover .ratio {
-    transform: scale(1.02);
+    transform: none;
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -690,7 +688,7 @@ aside .card:hover {
 .timeline-row:hover .timeline-card {
     background: color-mix(in srgb, var(--accent-color), transparent 85%) !important;
     border-color: var(--accent-color) !important;
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-8px);
     
     box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 80%) !important;
 }
@@ -753,7 +751,7 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 }
 
 .reset-btn-pill:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.6) !important;
     border-color: var(--accent-color) !important;
     color: var(--accent-color) !important;
@@ -917,7 +915,6 @@ body.dark-mode .reset-btn-pill:hover {
     padding: 160px 0 100px; 
     background: transparent; 
     position: relative;
-    perspective: 1000px;
 }
 
 .hero h1 {
@@ -983,8 +980,6 @@ body.dark-mode .reset-btn-pill:hover {
     font-weight: 700 !important;
     border-radius: 50px !important;
     transition: all 0.3s ease !important;
-    transform: translateZ(50px) !important; 
-    -webkit-transform: translateZ(50px) !important;
     cursor: pointer;
     text-decoration: none;
 }
@@ -1012,8 +1007,6 @@ body.dark-mode .reset-btn-pill:hover {
     font-weight: 700 !important;
     border-radius: 50px !important;
     transition: all 0.3s ease !important;
-    transform: translateZ(50px) !important; 
-    -webkit-transform: translateZ(50px) !important;
     position: relative;
     z-index: 1;
     overflow: hidden; 
@@ -1068,7 +1061,7 @@ body.dark-mode .reset-btn-pill:hover {
 }
 
 .timeline-card:hover {
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.55) !important;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
@@ -1290,26 +1283,21 @@ body.dark-mode .timeline-date {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
 }
 
-.hero .container {
-    transition: transform 0.1s ease-out;
-    transform-style: preserve-3d;
-}
-
 .hero .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
-    -webkit-transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
+    transform: translateY(-3px) !important;
+    -webkit-transform: translateY(-3px) !important;
     
     box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4) !important;
 }
 
 .hero .btn-outline-dark:hover {
-    transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
-    -webkit-transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
+    transform: translateY(-3px) !important;
+    -webkit-transform: translateY(-3px) !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
 body.dark-mode .hero .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
+    transform: translateY(-3px) !important;
     box-shadow: 0 0 25px rgba(37, 99, 235, 0.6) !important;
     color: #ffffff !important;
 }
@@ -1318,7 +1306,7 @@ body.dark-mode .hero .btn-outline-dark:hover {
     border-color: #ffffff !important;
     color: #ffffff !important;
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
-    transform: translateY(-3px) scale(1.02) translateZ(50px) !important;
+    transform: translateY(-3px) !important;
 }
 
 .site-footer {
@@ -1428,7 +1416,7 @@ body.dark-mode .gold-glow .timeline-card {
 .gold-glow:hover .timeline-card {
     background: rgba(255, 253, 240, 0.4) !important;
     border-color: #D4AF37 !important;
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-8px);
     box-shadow: 0 15px 45px rgba(212, 175, 55, 0.35) !important;
 }
 
@@ -1452,7 +1440,7 @@ body.dark-mode .project-card.award-border {
 
 .project-card.award-border:hover {
     animation: none !important;
-    transform: translateY(-12px) scale(1.02) !important;
+    transform: translateY(-12px) !important;
     border-color: #D4AF37 !important;
     box-shadow: 
         0 20px 45px rgba(212, 175, 55, 0.35), 
