@@ -2110,7 +2110,7 @@ body.dark-mode .desc-text strong {
 
 .custom-tooltip .tooltip-text {
     visibility: hidden;
-    width: 315px;
+    width: 320px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -2121,7 +2121,7 @@ body.dark-mode .desc-text strong {
 
     color: #1e1e1e;
     text-align: left;
-    padding: 1.2rem;
+    padding: 1rem;
     position: absolute;
     z-index: 100; 
     bottom: 150%; 
@@ -2130,7 +2130,7 @@ body.dark-mode .desc-text strong {
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     font-weight: normal;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.5;
     pointer-events: none;
 }
