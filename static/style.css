@@ -2100,24 +2100,22 @@ body.dark-mode .desc-text strong {
     object-fit: cover;
 }
 
-.custom-tooltip {
+.pop-up {
     position: relative;
-    cursor: help;
     display: inline-block;
     color: #0d6efd; 
-    text-decoration: underline dotted;
 }
 
-.custom-tooltip .tooltip-text {
+.pop-up .pop-up-text {
     visibility: hidden;
     width: 325px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.93);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    border-radius: 20px !important; 
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px; 
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
 
     color: #1e1e1e;
     text-align: left;
@@ -2135,7 +2133,7 @@ body.dark-mode .desc-text strong {
     pointer-events: none;
 }
 
-.custom-tooltip .tooltip-text::after {
+.pop-up .pop-up-text::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -2143,23 +2141,23 @@ body.dark-mode .desc-text strong {
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent;
+    border-color: rgba(255, 255, 255, 0.93) transparent transparent transparent;
 }
 
-.custom-tooltip:hover .tooltip-text {
+.pop-up:hover .pop-up-text {
     visibility: visible;
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
-body.dark-mode .custom-tooltip .tooltip-text {
-    background: rgba(5, 3, 46, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+body.dark-mode .pop-up .pop-up-text {
+    background: rgba(13, 16, 32, 0.93);
+    border: 1px solid rgba(246, 246, 246, 0.3);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);    
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-mode .custom-tooltip .tooltip-text::after {
-    border-color: rgba(5, 3, 46, 0.9) transparent transparent transparent;
+body.dark-mode .pop-up .pop-up-text::after {
+    border-color: rgba(13, 16, 32, 0.93) transparent transparent transparent;
 }
