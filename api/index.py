@@ -215,6 +215,14 @@ def projects():
 def achievements():
     competitions = [
         {
+            'title': "3rd Place | Dawson Robotics Hackathon '26",
+            'event': 'Dawson College',
+            'date': '2026. 05. 06. - 2026. 05. 08.',
+            'desc': "Built and programmed an autonomous black line following robot with IR remote control functionality using Python and the Raspberry Pi Pico.",
+            'color': '#D4AF37',
+            'category': 'hardware software canada stem'
+        },
+        {
             'title': 'Participated | Cursor Hackathon Montreal',
             'event': 'Botpress Inc',
             'date': '2026. 05. 02.',
@@ -222,7 +230,7 @@ def achievements():
             'category': 'software canada stem'
         },
         {
-            'title': '1st Place | JacHacks',
+            'title': '1st Place | JACHacks',
             'event': 'John Abbott College',
             'date': '2026. 04. 11. - 2026. 04. 12.',
             'desc': 'Awarded First Place and Best Science Student Project, receiving an $800 cash prize.',
@@ -367,7 +375,7 @@ def achievements():
             ]
         },
         {
-            'title': '2nd Place | Dawson Robotics Hackathon',
+            'title': "2nd Place | Dawson Robotics Hackathon '25",
             'event': 'Dawson College',
             'date': '2025. 05. 09.',
             'desc': 'Built and programmed autonomous black line following robotic system and IR remoted control functionality using C++ and the Arduino framework.',
@@ -460,7 +468,7 @@ def achievements():
             'title': 'SPACE Certificate',
             'event': 'Dawson College',
             'date': 'Working on it',
-            'desc': 'SPACE Certificate (Sciences Participating with Arts and Culture in Education).',
+            'desc': 'The SPACE Certificate recognizes students for excellence in multidisciplinary projects that integrate science, technology, and the arts in Dawson College.',
             'color': '#cbd5e1',
             'category': 'software hardware canada stem math'
         },

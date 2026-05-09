@@ -995,11 +995,11 @@ function processCommand(cmd, outputArea, overlay) {
         case 'df':
             outputArea.innerHTML += 
 `Filesystem           Size      Used      Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      11.0G     7.0G      4.0G   64%   /mnt/trophy-case</span>
+<span style="color:#FFD700;">/dev/hackathons      12.0G     8.0G      4.0G   67%   /mnt/trophy-case</span>
 /dev/other           16.0G     8.4G      7.6G   52%   /home/jongmin
 
-<span class="term-keyword">Status:</span> 7/11 Hackathons won 
-Win Rate: <span style="color:#00ff00;">64%</span> [██████░░░░]
+<span class="term-keyword">Status:</span> 8/12 Hackathons won 
+Win Rate: <span style="color:#00ff00;">67%</span> [██████░░░░]
 `;
             break;
 
@@ -1067,7 +1067,8 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
-`May 2026 | Cursor Hackathon Montreal
+`May 2026 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
+May 2026 | Cursor Hackathon Montreal
 Apr 2026 | JACHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Championing AI for good
 Mar 2026 | VanierHacks
