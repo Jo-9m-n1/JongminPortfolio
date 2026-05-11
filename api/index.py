@@ -215,7 +215,7 @@ def projects():
 def achievements():
     competitions = [
         {
-            'title': "3rd Place | Dawson Robotics Hackathon '26",
+            'title': '3rd Place | Dawson Robotics Hackathon 2026',
             'event': 'Dawson College',
             'date': '2026. 05. 06. - 2026. 05. 08.',
             'desc': "Built and programmed an autonomous black line following robot with IR remote control functionality using Python and the Raspberry Pi Pico.",
@@ -375,7 +375,7 @@ def achievements():
             ]
         },
         {
-            'title': "2nd Place | Dawson Robotics Hackathon '25",
+            'title': '2nd Place | Dawson Robotics Hackathon 2025',
             'event': 'Dawson College',
             'date': '2025. 05. 09.',
             'desc': 'Built and programmed autonomous black line following robotic system and IR remoted control functionality using C++ and the Arduino framework.',

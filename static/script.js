@@ -1057,7 +1057,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
-`May 2026 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
+`May 2026 | Dawson Robotics Hackathon 2026 <i class="fa-solid fa-trophy"></i>
 May 2026 | Cursor Hackathon Montreal
 Apr 2026 | JACHacks <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Championing AI for good
@@ -1068,7 +1068,7 @@ Mar 2026 | GameJam de la FSÉ
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
 Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
 Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
-May 2025 | Dawson Robotics Hackathon <i class="fa-solid fa-trophy"></i>
+May 2025 | Dawson Robotics Hackathon 2025 <i class="fa-solid fa-trophy"></i>
 `;
             } else if (args[1] === 'education.txt') {
                 outputArea.innerHTML += 
@@ -1165,13 +1165,14 @@ function closeTerminal(overlay) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "Dawson Robotics Hackathon 2026", type: "Hackathon", year: "2026" },
         { name: "JACHacks", type: "Hackathon", year: "2026" },
         { name: "McGill AeroHacks", type: "Hackathon", year: "2026" },
         { name: "@HACK", type: "Hackathon", year: "2026" },
         { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
         { name: "ConUHacks", type: "Hackathon", year: "2026" },
         { name: "HackDécouverte", type: "Hackathon", year: "2025" },
-        { name: "Dawson Robotics Hackathon", type: "Hackathon", year: "2025" },
+        { name: "Dawson Robotics Hackathon 2025", type: "Hackathon", year: "2025" },
         { name: "Waterloo Cayley Math Contest", type: "Contest", year: "2022" },
         { name: "The Ultimate Math League", type: "Contest", year: "2019" },
         { name: "Ministry of Justice of the Republic of Korea", type: "Contest", year: "2016" },
