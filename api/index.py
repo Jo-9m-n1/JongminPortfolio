@@ -27,6 +27,11 @@ PROJECTS = [
                 'name': 'View Report', 
                 'url': '/static/Chemically_Bonded_report_draft.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
+            },
+            {
+                'name': 'View Poster', 
+                'url': '/static/Chemically_Bonded_poster.pdf', 
+                'icon': 'fa-solid fa-file-pdf'
             }
         ]
     },
