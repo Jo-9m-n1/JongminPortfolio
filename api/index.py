@@ -203,6 +203,18 @@ PROJECTS = [
                    "/static/J-score2.png",
                    "/static/J-score3.png"],
         'thumbnail': '/static/J-score.png/',
+        'external_links': [
+            {
+                'name': 'View Project', 
+                'url': 'https://j-score.vercel.app/', 
+                'icon': 'fa-solid fa-code-branch'
+            },
+            {
+                'name': 'View Project on GitHub', 
+                'url': 'https://github.com/Jo-9m-n1/J-score', 
+                'icon': 'fa-brands fa-github'
+            }
+        ],
         'published': 'Feburary 15, 2026',
         'updated': 'March 4, 2026'
     }
