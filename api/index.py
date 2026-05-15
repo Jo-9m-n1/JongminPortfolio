@@ -495,14 +495,21 @@ def achievements():
             'date': 'Ongoing',
             'desc': '100+ hours of certified community service, demonstrating long-term civic commitment and leadership through various volunteer initiatives.',
             'color': '#D4AF37',
-            'category': 'canada job'
+            'category': 'canada'
+        },
+        {
+            'title': 'Recognition of Student Involvement',
+            'event': 'Dawson College',
+            'date': 'Winter 2026',
+            'desc': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester (winter 2026).',
+            'category': 'canada'
         },
         {
             'title': 'Recognition of Student Involvement',
             'event': 'Dawson College',
             'date': 'Fall 2025',
-            'desc': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester.',
-            'category': 'job canada'
+            'desc': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester (fall 2025).',
+            'category': 'canada'
         },
         {
             'title': 'Be There Certificate',
@@ -523,7 +530,7 @@ def achievements():
             'event': 'GIO Engineering',
             'date': 'June 2025 - August 2025',
             'desc': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
-            'category': 'stem math job software'
+            'category': 'stem math software'
         },
         {
             'title': "Dean's List",
@@ -538,7 +545,7 @@ def achievements():
             'event': 'Dawson College',
             'date': '2024. 10. 20.',
             'desc': "Volunteered for Dawson's science open house event.",
-            'category': 'job canada',
+            'category': 'canada',
             'external_links': [
                 {
                     'name': 'View Proof',
@@ -552,7 +559,7 @@ def achievements():
             'event': 'Rosemount High School',
             'date': 'February 2024 - June 2024',
             'desc': "Tutored math and science to peers.",
-            'category': 'canada job stem math'
+            'category': 'canada stem math'
         },
         {
             'title': 'Music achievement Award',
