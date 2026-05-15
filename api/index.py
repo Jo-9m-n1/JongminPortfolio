@@ -495,7 +495,7 @@ def achievements():
             'date': 'Ongoing',
             'desc': '100+ hours of certified community service, demonstrating long-term civic commitment and leadership through various volunteer initiatives.',
             'color': '#D4AF37',
-            'category': 'canada'
+            'category': 'canada job'
         },
         {
             'title': 'Recognition of Student Involvement',
@@ -530,7 +530,7 @@ def achievements():
             'event': 'GIO Engineering',
             'date': 'June 2025 - August 2025',
             'desc': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
-            'category': 'stem math software'
+            'category': 'stem math software job'
         },
         {
             'title': "Dean's List",
@@ -559,7 +559,7 @@ def achievements():
             'event': 'Rosemount High School',
             'date': 'February 2024 - June 2024',
             'desc': "Tutored math and science to peers.",
-            'category': 'canada stem math'
+            'category': 'canada stem math job'
         },
         {
             'title': 'Music achievement Award',
