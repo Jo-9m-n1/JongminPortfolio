@@ -1343,10 +1343,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         badge.innerHTML = `
             <div style="display: flex; align-items: center; gap: 12px; pointer-events: none;">
-                <div style="width: 8px; height: 8px; background: #ffae00; border-radius: 50%; box-shadow: 0 0 8px #ffae00;"></div>
                 <div style="display: flex; flex-direction: column; align-items: flex-start;">
                     <span style="font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; line-height: 1;">You can edit text</span>
-                    <span style="font-size: 13px; color: #fff; font-weight: 700; margin-top: 4px;">DEVELOPER MODE</span>
+                    <span style="font-size: 13px; color: #ffffff; font-weight: 700; margin-top: 4px;">DEVELOPER MODE</span>
                 </div>
             </div>
             <div id="exit-btn" style="margin-left: 15px; padding: 4px 10px; background: rgba(255,68,68,0.1); border-radius: 4px; font-size: 10px; color: #ff4444; font-weight: bold; border: 1px solid rgba(255,68,68,0.3); transition: 0.2s;">EXIT</div>
@@ -1355,7 +1354,7 @@ document.addEventListener('DOMContentLoaded', () => {
         badge.style.cssText = `
             position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
             display: flex; align-items: center;
-            background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            background: rgba(28, 28, 32, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 22px; border-radius: 100px;
             z-index: 2147483647; font-family: 'Inter', sans-serif; cursor: default;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
