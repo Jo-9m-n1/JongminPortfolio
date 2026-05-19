@@ -24,6 +24,11 @@ PROJECTS = [
         'thumbnail': "/static/ChemicallyBonded.png",
         'external_links': [
             {
+                'name': 'View Project on GitHub', 
+                'url': 'https://github.com/Jo-9m-n1/ChemicallyBonded', 
+                'icon': 'fa-brands fa-github'
+            },
+            {
                 'name': 'View Report', 
                 'url': '/static/Chemically_Bonded_report_draft.pdf', 
                 'icon': 'fa-solid fa-file-pdf'
