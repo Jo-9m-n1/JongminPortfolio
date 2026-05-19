@@ -578,6 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener('load', animateCounters);
+document.addEventListener('DOMContentLoaded', animateCounters);
 
 let winterCode1 = "montreal";
 let winterCode2 = "snow";
@@ -1391,3 +1392,115 @@ window.addEventListener('blur', () => {
 window.addEventListener('focus', () => {
     document.title = originalTitle;
 });
+
+// ---------------------------------------------------------------
+// Draggable language toggle
+// Drag the bubble to a language and release, or just click a label.
+// ---------------------------------------------------------------
+(function () {
+    const DRAG_THRESHOLD = 5;
+
+    let globalBound = false;
+    let active = null; // { toggle, indicator, startX, startLeft, dragging }
+
+    const linksOf = (toggle) => Array.from(toggle.querySelectorAll('.lang-link'));
+
+    function placeIndicator(toggle, link, animate) {
+        const indicator = toggle.querySelector('.lang-indicator');
+        if (!indicator || !link) return;
+        if (!animate) indicator.style.transition = 'none';
+        const lr = link.getBoundingClientRect();
+        const tr = toggle.getBoundingClientRect();
+        // Bubble spans the toggle's full inner height (matches the draggable area)
+        indicator.style.left = (lr.left - tr.left) + 'px';
+        indicator.style.top = '0px';
+        indicator.style.width = lr.width + 'px';
+        indicator.style.height = toggle.clientHeight + 'px';
+        if (!animate) {
+            void indicator.offsetHeight; // flush so transition resets cleanly
+            indicator.style.transition = '';
+        }
+    }
+
+    function settleAll() {
+        document.querySelectorAll('.lang-toggle').forEach((toggle) => {
+            const links = linksOf(toggle);
+            const target = links.find((l) => l.classList.contains('active')) || links[0];
+            placeIndicator(toggle, target, false);
+        });
+    }
+
+    function onPointerDown(e) {
+        const toggle = e.target.closest('.lang-toggle');
+        if (!toggle) return;
+        const indicator = toggle.querySelector('.lang-indicator');
+        if (!indicator) return;
+        active = {
+            toggle,
+            indicator,
+            startX: e.clientX,
+            startLeft: parseFloat(indicator.style.left) || 0,
+            dragging: false,
+        };
+    }
+
+    function onPointerMove(e) {
+        if (!active) return;
+        const dx = e.clientX - active.startX;
+        if (!active.dragging) {
+            if (Math.abs(dx) < DRAG_THRESHOLD) return;
+            active.dragging = true;
+            active.toggle.classList.add('dragging');
+        }
+        e.preventDefault();
+        const links = linksOf(active.toggle);
+        if (links.length === 0) return;
+        const tr = active.toggle.getBoundingClientRect();
+        const first = links[0].getBoundingClientRect();
+        const last = links[links.length - 1].getBoundingClientRect();
+        const minLeft = first.left - tr.left;
+        const maxLeft = last.right - tr.left - active.indicator.offsetWidth;
+        const newLeft = Math.max(minLeft, Math.min(maxLeft, active.startLeft + dx));
+        active.indicator.style.left = newLeft + 'px';
+    }
+
+    function onPointerUp() {
+        if (!active) return;
+        const { toggle, indicator, dragging } = active;
+        active = null;
+        toggle.classList.remove('dragging');
+        if (!dragging) return; // plain click — let the <a> navigate normally
+        const links = linksOf(toggle);
+        const tr = toggle.getBoundingClientRect();
+        const center = (parseFloat(indicator.style.left) || 0) + indicator.offsetWidth / 2;
+        let nearest = links[0];
+        let nearestDist = Infinity;
+        for (const link of links) {
+            const lr = link.getBoundingClientRect();
+            const linkCenter = (lr.left - tr.left) + lr.width / 2;
+            const dist = Math.abs(linkCenter - center);
+            if (dist < nearestDist) { nearestDist = dist; nearest = link; }
+        }
+        placeIndicator(toggle, nearest, true);
+        const chosen = nearest.dataset.lang;
+        const current = toggle.dataset.currentLang;
+        if (chosen && chosen !== current) {
+            setTimeout(() => { window.location.href = nearest.href; }, 220);
+        }
+    }
+
+    function init() {
+        settleAll();
+        if (globalBound) return;
+        globalBound = true;
+        document.addEventListener('pointerdown', onPointerDown);
+        document.addEventListener('pointermove', onPointerMove, { passive: false });
+        document.addEventListener('pointerup', onPointerUp);
+        document.addEventListener('pointercancel', onPointerUp);
+        window.addEventListener('resize', settleAll);
+        window.addEventListener('load', settleAll);
+    }
+
+    if (document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init);
+})();
