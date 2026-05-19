@@ -11,7 +11,19 @@
         </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="turbo-cache-control" content="no-preview">
         <title>Jongmin Lee | Engineering Portfolio</title>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.13/dist/turbo.es2017-esm.min.js"></script>
+        <script>
+            (function() {
+                let turboLoadCount = 0;
+                document.addEventListener('turbo:load', function() {
+                    if (turboLoadCount++ === 0) return;
+                    document.dispatchEvent(new Event('DOMContentLoaded'));
+                    window.dispatchEvent(new Event('DOMContentLoaded'));
+                });
+            })();
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
