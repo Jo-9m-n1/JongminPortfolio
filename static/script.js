@@ -1,12 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
     const body = document.body;
     const html = document.documentElement;
     const themeIcon = document.querySelector('#themeToggle i');
-    
-    if (savedTheme === 'dark') {
+
+    if (html.classList.contains('dark-mode')) {
         body.classList.add('dark-mode');
-        html.classList.add('dark-mode');
         if (themeIcon) {
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
@@ -23,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
             
             const icon = themeBtn.querySelector('i');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.cookie = 'theme=' + (isDark ? 'dark' : 'light') + '; path=/; max-age=31536000; samesite=Lax';
             
             if (icon) {
                 icon.style.transition = 'transform 0.4s ease';
@@ -269,8 +268,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     const words = [
-        "a Computer Scientist", 
-        "a Full-stack Developer"
+        (window.T && window.T.hero_role_1) || "a Computer Scientist",
+        (window.T && window.T.hero_role_2) || "a Full-stack Developer"
     ];
     
     let wordIndex = 0;
@@ -455,16 +454,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (titleEl) titleEl.innerText = targetEvent.title;
 
+    const T = (window.T || {});
+
     function switchToLiveTheme() {
-        if (dateEl) dateEl.innerText = "IN PROGRESS...";
+        if (dateEl) dateEl.innerText = T.in_progress || "IN PROGRESS...";
         if (timerEl) {
             timerEl.style.fontSize = "1.8rem";
-            timerEl.innerHTML = "I am currently in this competition!";
+            timerEl.innerHTML = T.in_competition_now || "I am currently in this competition!";
             timerEl.style.color = "#fe4a59";
         }
         if (badge) {
             badge.className = "badge bg-danger mb-2 rounded-pill px-3 py-2 fw-bold text-white";
-            badge.innerHTML = `LIVE NOW`;
+            badge.innerHTML = T.live_now || "LIVE NOW";
         }
     }
     
@@ -504,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return; 
     }
 
-    if (dateEl) dateEl.innerText = `Scheduled for: ${targetEvent.dateStr}`;
+    if (dateEl) dateEl.innerText = `${T.scheduled_for || "Scheduled for:"} ${targetEvent.dateStr}`;
 
     let isInitialLoad = true;
 
@@ -538,8 +539,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const mStr = String(m).padStart(2, '0');
             const sStr = String(s).padStart(2, '0');
             if (d > 0) {
-                const dayLabel = (d === 1) ? "Day" : "Days";
-                return `<span class="day-part">${d} ${dayLabel} Left</span>
+                const dayLabel = (d === 1)
+                    ? (T.day_left || "Day Left")
+                    : (T.days_left || "Days Left");
+                return `<span class="day-part">${d} ${dayLabel}</span>
                         <span class="time-digits">${hStr}:${mStr}:${sStr}</span>`;
             } else {
                 return `<span class="time-digits">${hStr}:${mStr}:${sStr}</span>`;

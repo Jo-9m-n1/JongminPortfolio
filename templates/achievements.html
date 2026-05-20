@@ -16,7 +16,7 @@
                 <div class="floating-control-pill">
                     <a href="/" class="w-100 h-100 d-flex justify-content-center align-items-center gap-2 text-decoration-none" style="color: inherit;">
                         <i class="fa-solid fa-chevron-left" style="font-size: 1.1rem;"></i>
-                        <span class="fw-bold" style="font-size: 1.1rem;">Home</span>
+                        <span class="fw-bold" style="font-size: 1.1rem;">{{ t.nav_home }}</span>
                     </a>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                             <i class="fa-solid fa-moon"></i>
                         </div>
                         
-                        <div class="dynamic-menu-title">Navigation</div>
+                        <div class="dynamic-menu-title">{{ t.navigation }}</div>
                         
                         <div class="menu-trigger" id="menuTrigger">
                             <span></span><span></span><span></span>
@@ -36,10 +36,10 @@
                     </div>
 
                     <div class="pill-menu-content">
-                        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
-                        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-                        <a href="/projects"><i class="fa-solid fa-code"></i> Projects</a>
-                        <a href="/#about-me"><i class="fa-solid fa-user"></i> About Me</a>
+                        <a href="/"><i class="fa-solid fa-house"></i> {{ t.nav_home }}</a>
+                        <a href="/achievements"><i class="fa-solid fa-trophy"></i> {{ t.nav_achievements }}</a>
+                        <a href="/projects"><i class="fa-solid fa-code"></i> {{ t.nav_projects }}</a>
+                        <a href="/#about-me"><i class="fa-solid fa-user"></i> {{ t.nav_about_me }}</a>
                     </div>
                 </div>
             </div>
@@ -49,55 +49,38 @@
 
     <div class="container my-5 pt-5">
         <div class="text-center mb-4">
-            <h2 class="display-5 fw-bold">Academic & Competitive Milestones</h2>
-            <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
-        </div>
-
-        <div class="row g-3 mb-5 justify-content-center">
-            <div class="col-12" id="countdown-wrapper">
-                <div class="next-challenge-widget" id="countdown-widget" data-events='{{ competitions | tojson | safe }}'>
-                    <div class="widget-content d-flex flex-column flex-md-row align-items-center justify-content-between position-relative z-1 w-100">
-                        <div class="info-side text-center text-md-start mb-3 mb-md-0">
-                            <span class="badge bg-primary mb-2 rounded-pill px-3 py-2 fw-bold">MY NEXT COMPETITION</span>
-                            <h3 id="next-event-title" class="fw-bold mt-2 mb-1"></h3>
-                            <p id="next-event-date" class="text-muted small mb-0"></p>
-                        </div>
-                        <div class="timer-side">
-                            <div class="countdown-display" id="countdown-timer">00 Days Left 00:00:00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 class="display-5 fw-bold">{{ t.achievements_title }}</h2>
+            <p class="text-muted">{{ t.subtitle_journey }}</p>
         </div>
 
         <div class="filter-wrapper mb-5">
             <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
-                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">{{ t.filter_show_all }}</button>
                 <button class="filter-btn btn-sm btn-gold" data-filter="gold-glow" onclick="filterSelection('gold-glow')">
-                    <i class="fa-solid fa-trophy me-1"></i>Gold
+                    <i class="fa-solid fa-trophy me-1"></i>{{ t.filter_gold }}
                 </button>
-                <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">Canada</button>
-                <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">Experience</button>
-                <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">STEM</button>
-                <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">Arts</button>
-                <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">Software</button>
-                <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">Hardware</button>
-                <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">Math</button>
-                <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">Health</button>
-                <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">Academic</button>
+                <button class="filter-btn btn-canada" data-filter="canada" onclick="filterSelection('canada')">{{ t.filter_canada }}</button>
+                <button class="filter-btn" data-filter="job" onclick="filterSelection('job')">{{ t.filter_experience }}</button>
+                <button class="filter-btn" data-filter="stem" onclick="filterSelection('stem')">{{ t.filter_stem }}</button>
+                <button class="filter-btn" data-filter="arts" onclick="filterSelection('arts')">{{ t.filter_arts }}</button>
+                <button class="filter-btn" data-filter="software" onclick="filterSelection('software')">{{ t.filter_software }}</button>
+                <button class="filter-btn" data-filter="hardware" onclick="filterSelection('hardware')">{{ t.filter_hardware }}</button>
+                <button class="filter-btn" data-filter="math" onclick="filterSelection('math')">{{ t.filter_math }}</button>
+                <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">{{ t.filter_health }}</button>
+                <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">{{ t.filter_academic }}</button>
             </div>
         </div>
 
         <div id="no-results" class="text-center my-5 py-5" style="display: none;">
             <i class="fa-solid fa-magnifying-glass-blur display-1 text-muted mb-3"></i>
-            <h3 class="text-muted">No milestones match these filters.</h3>
-            <p class="text-muted">Try selecting a different combination of tags.</p>
-            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">Reset Filters</button>
+            <h3 class="text-muted">{{ t.no_milestones_match }}</h3>
+            <p class="text-muted">{{ t.try_different_combination }}</p>
+            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">{{ t.reset_filters }}</button>
         </div>
 
         <div class="row" id="achievements-row">
             <div class="col-md-6">
-                <h3 class="h4 mb-4"><i class="fa-solid fa-trophy text-primary me-2"></i> Competitions</h3>
+                <h3 class="h4 mb-4"><i class="fa-solid fa-trophy text-primary me-2"></i> {{ t.section_competitions }}</h3>
                 <div class="timeline-container competition-line">
                     {% for honor in competitions %}
                     <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#2563eb') }};">
@@ -105,19 +88,19 @@
                         <div class="timeline-dot"></div> 
                         <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
                             <div class="card-header-custom">
-                                <span class="timeline-date">{{ honor.date }}</span>
+                                <span class="timeline-date">{{ honor.date|tr }}</span>
                             </div>
-                            <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
-                            <p class="event-name" style="color: var(--accent-color) !important;">{{ honor.event }}</p>
-                            <p class="desc-text text-muted small">{{ honor.desc|safe }}</p>
+                            <h3 class="h6 fw-bold text-dark">{{ honor.title|tr }}</h3>
+                            <p class="event-name" style="color: var(--accent-color) !important;">{{ honor.event|tr }}</p>
+                            <p class="desc-text text-muted small">{{ honor.desc|tr|safe }}</p>
 
                             {% if honor.external_links %}
                             <div class="mt-3 pt-3">
                                 <div class="d-grid gap-2">
-                                    {% for link in honor.external_links %}
+                                    {% for link in honor.external_links|tr %}
                                     <a href="{{ link.url }}" target="_blank" class="proof-button w-100 d-flex align-items-center text-decoration-none">
                                         <i class="{{ link.icon }} me-2"></i>
-                                        <span>{{ link.name }}</span>
+                                        <span>{{ link.name|tr }}</span>
                                         <i class="fa-solid fa-chevron-right ms-auto small opacity-50"></i>
                                     </a>
                                     {% endfor %}
@@ -131,7 +114,7 @@
             </div>
 
             <div class="col-md-6">
-                <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> Certificates, Awards & Experience</h3>
+                <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-success me-2"></i> {{ t.section_certificates }}</h3>
                 <div class="timeline-container certificate-line">
                     {% for honor in certificates %}
                     <div class="timeline-row filter-item {{ honor.category }} {% if honor.color == '#D4AF37' %}gold-glow{% endif %}" style="--accent-color: {{ honor.color|default('#10b981') }};">
@@ -139,19 +122,19 @@
                         <div class="timeline-dot"></div> 
                         <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
                             <div class="card-header-custom">
-                                <span class="timeline-date">{{ honor.date }}</span>
+                                <span class="timeline-date">{{ honor.date|tr }}</span>
                             </div>
-                            <h3 class="h6 fw-bold text-dark">{{ honor.title }}</h3>
-                            <p class="event-name" style="color: var(--accent-color) !important;">{{ honor.event }}</p>
-                            <p class="desc-text text-muted small">{{ honor.desc|safe }}</p>
+                            <h3 class="h6 fw-bold text-dark">{{ honor.title|tr }}</h3>
+                            <p class="event-name" style="color: var(--accent-color) !important;">{{ honor.event|tr }}</p>
+                            <p class="desc-text text-muted small">{{ honor.desc|tr|safe }}</p>
 
                             {% if honor.external_links %}
                             <div class="mt-3 pt-3">
                                 <div class="d-grid gap-2">
-                                    {% for link in honor.external_links %}
+                                    {% for link in honor.external_links|tr %}
                                     <a href="{{ link.url }}" target="_blank" class="proof-button w-100 d-flex align-items-center text-decoration-none">
                                         <i class="{{ link.icon }} me-2"></i>
-                                        <span>{{ link.name }}</span>
+                                        <span>{{ link.name|tr }}</span>
                                         <i class="fa-solid fa-chevron-right ms-auto small opacity-50"></i>
                                     </a>
                                     {% endfor %}

@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}"{% if theme == 'dark' %} class="dark-mode"{% endif %}>
     <head>
         <script>
             (function() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark') {
-                    document.documentElement.classList.add('dark-mode');
+                function readCookie(name) {
+                    const m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+                    return m ? decodeURIComponent(m[1]) : null;
                 }
+                function writeCookie(name, value) {
+                    document.cookie = name + '=' + value + '; path=/; max-age=31536000; samesite=Lax';
+                }
+                let theme = readCookie('theme');
+                if (!theme) {
+                    const ls = localStorage.getItem('theme');
+                    if (ls === 'dark' || ls === 'light') {
+                        theme = ls;
+                        writeCookie('theme', theme);
+                    }
+                }
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                    if (document.body) document.body.classList.add('dark-mode');
+                } else {
+                    document.documentElement.classList.remove('dark-mode');
+                    if (document.body) document.body.classList.remove('dark-mode');
+                }
+                document.addEventListener('turbo:before-render', function(e) {
+                    const dark = document.documentElement.classList.contains('dark-mode');
+                    if (e.detail && e.detail.newBody) {
+                        e.detail.newBody.classList.toggle('dark-mode', dark);
+                    }
+                });
             })();
         </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="turbo-cache-control" content="no-preview">
+        <meta name="turbo-cache-control" content="no-cache">
+        <meta name="turbo-prefetch" content="false">
         <title>Jongmin Lee | Engineering Portfolio</title>
         <script type="module" src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.13/dist/turbo.es2017-esm.min.js"></script>
         <script>
@@ -22,6 +47,20 @@
                     document.dispatchEvent(new Event('DOMContentLoaded'));
                     window.dispatchEvent(new Event('DOMContentLoaded'));
                 });
+
+                document.addEventListener('click', function(e) {
+                    if (e.target.closest('.lang-toggle .lang-link')) {
+                        sessionStorage.setItem('__langScrollY', String(window.scrollY));
+                    }
+                }, true);
+
+                document.addEventListener('turbo:load', function() {
+                    const y = sessionStorage.getItem('__langScrollY');
+                    if (y !== null) {
+                        sessionStorage.removeItem('__langScrollY');
+                        window.scrollTo({ top: parseInt(y, 10), left: 0, behavior: 'instant' });
+                    }
+                });
             })();
         </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -31,21 +70,34 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
-    <body>
+    <body{% if theme == 'dark' %} class="dark-mode"{% endif %}>
+        <script>
+            window.LANG = "{{ lang }}";
+            window.T = {{ t | tojson }};
+            document.documentElement.lang = window.LANG;
+        </script>
         <div id="progress-bar"></div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Dev</span></a>
                 
-                <div class="d-flex align-items-center gap-4">
+                <div class="d-flex align-items-center gap-3 gap-sm-4">
+                    <div class="lang-toggle" data-current-lang="{{ lang }}" title="{{ t.lang_beta_tooltip }}">
+                        <span class="lang-beta-badge" aria-label="Beta feature">BETA</span>
+                        {% for code in LANGUAGES %}
+                        <a href="{{ url_for('set_language', lang=code, next=request.path) }}"
+                           class="lang-link{% if lang == code %} active{% endif %}">{{ code|upper }}</a>
+                        {% endfor %}
+                    </div>
+
                     <a href="javascript:void(0)" class="terminal-nav-link" style="color: black;" onclick="initTerminal()">
                         <i class="me-2">>_</i> 
-                        <span class="d-none d-sm-inline">Terminal</span>
+                        <span class="d-none d-sm-inline">{{ t.terminal }}</span>
                     </a>
                     
                     <a href="/static/Jongmin_Lee_Software_Engineer_2026.pdf" class="terminal-nav-link" target="_blank" style="color: black;">
                         <i class="fa-solid fa-file-pdf me-2"></i> 
-                        <span class="d-none d-sm-inline">Resume</span>
+                        <span class="d-none d-sm-inline">{{ t.resume }}</span>
                     </a>
                 </div>
             </div>
@@ -68,7 +120,7 @@
                                 <i class="fa-solid fa-moon"></i>
                             </div>
                             
-                            <div class="dynamic-menu-title">Navigation</div>
+                            <div class="dynamic-menu-title">{{ t.navigation }}</div>
                             
                             <div class="menu-trigger" id="menuTrigger">
                                 <span></span><span></span><span></span>
@@ -76,10 +128,10 @@
                         </div>
 
                         <div class="pill-menu-content">
-                            <a href="/"><i class="fa-solid fa-house"></i> Home</a>
-                            <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-                            <a href="/projects"><i class="fa-solid fa-code"></i> Projects</a>
-                            <a href="/#about-me"><i class="fa-solid fa-user"></i> About Me</a>
+                            <a href="/"><i class="fa-solid fa-house"></i> {{ t.nav_home }}</a>
+                            <a href="/achievements"><i class="fa-solid fa-trophy"></i> {{ t.nav_achievements }}</a>
+                            <a href="/projects"><i class="fa-solid fa-code"></i> {{ t.nav_projects }}</a>
+                            <a href="/#about-me"><i class="fa-solid fa-user"></i> {{ t.nav_about_me }}</a>
                         </div>
                     </div>
                 </div>
@@ -90,11 +142,11 @@
             <div class="container px-4 px-sm-3"> 
                 <h1 class="display-3 fw-bold mb-3">Jongmin Lee</h1>
                 <p class="lead text-muted mb-4" style="font-size: 1.4rem; font-weight: 550;">
-                    I'm <span class="typing-text" style="color: var(--accent-color);"></span><span class="typing-cursor">|</span>
+                    {{ t.I_am}} <span class="typing-text" style="color: var(--accent-color);"></span><span class="typing-cursor">|</span>
                 </p>         
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                    <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg custom-hero-btn">Achievements</a>
-                    <a href="/projects" class="btn btn-outline-dark btn-lg custom-hero-btn">View My Work</a>
+                    <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg custom-hero-btn">{{ t.btn_achievements }}</a>
+                    <a href="/projects" class="btn btn-outline-dark btn-lg custom-hero-btn">{{ t.btn_view_my_work }}</a>
                 </div>
             </div>
         </header>
@@ -108,7 +160,7 @@
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100">
                                     <div class="display-6 fw-bold text-warning counter" data-target="17" data-plus="true">0</div>
-                                    <div class="small text-muted fw-bold">Competition Wins</div>
+                                    <div class="small text-muted fw-bold">{{ t.stat_competition_wins }}</div>
                                 </div>
                             </a>
                         </div>
@@ -116,7 +168,7 @@
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100 gold-glow">
                                     <div class="display-6 fw-bold text-primary counter" data-target="8">0</div>
-                                    <div class="small text-muted fw-bold">Hackathon Wins</div>
+                                    <div class="small text-muted fw-bold">{{ t.stat_hackathon_wins }}</div>
                                 </div>
                             </a>
                         </div>
@@ -124,7 +176,7 @@
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100">
                                     <div class="display-6 fw-bold text-success counter" data-target="100" data-plus="true">0</div>
-                                    <div class="small text-muted fw-bold">Volunteering Hours</div>
+                                    <div class="small text-muted fw-bold">{{ t.stat_volunteering_hours }}</div>
                                 </div>
                             </a>
                         </div>
@@ -132,7 +184,7 @@
                             <a href="/projects" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100">
                                     <div class="display-6 fw-bold text-info counter" data-target="8">0</div>
-                                    <div class="small text-muted fw-bold">Projects</div>
+                                    <div class="small text-muted fw-bold">{{ t.stat_projects }}</div>
                                 </div>
                             </a>
                         </div>
@@ -141,7 +193,7 @@
                     <section id="highlights" class="py-4">
                         <div class="mb-4">
                             <h3 class="h4 mb-3">
-                                <i class="fa-solid fa-star text-warning me-2"></i> Highlights
+                                <i class="fa-solid fa-star text-warning me-2"></i> {{ t.section_highlights }}
                             </h3>
                             
                             <div class="row g-3">
@@ -149,12 +201,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">GLOBAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_global }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">Waterloo Cayley Math Contest</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">School Champion & Top 25% in the world</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_cayley_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -164,12 +216,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">NATIONAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_national }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">HME Math Contest</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">National 1st Place & Top 1% in Korea</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_hme_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -179,12 +231,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">NATIONAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_national }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">ConUHacks</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">2nd Place | Dialogue Track</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_conuhacks_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -194,12 +246,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">NATIONAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_national }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">@HACK</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">3rd Place | Beginner Track</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_hack_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -209,12 +261,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">REGIONAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_regional }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">JACHacks</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">1st Place</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_jachacks_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -224,12 +276,12 @@
                                     <a href="/achievements" class="highlight-wrapper-link text-decoration-none">
                                         <div class="timeline-card shadow-sm h-100 d-flex flex-column">
                                             <div class="card-header-custom d-flex justify-content-between">
-                                                <span class="h-badge gold">REGIONAL SCALE</span>
+                                                <span class="h-badge gold">{{ t.scale_regional }}</span>
                                             </div>
                                             <h3 class="h6 fw-bold text-dark mt-2">McGill AeroHacks</h3>
-                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">1st Place</p>
+                                            <p class="event-name mb-2" style="color: #D4AF37 !important;">{{ t.hl_aerohacks_subtitle }}</p>
                                             <div class="mt-auto pt-3 text-end">
-                                                <span class="small fw-bold text-primary">MORE AWARDS <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                                <span class="small fw-bold text-primary">{{ t.more_awards }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
                                             </div>
                                         </div>
                                     </a>
@@ -241,55 +293,18 @@
                     <section id="about-me" class="py-4">
                         <div class="mb-4">
                             <h3 class="h4 mb-3">
-                                <i class="fa-solid fa-user me-2"></i> About Me
+                                <i class="fa-solid fa-user me-2"></i> {{ t.section_about_me }}
                             </h3>
                             <div class="timeline-card">
                                 <div class="d-flex flex-column flex-md-row align-items-center gap-4">
                                     
-                                    <img src="static/JongminLee.jpg" 
+                                    <img src="{{ url_for('static', filename='JongminLee.jpg') }}"
                                         alt="Jongmin Lee" 
                                         class="rounded-circle shadow" 
                                         style="width: 140px; height: 140px; object-fit: cover; flex-shrink: 0;"
                                     >
 
-                                    <p class="desc-text mb-0">
-                                        My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. 
-                                        I am currently studying computer science at Dawson College and am proud to be <strong>trilingual</strong>, speaking Korean, English, and French.
-                                        
-                                        I am an <strong class="pop-up">8x hackathon winner
-                                            <span class="pop-up-text">
-                                                <strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>
-                                                JACHacks (1st & Speical Award)<br>
-                                                McGill AeroHacks (1st)<br>
-                                                Dialogue Track at ConUHacks (2nd)<br>
-                                                Dawson Robotics Hackathon 2025 (2nd)<br>
-                                                Dawson Robotics Hackathon 2026 (3rd)<br>
-                                                Beginner Track at @HACK (3rd)<br>
-                                                HackDécouverte (Speical Award)<br>
-                                                Dialogue Internal (Speical Award)<br>
-                                            </span>
-                                        </strong> 
-                                        with over 
-                                        <strong class="pop-up">13 STEM competition awards
-                                            <span class="pop-up-text">
-                                                <strong style="color: #0d6efd;">STEM Competition Awards:</strong><br>
-                                                HME Math Contest '14 (National 1st)<br>
-                                                Waterloo Cayley Math Contest (School Champion)<br>
-                                                JACHacks (1st & Speical Award)<br>
-                                                McGill AeroHacks (1st)<br>
-                                                Dialogue Track at ConUHacks (2nd)<br>
-                                                Dawson Robotics Hackathon 2025 (2nd)<br>
-                                                Dawson Robotics Hackathon 2026 (3rd)<br>
-                                                Beginner Track at @HACK (3rd)<br>
-                                                HackDécouverte (Special Award)<br>
-                                                Dialogue Internal (Special Award)<br>
-                                                The Ultimate Math League (Special Award)<br>
-                                                HME Math Contest '16 (Special Award)<br>
-                                            </span>
-                                        </strong> in total. 
-                                        
-                                        I have experience coding in <strong>Python, JavaScript, C++, C#, and C</strong>.
-                                    </p>
+                                    <p class="desc-text mb-0">{{ t.about_html | safe }}</p>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +313,7 @@
                     <section id="education" class="py-4">
                         <div class="mb-4">
                             <h3 class="h4 mb-3">
-                                <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> Education
+                                <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
                             </h3>
                             <div class="row g-3">
                                 <div class="col-12 col-xl-4">
@@ -308,10 +323,10 @@
                                                 <h3 class="h5 fw-bold mb-0" style="color: #ED1B2F;">McGill University</h3>
                                                 <span class="text-muted small">2026 (Est.) - 2029 (Est.)</span>
                                             </div>
-                                            <span class="badge rounded-pill" style="background: #ED1B2F !important; color: white; font-size: 0.7rem;">EXPECTED</span>
+                                            <span class="badge rounded-pill" style="background: #ED1B2F !important; color: white; font-size: 0.7rem;">{{ t.edu_expected }}</span>
                                         </div>
                                         <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">Computer Science | Bachelor of Science</p>
+                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_mcgill_degree }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -322,13 +337,13 @@
                                                 <h3 class="h5 fw-bold mb-0" style="color: #145CB1;">Dawson College</h3>
                                                 <span class="text-muted small">2024 - 2026 (Est.)</span>
                                             </div>
-                                            <span class="badge rounded-pill" style="background: #145CB1 !important; color: white; font-size: 0.7rem;">ENROLLED</span>
+                                            <span class="badge rounded-pill" style="background: #145CB1 !important; color: white; font-size: 0.7rem;">{{ t.edu_enrolled }}</span>
                                         </div>
                                         <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">Science, Computer Science & Mathematics</p>
+                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_dawson_degree }}</p>
                                             <div class="d-flex flex-wrap gap-2">
-                                                <span class="badge border text-dark shadow-sm">Dean's List</span>
-                                                <span class="badge border text-dark shadow-sm">Recognition of Student Involvement</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_deans_list }}</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_recognition }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -340,14 +355,14 @@
                                                 <h3 class="h5 fw-bold mb-0" style="color: #741814;">Rosemount High School</h3>
                                                 <span class="text-muted small">2019 - 2024</span>
                                             </div>
-                                            <span class="badge rounded-pill" style="background: #741814; color: white; font-size: 0.7rem;">GRADUATED</span>
+                                            <span class="badge rounded-pill" style="background: #741814; color: white; font-size: 0.7rem;">{{ t.edu_graduated }}</span>
                                         </div>
                                         <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">Secondary School Diploma</p>
+                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_rosemount_degree }}</p>
                                             <div class="d-flex flex-wrap gap-2">
-                                                <span class="badge border text-dark shadow-sm">High Honor Roll</span>
-                                                <span class="badge border text-dark shadow-sm">Honor Roll</span>
-                                                <span class="badge border text-dark shadow-sm">Art-Études Program</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_high_honor_roll }}</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_honor_roll }}</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_art_etudes }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -370,7 +385,7 @@
                     </span>
                 </div>
                 <p class="snow">
-                    Type "snow"
+                    {{ t.snow_hint }}
                 </p>
                 <div class="footer-social-row mt-2">
                     <a href="https://www.linkedin.com/in/jo-9m-n1/" target="_blank" class="footer-link"><i class="fa-brands fa-linkedin"></i></a>

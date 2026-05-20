@@ -17,7 +17,7 @@
                 <div class="floating-control-pill">
                     <a href="/" class="w-100 h-100 d-flex justify-content-center align-items-center gap-2 text-decoration-none" style="color: inherit;">
                         <i class="fa-solid fa-chevron-left" style="font-size: 1.1rem;"></i>
-                        <span class="fw-bold" style="font-size: 1.1rem;">Home</span>
+                        <span class="fw-bold" style="font-size: 1.1rem;">{{ t.nav_home }}</span>
                     </a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                             <i class="fa-solid fa-moon"></i>
                         </div>
                         
-                        <div class="dynamic-menu-title">Navigation</div>
+                        <div class="dynamic-menu-title">{{ t.navigation }}</div>
                         
                         <div class="menu-trigger" id="menuTrigger">
                             <span></span><span></span><span></span>
@@ -37,10 +37,10 @@
                     </div>
 
                     <div class="pill-menu-content">
-                        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
-                        <a href="/achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
-                        <a href="/projects"><i class="fa-solid fa-code"></i> Projects</a>
-                        <a href="/#about-me"><i class="fa-solid fa-user"></i> About Me</a>
+                        <a href="/"><i class="fa-solid fa-house"></i> {{ t.nav_home }}</a>
+                        <a href="/achievements"><i class="fa-solid fa-trophy"></i> {{ t.nav_achievements }}</a>
+                        <a href="/projects"><i class="fa-solid fa-code"></i> {{ t.nav_projects }}</a>
+                        <a href="/#about-me"><i class="fa-solid fa-user"></i> {{ t.nav_about_me }}</a>
                     </div>
                 </div>
             </div>
@@ -51,28 +51,28 @@
     <div class="container my-5" id="projects">
         <div class="container my-5 pt-5">
             <div class="text-center mb-4">
-                <h2 class="display-5 fw-bold">Projects</h2>
-                <p class="text-muted">Jongmin's journey from South Korea to Canada</p>
+                <h2 class="display-5 fw-bold">{{ t.projects_title }}</h2>
+                <p class="text-muted">{{ t.subtitle_journey }}</p>
             </div>
         </div>
 
         <div class="filter-wrapper mb-5">
             <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
-                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn active" data-filter="all" onclick="filterSelection('all')">{{ t.filter_show_all }}</button>
                 <button class="filter-btn btn-gold" data-filter="award-filter" onclick="filterSelection('award-filter')">
-                    <i class="fa-solid fa-trophy me-1"></i> Gold
+                    <i class="fa-solid fa-trophy me-1"></i> {{ t.filter_gold }}
                 </button>
-                <button class="filter-btn" data-filter="team" onclick="filterSelection('team')">Team</button>
-                <button class="filter-btn" data-filter="hackathon" onclick="filterSelection('hackathon')">Hackathon</button>
-                <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">School</button>
-                <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">Personal</button>
+                <button class="filter-btn" data-filter="team" onclick="filterSelection('team')">{{ t.filter_team }}</button>
+                <button class="filter-btn" data-filter="hackathon" onclick="filterSelection('hackathon')">{{ t.filter_hackathon }}</button>
+                <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">{{ t.filter_school }}</button>
+                <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">{{ t.filter_personal }}</button>
             </div>
         </div>
 
         <div id="no-results" class="text-center my-5 py-5" style="display: none;">
             <i class="fa-solid fa-magnifying-glass display-1 text-muted mb-3"></i>
-            <h3 class="text-muted">No projects match these filters.</h3>
-            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">Reset Filters</button>
+            <h3 class="text-muted">{{ t.no_projects_match }}</h3>
+            <button class="reset-btn-pill mt-2" onclick="filterSelection('all')">{{ t.reset_filters }}</button>
         </div>
 
         <div class="row g-4" id="projects-row">
@@ -93,33 +93,33 @@
                                     {% if p.award %}
                                     <div class="badge bg-warning text-dark rounded-pill px-2 py-1 text-wrap d-inline-block" 
                                         style="font-size: 0.75rem; width: fit-content;">
-                                        <i class="fa-solid fa-trophy me-1"></i> {{ p.award }}
+                                        <i class="fa-solid fa-trophy me-1"></i> {{ p.award|tr }}
                                     </div>
                                     {% endif %}
 
                                     {% if p.category %}
                                     <div class="badge bg-primary rounded-pill px-2 py-1 text-wrap d-inline-block" 
                                         style="font-size: 0.75rem; width: fit-content;">
-                                        {{ p.category }}
+                                        {{ p.category|tr }}
                                     </div>
                                     {% endif %}
                                 </div>
 
                             </div>
                             
-                            <h3 class="card-title h4 fw-bold">{{ p.title }}</h3>
-                            <p class="card-text text-muted mb-3">{{ p.description|safe }}</p>
+                            <h3 class="card-title h4 fw-bold">{{ p.title|tr }}</h3>
+                            <p class="card-text text-muted mb-3">{{ p.description|tr|safe }}</p>
                             
                             <div class="mb-4">
-                                {% for t in p.tech %}
-                                <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ t }}</span>
+                                {% for tech_item in p.tech|tr %}
+                                <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1">{{ tech_item }}</span>
                                 {% endfor %}
                             </div>
 
                             {% if p.collaborators %}
                             <div class="collaborators mb-2">
                                 <small class="text-muted d-block mb-2 text-uppercase fw-semibold" style="font-size: 0.65rem;">
-                                    Teammate{{ 's' if p.collaborators|length > 1 else '' }}
+                                    {{ t.teammates if p.collaborators|length > 1 else t.teammate }}
                                 </small>
                                 <div class="d-flex flex-wrap gap-2">
                                     {% for person in p.collaborators %}
@@ -134,7 +134,7 @@
 
                             <div class="mt-auto pt-3 text-end">
                                 <span class="small fw-bold text-primary">
-                                    Read the full story <i class="fa-solid fa-chevron-right ms-1"></i>
+                                    {{ t.read_full_story }} <i class="fa-solid fa-chevron-right ms-1"></i>
                                 </span>
                             </div>
                         </div>
