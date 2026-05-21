@@ -86,6 +86,8 @@
                         <span class="lang-beta-badge" aria-label="Beta feature">BETA</span>
                         {% for code in LANGUAGES %}
                         <a href="{{ url_for('set_language', lang=code, next=request.path) }}"
+                           data-turbo-action="replace"
+                           data-lang="{{ code }}"
                            class="lang-link{% if lang == code %} active{% endif %}">{{ code|upper }}</a>
                         {% endfor %}
                     </div>

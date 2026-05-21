@@ -1488,7 +1488,14 @@ window.addEventListener('focus', () => {
         const chosen = nearest.dataset.lang;
         const current = toggle.dataset.currentLang;
         if (chosen && chosen !== current) {
-            setTimeout(() => { window.location.href = nearest.href; }, 220);
+            sessionStorage.setItem('__langScrollY', String(window.scrollY));
+            setTimeout(() => {
+                if (window.Turbo && typeof window.Turbo.visit === 'function') {
+                    window.Turbo.visit(nearest.href, { action: 'replace' });
+                } else {
+                    window.location.replace(nearest.href);
+                }
+            }, 220);
         }
     }
 
