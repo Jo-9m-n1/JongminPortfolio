@@ -457,9 +457,9 @@ PROJECTS = [
             'fr': 'CashFlux'
         },
         'award': {
-            'en': '2nd Place | Brim Track at ConUHacks',
-            'ko': '2등 | Brim 부문 ConUHacks',
-            'fr': '2ᵉ Place | Piste Brim à ConUHacks'
+            'en': '2nd Place | Brim Track at MPC Hacks',
+            'ko': '2등 | Brim 부문 MPC Hacks',
+            'fr': '2ᵉ Place | Piste Brim à MPC Hacks'
         },
         'tech': ['Python', 'JavaScript', 'Gemini API', 'ElevenLabs'],
         'description': {
