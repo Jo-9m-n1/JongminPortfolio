@@ -478,7 +478,7 @@ PROJECTS = [
             'ko': '',
             'fr': ''
         },
-        'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard Chassé', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
+        'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
         'images': ["/static/CashFlux1.png",
             "/static/CashFlux2.png",
             "/static/CashFlux3.png",
