@@ -64,11 +64,12 @@ TRANSLATIONS = {
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
             'I am currently studying computer science at Dawson College and am proud to be <strong>trilingual</strong>, '
             'speaking Korean, English, and French. '
-            'I am an <strong class="pop-up">8x hackathon winner'
+            'I am an <strong class="pop-up">9x hackathon winner'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
             'McGill AeroHacks (1st)<br>'
+            'MPC Hacks (2nd · Special Award)<br>'
             'Dialogue Track at ConUHacks (2nd)<br>'
             'Dawson Robotics Hackathon 2025 (2nd)<br>'
             'Dawson Robotics Hackathon 2026 (3rd)<br>'
@@ -76,13 +77,14 @@ TRANSLATIONS = {
             'HackDécouverte (Special Award)<br>'
             'Dialogue Internal (Special Award)<br>'
             '</span></strong> with over '
-            '<strong class="pop-up">13 STEM competition awards'
+            '<strong class="pop-up">15 STEM competition awards'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">STEM Competition Awards:</strong><br>'
             "HME Math Contest '14 (National 1st)<br>"
             'Waterloo Cayley Math Contest (School Champion)<br>'
             'JACHacks (1st · Special Award)<br>'
             'McGill AeroHacks (1st)<br>'
+            'MPC Hacks (2nd · Special Award)<br>'
             'Dialogue Track at ConUHacks (2nd)<br>'
             'Dawson Robotics Hackathon 2025 (2nd)<br>'
             'Dawson Robotics Hackathon 2026 (3rd)<br>'
@@ -447,6 +449,57 @@ def set_language(lang):
 
 PROJECTS = [
     {
+        'id': 'CashFlux',
+        'tags': ['hackathon', 'team'],
+        'title': {
+            'en': 'CashFlux',
+            'ko': 'CashFlux',
+            'fr': 'CashFlux'
+        },
+        'award': {
+            'en': '2nd Place | Brim Track at ConUHacks',
+            'ko': '2등 | Brim 부문 ConUHacks',
+            'fr': '2ᵉ Place | Piste Brim à ConUHacks'
+        },
+        'tech': ['Python', 'JavaScript', 'Gemini API', 'ElevenLabs'],
+        'description': {
+            'en': 'An ultimate AI powered expense tracking application.',
+            'ko': ' ',
+            'fr': ' '
+        },
+        'full_story': {
+            'en': '',
+            'ko': '',
+            'fr': ''
+        },
+        'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'ElevenLabs', 'Vultr', 'MongoDB'],
+        'troubles': {
+            'en': '',
+            'ko': '',
+            'fr': ''
+        },
+        'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard Chassé', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
+        'images': ["/static/CashFlux1.png",
+            "/static/CashFlux2.png",
+            "/static/CashFlux3.png",
+            "/static/CashFlux4.png",
+            "/static/CashFlux5.png",
+            "/static/CashFlux6.png"],
+        'thumbnail': "/static/CashFlux.png",
+        'external_links': [
+            {
+                'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                'url': 'https://devpost.com/software/mpc-hacks-2026',
+                'icon': 'fa-solid fa-code-branch'
+            },
+            {
+                'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
+                'url': 'https://youtu.be/_azDjQU3Vx4',
+                'icon': 'fa-brands fa-youtube'
+            }
+        ]
+    },
+    {
         'id': 'chemically-bonded',
         'tags': ['school', 'team'],
         'title': {
@@ -461,12 +514,12 @@ PROJECTS = [
         },
         'tech': ['Python', 'JavaScript', 'Gemini API'],
         'description': {
-            'en': 'Engineered a specialized AI chatbot for chemistry, achieving a <strong>27.1x reduction in latency</strong> for generating 3D molecular models compared to Claude Sonnet 4.6 (internal testing).',
+            'en': 'A specialized AI chatbot for chemistry, achieving a <strong>27.1x reduction in latency</strong> for generating 3D molecular models compared to Claude Sonnet 4.6 (internal testing).',
             'ko': '화학에 특화된 AI 챗봇을 개발하여, 3D 분자 모델 생성 지연 시간을 Claude Sonnet 4.6 대비 <strong>27.1배 단축</strong>시켰습니다 (자체 테스트).',
             'fr': "Conçu un chatbot IA spécialisé en chimie, atteignant une <strong>réduction de latence de 27,1x</strong> pour la génération de modèles moléculaires 3D par rapport à Claude Sonnet 4.6 (tests internes)."
         },
         'full_story': {
-            'en': 'Currently developing a chemistry-related AI website for our Integrative Project (IP) at Dawson College with James and Alex.',
+            'en': 'This chemistry-related AI chatbot (similar to Dr. Bob) was developped as part of an Integrative Project (IP) at Dawson College in collaboration with James and Alex. It is designed to help students struggling in General Chemistry (202-SN1-RE), by displaying interactive 3D VSEPR models and Lewis structure with explanation genreated by Gemini API.',
             'ko': '현재 James, Alex와 함께 Dawson College의 통합 프로젝트(IP) 과제로 화학 관련 AI 웹사이트를 개발하고 있습니다.',
             'fr': "Je développe actuellement, avec James et Alex, un site web IA lié à la chimie pour notre Projet d'intégration (PI) au Collège Dawson."
         },
@@ -510,7 +563,7 @@ PROJECTS = [
         },
         'tech': ['Next.js', 'Python', 'Gemini API'],
         'description': {
-            'en': 'An award-winning project developed at a hackathon, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
+            'en': 'An award-winning project, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
             'ko': '해커톤에서 개발한 수상작 OurCampus는 공통 휴식 시간과 캠퍼스 인구 히트맵을 통해 학생들이 커뮤니티를 형성할 수 있도록 도와줍니다.',
             'fr': "Projet primé développé lors d'un hackathon, OurCampus aide les étudiants à créer une communauté en affichant les pauses communes et une carte thermique de la population sur le campus."
         },
@@ -673,7 +726,7 @@ PROJECTS = [
         },
         'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
         'description': {
-            'en': 'An award-winning project developed at a hackathon, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
+            'en': 'An award-winning project, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
             'ko': '해커톤에서 개발한 수상작 Bob 박사는 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
             'fr': "Projet primé développé lors d'un hackathon, Dr. Bob utilise Twilio pour automatiser l'accueil des patients et le suivi des antécédents médicaux, en s'assurant que les données médicales sont bien organisées pour les médecins."
         },
@@ -787,6 +840,25 @@ def projects():
 @app.route('/achievements')
 def achievements():
     competitions = [
+        {
+            'title': {'en': '2nd Place | Brim Track at MPC Hacks', 'ko': '2등 | Brim 부문 MPC Hacks', 'fr': '2ᵉ Place | Piste Brim à MPC Hacks'},
+            'event': {'en': 'Polytechnique Montréal', 'ko': 'Polytechnique Montréal', 'fr': 'Polytechnique Montréal'},
+            'date': '2026. 05. 30. - 2026. 05. 31.',
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                    'url': 'https://devpost.com/software/mpc-hacks-2026',
+                    'icon': 'fa-solid fa-code-branch'
+                },
+                {
+                    'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
+                    'url': 'https://www.youtube.com/watch?v=_azDjQU3Vx4&feature=youtu.be',
+                    'icon': 'fa-brands fa-youtube'
+                }
+            ]
+        },
         {
             'title': {'en': '3rd Place | Dawson Robotics Hackathon 2026', 'ko': '3등 | Dawson Robotics Hackathon 2026', 'fr': '3ᵉ Place | Dawson Robotics Hackathon 2026'},
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
