@@ -270,52 +270,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const words = [
-        (window.T && window.T.hero_role_1) || "a Computer Scientist",
-        (window.T && window.T.hero_role_2) || "a Full-stack Developer"
-    ];
-    
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    
-    const typingElement = document.querySelector(".typing-text");
-    const cursorElement = document.querySelector(".typing-cursor");
-    
-    if(!typingElement) return;
-
-    function type() {
-        const currentWord = words[wordIndex];
-        
-        if (isDeleting) {
-            typingElement.textContent = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 40 : 100;
-
-        if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 3500;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex++;
-            if (wordIndex >= words.length) {
-                wordIndex = 0;
-            }
-            typeSpeed = 500;
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    setTimeout(type, 1000);
-});
-
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;

@@ -22,9 +22,6 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
         'name': 'Jongmin Lee',
-        'I_am': 'I am',
-        'hero_role_1': 'a Computer Scientist',
-        'hero_role_2': 'a Full-stack Developer',
         'btn_achievements': 'Achievements',
         'btn_view_my_work': 'View My Work',
 
@@ -156,9 +153,6 @@ TRANSLATIONS = {
         'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
 
         'name': '이종민',
-        'I_am': '저는',
-        'hero_role_1': '컴퓨터 과학자입니다',
-        'hero_role_2': '풀스택 개발자입니다',
         'btn_achievements': '수상 보기',
         'btn_view_my_work': '프로젝트 보기',
 
@@ -289,9 +283,6 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
         'name': 'Jongmin Lee',
-        'I_am': 'Je suis',
-        'hero_role_1': 'un informaticien',
-        'hero_role_2': 'un développeur full-stack',
         'btn_achievements': 'Réalisations',
         'btn_view_my_work': 'Voir mes projets',
 
