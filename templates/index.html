@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}"{% if theme == 'dark' %} class="dark-mode"{% endif %}>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="turbo-cache-control" content="no-cache">
+        <meta name="turbo-prefetch" content="false">
+        <link id="site-favicon" rel="icon" type="image/png" href="{{ url_for('static', filename='favicon-dark.png' if theme == 'dark' else 'favicon.png') }}" sizes="96x96">
         <script>
             (function() {
                 function readCookie(name) {
@@ -21,15 +26,10 @@
                 window.FAVICON_LIGHT = "{{ url_for('static', filename='favicon.png') }}";
                 window.FAVICON_DARK = "{{ url_for('static', filename='favicon-dark.png') }}";
                 window.setSiteFavicon = function(isDark) {
-                    let link = document.getElementById('site-favicon');
-                    if (!link) {
-                        link = document.createElement('link');
-                        link.id = 'site-favicon';
-                        link.rel = 'icon';
-                        link.type = 'image/png';
-                        document.head.appendChild(link);
+                    const link = document.getElementById('site-favicon');
+                    if (link) {
+                        link.href = isDark ? window.FAVICON_DARK : window.FAVICON_LIGHT;
                     }
-                    link.href = isDark ? window.FAVICON_DARK : window.FAVICON_LIGHT;
                 };
 
                 if (theme === 'dark') {
@@ -48,11 +48,6 @@
                 });
             })();
         </script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="turbo-cache-control" content="no-cache">
-        <meta name="turbo-prefetch" content="false">
-        <link id="site-favicon" rel="icon" type="image/png" href="{{ url_for('static', filename='favicon-dark.png' if theme == 'dark' else 'favicon.png') }}" sizes="96x96">
         <title>Jongmin Lee | Engineering Portfolio</title>
         <script type="module" src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.13/dist/turbo.es2017-esm.min.js"></script>
         <script>

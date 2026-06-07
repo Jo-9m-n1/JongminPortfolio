@@ -22,6 +22,10 @@ window.addEventListener('DOMContentLoaded', () => {
             const icon = themeBtn.querySelector('i');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             document.cookie = 'theme=' + (isDark ? 'dark' : 'light') + '; path=/; max-age=31536000; samesite=Lax';
+
+            if (typeof window.setSiteFavicon === 'function') {
+                window.setSiteFavicon(isDark);
+            }
             
             if (icon) {
                 icon.style.transition = 'transform 0.4s ease';
