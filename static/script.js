@@ -1082,7 +1082,7 @@ May 2025 | Dawson Robotics Hackathon 2025 <i class="fa-solid fa-trophy"></i>
             } else if (args[1] === 'education.txt') {
                 outputArea.innerHTML += 
 `2026 (Est.) - 2029 (Est.) | McGill University
-2024 - 2026 (Est.)        | Dawson College
+2024 - 2026               | Dawson College
 2019 - 2024               | Rosemount High School
 `  
             } else if (args[1] === 'projects.txt') {
@@ -1175,6 +1175,7 @@ function closeTerminal(overlay) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const trophies = [
+        { name: "MPC Hacks", type: "Hackathon", year: "2026" },
         { name: "Dawson Robotics Hackathon 2026", type: "Hackathon", year: "2026" },
         { name: "JACHacks", type: "Hackathon", year: "2026" },
         { name: "McGill AeroHacks", type: "Hackathon", year: "2026" },
@@ -1222,7 +1223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
                 <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">17+ COMPETITION AWARDS</p>
+                <p class="trophy-subtitle">18+ COMPETITION AWARDS</p>
                 <div class="shelf-grid">
                     ${trophies.map(t => `
                         <div class="trophy-item">

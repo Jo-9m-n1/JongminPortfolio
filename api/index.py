@@ -21,6 +21,7 @@ TRANSLATIONS = {
         'back': 'Back',
         'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
+        'name': 'Jongmin Lee',
         'I_am': 'I am',
         'hero_role_1': 'a Computer Scientist',
         'hero_role_2': 'a Full-stack Developer',
@@ -41,7 +42,7 @@ TRANSLATIONS = {
         'scale_regional': 'REGIONAL SCALE',
         'more_awards': 'MORE AWARDS',
 
-        'hl_cayley_subtitle': 'School Champion · Top 25% in the world',
+        'hl_cayley_subtitle': 'School Champion · Top 25% in the World',
         'hl_hme_subtitle': 'National 1st Place · Top 1% in Korea',
         'hl_conuhacks_subtitle': '2nd Place | Dialogue Track',
         'hl_hack_subtitle': '3rd Place | Beginner Track',
@@ -56,6 +57,7 @@ TRANSLATIONS = {
         'edu_rosemount_degree': 'Secondary School Diploma',
         'edu_deans_list': "Dean's List",
         'edu_recognition': 'Recognition of Student Involvement',
+        'edu_space': 'SPACE Certificate',
         'edu_high_honor_roll': 'High Honor Roll',
         'edu_honor_roll': 'Honor Roll',
         'edu_art_etudes': 'Art-Études Program',
@@ -69,7 +71,7 @@ TRANSLATIONS = {
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
             'McGill AeroHacks (1st)<br>'
-            'MPC Hacks (2nd · Special Award)<br>'
+            'Brim Track at MPC Hacks (2nd · Special Award)<br>'
             'Dialogue Track at ConUHacks (2nd)<br>'
             'Dawson Robotics Hackathon 2025 (2nd)<br>'
             'Dawson Robotics Hackathon 2026 (3rd)<br>'
@@ -84,7 +86,7 @@ TRANSLATIONS = {
             'Waterloo Cayley Math Contest (School Champion)<br>'
             'JACHacks (1st · Special Award)<br>'
             'McGill AeroHacks (1st)<br>'
-            'MPC Hacks (2nd · Special Award)<br>'
+            'Brim Track MPC Hacks (2nd · Special Award)<br>'
             'Dialogue Track at ConUHacks (2nd)<br>'
             'Dawson Robotics Hackathon 2025 (2nd)<br>'
             'Dawson Robotics Hackathon 2026 (3rd)<br>'
@@ -153,6 +155,7 @@ TRANSLATIONS = {
         'back': '뒤로',
         'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
 
+        'name': '이종민',
         'I_am': '저는',
         'hero_role_1': '컴퓨터 과학자입니다',
         'hero_role_2': '풀스택 개발자입니다',
@@ -183,11 +186,12 @@ TRANSLATIONS = {
         'edu_expected': '예정',
         'edu_enrolled': '재학 중',
         'edu_graduated': '졸업',
-        'edu_mcgill_degree': '컴퓨터 과학 · 학사',
+        'edu_mcgill_degree': '컴퓨터 과학 | 학사',
         'edu_dawson_degree': '과학, 컴퓨터 과학 및 수학',
         'edu_rosemount_degree': '고등학교 졸업장',
         'edu_deans_list': '학장 명단',
         'edu_recognition': '교내 활동 인증',
+        'edu_space': 'SPACE 수료증',
         'edu_high_honor_roll': '최우수 명예 학생',
         'edu_honor_roll': '명예 학생',
         'edu_art_etudes': '예술 및 스터디 프로그램',
@@ -195,25 +199,27 @@ TRANSLATIONS = {
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 전공하고 있는 <strong>이종민</strong>입니다. '
             '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
-            '저는 <strong class="pop-up">해커톤 8회 우승자'
+            '저는 <strong class="pop-up">해커톤 9회 우승자'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">해커톤 입상 기록:</strong><br>'
             'JACHacks (1위 · 특별상)<br>'
             'McGill AeroHacks (1위)<br>'
-            'Dialogue Track at ConUHacks (2위)<br>'
+            'Brim 부문 MPC Hacks (2위 · 특별상)<br>'
+            'Dialogue 부문 ConUHacks (2위)<br>'
             'Dawson Robotics Hackathon 2025 (2위)<br>'
             'Dawson Robotics Hackathon 2026 (3위)<br>'
-            'Beginner Track at @HACK (3위)<br>'
+            '초보 부문 @HACK (3위)<br>'
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             '</span></strong>이며, '
-            '<strong class="pop-up">STEM 관련 대회를 13회 이상 수상'
+            '<strong class="pop-up">STEM 관련 대회를 15회 이상 수상'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">STEM 대회 수상:</strong><br>'
-            "HME Math Contest '14 (전국 1위)<br>"
+            "HME 수학 경시대회 '14 (전국 1위)<br>"
             'Waterloo Cayley Math Contest (학교 챔피언)<br>'
             'JACHacks (1위 · 특별상)<br>'
             'McGill AeroHacks (1위)<br>'
+            'Brim 부문 MPC Hacks (2위 · 특별상)<br>'
             'Dialogue Track at ConUHacks (2위)<br>'
             'Dawson Robotics Hackathon 2025 (2위)<br>'
             'Dawson Robotics Hackathon 2026 (3위)<br>'
@@ -221,7 +227,7 @@ TRANSLATIONS = {
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             'The Ultimate Math League (특별상)<br>'
-            "HME Math Contest '16 (특별상)<br>"
+            "HME 수학 경시대회 '16 (특별상)<br>"
             '</span></strong>한 경력이 있습니다. '
             '또한 <strong>Python, JavaScript, C++, C#, C</strong> 코딩 경험이 있습니다.'
         ),
@@ -282,6 +288,7 @@ TRANSLATIONS = {
         'back': 'Retour',
         'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
+        'name': 'Jongmin Lee',
         'I_am': 'Je suis',
         'hero_role_1': 'un informaticien',
         'hero_role_2': 'un développeur full-stack',
@@ -317,6 +324,7 @@ TRANSLATIONS = {
         'edu_rosemount_degree': "Diplôme d'études secondaires",
         'edu_deans_list': "Liste d'honneur du doyen",
         'edu_recognition': "Reconnaissance de l'engagement étudiant",
+        'edu_space': 'Certificat SPACE', 
         'edu_high_honor_roll': "Tableau d'honneur supérieur",
         'edu_honor_roll': "Tableau d'honneur",
         'edu_art_etudes': 'Programme Arts-Études',
@@ -325,11 +333,12 @@ TRANSLATIONS = {
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
             "J'étudie actuellement l'informatique au Collège Dawson et je suis fier d'être <strong>trilingue</strong>, "
             "parlant le coréen, l'anglais et le français. "
-            'Je suis <strong class="pop-up">8x gagnant de hackathons'
+            'Je suis <strong class="pop-up">9x gagnant de hackathons'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Podiums de hackathons :</strong><br>'
             'JACHacks (1ʳᵉ · Prix Spécial)<br>'
             'McGill AeroHacks (1ʳᵉ)<br>'
+            'Brim Track à MPC Hacks (2ᵉ · Prix Spécial)<br>'
             'Dialogue Track à ConUHacks (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2025 (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2026 (3ᵉ)<br>'
@@ -337,13 +346,14 @@ TRANSLATIONS = {
             'HackDécouverte (Prix spécial)<br>'
             'Dialogue Internal (Prix Spécial)<br>'
             '</span></strong> avec plus de '
-            '<strong class="pop-up">13 prix en STIM'
+            '<strong class="pop-up">15 prix en STIM'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Prix en STIM :</strong><br>'
             "HME Math Contest '14 (1ʳᵉ nationale)<br>"
             "Waterloo Cayley Math Contest (Champion de l'école)<br>"
             'JACHacks (1ʳᵉ · Prix spécial)<br>'
             'McGill AeroHacks (1ʳᵉ)<br>'
+            'Brim Track à MPC Hacks (2ᵉ · Prix Spécial)<br>'
             'Dialogue Track à ConUHacks (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2025 (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2026 (3ᵉ)<br>'
@@ -479,13 +489,13 @@ PROJECTS = [
             'fr': ''
         },
         'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
-        'images': ["/static/CashFlux1.png",
-            "/static/CashFlux2.png",
-            "/static/CashFlux3.png",
-            "/static/CashFlux4.png",
-            "/static/CashFlux5.png",
-            "/static/CashFlux6.png"],
-        'thumbnail': "/static/CashFlux.png",
+        'images': ["/static/CashFlux/CashFlux1.png",
+            "/static/CashFlux/CashFlux2.png",
+            "/static/CashFlux/CashFlux3.png",
+            "/static/CashFlux/CashFlux4.png",
+            "/static/CashFlux/CashFlux5.png",
+            "/static/CashFlux/CashFlux6.png"],
+        'thumbnail': "/static/CashFlux/CashFlux.png",
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -530,10 +540,10 @@ PROJECTS = [
             'fr': 'Le site est actuellement en cours de développement.'
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': ["/static/ChemicallyBonded1.png",
-            "/static/ChemicallyBonded2.png",
-            "/static/ChemicallyBonded3.png"],
-        'thumbnail': "/static/ChemicallyBonded.png",
+        'images': ["/static/ChemicallyBonded/ChemicallyBonded1.png",
+            "/static/ChemicallyBonded/ChemicallyBonded2.png",
+            "/static/ChemicallyBonded/ChemicallyBonded3.png"],
+        'thumbnail': "/static/ChemicallyBonded/ChemicallyBonded.png",
         'external_links': [
             {
                 'name': {'en': 'View Project on GitHub', 'ko': 'GitHub에서 프로젝트 보기', 'fr': 'Voir le Projet sur GitHub'},
@@ -542,12 +552,12 @@ PROJECTS = [
             },
             {
                 'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
-                'url': '/static/Chemically_Bonded_report.pdf',
+                'url': '/static/ChemicallyBonded/Chemically_Bonded_report.pdf',
                 'icon': 'fa-solid fa-file-pdf'
             },
             {
                 'name': {'en': 'View Poster', 'ko': '포스터 보기', 'fr': "Voir l'Affiche"},
-                'url': '/static/Chemically_Bonded_poster.pdf',
+                'url': '/static/ChemicallyBonded/Chemically_Bonded_poster.pdf',
                 'icon': 'fa-solid fa-file-pdf'
             }
         ]
@@ -579,13 +589,13 @@ PROJECTS = [
             'fr': "Le principal défi pour superposer des données (nombre d'appareils) sur une image de carte est la fluidité du web. Avec des valeurs en pixels fixes, les points restent figés tandis que l'image de la carte s'agrandit ou se réduit selon la taille de l'écran, ce qui décale les marqueurs de leurs repères. Pour résoudre cela, j'ai développé un script Python qui calcule la position comme un ratio des dimensions de l'image plutôt qu'une coordonnée en pixels statique. Les points restent ainsi épinglés exactement au bon endroit, peu importe la taille de l'écran, et de nouveaux points d'accès peuvent être ajoutés facilement, offrant une meilleure <strong>évolutivité</strong> aux départements qui en ont besoin."
         },
         'collaborators': [{'name': 'Brian', 'linkedin': 'https://www.linkedin.com/in/brian-kim-33348a354/'}, {'name': 'Deven'}, {'name': 'Matteo', 'linkedin': 'https://www.linkedin.com/in/matteo-rombola-287a3b402/'}],
-        'images': ["/static/OurCampus1.png",
-                   "/static/OurCampus2.png",
-                   "/static/OurCampus3.png",
-                   "/static/OurCampus4.png",
-                   "/static/OurCampus5.png",
-                   "/static/OurCampus6.png"],
-        'thumbnail': '/static/OurCampus.png/',
+        'images': ["/static/OurCampus/OurCampus1.png",
+                   "/static/OurCampus/OurCampus2.png",
+                   "/static/OurCampus/OurCampus3.png",
+                   "/static/OurCampus/OurCampus4.png",
+                   "/static/OurCampus/OurCampus5.png",
+                   "/static/OurCampus/OurCampus6.png"],
+        'thumbnail': '/static/OurCampus/OurCampus.png/',
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -670,12 +680,12 @@ PROJECTS = [
             'fr': "Au départ, nous voulions développer ce jeu en multijoueur en ligne. Toutefois, après plusieurs heures de développement côté serveur, nous avons réalisé que nous n'avions pas les accès nécessaires pour utiliser Unity Relay. Nous avons donc dû pivoter vers un format multijoueur local sur un seul appareil. Une expérience en ligne aurait été idéale, mais cette contrainte nous a permis de nous concentrer sur la mise au point des mécaniques de jeu principales dans les 3 jours du hackathon."
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': ["/static/DeckMot1.png",
-                   "/static/DeckMot2.png",
-                   "/static/DeckMot3.png",
-                   "/static/DeckMot4.png",
-                   "/static/DeckMot5.png"],
-        'thumbnail': "/static/DeckMot.webp",
+        'images': ["/static/DeckMot/DeckMot1.png",
+                   "/static/DeckMot/DeckMot2.png",
+                   "/static/DeckMot/DeckMot3.png",
+                   "/static/DeckMot/DeckMot4.png",
+                   "/static/DeckMot/DeckMot5.png"],
+        'thumbnail': "/static/DeckMot/DeckMot.webp",
         'external_links': [
             {
                 'name': {'en': 'View Project on Itch.io', 'ko': 'Itch.io에서 프로젝트 보기', 'fr': 'Voir le Projet sur Itch.io'},
@@ -708,10 +718,10 @@ PROJECTS = [
             'fr': "J'ai développé ce site web interactif pour offrir un regard plus approfondi sur mon parcours. Vous y trouverez mes projets clés, mes compétences, mes expériences professionnelles et une collection de prix obtenus tout au long de mon parcours (d'autres seront ajoutés sous peu depuis mes archives). En prime, j'ai caché quelques easter eggs un peu partout sur le site, à vous de les trouver :)"
         },
         'full_tech': ['Python', 'Flask', 'JavaScript'],
-        'images': ["/static/MyPersonalWebsite1.png",
-                   "/static/MyPersonalWebsite2.png",
-                   "/static/MyPersonalWebsite3.png"],
-        'thumbnail': "/static/MyPersonalWebsite.png",
+        'images': ["/static/MyPersonalWebsite/MyPersonalWebsite1.png",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite2.png",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite3.png"],
+        'thumbnail': "/static/MyPersonalWebsite/MyPersonalWebsite.png",
         'published': {'en': 'March 3, 2026', 'ko': '2026년 3월 3일', 'fr': 'le 3 mars 2026'},
         'updated': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
@@ -742,16 +752,16 @@ PROJECTS = [
             'fr': "Le défi technique le plus complexe a été de connecter l'enregistrement Twilio à l'API Gemini. J'ai dû concevoir un pipeline qui capturait l'audio du patient, récupérait l'enregistrement à distance via des webhooks et traitait les données binaires pour l'analyse par l'IA, tout en maintenant une <strong>faible latence</strong> côté utilisateur."
         },
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
-        'images': ["/static/DrBob5.png", 
-                   "/static/DrBob1.png", 
-                   "/static/DrBob3.png",
-                   "/static/DrBob4.png", 
-                   "/static/DrBob2.png", 
-                   "/static/DrBob6.png", 
-                   "/static/DrBob8.png",
-                   "/static/DrBob9.png",
-                   "/static/DrBob11.png"],
-        'thumbnail': '/static/DrBob.png/',
+        'images': ["/static/DrBob/DrBob5.png", 
+                   "/static/DrBob/DrBob1.png", 
+                   "/static/DrBob/DrBob3.png",
+                   "/static/DrBob/DrBob4.png", 
+                   "/static/DrBob/DrBob2.png", 
+                   "/static/DrBob/DrBob6.png", 
+                   "/static/DrBob/DrBob8.png",
+                   "/static/DrBob/DrBob9.png",
+                   "/static/DrBob/DrBob11.png"],
+        'thumbnail': '/static/DrBob/DrBob.png/',
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -779,10 +789,10 @@ PROJECTS = [
             'fr': "Ce projet a commencé comme un concept « à la Tinder » pour aider les étudiants du Cégep à découvrir leurs pauses communes et à organiser des rencontres. Il a ensuite évolué vers une application plus polyvalente, permettant aux utilisateurs de trouver du temps libre commun avec n'importe lequel de leurs amis."
         },
         'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'pdfplumber', 'Regex', 'Werkzeug Security'],
-        'images': ["/static/MeetingApp1.png",
-                   "/static/MeetingApp3.png",
-                   "/static/MeetingApp5.png"],
-        'thumbnail': '/static/MeetingApp.png/',
+        'images': ["/static/MeetingApp/MeetingApp1.png",
+                   "/static/MeetingApp/MeetingApp3.png",
+                   "/static/MeetingApp/MeetingApp5.png"],
+        'thumbnail': '/static/MeetingApp/MeetingApp.png/',
         'published': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
     {
@@ -808,10 +818,10 @@ PROJECTS = [
             'fr': "Au départ, l'application Flask ne pouvait pas distinguer quel utilisateur demandait une suppression; elle retirait simplement la première ligne de la base de données CSV, peu importe à qui elle appartenait. Cela posait un grave problème d'intégrité des données. Pour résoudre cela, j'ai cherché comment transmettre des données contextuelles via le frontend sans encombrer l'interface. J'ai implémenté des champs HTML cachés pour lier des métadonnées spécifiques à l'utilisateur à la requête. Le backend pouvait ainsi vérifier l'identité de l'utilisateur et cibler la bonne ligne dans le fichier CSV, garantissant que les utilisateurs ne pouvaient modifier que leurs propres données. Ce défi m'a appris l'importance vitale de la gestion d'état et du contexte de requête dans les applications web."
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
-        'images': ["/static/J-score1.png",
-                   "/static/J-score2.png",
-                   "/static/J-score3.png"],
-        'thumbnail': '/static/J-score.png/',
+        'images': ["/static/J-score/J-score1.png",
+                   "/static/J-score/J-score2.png",
+                   "/static/J-score/J-score3.png"],
+        'thumbnail': '/static/J-score/J-score.png/',
         'external_links': [
             {
                 'name': {'en': 'View Project', 'ko': '프로젝트 보기', 'fr': 'Voir le Projet'},
@@ -1050,7 +1060,7 @@ def achievements():
             'date': '2025. 11. 29.',
             'desc': {
                 'en': "Competed in Concordia's first pre-university hackathon. Developed BudgetX, an AI budeting website using Next.js, Gemini API and others.",
-                'ko': 'Concordia의 첫 대학 진학 전 해커톤에 참가해 Next.js, Gemini API 등을 활용한 AI 가계부 웹사이트 BudgetX를 개발했습니다.',
+                'ko': 'Concordia의 첫 대입 학생 전용 해커톤에 참가해 Next.js, Gemini API 등을 활용한 AI 가계부 웹사이트 BudgetX를 개발했습니다.',
                 'fr': "Participation au tout premier hackathon pré-universitaire de Concordia. Développé BudgetX, un site web de budget IA utilisant Next.js, l'API Gemini et d'autres outils."
             },
             'color': '#D4AF37',
@@ -1123,7 +1133,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': {'en': 'National Honors | National HME Math Contest', 'ko': '전국 우수상 | 전국 HME 수학경시대회', 'fr': 'Mention nationale | Concours national HME de mathématiques'},
+            'title': {'en': 'National Honors | National HME Math Contest', 'ko': '전국 우수상 | HME 수학경시대회', 'fr': 'Mention nationale | Concours national HME de mathématiques'},
             'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
             'date': '2016. 06. 08.',
             'desc': {
@@ -1147,7 +1157,7 @@ def achievements():
             'category': 'arts'
         },
         {
-            'title': {'en': 'National 1st Place | National HME Math Contest', 'ko': '전국 1위 | 전국 HME 수학경시대회', 'fr': '1ʳᵉ Place nationale | Concours national HME de mathématiques'},
+            'title': {'en': 'National 1st Place | National HME Math Contest', 'ko': '전국 1위 | HME 수학경시대회', 'fr': '1ʳᵉ Place nationale | Concours national HME de mathématiques'},
             'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
             'date': '2014. 05. 24.',
             'desc': {
@@ -1198,15 +1208,14 @@ def achievements():
 
     certificates = [
         {
-            'title': {'en': 'SPACE Certificate', 'ko': 'SPACE Certificate', 'fr': 'SPACE Certificate'},
+            'title': {'en': 'SPACE Certificate', 'ko': 'SPACE 수료증', 'fr': 'SPACE Certificate'},
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
-            'date': {'en': 'Working on it', 'ko': '진행 중', 'fr': 'En cours'},
+            'date': '2026. 05. 31.',
             'desc': {
                 'en': 'The SPACE Certificate recognizes students for excellence in multidisciplinary projects that integrate science, technology, and the arts in Dawson College.',
                 'ko': 'SPACE Certificate는 Dawson College에서 과학, 기술, 예술을 통합한 다학제 프로젝트에서 우수성을 보인 학생들을 인증하는 자격입니다.',
                 'fr': "Le SPACE Certificate reconnaît les étudiants pour leur excellence dans des projets multidisciplinaires qui intègrent la science, la technologie et les arts au Collège Dawson."
             },
-            'color': '#cbd5e1',
             'category': 'software hardware canada stem math arts'
         },
         {

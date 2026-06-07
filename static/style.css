@@ -87,6 +87,8 @@
 @media (max-width: 575.98px) {
     .lang-toggle .lang-link { min-width: 24px; padding: 0.1rem 0.3rem; font-size: 0.68rem; }
     .lang-beta-badge { font-size: 0.45rem; top: -6px; right: -8px; }
+    .navbar-brand { font-size: 1.2rem; }
+    .navbar .container { gap: 0.5rem; }
 }
 
 .tooltip-text {
@@ -1135,7 +1137,7 @@ body.dark-mode .reset-btn-pill:hover {
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     border-radius: 24px !important;
-    padding: 2.5rem !important;
+    padding: 2rem !important;
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
@@ -1913,6 +1915,18 @@ body.dark-mode .terminal-prompt {
 
 .dark-mode .terminal-nav-link:hover {
     color: #ffffff !important;
+}
+
+/* Reserve a constant label width so translated nav text (Terminal/Resume,
+   터미널/이력서, Terminal/CV) doesn't change the navbar cluster width and
+   shift the language toggle. Only applied at md+ where there is room;
+   below that the labels are hidden and only the compact icons show. */
+@media (min-width: 768px) {
+    .terminal-nav-link > span {
+        display: inline-block !important;
+        min-width: 4.75em;
+        text-align: left;
+    }
 }
 
 .terminal-icon {
