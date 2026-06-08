@@ -162,8 +162,16 @@ function updateUI() {
 }
 
 (function () {
+    function syncFiltersFromDom() {
+        const activeButtons = document.querySelectorAll(".filter-btn.active");
+        const values = Array.from(activeButtons)
+            .map(btn => btn.getAttribute("data-filter"))
+            .filter(Boolean);
+        activeFilters = (values.length === 0 || values.includes("all")) ? ["all"] : values;
+    }
     function initAchievementFilters() {
         if (document.getElementById("filterCount") || document.getElementById("achievements-row")) {
+            syncFiltersFromDom();
             applyFilterEffect();
         }
     }
