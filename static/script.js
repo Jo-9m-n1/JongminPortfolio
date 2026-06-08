@@ -138,6 +138,15 @@ function applyFilterEffect() {
 
     if (noResultsMsg) noResultsMsg.style.display = (visibleCount === 0) ? "block" : "none";
     if (achievementsRow) achievementsRow.style.display = (visibleCount === 0) ? "none" : "flex";
+
+    const countEl = document.getElementById("filterCount");
+    if (countEl) {
+        const total = parseInt(countEl.getAttribute("data-total"), 10) || items.length;
+        const template = countEl.getAttribute("data-template")
+            || (window.T && window.T.showing_results)
+            || "Showing {n} of {total}";
+        countEl.textContent = template.replace("{n}", visibleCount).replace("{total}", total);
+    }
 }
 
 function updateUI() {
@@ -151,6 +160,16 @@ function updateUI() {
         }
     }
 }
+
+(function () {
+    function initAchievementFilters() {
+        if (document.getElementById("filterCount") || document.getElementById("achievements-row")) {
+            applyFilterEffect();
+        }
+    }
+    document.addEventListener("DOMContentLoaded", initAchievementFilters);
+    if (document.readyState !== "loading") initAchievementFilters();
+})();
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -279,6 +298,9 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    if (window.__portfolioLogoShown) return;
+    window.__portfolioLogoShown = true;
+
     const logo = `
     ██╗ ██████╗ ███╗   ██╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
     ██║██╔═══██╗████╗  ██║██╔════╝ ████╗ ████║██║████╗  ██║
@@ -1474,4 +1496,52 @@ window.addEventListener('focus', () => {
 
     if (document.readyState !== 'loading') init();
     else document.addEventListener('DOMContentLoaded', init);
+})();
+
+// ---------------------------------------------------------------
+// Back-to-top button + current-page highlight in the pill menu
+// ---------------------------------------------------------------
+(function () {
+    let scrollBound = false;
+
+    function initScrollTop() {
+        if (!scrollBound) {
+            scrollBound = true;
+            window.addEventListener('scroll', () => {
+                const b = document.getElementById('scrollTopBtn');
+                if (b) b.classList.toggle('visible', window.scrollY > 400);
+            }, { passive: true });
+        }
+        const btn = document.getElementById('scrollTopBtn');
+        if (btn && !btn.__bound) {
+            btn.__bound = true;
+            btn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+        if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+    }
+
+    function markActivePage() {
+        const path = window.location.pathname;
+        document.querySelectorAll('.pill-menu-content a').forEach((a) => {
+            const href = a.getAttribute('href') || '';
+            const hasHash = href.indexOf('#') !== -1;
+            const base = href.split('#')[0];
+            let active = false;
+            if (!hasHash) {
+                if (base === '/') active = path === '/';
+                else active = path === base || (base === '/projects' && path.indexOf('/project/') === 0);
+            }
+            a.classList.toggle('active-page', active);
+        });
+    }
+
+    function init() {
+        initScrollTop();
+        markActivePage();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    if (document.readyState !== 'loading') init();
 })();

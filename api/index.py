@@ -19,6 +19,8 @@ TRANSLATIONS = {
         'nav_about_me': 'About Me',
         'navigation': 'Navigation',
         'back': 'Back',
+        'showing_results': 'Showing {n} of {total} milestones',
+        'showing_projects': 'Showing {n} of {total} projects',
         'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
         'name': 'Jongmin Lee',
@@ -150,6 +152,8 @@ TRANSLATIONS = {
         'nav_about_me': '소개',
         'navigation': '메뉴',
         'back': '뒤로',
+        'showing_results': '전체 {total}개 중 {n}개 표시',
+        'showing_projects': '전체 {total}개 프로젝트 중 {n}개 표시',
         'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
 
         'name': '이종민',
@@ -280,6 +284,8 @@ TRANSLATIONS = {
         'nav_about_me': 'À propos',
         'navigation': 'Navigation',
         'back': 'Retour',
+        'showing_results': 'Affichage de {n} sur {total} réalisations',
+        'showing_projects': 'Affichage de {n} sur {total} projets',
         'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
         'name': 'Jongmin Lee',

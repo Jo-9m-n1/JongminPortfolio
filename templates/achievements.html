@@ -69,6 +69,10 @@
                 <button class="filter-btn" data-filter="health" onclick="filterSelection('health')">{{ t.filter_health }}</button>
                 <button class="filter-btn" data-filter="academic" onclick="filterSelection('academic')">{{ t.filter_academic }}</button>
             </div>
+            <p class="filter-count text-center text-muted small mb-0"
+               id="filterCount"
+               data-total="{{ competitions|length + certificates|length }}"
+               aria-live="polite"></p>
         </div>
 
         <div id="no-results" class="text-center my-5 py-5" style="display: none;">

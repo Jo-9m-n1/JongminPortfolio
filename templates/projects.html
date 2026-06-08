@@ -67,6 +67,11 @@
                 <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">{{ t.filter_school }}</button>
                 <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">{{ t.filter_personal }}</button>
             </div>
+            <p class="filter-count text-center text-muted small mb-0"
+               id="filterCount"
+               data-total="{{ projects|length }}"
+               data-template="{{ t.showing_projects }}"
+               aria-live="polite"></p>
         </div>
 
         <div id="no-results" class="text-center my-5 py-5" style="display: none;">
