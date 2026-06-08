@@ -1518,6 +1518,7 @@ window.addEventListener('focus', () => {
             window.addEventListener('scroll', () => {
                 const b = document.getElementById('scrollTopBtn');
                 if (b) b.classList.toggle('visible', window.scrollY > 400);
+                markActiveSection();
             }, { passive: true });
         }
         const btn = document.getElementById('scrollTopBtn');
@@ -1545,9 +1546,21 @@ window.addEventListener('focus', () => {
         });
     }
 
+    function markActiveSection() {
+        if (window.location.pathname !== '/') return;
+        const about = document.getElementById('about-me');
+        const homeLink = document.querySelector('.pill-menu-content a[href="/"]');
+        const aboutLink = document.querySelector('.pill-menu-content a[href="/#about-me"]');
+        if (!about || !homeLink || !aboutLink) return;
+        const inAbout = about.getBoundingClientRect().top <= window.innerHeight * 0.5;
+        aboutLink.classList.toggle('active-page', inAbout);
+        homeLink.classList.toggle('active-page', !inAbout);
+    }
+
     function init() {
         initScrollTop();
         markActivePage();
+        markActiveSection();
     }
 
     document.addEventListener('DOMContentLoaded', init);
