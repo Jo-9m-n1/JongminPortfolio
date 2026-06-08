@@ -65,7 +65,7 @@ TRANSLATIONS = {
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
             'Canada. Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
-            'I am an <strong class="pop-up">9x hackathon winner'
+            'I am a <strong class="pop-up">9x hackathon winner'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
