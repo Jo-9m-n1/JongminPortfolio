@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         projectsContainer.innerHTML = '';
         projects.forEach((project) => {
-            const typeColor = project.type === 'Python' ? '#3b82f6' : project.type === 'JavaScript' ? '#9a922e' : '#8b5cf6';
+            const typeColor = project.type === 'Python' ? '#2563eb' : project.type === 'JavaScript' ? '#9a922e' : '#8b5cf6';
             const projectItem = document.createElement('div');
             const hasAward = project.awards > 0;
             
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     margin: 0; 
                     
                     background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : 'rgba(0, 0, 0, 0.02)'};
-                    border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.08)'))};
+                    border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)'))};
                 `;
             };
 
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             datasets: [{
                 data: [7, 4, 3, 1, 5],
-                backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(59, 84, 246, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'],
+                backgroundColor: ['rgba(76, 240, 164, 0.83)', 'rgba(40, 68, 252, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'],
                 borderWidth: 0
             }]
         },

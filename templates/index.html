@@ -207,6 +207,26 @@
                         </div>
                     </div>
 
+                    <section id="about-me" class="py-4">
+                        <div class="mb-4">
+                            <h3 class="h4 mb-3">
+                                <i class="fa-solid fa-user me-2"></i> {{ t.section_about_me }}
+                            </h3>
+                            <div class="timeline-card">
+                                <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                                    
+                                    <img src="{{ url_for('static', filename='JongminLee.jpg') }}"
+                                        alt="Jongmin Lee" 
+                                        class="rounded-circle shadow" 
+                                        style="width: 140px; height: 140px; object-fit: cover; flex-shrink: 0;"
+                                    >
+
+                                    <p class="desc-text mb-0">{{ t.about_html | safe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <section id="highlights" class="py-4">
                         <div class="mb-4">
                             <h3 class="h4 mb-3">
@@ -302,26 +322,6 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="about-me" class="py-4">
-                        <div class="mb-4">
-                            <h3 class="h4 mb-3">
-                                <i class="fa-solid fa-user me-2"></i> {{ t.section_about_me }}
-                            </h3>
-                            <div class="timeline-card">
-                                <div class="d-flex flex-column flex-md-row align-items-center gap-4">
-                                    
-                                    <img src="{{ url_for('static', filename='JongminLee.jpg') }}"
-                                        alt="Jongmin Lee" 
-                                        class="rounded-circle shadow" 
-                                        style="width: 140px; height: 140px; object-fit: cover; flex-shrink: 0;"
-                                    >
-
-                                    <p class="desc-text mb-0">{{ t.about_html | safe }}</p>
                                 </div>
                             </div>
                         </div>
