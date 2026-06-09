@@ -41,7 +41,7 @@ TRANSLATIONS = {
         'scale_regional': 'REGIONAL SCALE',
         'more_awards': 'MORE AWARDS',
 
-        'hl_cayley_subtitle': 'School Champion · Top 25% in the World',
+        'hl_cayley_subtitle': 'School Champion · Top 25% Worldwide',
         'hl_hme_subtitle': 'National 1st Place · Top 1% in Korea',
         'hl_conuhacks_subtitle': '2nd Place | Dialogue Track',
         'hl_hack_subtitle': '3rd Place | Beginner Track',
@@ -1109,7 +1109,7 @@ def achievements():
             'event': {'en': 'International', 'ko': '국제 대회', 'fr': 'International'},
             'date': '2022. 02. 22.',
             'desc': {
-                'en': 'Top 25% in the world and school champion.',
+                'en': 'Top 25% worldwide and school champion.',
                 'ko': '전 세계 상위 25%, 교내 1위.',
                 'fr': "Top 25 % mondial et champion de l'école."
             },
