@@ -6,6 +6,14 @@ from flask import Flask, render_template, request, redirect, make_response
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
+# For the main page stats only
+PORTFOLIO_STATS = {
+    'competitions': 18,
+    'hackathons': 9,
+    'volunteering': 100,
+    'projects': 9
+}
+
 LANGUAGES = ['en', 'ko', 'fr']
 
 TRANSLATIONS = {
@@ -65,7 +73,7 @@ TRANSLATIONS = {
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
             'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
-            'I am a <strong class="pop-up">9x hackathon winner'
+            'I am a <strong class="pop-up"> 9x hackathon winner'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
@@ -431,6 +439,7 @@ def inject_lang():
         'lang': lang,
         'LANGUAGES': LANGUAGES,
         'theme': current_theme(),
+        'stats': PORTFOLIO_STATS
     }
 
 app.jinja_env.filters['tr'] = tr
