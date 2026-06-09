@@ -32,6 +32,7 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
         'name': 'Jongmin Lee',
+        'about': 'Incoming McGill Computer Science',
         'btn_achievements': 'Achievements',
         'btn_view_my_work': 'View My Work',
 
@@ -68,6 +69,12 @@ TRANSLATIONS = {
         'edu_high_honor_roll': 'High Honor Roll',
         'edu_honor_roll': 'Honor Roll',
         'edu_art_etudes': 'Art-Études Program',
+
+        'portfolio_insights' : 'Portfolio Insights',
+        'key_projects': 'Key Projects',
+        'award_distribution': 'Awards Distribution',
+        'hackathon_progress': 'Hackathon Progress',
+        'graph': 'Cumulative awards vs hackathons attended',
 
         'about_html': (
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
@@ -165,6 +172,7 @@ TRANSLATIONS = {
         'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
 
         'name': '이종민',
+        'about': '맥길대학교 컴퓨터공학 예비 신입생',
         'btn_achievements': '수상 보기',
         'btn_view_my_work': '프로젝트 보기',
 
@@ -201,6 +209,20 @@ TRANSLATIONS = {
         'edu_high_honor_roll': '최우수 명예 학생',
         'edu_honor_roll': '명예 학생',
         'edu_art_etudes': '예술 및 스터디 프로그램',
+
+        'portfolio_insights' : '포트폴리오 인사이트',
+        'key_projects': '주요 프로젝트',
+        'award_distribution': '수상 분포',
+        'hackathon_progress': '해커톤 성과 추이',
+        'graph': '해커톤 참가 횟수 대비 누적 수상 실적',
+        'chart_webdev': '웹 개발',
+        'chart_math': '수학',
+        'chart_robotics': '로봇공학',
+        'chart_other': '기타',
+        'chart_attended': '참가한 해커톤',
+        'chart_awards': '해커톤 수상',
+        'chart_sequence': '해커톤 참가 회차',
+        'chart_cumulative': '누적 횟수',
 
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, McGill University에서 컴퓨터 과학을 공부할 예정인 <strong>이종민</strong>입니다. '
@@ -297,6 +319,7 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
         'name': 'Jongmin Lee',
+        'about': "Futur étudiant en informatique à l'Université McGill",
         'btn_achievements': 'Réalisations',
         'btn_view_my_work': 'Voir mes projets',
 
@@ -333,6 +356,21 @@ TRANSLATIONS = {
         'edu_high_honor_roll': "Tableau d'honneur supérieur",
         'edu_honor_roll': "Tableau d'honneur",
         'edu_art_etudes': 'Programme Arts-Études',
+
+        'portfolio_insights' : 'Aperçu du Portfolio',
+        'key_projects': 'Projets Clés',
+        'award_distribution': 'Répartition des Prix',
+        'hackathon_progress': 'Progression aux Hackathons',
+        'graph': 'Récompenses cumulées vs participations aux hackathons',
+        'chart_webdev': 'Dev Web',
+        'chart_math': 'Mathématiques',
+        'chart_robotics': 'Robotique',
+        'chart_other': 'Autre',
+        'chart_total': 'TOTAL',
+        'chart_attended': 'Hackathons Participés',
+        'chart_awards': 'Prix Remportés',
+        'chart_sequence': 'Séquence de Hackathon',
+        'chart_cumulative': 'Compte Cumulé',
 
         'about_html': (
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "

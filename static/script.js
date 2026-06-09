@@ -381,7 +381,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let achievementChart = achievementChartCtx && new Chart(achievementChartCtx.getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: ['Web Dev', 'Math', 'Robotics', 'CTF', 'Other'],
+            labels: [
+                window.T?.chart_webdev || 'Web Dev', 
+                window.T?.chart_math || 'Math', 
+                window.T?.chart_robotics || 'Robotics', 
+                window.T?.chart_ctf || 'CTF', 
+                window.T?.chart_other || 'Other'
+            ],
             datasets: [{
                 data: [7, 4, 3, 1, 5],
                 backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(59, 84, 246, 0.9)', 'rgba(52, 176, 211, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(180, 180, 180, 0.9)'],
@@ -406,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.font = 'bold 12px sans-serif';
                 ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
                 ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.fillText('TOTAL', centerX, centerY - 10);
+                ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
 
                 ctx.font = 'bold 28px sans-serif';
                 ctx.fillStyle = getThemeColor();
@@ -422,8 +428,16 @@ document.addEventListener('DOMContentLoaded', function() {
         data: {
             labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'],
             datasets: [
-                { label: 'Hackathons Attended', data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 },
-                { label: 'Hackathon Awards', data: [1, 2, 3, 4, 4, 5, 6, 6, 6, 8, 8, 9, 11], borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 }
+                { 
+                    label: window.T?.chart_attended || 'Hackathons Attended', 
+                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+                    borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 
+                },
+                { 
+                    label: window.T?.chart_awards || 'Hackathon Awards', 
+                    data: [1, 2, 3, 4, 4, 5, 6, 6, 6, 8, 8, 9, 11], 
+                    borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 
+                }
             ]
         },
         options: {
@@ -432,11 +446,16 @@ document.addEventListener('DOMContentLoaded', function() {
             plugins: { legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } } },
             scales: {
                 x: {
-                    title: { display: true, text: 'Hackathon Sequence', color: getThemeColor() },
+                    title: { display: true, text: window.T?.chart_sequence || 'Hackathon Sequence', color: getThemeColor() },
                     ticks: { color: getThemeColor(), maxRotation: 0, minRotation: 0, autoSkip: true, maxTicksLimit: 7 },
                     grid: { display: false }
                 },
-                y: { beginAtZero: true, title: { display: true, text: 'Cumulative Count', color: getThemeColor() }, ticks: { color: getThemeColor() }, grid: { color: 'rgba(148, 163, 184, 0.18)' } }
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: window.T?.chart_cumulative || 'Cumulative Count', color: getThemeColor() }, 
+                    ticks: { color: getThemeColor() }, 
+                    grid: { color: 'rgba(148, 163, 184, 0.18)' } 
+                }
             }
         }
     });
