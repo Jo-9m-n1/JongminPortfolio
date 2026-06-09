@@ -717,7 +717,8 @@ PROJECTS = [
         'full_tech': ['Python', 'Flask', 'JavaScript'],
         'images': ["/static/MyPersonalWebsite/MyPersonalWebsite1.png",
                    "/static/MyPersonalWebsite/MyPersonalWebsite2.png",
-                   "/static/MyPersonalWebsite/MyPersonalWebsite3.png"],
+                   "/static/MyPersonalWebsite/MyPersonalWebsite3.png",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite4.png"],
         'thumbnail': "/static/MyPersonalWebsite/MyPersonalWebsite.png",
         'published': {'en': 'March 3, 2026', 'ko': '2026년 3월 3일', 'fr': 'le 3 mars 2026'},
         'updated': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
