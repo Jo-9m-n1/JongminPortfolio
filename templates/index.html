@@ -88,6 +88,7 @@
         <script>
             window.LANG = "{{ lang }}";
             window.T = {{ t | tojson }};
+            window.STATS = {{ stats | tojson }};
             document.documentElement.lang = window.LANG;
         </script>
         <div id="progress-bar"></div>
@@ -156,7 +157,10 @@
 
         <header class="hero text-center">
             <div class="container px-4 px-sm-3"> 
-                <h1 class="display-3 fw-bold mb-4">{{ t.name }}</h1>        
+                <h1 class="display-3 fw-bold">{{ t.name }}</h1> 
+                <p class="lead text-muted" style="font-size: 1.3rem; font-weight: 600;">
+                    Incoming McGill Computer Science <span class="typing-text" style="color: var(--accent-color);"></span>
+                </p>        
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                     <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg custom-hero-btn">{{ t.btn_achievements }}</a>
                     <a href="/projects" class="btn btn-outline-dark btn-lg custom-hero-btn">{{ t.btn_view_my_work }}</a>
@@ -318,6 +322,52 @@
                                     >
 
                                     <p class="desc-text mb-0">{{ t.about_html | safe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="metrics-charts" class="py-4">
+                        <div class="mb-4">
+                            <h3 class="h4 mb-3">
+                                <i class="fa-solid fa-chart-simple text-warning me-2"></i> Portfolio Insights
+                            </h3>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12 col-lg-6">
+                                <div class="timeline-card shadow-sm h-100 p-3" style="min-height: 340px;">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="h6 fw-bold mb-0">Key Projects</h4>
+                                    </div>
+                                    <div style="min-height: 260px; overflow-y: auto;">
+                                        <div id="projectsContainer" style="display: flex; flex-direction: column; gap: 8px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="timeline-card shadow-sm h-100 p-3" style="min-height: 340px;">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="h6 fw-bold mb-0">Awards Distribution</h4>
+                                    </div>
+                                    <div style="min-height: 260px;">
+                                        <canvas id="achievementDoughnutChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3 mt-1">
+                            <div class="col-12">
+                                <div class="timeline-card shadow-sm h-100 p-3" style="min-height: 360px;">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <h4 class="h6 fw-bold mb-0">Hackathon Progress</h4>
+                                            <p class="small text-muted mb-0">Cumulative awards vs hackathons attended</p>
+                                        </div>
+                                    </div>
+                                    <div style="min-height: 280px;">
+                                        <canvas id="hackathonProgressChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>

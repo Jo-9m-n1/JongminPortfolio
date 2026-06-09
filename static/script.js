@@ -323,59 +323,138 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const chartCtx = document.getElementById('categoryBarChart');
-    if (!chartCtx) return;
+    const getThemeColor = () => document.body.classList.contains('dark-mode') ? '#ffffff' : '#1e293b';
 
-    const ctx = chartCtx.getContext('2d');
-    
-    const getThemeColor = () => {
-        return document.body.classList.contains('dark-mode') ? '#ffffff' : '#1e293b';
-    };
+    const projectsContainer = document.getElementById('projectsContainer');
+    if (projectsContainer) {
+        projectsContainer.style.display = 'flex';
+        projectsContainer.style.flexDirection = 'column';
+        projectsContainer.style.gap = '10px';
+        projectsContainer.style.padding = '8px'; 
 
-    const categoryChart = new Chart(ctx, {
-        type: 'bar',
+        const projects = [
+            { name: 'CashFlux', type: 'Python', id: 0, awards: 2 },
+            { name: 'ChemicallyBonded', type: 'Python', id: 1, awards: 0 },
+            { name: 'OurCampus', type: 'TypeScript', id: 2, awards: 2 },
+            { name: 'Liminal', type: 'Python', id: 3, awards: 0 },
+            { name: 'Dr. Bob', type: 'JavaScript', id: 6, awards: 1 }
+        ];
+
+        projectsContainer.innerHTML = '';
+        projects.forEach((project) => {
+            const typeColor = project.type === 'Python' ? '#3b82f6' : project.type === 'JavaScript' ? '#9a922e' : '#8b5cf6';
+            const projectItem = document.createElement('div');
+            const hasAward = project.awards > 0;
+            
+            const setStyle = (isHover) => {
+                const isDark = document.body.classList.contains('dark-mode');
+                const goldColor = isDark ? '#FFD700' : '#D4AF37';
+                const goldBorder = isDark ? 'rgba(255, 215, 0, 0.4)' : '#DBC885';
+
+                projectItem.style.cssText = `
+                    display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+                    box-sizing: border-box;
+                    margin: 0; 
+                    
+                    background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : 'rgba(0, 0, 0, 0.02)'};
+                    border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.08)'))};
+                `;
+            };
+
+            setStyle(false);
+            projectItem.onmouseover = () => setStyle(true);
+            projectItem.onmouseout = () => setStyle(false);
+            
+            projectItem.innerHTML = `
+                <span style="font-size: 0.95rem; font-weight: 500;">
+                    ${project.name}${`<i class="fa-solid fa-medal ms-1" style="color: #D4AF37;"></i>`.repeat(project.awards)}
+                </span>
+                <span style="background-color: ${typeColor}; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">${project.type}</span>
+            `;
+            
+            projectItem.addEventListener('click', () => window.location.href = `/project/${project.id}`);
+            projectsContainer.appendChild(projectItem);
+        });
+    }
+
+    const achievementChartCtx = document.getElementById('achievementDoughnutChart');
+    let achievementChart = achievementChartCtx && new Chart(achievementChartCtx.getContext('2d'), {
+        type: 'doughnut',
         data: {
-            labels: ['Software', 'Hardware', 'Math'],
+            labels: ['Web Dev', 'Math', 'Robotics', 'CTF', 'Other'],
             datasets: [{
-                label: 'Count',
-                data: [4, 1, 3],
-                backgroundColor: [
-                    'rgba(212, 175, 55, 0.9)',
-                    'rgba(16, 185, 129, 0.8)', 
-                    'rgba(139, 92, 246, 0.8)'
-                ],
-                borderRadius: 50,
-                borderSkipped: false,
-                barThickness: 18
+                data: [7, 4, 3, 1, 5],
+                backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(59, 84, 246, 0.9)', 'rgba(52, 176, 211, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(180, 180, 180, 0.9)'],
+                borderWidth: 0
             }]
         },
         options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
+            responsive: true, maintainAspectRatio: false, cutout: '60%',
             plugins: {
-                legend: { display: false }
-            },
+                legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
+                tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } }
+            }
+        },
+        plugins: [{
+            id: 'centerText',
+            afterDraw: (chart) => {
+                const { ctx, chartArea: { left, right, top, bottom } } = chart;
+                ctx.save();
+                const centerX = (left + right) / 2;
+                const centerY = (top + bottom) / 2;
+
+                ctx.font = 'bold 12px sans-serif';
+                ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                ctx.fillText('TOTAL', centerX, centerY - 10);
+
+                ctx.font = 'bold 28px sans-serif';
+                ctx.fillStyle = getThemeColor();
+                ctx.fillText([7, 4, 3, 1, 5].reduce((a, b) => a + b, 0), centerX, centerY + 12);
+                ctx.restore();
+            }
+        }]
+    });
+
+    const hackathonProgressCtx = document.getElementById('hackathonProgressChart');
+    let hackathonProgressChart = hackathonProgressCtx && new Chart(hackathonProgressCtx.getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'],
+            datasets: [
+                { label: 'Hackathons Attended', data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 },
+                { label: 'Hackathon Awards', data: [1, 2, 3, 4, 4, 5, 6, 6, 6, 8, 8, 9, 11], borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } } },
             scales: {
-                x: { display: false },
-                y: {
-                    grid: { display: false },
-                    border: { display: false },
-                    ticks: { 
-                        color: getThemeColor(),
-                        font: { family: "'Inter', sans-serif", weight: '700', size: 14 }
-                    }
-                }
+                x: {
+                    title: { display: true, text: 'Hackathon Sequence', color: getThemeColor() },
+                    ticks: { color: getThemeColor(), maxRotation: 0, minRotation: 0, autoSkip: true, maxTicksLimit: 7 },
+                    grid: { display: false }
+                },
+                y: { beginAtZero: true, title: { display: true, text: 'Cumulative Count', color: getThemeColor() }, ticks: { color: getThemeColor() }, grid: { color: 'rgba(148, 163, 184, 0.18)' } }
             }
         }
     });
 
-    const observer = new MutationObserver(() => {
-        categoryChart.options.scales.y.ticks.color = getThemeColor();
-        categoryChart.update();
-    });
-
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    new MutationObserver(() => {
+        const color = getThemeColor();
+        if (achievementChart) { achievementChart.options.plugins.legend.labels.color = color; achievementChart.update(); }
+        if (hackathonProgressChart) {
+            ['x', 'y'].forEach(axis => { hackathonProgressChart.options.scales[axis].title.color = color; hackathonProgressChart.options.scales[axis].ticks.color = color; });
+            hackathonProgressChart.options.plugins.legend.labels.color = color;
+            hackathonProgressChart.update();
+        }
+        if (projectsContainer) {
+            Array.from(projectsContainer.children).forEach((el) => {
+                if (el.onmouseout) el.onmouseout();
+            });
+        }
+    }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
