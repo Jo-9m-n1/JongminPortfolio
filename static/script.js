@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             datasets: [{
                 data: [7, 4, 3, 1, 5],
-                backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(59, 84, 246, 0.9)', 'rgba(52, 176, 211, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(180, 180, 180, 0.9)'],
+                backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(59, 84, 246, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'],
                 borderWidth: 0
             }]
         },
@@ -414,9 +414,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
                 ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
 
+                let visibleTotal = 0;
+                chart.data.datasets[0].data.forEach((value, index) => {
+                    if (chart.getDataVisibility(index)) {
+                        visibleTotal += value;
+                    }
+                });
+
                 ctx.font = 'bold 28px sans-serif';
                 ctx.fillStyle = getThemeColor();
-                ctx.fillText([7, 4, 3, 1, 5].reduce((a, b) => a + b, 0), centerX, centerY + 12);
+                ctx.fillText(visibleTotal, centerX, centerY + 12);
                 ctx.restore();
             }
         }]
