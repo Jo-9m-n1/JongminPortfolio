@@ -223,6 +223,7 @@ TRANSLATIONS = {
         'chart_awards': '해커톤 수상',
         'chart_sequence': '해커톤 참가 회차',
         'chart_cumulative': '누적 횟수',
+        'dialogue_hackathon': 'Dialogue 사내 해커톤',
 
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, McGill University에서 컴퓨터 과학을 공부할 예정인 <strong>이종민</strong>입니다. '
@@ -371,6 +372,7 @@ TRANSLATIONS = {
         'chart_awards': 'Prix Remportés',
         'chart_sequence': 'Séquence de Hackathon',
         'chart_cumulative': 'Compte Cumulé',
+        'dialogue_hackathon': 'Hackathon Interne de Dialogue',
 
         'about_html': (
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "

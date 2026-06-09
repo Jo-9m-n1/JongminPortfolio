@@ -450,7 +450,32 @@ document.addEventListener('DOMContentLoaded', function() {
         options: {
             responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
-            plugins: { legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } } },
+            plugins: { 
+                legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
+                tooltip: {
+                    callbacks: {
+                        title: function(context) {
+                            const hackathonNames = [
+                                "Dawson Robotics Hackathon 2025", 
+                                "HackDécouverte", 
+                                "ConUHacks", 
+                                window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", 
+                                "GameJam de la FSÉ", 
+                                "@HACK",
+                                "McGill AeroHacks",
+                                "VanierHacks",
+                                "Mila Championing AI for good", 
+                                "JACHacks", 
+                                "Cursor Hackathon",
+                                "Dawson Robotics Hackathon 2026", 
+                                "MPC Hacks"
+                            ];
+                            const index = context[0].dataIndex;
+                            return hackathonNames[index] || `Hackathon #${context[0].label}`;
+                        }
+                    }
+                }
+            },
             scales: {
                 x: {
                     title: { display: true, text: window.T?.chart_sequence || 'Hackathon Sequence', color: getThemeColor() },
