@@ -937,7 +937,7 @@ def achievements():
             'external_links': [
                 {
                     'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
-                    'url': '/static/report.pdf',
+                    'url': '/static/Mila_report.pdf',
                     'icon': 'fa-solid fa-file-pdf'
                 },
                 {
