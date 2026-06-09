@@ -59,6 +59,12 @@
                     </div>
                     {% endif %}
 
+                    {% if p.second_award %}
+                    <div class="badge bg-warning text-dark align-self-start rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left; line-height: 1.4;">
+                        <i class="fa-solid fa-trophy me-1"></i> {{ p.second_award|tr }}
+                    </div>
+                    {% endif %}
+
                     {% if p.category %}
                     <div class="d-flex justify-content-between align-items-start w-100">
                         <span class="badge bg-primary rounded-pill px-2 text-wrap" style="max-width: 100%; text-align: left;">

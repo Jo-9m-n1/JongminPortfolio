@@ -468,6 +468,11 @@ PROJECTS = [
             'ko': '2등 | Brim 부문 MPC Hacks',
             'fr': '2ᵉ Place | Piste Brim à MPC Hacks'
         },
+        'second_award': {
+            'en': 'Best Use of ElevenLabs | MPC Hacks',
+            'ko': 'ElevenLabs 최고 활용상 | MPC Hacks',
+            'fr': 'Meilleure utilisation d\'ElevenLabs | MPC Hacks'
+        },
         'tech': ['Python', 'JavaScript', 'Gemini API', 'ElevenLabs'],
         'description': {
             'en': 'An ultimate AI powered expense tracking application.',
@@ -567,6 +572,11 @@ PROJECTS = [
             'en': '1st Place | JACHacks',
             'ko': '1위 | JACHacks',
             'fr': '1ʳᵉ Place | JACHacks'
+        },
+        'second_award': {
+            'en': 'Best Science Students Project | JACHacks',
+            'ko': '최우수 과학 학생 프로젝트상 | JACHacks',
+            'fr': 'Meilleur projet d\'étudiants en sciences | JACHacks'
         },
         'tech': ['Next.js', 'Python', 'Gemini API'],
         'description': {
