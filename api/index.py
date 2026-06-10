@@ -223,6 +223,8 @@ TRANSLATIONS = {
         'chart_awards': '해커톤 수상',
         'chart_sequence': '해커톤 참가 회차',
         'chart_cumulative': '누적 횟수',
+        'filter_all' : '전체',
+        'general': '일반',
         'dialogue_hackathon': 'Dialogue 사내 해커톤',
 
         'about_html': (
@@ -320,7 +322,7 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
         'name': 'Jongmin Lee',
-        'about': "Futur étudiant en informatique à l'Université McGill",
+        'about': "Futur étudiant en informatique à McGill",
         'btn_achievements': 'Réalisations',
         'btn_view_my_work': 'Voir mes projets',
 
@@ -372,6 +374,8 @@ TRANSLATIONS = {
         'chart_awards': 'Prix Remportés',
         'chart_sequence': 'Séquence de Hackathon',
         'chart_cumulative': 'Compte Cumulé',
+        'filter_all': 'Tous',
+        'general': 'Général',
         'dialogue_hackathon': 'Hackathon Interne de Dialogue',
 
         'about_html': (

@@ -351,10 +351,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const goldBorder = isDark ? 'rgba(255, 215, 0, 0.4)' : '#DBC885';
 
                 projectItem.style.cssText = `
-                    display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
-                    box-sizing: border-box;
-                    margin: 0; 
-                    
+                    display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;
+                    box-sizing: border-box; margin: 0; 
                     background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : 'rgba(0, 0, 0, 0.02)'};
                     border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)'))};
                 `;
@@ -369,8 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const color = t.includes('Python') ? '#2563eb' : 
                               t.includes('JavaScript') ? '#9a922e' : 
                               t.includes('TypeScript') ? '#8b5cf6' : '#8b5cf6';
-                              
-                return `<span style="background-color: ${color}; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
+                return `<span style="background-color: ${color}; color: white; padding: 4px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
             }).join('');
 
             projectItem.innerHTML = `
@@ -379,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </span>
                 <div style="display: flex;">${typeTags}</div>
             `;
-            
             projectItem.addEventListener('click', () => window.location.href = `/project/${project.id}`);
             projectsContainer.appendChild(projectItem);
         });
@@ -389,129 +385,210 @@ document.addEventListener('DOMContentLoaded', function() {
     let achievementChart = achievementChartCtx && new Chart(achievementChartCtx.getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: [
-                window.T?.chart_webdev || 'Web Dev', 
-                window.T?.chart_math || 'Math', 
-                window.T?.chart_robotics || 'Robotics', 
-                window.T?.chart_ctf || 'CTF', 
-                window.T?.chart_other || 'Other'
-            ],
-            datasets: [{
-                data: [7, 4, 3, 1, 5],
-                backgroundColor: ['rgba(76, 240, 164, 0.83)', 'rgba(40, 68, 252, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'],
-                borderWidth: 0
-            }]
+            labels: [window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
+            datasets: [{ data: [7, 4, 3, 1, 5], backgroundColor: ['rgba(76, 240, 164, 0.83)', 'rgba(40, 68, 252, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'], borderWidth: 0 }]
         },
         options: {
             responsive: true, maintainAspectRatio: false, cutout: '60%',
-            plugins: {
-                legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
-                tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } }
-            }
+            plugins: { legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } }, tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } } }
         },
         plugins: [{
             id: 'centerText',
             afterDraw: (chart) => {
                 const { ctx, chartArea: { left, right, top, bottom } } = chart;
                 ctx.save();
-                const centerX = (left + right) / 2;
-                const centerY = (top + bottom) / 2;
-
-                ctx.font = 'bold 12px sans-serif';
-                ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
-                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
-
+                const centerX = (left + right) / 2; const centerY = (top + bottom) / 2;
+                ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
                 let visibleTotal = 0;
-                chart.data.datasets[0].data.forEach((value, index) => {
-                    if (chart.getDataVisibility(index)) {
-                        visibleTotal += value;
-                    }
-                });
-
-                ctx.font = 'bold 28px sans-serif';
-                ctx.fillStyle = getThemeColor();
-                ctx.fillText(visibleTotal, centerX, centerY + 12);
+                chart.data.datasets[0].data.forEach((value, index) => { if (chart.getDataVisibility(index)) visibleTotal += value; });
+                ctx.font = 'bold 28px sans-serif'; ctx.fillStyle = getThemeColor(); ctx.fillText(visibleTotal, centerX, centerY + 12);
                 ctx.restore();
             }
         }]
     });
 
     const hackathonProgressCtx = document.getElementById('hackathonProgressChart');
-    let hackathonProgressChart = hackathonProgressCtx && new Chart(hackathonProgressCtx.getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'],
-            datasets: [
-                { 
-                    label: window.T?.chart_attended || 'Hackathons Attended', 
-                    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
-                    borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 
-                },
-                { 
-                    label: window.T?.chart_awards || 'Hackathon Awards', 
-                    data: [1, 2, 3, 4, 4, 5, 6, 6, 6, 8, 8, 9, 11], 
-                    borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 
-                }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: { 
-                legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
-                tooltip: {
-                    callbacks: {
-                        title: function(context) {
-                            const hackathonNames = [
-                                "Dawson Robotics Hackathon 2025", 
-                                "HackDécouverte", 
-                                "ConUHacks", 
-                                window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", 
-                                "GameJam de la FSÉ", 
-                                "@HACK",
-                                "McGill AeroHacks",
-                                "VanierHacks",
-                                "Championing AI for good", 
-                                "JACHacks", 
-                                "Cursor Hackathon",
-                                "Dawson Robotics Hackathon 2026", 
-                                "MPC Hacks"
-                            ];
-                            const index = context[0].dataIndex;
-                            return hackathonNames[index] || `Hackathon #${context[0].label}`;
+    let hackathonProgressChart = null;
+
+    if (hackathonProgressCtx) {
+        const canvasParent = hackathonProgressCtx.parentElement;
+        if (canvasParent) {
+            canvasParent.style.maxWidth = '1200px';
+            canvasParent.style.margin = '0 auto';
+        }
+
+        const hackathonMasterData = [
+            { name: "Dawson Robotics Hackathon 2025", type: "Robotics", awards: 1 },
+            { name: "HackDécouverte", type: "General", awards: 1 },
+            { name: "ConUHacks", type: "General", awards: 1 },
+            { name: window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", type: "General", awards: 1 },
+            { name: "GameJam de la FSÉ", type: "Other", awards: 0 },
+            { name: "@HACK", type: "CTF", awards: 1 },
+            { name: "McGill AeroHacks", type: "Robotics", awards: 1 },
+            { name: "VanierHacks", type: "CTF", awards: 0 },
+            { name: "Championing AI for good", type: "Other", awards: 0 },
+            { name: "JACHacks", type: "General", awards: 2 },
+            { name: "Cursor Hackathon", type: "Other", awards: 0 },
+            { name: "Dawson Robotics Hackathon 2026", type: "Robotics", awards: 1 },
+            { name: "MPC Hacks", type: "General", awards: 2 }
+        ];
+
+        const filterTarget = document.getElementById('hackathonFilterContainer');
+        
+        if (filterTarget && !document.getElementById('customHackathonFilter')) {
+            const isDark = document.body.classList.contains('dark-mode');
+            
+            const filterContainer = document.createElement('div');
+            filterContainer.id = 'customHackathonFilter';
+            filterContainer.style.cssText = 'position: relative; user-select: none;';
+
+            const filterBtn = document.createElement('div');
+            filterBtn.style.cssText = `
+                display: flex; align-items: center; justify-content: space-between;
+                backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(37, 99, 235, 0.3);
+                color: ${getThemeColor()}; padding: 6px 14px; border-radius: 20px;
+                font-size: 0.85rem; font-weight: 600; cursor: pointer; 
+                transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                width: 120px;
+            `;
+            
+            const arrowSvg = `<svg id="filterArrow" style="width: 16px; height: 16px; margin-left: 10px; transition: transform 0.3s ease;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+            filterBtn.innerHTML = `<span id="filterText">${window.T?.filter_all || 'All'}</span> ${arrowSvg}`;
+
+            const filterMenu = document.createElement('div');
+            filterMenu.id = 'customFilterMenu';
+            filterMenu.style.cssText = `
+                position: absolute; top: calc(100% + 8px); right: 0;
+                background: ${isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
+                background-image: linear-gradient(rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.03));
+                backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                border: 1px solid ${isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)'};
+                border-radius: 14px; padding: 6px;
+                min-width: 100%; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                opacity: 0; visibility: hidden; transform: translateY(-10px);
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100;
+            `;
+
+            const options = [
+                { value: 'All', text: window.T?.filter_all || 'All' },
+                { value: 'General', text: window.T?.chart_general || 'General' },
+                { value: 'CTF', text: 'CTF' },
+                { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' }
+            ];
+
+            options.forEach(opt => {
+                const item = document.createElement('div');
+                item.className = 'filter-menu-item';
+                item.textContent = opt.text;
+                item.style.cssText = `
+                    padding: 8px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500;
+                    color: ${getThemeColor()}; cursor: pointer; transition: background 0.2s ease; white-space: nowrap;
+                `;
+                item.addEventListener('mouseenter', () => item.style.background = document.body.classList.contains('dark-mode') ? 'rgba(37, 99, 235, 0.15)' : 'rgba(37, 99, 235, 0.08)');
+                item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+                
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateChartData(opt.value);
+                    document.getElementById('filterText').textContent = opt.text;
+                    closeMenu();
+                });
+                filterMenu.appendChild(item);
+            });
+
+            filterContainer.appendChild(filterBtn);
+            filterContainer.appendChild(filterMenu);
+            filterTarget.appendChild(filterContainer);
+
+            let isMenuOpen = false;
+            const toggleMenu = () => {
+                isMenuOpen = !isMenuOpen;
+                filterMenu.style.opacity = isMenuOpen ? '1' : '0';
+                filterMenu.style.visibility = isMenuOpen ? 'visible' : 'hidden';
+                filterMenu.style.transform = isMenuOpen ? 'translateY(0)' : 'translateY(-10px)';
+                document.getElementById('filterArrow').style.transform = isMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            };
+            const closeMenu = () => { if (isMenuOpen) toggleMenu(); };
+
+            filterBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+            document.addEventListener('click', (e) => { if (!filterContainer.contains(e.target)) closeMenu(); });
+        }
+
+        hackathonProgressChart = new Chart(hackathonProgressCtx.getContext('2d'), {
+            type: 'line',
+            data: { labels: [], datasets: [
+                { label: window.T?.chart_attended || 'Hackathons Attended', data: [], borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0.2, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 },
+                { label: window.T?.chart_awards || 'Hackathon Awards', data: [], borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0.2, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 }
+            ]},
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: { 
+                    legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                const names = hackathonProgressChart.config.customTooltipNames || [];
+                                return names[context[0].dataIndex] || `Hackathon #${context[0].label}`;
+                            }
                         }
                     }
-                }
-            },
-            scales: {
-                x: {
-                    title: { display: true, text: window.T?.chart_sequence || 'Hackathon Sequence', color: getThemeColor() },
-                    ticks: { color: getThemeColor(), maxRotation: 0, minRotation: 0, autoSkip: true, maxTicksLimit: 7 },
-                    grid: { display: false }
                 },
-                y: { 
-                    beginAtZero: true, 
-                    title: { display: true, text: window.T?.chart_cumulative || 'Cumulative Count', color: getThemeColor() }, 
-                    ticks: { color: getThemeColor() }, 
-                    grid: { color: 'rgba(148, 163, 184, 0.18)' } 
+                scales: {
+                    x: { title: { display: true, text: window.T?.chart_sequence || 'Hackathon Sequence', color: getThemeColor() }, ticks: { color: getThemeColor(), maxRotation: 0, minRotation: 0, autoSkip: true, maxTicksLimit: 7 }, grid: { display: false } },
+                    y: { beginAtZero: true, title: { display: true, text: window.T?.chart_cumulative || 'Cumulative Count', color: getThemeColor() }, ticks: { color: getThemeColor(), stepSize: 1 }, grid: { color: 'rgba(148, 163, 184, 0.18)' } }
                 }
             }
+        });
+
+        function updateChartData(filterValue) {
+            const filtered = hackathonMasterData.filter(h => filterValue === 'All' || h.type === filterValue);
+            let cumulativeAwards = 0; const newLabels = []; const newAttended = []; const newAwards = []; const newTooltipNames = [];
+
+            filtered.forEach((h, i) => {
+                newLabels.push((i + 1).toString()); newAttended.push(i + 1);
+                cumulativeAwards += h.awards; newAwards.push(cumulativeAwards);
+                newTooltipNames.push(h.name);
+            });
+
+            hackathonProgressChart.data.labels = newLabels;
+            hackathonProgressChart.data.datasets[0].data = newAttended;
+            hackathonProgressChart.data.datasets[1].data = newAwards;
+            hackathonProgressChart.config.customTooltipNames = newTooltipNames;
+            hackathonProgressChart.update();
         }
-    });
+
+        updateChartData('All');
+    }
 
     new MutationObserver(() => {
         const color = getThemeColor();
+        const isDark = document.body.classList.contains('dark-mode');
+        
         if (achievementChart) { achievementChart.options.plugins.legend.labels.color = color; achievementChart.update(); }
         if (hackathonProgressChart) {
             ['x', 'y'].forEach(axis => { hackathonProgressChart.options.scales[axis].title.color = color; hackathonProgressChart.options.scales[axis].ticks.color = color; });
             hackathonProgressChart.options.plugins.legend.labels.color = color;
             hackathonProgressChart.update();
         }
+        
+        const filterBtn = document.getElementById('customHackathonFilter');
+        if(filterBtn) {
+            document.getElementById('filterText').style.color = color;
+            filterBtn.firstElementChild.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.3)' : 'rgba(37, 99, 235, 0.4)';
+            
+            const filterMenu = document.getElementById('customFilterMenu');
+            filterMenu.style.background = isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)';
+            filterMenu.style.backgroundImage = 'linear-gradient(rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.03))';
+            filterMenu.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)';
+            
+            document.querySelectorAll('.filter-menu-item').forEach(item => item.style.color = color);
+        }
+
         if (projectsContainer) {
-            Array.from(projectsContainer.children).forEach((el) => {
-                if (el.onmouseout) el.onmouseout();
-            });
+            Array.from(projectsContainer.children).forEach((el) => { if (el.onmouseout) el.onmouseout(); });
         }
     }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
@@ -1481,7 +1558,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span style="font-size: 13px; color: #ffffff; font-weight: 700; margin-top: 4px;">DEVELOPER MODE</span>
                 </div>
             </div>
-            <div id="exit-btn" style="margin-left: 15px; padding: 4px 10px; background: rgba(255,68,68,0.1); border-radius: 4px; font-size: 10px; color: #ff4444; font-weight: bold; border: 1px solid rgba(255,68,68,0.3); transition: 0.2s;">EXIT</div>
+            <div id="exit-btn" style="margin-left: 15px; padding: 4px 10px; background: rgba(230, 130, 130, 0.1); border-radius: 10px; font-size: 10px; color: #ff4444; font-weight: bold; border: 1px solid rgba(255,68,68,0.3); transition: 0.2s;">EXIT</div>
         `;
 
         badge.style.cssText = `
