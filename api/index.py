@@ -225,6 +225,8 @@ TRANSLATIONS = {
         'chart_cumulative': '누적 횟수',
         'filter_all' : '전체',
         'general': '일반',
+        'chart_art': '미술',
+        'chart_music': '음악',
         'dialogue_hackathon': 'Dialogue 사내 해커톤',
 
         'about_html': (
@@ -366,7 +368,6 @@ TRANSLATIONS = {
         'hackathon_progress': 'Progression aux Hackathons',
         'graph': 'Récompenses cumulées vs participations aux hackathons',
         'chart_webdev': 'Dev Web',
-        'chart_math': 'Mathématiques',
         'chart_robotics': 'Robotique',
         'chart_other': 'Autre',
         'chart_total': 'TOTAL',
@@ -376,6 +377,7 @@ TRANSLATIONS = {
         'chart_cumulative': 'Compte Cumulé',
         'filter_all': 'Tous',
         'general': 'Général',
+        'chart_music': 'Musique',
         'dialogue_hackathon': 'Hackathon Interne de Dialogue',
 
         'about_html': (

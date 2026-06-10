@@ -325,23 +325,154 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function() {
     const getThemeColor = () => document.body.classList.contains('dark-mode') ? '#ffffff' : '#1e293b';
 
+    const portfolioData = {
+        // Key Projects List
+        projects: [
+            { name: 'CashFlux', type: 'Python 60.5%', id: 0, awards: 2 },
+            { name: 'OurCampus', type: 'TypeScript 97.0%', id: 2, awards: 2 },
+            { name: 'Liminal', type: 'Python 87.1%', id: 3, awards: 0 },
+            { name: 'Dr. Bob', type: 'JavaScript 32.5%', id: 6, awards: 1 },
+            { name: 'J-score*', type: 'Python 50.0%', id: 8, awards: 0 }
+        ],
+
+        // Awards Distribution Graph
+        achievement: {
+            'All': {
+                labels: [window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
+                data: [7, 4, 3, 1, 7],
+                colors: ['#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
+            },
+            'Web Dev': {
+                labels: ['JACHacks', 'MPC Hacks', 'Dialogue Internal Hackathon', 'ConUHacks', 'HackDécouverte'],
+                data: [2, 2, 1, 1, 1],
+                colors: ['#047857', '#10b981', '#34d399', '#6ee7b7', '#a7f3d0'] 
+            },
+            'Math': {
+                labels: ['HME', 'Waterloo Math', 'The Ultimate Math League'],
+                data: [2, 1, 1],
+                colors: ['#1d4ed8', '#3b82f6', '#93c5fd'] 
+            },
+            'Robotics': {
+                labels: ['Dawson Robotics 2025', 'McGill AeroHacks', 'Dawson Robotics 2026'],
+                data: [1, 1, 1],
+                colors: ['#6d28d9', '#8b5cf6', '#c4b5fd'] 
+            },
+            'CTF': {
+                labels: ['@HACK'],
+                data: [1],
+                colors: ['#f97316'] 
+            },
+            'Other': {
+                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music'],
+                data: [4, 3],
+                colors: ['#747c86', '#a1a8af', '#dce1e6'] 
+            }
+        },
+
+        // Hackathon Graph
+        hackathons: [
+            { name: "Dawson Robotics Hackathon 2025", type: "Robotics", awards: 1 },
+            { name: "HackDécouverte", type: "General", awards: 1 },
+            { name: "ConUHacks", type: "General", awards: 1 },
+            { name: window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", type: "General", awards: 1 },
+            { name: "GameJam de la FSÉ", type: "Other", awards: 0 },
+            { name: "@HACK", type: "CTF", awards: 1 },
+            { name: "McGill AeroHacks", type: "Robotics", awards: 1 },
+            { name: "VanierHacks", type: "CTF", awards: 0 },
+            { name: "Championing AI for good", type: "Other", awards: 0 },
+            { name: "JACHacks", type: "General", awards: 2 },
+            { name: "Cursor Hackathon", type: "Other", awards: 0 },
+            { name: "Dawson Robotics Hackathon 2026", type: "Robotics", awards: 1 },
+            { name: "MPC Hacks", type: "General", awards: 2 }
+        ]
+    };
+
+    function createCustomDropdown({ containerElement, prefix, defaultText, options, onSelect }) {
+        if (!containerElement || document.getElementById(`customFilter_${prefix}`)) return;
+
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        const filterContainer = document.createElement('div');
+        filterContainer.id = `customFilter_${prefix}`;
+        filterContainer.className = 'custom-dropdown-container';
+        filterContainer.style.cssText = 'position: relative; user-select: none;';
+
+        const filterBtn = document.createElement('div');
+        filterBtn.className = 'custom-dropdown-btn';
+        filterBtn.style.cssText = `
+            display: flex; align-items: center; justify-content: space-between;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: ${getThemeColor()}; padding: 6px 14px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer; 
+            transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            width: 130px;
+        `;
+        
+        const arrowSvg = `<svg class="dropdown-arrow" style="width: 16px; height: 16px; margin-left: 10px; transition: transform 0.3s ease;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+        filterBtn.innerHTML = `<span class="dropdown-text">${defaultText}</span> ${arrowSvg}`;
+
+        const filterMenu = document.createElement('div');
+        filterMenu.className = 'custom-dropdown-menu';
+        filterMenu.style.cssText = `
+            position: absolute; top: calc(100% + 8px); right: 0;
+            background: ${isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
+            background-image: linear-gradient(rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.03));
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid ${isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)'};
+            border-radius: 14px; padding: 6px;
+            min-width: 100%; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            opacity: 0; visibility: hidden; transform: translateY(-10px);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100;
+        `;
+
+        options.forEach(opt => {
+            const item = document.createElement('div');
+            item.className = 'filter-menu-item';
+            item.textContent = opt.text;
+            item.style.cssText = `
+                padding: 8px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500;
+                color: ${getThemeColor()}; cursor: pointer; transition: background 0.2s ease; white-space: nowrap;
+            `;
+            item.addEventListener('mouseenter', () => item.style.background = document.body.classList.contains('dark-mode') ? 'rgba(37, 99, 235, 0.15)' : 'rgba(37, 99, 235, 0.08)');
+            item.addEventListener('mouseleave', () => item.style.background = 'transparent');
+            
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                onSelect(opt.value);
+                filterBtn.querySelector('.dropdown-text').textContent = opt.text;
+                closeMenu();
+            });
+            filterMenu.appendChild(item);
+        });
+
+        filterContainer.appendChild(filterBtn);
+        filterContainer.appendChild(filterMenu);
+        containerElement.appendChild(filterContainer);
+
+        let isMenuOpen = false;
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
+            filterMenu.style.opacity = isMenuOpen ? '1' : '0';
+            filterMenu.style.visibility = isMenuOpen ? 'visible' : 'hidden';
+            filterMenu.style.transform = isMenuOpen ? 'translateY(0)' : 'translateY(-10px)';
+            filterBtn.querySelector('.dropdown-arrow').style.transform = isMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        };
+        const closeMenu = () => { if (isMenuOpen) toggleMenu(); };
+
+        filterBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+        document.addEventListener('click', (e) => { if (!filterContainer.contains(e.target)) closeMenu(); });
+    }
+
     const projectsContainer = document.getElementById('projectsContainer');
     if (projectsContainer) {
         projectsContainer.style.display = 'flex';
         projectsContainer.style.flexDirection = 'column';
-        projectsContainer.style.gap = '10px';
-        projectsContainer.style.padding = '8px'; 
-
-        const projects = [
-            { name: 'CashFlux', type: 'Python 60.5%', id: 0, awards: 2 },
-            { name: 'ChemicallyBonded', type: 'Python 75.4%', id: 1, awards: 0 },
-            { name: 'OurCampus', type: 'TypeScript 97.0%', id: 2, awards: 2 },
-            { name: 'Liminal', type: 'Python 87.1%', id: 3, awards: 0 },
-            { name: 'Dr. Bob', type: 'JavaScript 32.5%', id: 6, awards: 1 }
-        ];
+        projectsContainer.style.gap = '8px';
+        projectsContainer.style.padding = '1px'; 
 
         projectsContainer.innerHTML = '';
-        projects.forEach((project) => {
+        portfolioData.projects.forEach((project) => {
             const projectItem = document.createElement('div');
             const hasAward = project.awards > 0;
             
@@ -365,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const typeArray = Array.isArray(project.type) ? project.type : [project.type];
             const typeTags = typeArray.map(t => {
                 const color = t.includes('Python') ? '#2563eb' : 
-                              t.includes('JavaScript') ? '#9a922e' : 
+                              t.includes('JavaScript') ? '#669632' : 
                               t.includes('TypeScript') ? '#8b5cf6' : '#8b5cf6';
                 return `<span style="background-color: ${color}; color: white; padding: 4px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
             }).join('');
@@ -382,159 +513,105 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const achievementChartCtx = document.getElementById('achievementDoughnutChart');
-    let achievementChart = achievementChartCtx && new Chart(achievementChartCtx.getContext('2d'), {
-        type: 'doughnut',
-        data: {
-            labels: [window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-            datasets: [{ data: [7, 4, 3, 1, 5], backgroundColor: ['rgba(76, 240, 164, 0.83)', 'rgba(40, 68, 252, 0.9)', 'rgba(168, 85, 247, 0.9)', 'rgba(211, 108, 52, 0.9)', 'rgba(180, 180, 180, 0.9)'], borderWidth: 0 }]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false, cutout: '60%',
-            plugins: { legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } }, tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } } }
-        },
-        plugins: [{
-            id: 'centerText',
-            afterDraw: (chart) => {
-                const { ctx, chartArea: { left, right, top, bottom } } = chart;
-                ctx.save();
-                const centerX = (left + right) / 2; const centerY = (top + bottom) / 2;
-                ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
-                ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
-                let visibleTotal = 0;
-                chart.data.datasets[0].data.forEach((value, index) => { if (chart.getDataVisibility(index)) visibleTotal += value; });
-                ctx.font = 'bold 28px sans-serif'; ctx.fillStyle = getThemeColor(); ctx.fillText(visibleTotal, centerX, centerY + 12);
-                ctx.restore();
+    let achievementChart = null;
+
+    function renderCustomHtmlLegend(labels, colors) {
+        if (!achievementChartCtx) return;
+        const legendContainer = document.getElementById('achievementHtmlLegend');
+        if (!legendContainer) return;
+        
+        legendContainer.innerHTML = '';
+        legendContainer.style.cssText = 'display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; padding: 4px 0 0 0;';
+        
+        labels.forEach((label, index) => {
+            const item = document.createElement('div');
+            item.className = 'html-legend-item';
+            item.style.cssText = `display: flex; align-items: center; font-size: 0.8rem; font-weight: 500; color: ${getThemeColor()}; transition: color 0.2s; white-space: nowrap;`;
+            
+            const colorDot = document.createElement('span');
+            colorDot.style.cssText = `width: 8px; height: 8px; border-radius: 50%; background-color: ${colors[index]}; margin-right: 8px; display: inline-block; flex-shrink: 0;`;
+            
+            item.appendChild(colorDot);
+            item.appendChild(document.createTextNode(label));
+            legendContainer.appendChild(item);
+        });
+    }
+
+    if (achievementChartCtx) {
+        achievementChart = new Chart(achievementChartCtx.getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: portfolioData.achievement['All'].labels,
+                datasets: [{ 
+                    data: portfolioData.achievement['All'].data, 
+                    backgroundColor: portfolioData.achievement['All'].colors, 
+                    borderWidth: 0 
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } } 
+                }
+            },
+            plugins: [{
+                id: 'centerText',
+                afterDraw: (chart) => {
+                    const { ctx, chartArea: { left, right, top, bottom } } = chart;
+                    ctx.save();
+                    const centerX = (left + right) / 2; const centerY = (top + bottom) / 2;
+                    ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#94a3b8' : '#64748b';
+                    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(window.T?.chart_total || 'TOTAL', centerX, centerY - 10);
+                    let visibleTotal = 0;
+                    chart.data.datasets[0].data.forEach((value, index) => { if (chart.getDataVisibility(index)) visibleTotal += value; });
+                    ctx.font = 'bold 28px sans-serif'; ctx.fillStyle = getThemeColor(); ctx.fillText(visibleTotal, centerX, centerY + 12);
+                    ctx.restore();
+                }
+            }]
+        });
+
+        createCustomDropdown({
+            containerElement: document.getElementById('achievementFilterContainer'),
+            prefix: 'achievement',
+            defaultText: window.T?.filter_all || 'All',
+            options: [
+                { value: 'All', text: window.T?.filter_all || 'All' },
+                { value: 'Web Dev', text: window.T?.chart_webdev || 'Web Dev' },
+                { value: 'Math', text: window.T?.chart_math || 'Math' },
+                { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' },
+                { value: 'CTF', text: 'CTF' },
+                { value: 'Other', text: window.T?.chart_other || 'Other' }
+            ],
+            onSelect: (value) => {
+                const targetDataset = portfolioData.achievement[value] || portfolioData.achievement['All'];
+                achievementChart.data.labels = targetDataset.labels;
+                achievementChart.data.datasets[0].data = targetDataset.data;
+                achievementChart.data.datasets[0].backgroundColor = targetDataset.colors;
+                achievementChart.update();
+                renderCustomHtmlLegend(targetDataset.labels, targetDataset.colors);
             }
-        }]
-    });
+        });
+
+        renderCustomHtmlLegend(portfolioData.achievement['All'].labels, portfolioData.achievement['All'].colors);
+    }
 
     const hackathonProgressCtx = document.getElementById('hackathonProgressChart');
     let hackathonProgressChart = null;
 
     if (hackathonProgressCtx) {
-        const canvasParent = hackathonProgressCtx.parentElement;
-        if (canvasParent) {
-            canvasParent.style.maxWidth = '1200px';
-            canvasParent.style.margin = '0 auto';
-        }
-
-        const hackathonMasterData = [
-            { name: "Dawson Robotics Hackathon 2025", type: "Robotics", awards: 1 },
-            { name: "HackDécouverte", type: "General", awards: 1 },
-            { name: "ConUHacks", type: "General", awards: 1 },
-            { name: window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", type: "General", awards: 1 },
-            { name: "GameJam de la FSÉ", type: "Other", awards: 0 },
-            { name: "@HACK", type: "CTF", awards: 1 },
-            { name: "McGill AeroHacks", type: "Robotics", awards: 1 },
-            { name: "VanierHacks", type: "CTF", awards: 0 },
-            { name: "Championing AI for good", type: "Other", awards: 0 },
-            { name: "JACHacks", type: "General", awards: 2 },
-            { name: "Cursor Hackathon", type: "Other", awards: 0 },
-            { name: "Dawson Robotics Hackathon 2026", type: "Robotics", awards: 1 },
-            { name: "MPC Hacks", type: "General", awards: 2 }
-        ];
-
-        const filterTarget = document.getElementById('hackathonFilterContainer');
-        
-        if (filterTarget && !document.getElementById('customHackathonFilter')) {
-            const isDark = document.body.classList.contains('dark-mode');
-            
-            const filterContainer = document.createElement('div');
-            filterContainer.id = 'customHackathonFilter';
-            filterContainer.style.cssText = 'position: relative; user-select: none;';
-
-            const filterBtn = document.createElement('div');
-            filterBtn.style.cssText = `
-                display: flex; align-items: center; justify-content: space-between;
-                backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(37, 99, 235, 0.3);
-                color: ${getThemeColor()}; padding: 6px 14px; border-radius: 20px;
-                font-size: 0.85rem; font-weight: 600; cursor: pointer; 
-                transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-                width: 120px;
-            `;
-            
-            const arrowSvg = `<svg id="filterArrow" style="width: 16px; height: 16px; margin-left: 10px; transition: transform 0.3s ease;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
-            filterBtn.innerHTML = `<span id="filterText">${window.T?.filter_all || 'All'}</span> ${arrowSvg}`;
-
-            const filterMenu = document.createElement('div');
-            filterMenu.id = 'customFilterMenu';
-            filterMenu.style.cssText = `
-                position: absolute; top: calc(100% + 8px); right: 0;
-                background: ${isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
-                background-image: linear-gradient(rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.03));
-                backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-                border: 1px solid ${isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)'};
-                border-radius: 14px; padding: 6px;
-                min-width: 100%; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-                opacity: 0; visibility: hidden; transform: translateY(-10px);
-                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100;
-            `;
-
-            const options = [
-                { value: 'All', text: window.T?.filter_all || 'All' },
-                { value: 'General', text: window.T?.chart_general || 'General' },
-                { value: 'CTF', text: 'CTF' },
-                { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' }
-            ];
-
-            options.forEach(opt => {
-                const item = document.createElement('div');
-                item.className = 'filter-menu-item';
-                item.textContent = opt.text;
-                item.style.cssText = `
-                    padding: 8px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500;
-                    color: ${getThemeColor()}; cursor: pointer; transition: background 0.2s ease; white-space: nowrap;
-                `;
-                item.addEventListener('mouseenter', () => item.style.background = document.body.classList.contains('dark-mode') ? 'rgba(37, 99, 235, 0.15)' : 'rgba(37, 99, 235, 0.08)');
-                item.addEventListener('mouseleave', () => item.style.background = 'transparent');
-                
-                item.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    updateChartData(opt.value);
-                    document.getElementById('filterText').textContent = opt.text;
-                    closeMenu();
-                });
-                filterMenu.appendChild(item);
-            });
-
-            filterContainer.appendChild(filterBtn);
-            filterContainer.appendChild(filterMenu);
-            filterTarget.appendChild(filterContainer);
-
-            let isMenuOpen = false;
-            const toggleMenu = () => {
-                isMenuOpen = !isMenuOpen;
-                filterMenu.style.opacity = isMenuOpen ? '1' : '0';
-                filterMenu.style.visibility = isMenuOpen ? 'visible' : 'hidden';
-                filterMenu.style.transform = isMenuOpen ? 'translateY(0)' : 'translateY(-10px)';
-                document.getElementById('filterArrow').style.transform = isMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-            };
-            const closeMenu = () => { if (isMenuOpen) toggleMenu(); };
-
-            filterBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
-            document.addEventListener('click', (e) => { if (!filterContainer.contains(e.target)) closeMenu(); });
-        }
-
         hackathonProgressChart = new Chart(hackathonProgressCtx.getContext('2d'), {
             type: 'line',
             data: { labels: [], datasets: [
                 { label: window.T?.chart_attended || 'Hackathons Attended', data: [], borderColor: 'rgba(59, 130, 246, 0.14)', backgroundColor: 'rgba(59, 130, 246, 0.08)', tension: 0.2, pointRadius: 4, pointBackgroundColor: 'rgba(59, 130, 246, 0.7)', fill: true, order: 1 },
-                { label: window.T?.chart_awards || 'Hackathon Awards', data: [], borderColor: '#D4AF37', backgroundColor: 'rgba(234, 179, 8, 0.26)', tension: 0.2, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 }
+                { label: window.T?.chart_awards || 'Hackathon Awards', data: [], borderColor: '#D4AF37', backgroundColor: 'rgba(218, 191, 111, 0.26)', tension: 0.2, pointRadius: 4, pointBackgroundColor: '#D4AF37', fill: true, order: 2 }
             ]},
             options: {
                 responsive: true, maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: { 
                     legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
-                    tooltip: {
-                        callbacks: {
-                            title: function(context) {
-                                const names = hackathonProgressChart.config.customTooltipNames || [];
-                                return names[context[0].dataIndex] || `Hackathon #${context[0].label}`;
-                            }
-                        }
-                    }
+                    tooltip: { callbacks: { title: (context) => (hackathonProgressChart.config.customTooltipNames || [])[context[0].dataIndex] || `Hackathon #${context[0].label}` } }
                 },
                 scales: {
                     x: { title: { display: true, text: window.T?.chart_sequence || 'Hackathon Sequence', color: getThemeColor() }, ticks: { color: getThemeColor(), maxRotation: 0, minRotation: 0, autoSkip: true, maxTicksLimit: 7 }, grid: { display: false } },
@@ -543,8 +620,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        function updateChartData(filterValue) {
-            const filtered = hackathonMasterData.filter(h => filterValue === 'All' || h.type === filterValue);
+        function updateHackathonChartData(filterValue) {
+            const filtered = portfolioData.hackathons.filter(h => filterValue === 'All' || h.type === filterValue);
             let cumulativeAwards = 0; const newLabels = []; const newAttended = []; const newAwards = []; const newTooltipNames = [];
 
             filtered.forEach((h, i) => {
@@ -560,32 +637,52 @@ document.addEventListener('DOMContentLoaded', function() {
             hackathonProgressChart.update();
         }
 
-        updateChartData('All');
+        createCustomDropdown({
+            containerElement: document.getElementById('hackathonFilterContainer'),
+            prefix: 'hackathon',
+            defaultText: window.T?.filter_all || 'All',
+            options: [
+                { value: 'All', text: window.T?.filter_all || 'All' },
+                { value: 'General', text: window.T?.chart_general || 'General' },
+                { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' },
+                { value: 'CTF', text: 'CTF' }
+            ],
+            onSelect: (value) => updateHackathonChartData(value)
+        });
+
+        updateHackathonChartData('All');
     }
 
     new MutationObserver(() => {
         const color = getThemeColor();
         const isDark = document.body.classList.contains('dark-mode');
         
-        if (achievementChart) { achievementChart.options.plugins.legend.labels.color = color; achievementChart.update(); }
+        if (achievementChart) { achievementChart.update(); }
         if (hackathonProgressChart) {
             ['x', 'y'].forEach(axis => { hackathonProgressChart.options.scales[axis].title.color = color; hackathonProgressChart.options.scales[axis].ticks.color = color; });
             hackathonProgressChart.options.plugins.legend.labels.color = color;
             hackathonProgressChart.update();
         }
         
-        const filterBtn = document.getElementById('customHackathonFilter');
-        if(filterBtn) {
-            document.getElementById('filterText').style.color = color;
-            filterBtn.firstElementChild.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.3)' : 'rgba(37, 99, 235, 0.4)';
+        document.querySelectorAll('.custom-dropdown-container').forEach(container => {
+            const btn = container.querySelector('.custom-dropdown-btn');
+            const menu = container.querySelector('.custom-dropdown-menu');
+            const items = container.querySelectorAll('.filter-menu-item');
             
-            const filterMenu = document.getElementById('customFilterMenu');
-            filterMenu.style.background = isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)';
-            filterMenu.style.backgroundImage = 'linear-gradient(rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.03))';
-            filterMenu.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)';
-            
-            document.querySelectorAll('.filter-menu-item').forEach(item => item.style.color = color);
-        }
+            if (btn) {
+                btn.style.color = color;
+                btn.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.3)' : 'rgba(37, 99, 235, 0.4)';
+            }
+            if (menu) {
+                menu.style.background = isDark ? 'rgba(30, 41, 59, 0.85)' : 'rgba(255, 255, 255, 0.85)';
+                menu.style.borderColor = isDark ? 'rgba(37, 99, 235, 0.25)' : 'rgba(37, 99, 235, 0.15)';
+            }
+            items.forEach(item => item.style.color = color);
+        });
+
+        document.querySelectorAll('.html-legend-item').forEach(item => {
+            item.style.color = color;
+        });
 
         if (projectsContainer) {
             Array.from(projectsContainer.children).forEach((el) => { if (el.onmouseout) el.onmouseout(); });
@@ -1602,128 +1699,6 @@ window.addEventListener('focus', () => {
     document.title = originalTitle;
 });
 
-// ---------------------------------------------------------------
-// Draggable language toggle
-// Drag the bubble to a language and release, or just click a label.
-// ---------------------------------------------------------------
-(function () {
-    const DRAG_THRESHOLD = 5;
-
-    let globalBound = false;
-    let active = null; // { toggle, indicator, startX, startLeft, dragging }
-
-    const linksOf = (toggle) => Array.from(toggle.querySelectorAll('.lang-link'));
-
-    function placeIndicator(toggle, link, animate) {
-        const indicator = toggle.querySelector('.lang-indicator');
-        if (!indicator || !link) return;
-        if (!animate) indicator.style.transition = 'none';
-        const lr = link.getBoundingClientRect();
-        const tr = toggle.getBoundingClientRect();
-        // Bubble spans the toggle's full inner height (matches the draggable area)
-        indicator.style.left = (lr.left - tr.left) + 'px';
-        indicator.style.top = '0px';
-        indicator.style.width = lr.width + 'px';
-        indicator.style.height = toggle.clientHeight + 'px';
-        if (!animate) {
-            void indicator.offsetHeight; // flush so transition resets cleanly
-            indicator.style.transition = '';
-        }
-    }
-
-    function settleAll() {
-        document.querySelectorAll('.lang-toggle').forEach((toggle) => {
-            const links = linksOf(toggle);
-            const target = links.find((l) => l.classList.contains('active')) || links[0];
-            placeIndicator(toggle, target, false);
-        });
-    }
-
-    function onPointerDown(e) {
-        const toggle = e.target.closest('.lang-toggle');
-        if (!toggle) return;
-        const indicator = toggle.querySelector('.lang-indicator');
-        if (!indicator) return;
-        active = {
-            toggle,
-            indicator,
-            startX: e.clientX,
-            startLeft: parseFloat(indicator.style.left) || 0,
-            dragging: false,
-        };
-    }
-
-    function onPointerMove(e) {
-        if (!active) return;
-        const dx = e.clientX - active.startX;
-        if (!active.dragging) {
-            if (Math.abs(dx) < DRAG_THRESHOLD) return;
-            active.dragging = true;
-            active.toggle.classList.add('dragging');
-        }
-        e.preventDefault();
-        const links = linksOf(active.toggle);
-        if (links.length === 0) return;
-        const tr = active.toggle.getBoundingClientRect();
-        const first = links[0].getBoundingClientRect();
-        const last = links[links.length - 1].getBoundingClientRect();
-        const minLeft = first.left - tr.left;
-        const maxLeft = last.right - tr.left - active.indicator.offsetWidth;
-        const newLeft = Math.max(minLeft, Math.min(maxLeft, active.startLeft + dx));
-        active.indicator.style.left = newLeft + 'px';
-    }
-
-    function onPointerUp() {
-        if (!active) return;
-        const { toggle, indicator, dragging } = active;
-        active = null;
-        toggle.classList.remove('dragging');
-        if (!dragging) return; // plain click — let the <a> navigate normally
-        const links = linksOf(toggle);
-        const tr = toggle.getBoundingClientRect();
-        const center = (parseFloat(indicator.style.left) || 0) + indicator.offsetWidth / 2;
-        let nearest = links[0];
-        let nearestDist = Infinity;
-        for (const link of links) {
-            const lr = link.getBoundingClientRect();
-            const linkCenter = (lr.left - tr.left) + lr.width / 2;
-            const dist = Math.abs(linkCenter - center);
-            if (dist < nearestDist) { nearestDist = dist; nearest = link; }
-        }
-        placeIndicator(toggle, nearest, true);
-        const chosen = nearest.dataset.lang;
-        const current = toggle.dataset.currentLang;
-        if (chosen && chosen !== current) {
-            sessionStorage.setItem('__langScrollY', String(window.scrollY));
-            setTimeout(() => {
-                if (window.Turbo && typeof window.Turbo.visit === 'function') {
-                    window.Turbo.visit(nearest.href, { action: 'replace' });
-                } else {
-                    window.location.replace(nearest.href);
-                }
-            }, 220);
-        }
-    }
-
-    function init() {
-        settleAll();
-        if (globalBound) return;
-        globalBound = true;
-        document.addEventListener('pointerdown', onPointerDown);
-        document.addEventListener('pointermove', onPointerMove, { passive: false });
-        document.addEventListener('pointerup', onPointerUp);
-        document.addEventListener('pointercancel', onPointerUp);
-        window.addEventListener('resize', settleAll);
-        window.addEventListener('load', settleAll);
-    }
-
-    if (document.readyState !== 'loading') init();
-    else document.addEventListener('DOMContentLoaded', init);
-})();
-
-// ---------------------------------------------------------------
-// Back-to-top button + current-page highlight in the pill menu
-// ---------------------------------------------------------------
 (function () {
     let scrollBound = false;
 
