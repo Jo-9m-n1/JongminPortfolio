@@ -333,16 +333,15 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsContainer.style.padding = '8px'; 
 
         const projects = [
-            { name: 'CashFlux', type: 'Python', id: 0, awards: 2 },
-            { name: 'ChemicallyBonded', type: 'Python', id: 1, awards: 0 },
-            { name: 'OurCampus', type: 'TypeScript', id: 2, awards: 2 },
-            { name: 'Liminal', type: 'Python', id: 3, awards: 0 },
-            { name: 'Dr. Bob', type: 'JavaScript', id: 6, awards: 1 }
+            { name: 'CashFlux', type: 'Python 60.5%', id: 0, awards: 2 },
+            { name: 'ChemicallyBonded', type: 'Python 75.4%', id: 1, awards: 0 },
+            { name: 'OurCampus', type: 'TypeScript 97.0%', id: 2, awards: 2 },
+            { name: 'Liminal', type: 'Python 87.1%', id: 3, awards: 0 },
+            { name: 'Dr. Bob', type: 'JavaScript 32.5%', id: 6, awards: 1 }
         ];
 
         projectsContainer.innerHTML = '';
         projects.forEach((project) => {
-            const typeColor = project.type === 'Python' ? '#2563eb' : project.type === 'JavaScript' ? '#9a922e' : '#8b5cf6';
             const projectItem = document.createElement('div');
             const hasAward = project.awards > 0;
             
@@ -365,11 +364,20 @@ document.addEventListener('DOMContentLoaded', function() {
             projectItem.onmouseover = () => setStyle(true);
             projectItem.onmouseout = () => setStyle(false);
             
+            const typeArray = Array.isArray(project.type) ? project.type : [project.type];
+            const typeTags = typeArray.map(t => {
+                const color = t.includes('Python') ? '#3b82f6' : 
+                              t.includes('JavaScript') ? '#9a922e' : 
+                              t.includes('TypeScript') ? '#8b5cf6' : '#8b5cf6';
+                              
+                return `<span style="background-color: ${color}; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
+            }).join('');
+
             projectItem.innerHTML = `
                 <span style="font-size: 0.95rem; font-weight: 500;">
                     ${project.name}${`<i class="fa-solid fa-medal ms-1" style="color: #D4AF37;"></i>`.repeat(project.awards)}
                 </span>
-                <span style="background-color: ${typeColor}; color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600;">${project.type}</span>
+                <div style="display: flex;">${typeTags}</div>
             `;
             
             projectItem.addEventListener('click', () => window.location.href = `/project/${project.id}`);
