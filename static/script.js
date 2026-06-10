@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Web Dev': {
-                labels: ['JACHacks', 'MPC Hacks', 'ConUHacks', window.T?.chart_other || 'Other'],
+                labels: ['MPC Hacks', 'JACHacks', 'ConUHacks', window.T?.chart_other || 'Other'],
                 data: [2, 2, 1, 2],
                 colors: ['#0a4a39', '#2b7d62', '#69d4a9', '#a7f3d0'] 
             },
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#1d4ed8', '#3b82f6', '#93c5fd'] 
             },
             'Robotics': {
-                labels: ['Dawson Robotics 2025', 'McGill AeroHacks', 'Dawson Robotics 2026'],
+                labels: ['Dawson Robotics 2026', 'McGill AeroHacks', 'Dawson Robotics 2025'],
                 data: [1, 1, 1],
                 colors: ['#6d28d9', '#8b5cf6', '#c4b5fd'] 
             },
