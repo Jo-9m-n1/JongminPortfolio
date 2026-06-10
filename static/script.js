@@ -343,9 +343,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Web Dev': {
-                labels: ['JACHacks', 'MPC Hacks', 'Dialogue Internal Hackathon', 'ConUHacks', 'HackDécouverte'],
-                data: [2, 2, 1, 1, 1],
-                colors: ['#047857', '#10b981', '#34d399', '#6ee7b7', '#a7f3d0'] 
+                labels: ['JACHacks', 'MPC Hacks', 'ConUHacks', window.T?.chart_other || 'Other'],
+                data: [2, 2, 1, 2],
+                colors: ['#0a4a39', '#2b7d62', '#69d4a9', '#a7f3d0'] 
             },
             'Math': {
                 labels: ['HME', 'Waterloo Math', 'The Ultimate Math League'],
