@@ -14,8 +14,8 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.1rem;
-    padding: 0.2rem 0.4rem;
+    gap: 0.05rem;
+    padding: 0.2rem 0.3rem;
     border-radius: 999px;
     background: rgba(211, 211, 211, 0.114);
     border: 1px solid rgba(62, 61, 65, 0.15);

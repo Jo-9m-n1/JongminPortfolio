@@ -97,8 +97,7 @@
                 <a class="navbar-brand fw-bold" href="/">Jongmin<span class="text-primary">.Tech</span></a>
 
                 <div class="d-flex align-items-center gap-3 gap-sm-4">
-                    <div class="lang-toggle" data-current-lang="{{ lang }}" title="{{ t.lang_beta_tooltip }}">
-                        <span class="lang-beta-badge" aria-label="Beta feature">BETA</span>
+                    <div class="lang-toggle" data-current-lang="{{ lang }}">
                         {% for code in LANGUAGES %}
                         <a href="{{ url_for('set_language', lang=code, next=request.path) }}"
                            data-turbo-action="replace"
