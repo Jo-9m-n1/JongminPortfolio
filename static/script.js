@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const typeArray = Array.isArray(project.type) ? project.type : [project.type];
             const typeTags = typeArray.map(t => {
-                const color = t.includes('Python') ? '#3b82f6' : 
+                const color = t.includes('Python') ? '#2563eb' : 
                               t.includes('JavaScript') ? '#9a922e' : 
                               t.includes('TypeScript') ? '#8b5cf6' : '#8b5cf6';
                               
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             projectItem.innerHTML = `
                 <span style="font-size: 0.95rem; font-weight: 500;">
-                    ${project.name}${`<i class="fa-solid fa-medal ms-1" style="color: #D4AF37;"></i>`.repeat(project.awards)}
+                    ${project.name}${`<i class="fa-solid fa-trophy ms-1" style="color: #D4AF37;"></i>`.repeat(project.awards)}
                 </span>
                 <div style="display: flex;">${typeTags}</div>
             `;
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 "@HACK",
                                 "McGill AeroHacks",
                                 "VanierHacks",
-                                "Mila Championing AI for good", 
+                                "Championing AI for good", 
                                 "JACHacks", 
                                 "Cursor Hackathon",
                                 "Dawson Robotics Hackathon 2026", 
