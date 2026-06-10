@@ -190,9 +190,12 @@
                         </div>
                         <div class="col-6 col-md-3">
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
-                                <div class="timeline-card p-3 h-100">
-                                    <div class="display-6 fw-bold text-success counter" data-target="{{ stats.volunteering }}" data-plus="true">0</div>
-                                    <div class="small text-muted fw-bold">{{ t.stat_volunteering_hours }}</div>
+                                <div class="timeline-card p-3 h-100 text-center">
+                                    <div class="display-6 fw-bold text-success d-flex justify-content-center align-items-center">
+                                        <span>$</span>
+                                        <span class="counter" data-target="{{ stats.prize }}" data-plus="true">0</span>
+                                    </div>
+                                    <div class="small text-muted fw-bold">{{ t.stat_prize}}</div>
                                 </div>
                             </a>
                         </div>

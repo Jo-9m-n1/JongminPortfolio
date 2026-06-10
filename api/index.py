@@ -8,9 +8,9 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # For the main page stats only
 PORTFOLIO_STATS = {
-    'competitions': 18,
-    'hackathons': 9,
-    'volunteering': 100,
+    'competitions': 20,
+    'hackathons': 11,
+    'prize': 4000,
     'projects': 9
 }
 
@@ -36,9 +36,9 @@ TRANSLATIONS = {
         'btn_achievements': 'Achievements',
         'btn_view_my_work': 'View My Work',
 
-        'stat_competition_wins': 'Competition Wins',
-        'stat_hackathon_wins': 'Hackathon Wins',
-        'stat_volunteering_hours': 'Volunteering Hours',
+        'stat_competition_wins': 'Competition Awards',
+        'stat_hackathon_wins': 'Hackathon Awards',
+        'stat_prize': 'Hackathon Prizes',
         'stat_projects': 'Projects',
 
         'section_highlights': 'Highlights',
@@ -176,9 +176,9 @@ TRANSLATIONS = {
         'btn_achievements': '수상 보기',
         'btn_view_my_work': '프로젝트 보기',
 
-        'stat_competition_wins': '대회 우승',
-        'stat_hackathon_wins': '해커톤 우승',
-        'stat_volunteering_hours': '봉사 시간',
+        'stat_competition_wins': '대회 수상',
+        'stat_hackathon_wins': '해커톤 수상',
+        'stat_prize': '해커톤 상금',
         'stat_projects': '프로젝트',
 
         'section_highlights': '주요 성과',
@@ -215,6 +215,7 @@ TRANSLATIONS = {
         'award_distribution': '수상 분포',
         'hackathon_progress': '해커톤 성과 추이',
         'graph': '해커톤 참가 횟수 대비 누적 수상 실적',
+        'chart_grade' : '학업',
         'chart_webdev': '웹 개발',
         'chart_math': '수학',
         'chart_robotics': '로봇공학',
@@ -321,16 +322,15 @@ TRANSLATIONS = {
         'back': 'Retour',
         'showing_results': 'Affichage de {n} sur {total} réalisations',
         'showing_projects': 'Affichage de {n} sur {total} projets',
-        'lang_beta_tooltip': 'La fonction de traduction est en BÊTA — les descriptions sont en cours de traduction.',
 
         'name': 'Jongmin Lee',
         'about': "Futur étudiant en informatique à McGill",
         'btn_achievements': 'Réalisations',
         'btn_view_my_work': 'Voir mes projets',
 
-        'stat_competition_wins': 'Compétitions gagnées',
-        'stat_hackathon_wins': 'Hackathons gagnés',
-        'stat_volunteering_hours': 'Heures de bénévolat',
+        'stat_competition_wins': 'Compétitions remportées',
+        'stat_hackathon_wins': 'Hackathons remportés',
+        'stat_prize': 'Prix de hackathon',
         'stat_projects': 'Projets',
 
         'section_highlights': 'Faits saillants',
@@ -342,10 +342,10 @@ TRANSLATIONS = {
         'scale_regional': 'ÉCHELLE RÉGIONALE',
         'more_awards': 'PLUS DE PRIX',
 
-        'hl_cayley_subtitle': "Champion de l'école · Top 25 % Mondial",
+        'hl_cayley_subtitle': "Champion de l'école · Top 25 % mondial",
         'hl_hme_subtitle': '1ʳᵉ Place Nationale · Top 1 % en Corée',
         'hl_conuhacks_subtitle': '2ᵉ Place | Piste Dialogue',
-        'hl_hack_subtitle': '3ᵉ place | Piste Débutant',
+        'hl_hack_subtitle': '3ᵉ place | Piste débutant',
         'hl_jachacks_subtitle': '1ʳᵉ Place',
         'hl_aerohacks_subtitle': '1ʳᵉ Place',
 
@@ -362,23 +362,24 @@ TRANSLATIONS = {
         'edu_honor_roll': "Tableau d'honneur",
         'edu_art_etudes': 'Programme Arts-Études',
 
-        'portfolio_insights' : 'Aperçu du Portfolio',
+        'portfolio_insights' : 'Aperçu du portfolio',
         'key_projects': 'Projets Clés',
-        'award_distribution': 'Répartition des Prix',
-        'hackathon_progress': 'Progression aux Hackathons',
+        'award_distribution': 'Répartition des prix',
+        'hackathon_progress': 'Progression aux hackathons',
         'graph': 'Récompenses cumulées vs participations aux hackathons',
+        'chart_grade' : 'Scolaire',
         'chart_webdev': 'Dev Web',
         'chart_robotics': 'Robotique',
         'chart_other': 'Autre',
         'chart_total': 'TOTAL',
-        'chart_attended': 'Hackathons Participés',
-        'chart_awards': 'Prix Remportés',
-        'chart_sequence': 'Séquence de Hackathon',
-        'chart_cumulative': 'Compte Cumulé',
+        'chart_attended': 'Hackathons participés',
+        'chart_awards': 'Prix remportés',
+        'chart_sequence': 'Séquence de hackathon',
+        'chart_cumulative': 'Compte cumulé',
         'filter_all': 'Tous',
         'general': 'Général',
         'chart_music': 'Musique',
-        'dialogue_hackathon': 'Hackathon Interne de Dialogue',
+        'dialogue_hackathon': 'Hackathon interne de Dialogue',
 
         'about_html': (
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
@@ -455,7 +456,7 @@ TRANSLATIONS = {
         'filter_hardware': 'Matériel',
         'filter_math': 'Mathématiques',
         'filter_health': 'Santé',
-        'filter_academic': 'Universitaire',
+        'filter_academic': 'Scolaire',
         'no_milestones_match': 'Aucun jalon ne correspond à ces filtres.',
         'try_different_combination': "Essayez une autre combinaison d'étiquettes.",
         'section_competitions': 'Compétitions',

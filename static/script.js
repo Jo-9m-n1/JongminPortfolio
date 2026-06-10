@@ -338,9 +338,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Awards Distribution Graph
         achievement: {
             'All': {
-                labels: [window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-                data: [7, 4, 3, 1, 7],
-                colors: ['#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
+                labels: [window.T?.chart_grade || 'Academic', window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
+                data: [16, 7, 4, 3, 1, 7],
+                colors: ['#ec4899', '#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
+            },
+            'Academic': {
+                labels: [window.T?.edu_deans_list || "Dean's List", window.T?.chart_other || 'Other'],
+                data: [1, 15],
+                colors: ['#ec4899', '#ffb6db'] 
             },
             'Web Dev': {
                 labels: ['MPC Hacks', 'JACHacks', 'ConUHacks', window.T?.chart_other || 'Other'],
@@ -577,6 +582,7 @@ document.addEventListener('DOMContentLoaded', function() {
             defaultText: window.T?.filter_all || 'All',
             options: [
                 { value: 'All', text: window.T?.filter_all || 'All' },
+                { value: 'Academic', text: window.T?.chart_grade || 'Academic' },
                 { value: 'Web Dev', text: window.T?.chart_webdev || 'Web Dev' },
                 { value: 'Math', text: window.T?.chart_math || 'Math' },
                 { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' },
