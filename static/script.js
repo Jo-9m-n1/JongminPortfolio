@@ -616,7 +616,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 responsive: true, maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
                 plugins: { 
-                    legend: { position: 'bottom', labels: { color: getThemeColor(), usePointStyle: true, padding: 16 } },
+                    legend: { 
+                        position: 'bottom', 
+                        labels: { color: getThemeColor(), usePointStyle: true, padding: 16 },
+                        onClick: () => {}
+                    },
                     tooltip: { callbacks: { title: (context) => (hackathonProgressChart.config.customTooltipNames || [])[context[0].dataIndex] || `Hackathon #${context[0].label}` } }
                 },
                 scales: {
