@@ -1345,7 +1345,7 @@ Win Rate: <span style="color:#00ff00;">69%</span> [██████░░░�
             break;
 
         case 'whoami':
-            outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | Student at Dawson College\n`;
+            outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | CS Student at McGill University\n`;
             break;
 
         case 'ls':
