@@ -683,7 +683,7 @@ PROJECTS = [
             'ko': '해커톤 2026',
             'fr': 'Hackathon 2026'
         },
-        'tech': ['Python', 'mmBERT', 'NLP', 'Cohere Command-R', 'Mistral Large 3'],
+        'tech': ['Python', 'mmBERT', 'NLP', 'Cohere Command-R'],
         'description': {
             'en': 'A dual-tier AI guardrail system to detect mental health crises in youth facing virtual assistants, <strong>improving crisis recall by 9x</strong> (102 dataset test).',
             'ko': 'AI 챗봇을 사용하는 청소년의 정신 건강 위기를 감지하는 2단계 AI 가드레일 시스템으로, 위기 상황 재현율(recall)을 <strong>9배 향상</strong>시켰습니다 (102개 데이터셋 기준).',
@@ -694,7 +694,7 @@ PROJECTS = [
             'ko': '봄방학 동안, 저희 팀은 AI 모델과 상호작용하는 청소년의 정신 건강 위기를 감지하는 AI 가드레일 시스템을 개발했습니다. 처음에는 제공된 시드 데이터셋으로 모델을 학습시켰지만, recall과 precision이 모두 1.000으로 완벽하게 나오는 것을 보고 과적합 문제를 발견했습니다. 이를 해결하기 위해 가드레일이 없는 모델을 스트레스 테스트하는 합성 데이터 파이프라인을 구축하여 학습 데이터를 다양화하고 과적합 문제를 해결했습니다. 개발자로서 AI 모델을 직접 다뤄본 것은 이번이 처음이었기에 많은 것을 배울 수 있었습니다. 이 경험을 통해 AI 모델을 학습하고 개선하는 방법의 기본을 익혔으며, 이는 요즘 매우 중요한 자산이 되었습니다.',
             'fr': "Pendant la semaine de relâche, mon équipe et moi avons développé un système de garde-fou IA conçu pour détecter les crises de santé mentale chez les jeunes interagissant avec notre modèle d'IA. Au départ, nous avons entraîné le modèle sur le jeu de données de départ fourni; nous avons cependant rapidement constaté un surapprentissage, avec des scores parfaits de 1,000 en rappel et en précision. Pour résoudre cela, nous avons conçu un pipeline de données synthétiques qui a soumis notre modèle non régulé à des tests de stress, diversifiant ainsi efficacement les données d'entraînement et corrigeant le surapprentissage. Ce projet m'a beaucoup appris, car c'était la première fois que je travaillais avec un modèle d'IA en tant que développeur. J'y ai appris les bases de l'entraînement et du raffinement d'un modèle d'IA, une compétence essentielle de nos jours."
         },
-        'full_tech': ['Python', 'PyTorch', 'HuggingFace Transformers', 'Cohere API', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
+        'full_tech': ['Python', 'PyTorch', 'Cohere API', 'HuggingFace Transformers', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
         'troubles': {
             'en': 'Initially, we trained our model on the provided seed dataset (n=98), achieving a near-perfect F1 score. However, we suspected overfitting due to the small sample size. Test run against an external dataset (n=102) confirmed that our concerns were valid, as performance dropped significantly. To improve the generalization, we leveraged Gemini to generate synthetic data, <strong>diversifying</strong> our training set and <strong>robustifying</strong> the model.',
             'ko': '처음에는 제공된 시드 데이터셋(n=98)으로 모델을 학습시켜 거의 완벽한 F1 점수를 얻었습니다. 그러나 표본 크기가 작아 과적합이 의심됐고, 외부 데이터셋(n=102)으로 테스트해 본 결과 성능이 크게 떨어져 우려가 사실로 확인됐습니다. 일반화 성능을 높이기 위해 Gemini를 활용해 합성 데이터를 생성하여 학습 데이터를 <strong>다양화</strong>하고 모델을 <strong>견고하게</strong> 만들었습니다.',
@@ -726,10 +726,10 @@ PROJECTS = [
             'fr': 'Hackathon 2026'
         },
         'tech': ['C#', 'Unity'],
-        'description': {
-            'en': 'Developed at a French GameJam, DeckMots uses Unity and C#. It is designed for two players sharing the same device. Each player drafts a team of unique characters (Slimes, Knights, Orcs, Totems), each with their own stats and difficulty level. When a unit strikes, the defending player must answer a timed French language question to avoid taking damage.',
-            'ko': '게임 개발 해커톤에서 Unity와 C#으로 개발한 DeckMots는 한 기기를 같이 사용하는 두 명의 플레이어를 위한 게임입니다. 각 플레이어는 고유한 스탯과 난이도를 가진 캐릭터(슬라임, 기사, 오크, 토템)로 팀을 구성합니다. 유닛이 공격하면 수비 플레이어는 데미지를 피하기 위해 제한 시간 내에 프랑스어 문제를 풀어야 합니다.',
-            'fr': "Développé lors d'un GameJam francophone, DeckMots utilise Unity et C#. Conçu pour deux joueurs partageant le même appareil, chaque joueur sélectionne une équipe de personnages uniques (Slimes, Chevaliers, Orcs, Totems) ayant ses propres statistiques et niveau de difficulté. Lorsqu'une unité attaque, le joueur en défense doit répondre à une question de français chronométrée pour éviter de subir des dégâts."
+'description': {
+            'en': 'Developed with Unity at a French GameJam, DeckMots is a local 2-player game where you draft teams of unique characters. To block incoming attacks, the defending player must answer a timed French question.',
+            'ko': '프랑스어 게임잼에서 Unity로 개발한 2인용 로컬 멀티플레이 게임입니다. 고유한 캐릭터들로 팀을 구성하며, 상대의 공격을 방어하려면 제한 시간 내에 프랑스어 문제를 풀어야 합니다.',
+            'fr': "Créé avec Unity lors d'un GameJam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
         },
         'full_story': {
             'en': 'My teammates, James, Alex and I developed this game during a hackathon (GameJam) at the University of Montreal (UdeM). This was my first French hackathon and my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
