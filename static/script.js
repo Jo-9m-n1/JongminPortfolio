@@ -1371,10 +1371,10 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
-`May 2026 | MPC Hacks <i class="fa-solid fa-trophy"></i>
+`May 2026 | MPC Hacks <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 May 2026 | Dawson Robotics Hackathon 2026 <i class="fa-solid fa-trophy"></i>
 May 2026 | Cursor Hackathon Montreal
-Apr 2026 | JACHacks <i class="fa-solid fa-trophy"></i>
+Apr 2026 | JACHacks <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Championing AI for good
 Mar 2026 | VanierHacks
 Mar 2026 | McGill AeroHacks <i class="fa-solid fa-trophy"></i>
@@ -1393,9 +1393,9 @@ May 2025 | Dawson Robotics Hackathon 2025 <i class="fa-solid fa-trophy"></i>
 `  
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
-`May 2026 | CashFlux <i class="fa-solid fa-trophy"></i>
+`May 2026 | CashFlux <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 May 2026 | Chemically Bonded
-Apr 2026 | OurCampus <i class="fa-solid fa-trophy"></i>
+Apr 2026 | OurCampus <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Liminal
 Mar 2026 | DeckMots
 Feb 2026 | Personal Website
