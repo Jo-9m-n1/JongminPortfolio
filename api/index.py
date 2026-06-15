@@ -51,6 +51,7 @@ TRANSLATIONS = {
         'more_awards': 'MORE AWARDS',
 
         'hl_cayley_subtitle': 'School Champion · Top 25% Worldwide',
+        'contest_HME': 'HME Math Contest',
         'hl_hme_subtitle': 'National 1st Place · Top 1% in Korea',
         'hl_conuhacks_subtitle': '2nd Place | Dialogue Track',
         'hl_hack_subtitle': '3rd Place | Beginner Track',
@@ -191,6 +192,7 @@ TRANSLATIONS = {
         'more_awards': '수상 기록 보기',
 
         'hl_cayley_subtitle': '전교 1위 · 전 세계 상위 25%',
+        'contest_HME': 'HME 수학경시대회',
         'hl_hme_subtitle': '전국 1위 · 한국 상위 1%',
         'hl_conuhacks_subtitle': '2위 | Dialogue 부문',
         'hl_hack_subtitle': '3위 | 초보 부문',
@@ -268,6 +270,9 @@ TRANSLATIONS = {
 
         'snow_hint': '"snow" 입력',
 
+        'vault': '트로피 진열장',
+        'vault_subtitle': '대회 우승',
+
         'projects_title': '프로젝트',
         'subtitle_journey': '한국에서 캐나다까지 종민의 여정',
         'filter_show_all': '전체 보기',
@@ -343,6 +348,7 @@ TRANSLATIONS = {
         'more_awards': 'PLUS DE PRIX',
 
         'hl_cayley_subtitle': "Champion de l'école · Top 25 % mondial",
+        'contest_HME': 'HME Math Contest',
         'hl_hme_subtitle': '1ʳᵉ Place Nationale · Top 1 % en Corée',
         'hl_conuhacks_subtitle': '2ᵉ Place | Piste Dialogue',
         'hl_hack_subtitle': '3ᵉ place | Piste débutant',
@@ -419,6 +425,8 @@ TRANSLATIONS = {
         ),
 
         'snow_hint': 'Tapez « snow »',
+        'vault': 'La chambre des trophées',
+        'vault_subtitle': 'Victoires en compétition',
 
         'projects_title': 'Projets',
         'subtitle_journey': 'Le parcours de Jongmin, de la Corée du Sud au Canada',

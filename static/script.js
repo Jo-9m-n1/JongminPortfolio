@@ -1480,22 +1480,22 @@ function closeTerminal(overlay) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const trophies = [
+    const getTrophies = () => [
         { name: "MPC Hacks", type: "Hackathon", year: "2026" },
         { name: "Dawson Robotics Hackathon 2026", type: "Hackathon", year: "2026" },
         { name: "JACHacks", type: "Hackathon", year: "2026" },
         { name: "McGill AeroHacks", type: "Hackathon", year: "2026" },
         { name: "@HACK", type: "Hackathon", year: "2026" },
-        { name: "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
+        { name: window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", type: "Hackathon", year: "2026" },
         { name: "ConUHacks", type: "Hackathon", year: "2026" },
         { name: "HackDécouverte", type: "Hackathon", year: "2025" },
         { name: "Dawson Robotics Hackathon 2025", type: "Hackathon", year: "2025" },
         { name: "Waterloo Cayley Math Contest", type: "Contest", year: "2022" },
         { name: "The Ultimate Math League", type: "Contest", year: "2019" },
         { name: "Ministry of Justice of the Republic of Korea", type: "Contest", year: "2016" },
-        { name: "HME Math Contest", type: "Contest", year: "2016" },
+        { name: window.T?.contest_HME || "HME Math Contest", type: "Contest", year: "2016" },
         { name: "Sekwang Student Piano Competition", type: "Contest", year: "2015" },
-        { name: "HME Math Contest", type: "Contest", year: "2014" },
+        { name: window.T?.contest_HME || "HME Math Contest", type: "Contest", year: "2014" },
         { name: "Dental Health Awareness Art Contest", type: "Contest", year: "2013" },
         { name: "International Children's Art Grand Exhibition", type: "Contest", year: "2011" },
         { name: "Children's Day Art Competition", type: "Contest", year: "2011" }
@@ -1524,14 +1524,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('trophy-room')) return;
 
         const room = document.createElement('div');
-        room.id = 'trophy-room';        
+        room.id = 'trophy-room';
+
+        const title = window.T?.vault || 'THE VAULT';
+        const subtitle = window.T?.vault_subtitle || 'COMPETITION WINS';
+        const currentTrophies = getTrophies();
+
         room.innerHTML = `
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
-                <h2 class="trophy-title">THE VAULT</h2>
-                <p class="trophy-subtitle">18+ COMPETITION AWARDS</p>
+                <h2 class="trophy-title">${title}</h2>
+                <p class="trophy-subtitle">18+ ${subtitle}</p>
                 <div class="shelf-grid">
-                    ${trophies.map(t => `
+                    ${currentTrophies.map(t => `
                         <div class="trophy-item">
                             <i class="fa-solid fa-trophy trophy-icon"></i>
                             <div class="trophy-info">
@@ -1546,19 +1551,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(room);
 
         room.addEventListener('click', (e) => {
-            if (e.target === room) {
-                closeTrophyRoom();
-            }
+            if (e.target === room) closeTrophyRoom();
         });
 
         const closeBtn = room.querySelector('.close-btn');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeTrophyRoom);
-        }
+        if (closeBtn) closeBtn.addEventListener('click', closeTrophyRoom);
 
-        requestAnimationFrame(() => {
-            room.classList.add('active');
-        });
+        requestAnimationFrame(() => room.classList.add('active'));
     }
 
     function closeTrophyRoom() {
