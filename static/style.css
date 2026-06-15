@@ -193,8 +193,8 @@ main.container {
 }
 
 .desc-text {
-    color: #323b4a !important;
-    font-weight: 480;
+    color: #444f61 !important;
+    font-weight: 400;
 }
 
 .control-header-system {
@@ -542,7 +542,7 @@ body.dark-mode .card.bg-danger-subtle:hover p {
     padding: 8px 16px;
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #475569;
     font-size: 0.8rem;
     font-weight: 600;
@@ -551,7 +551,7 @@ body.dark-mode .card.bg-danger-subtle:hover p {
 }
 
 .proof-button i {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--accent-color);
 }
 
@@ -706,7 +706,7 @@ aside .card:hover {
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
     border-radius: 20px !important; 
     
-    padding: 1.5rem;
+    padding: 1.3rem;
     position: relative;
     
     box-shadow: 
@@ -907,18 +907,18 @@ body.dark-mode .reset-btn-pill:hover {
 }
 
 .timeline-date {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    color: #64748b;
-    background: #f1f5f9;
-    padding: 4px 12px;
-    border-radius: 6px;
-    margin-bottom: 0.8rem;
+    color: rgb(88, 101, 120);
+    background: #eceef0;
+    padding: 4px 11px;
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
     display: inline-block;
 }
 
 .event-name {
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     font-weight: 700;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
