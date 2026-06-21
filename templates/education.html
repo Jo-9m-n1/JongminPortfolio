@@ -69,7 +69,7 @@
                             <p class="fw-bold mb-0" style="font-size: 0.95rem;">{{ t[school_info.degree_key] }}</p>
                         </div>
                         <div class="col-md-5 text-md-end">
-                            <span class="text-muted small d-block mb-2">{{ school_info.years }}</span>
+                            <span class="text-muted small d-block mb-2">{{ school_info.years|tr }}</span>
                             {% if school_info.badges %}
                             <div class="d-flex flex-wrap gap-2 justify-content-md-end">
                                 {% for badge_key in school_info.badges %}
@@ -87,16 +87,16 @@
                     <div class="courses-list">
                         {% for semester, semester_courses in grouped_courses.items() %}
                         <section class="courses-semester">
-                            <h6 class="courses-semester-title">{{ semester }}</h6>
+                            <h6 class="courses-semester-title">{{ semester_courses[0].semester|tr if semester_courses else semester }}</h6>
                             <div class="courses-semester-list">
                                 {% for course in semester_courses %}
                                 {% set group = normalize_group(course.group) %}
                                 <article class="course-item course-item--{{ group }}">
                                     <div class="course-item__main">
-                                        <span class="course-item__name">{{ course.name }}</span>
+                                        <span class="course-item__name">{{ course.name|tr }}</span>
                                         <div class="course-item__meta">
                                             <span class="course-code">{{ course.code }}</span>
-                                            <span class="course-group-tag">{{ course_group_labels[group] }}</span>
+                                            <span class="course-group-tag">{{ course_group_labels[group]|tr }}</span>
                                         </div>
                                     </div>
                                     {% if course.mcgill %}

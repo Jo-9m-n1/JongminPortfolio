@@ -62,6 +62,7 @@ TRANSLATIONS = {
         'edu_enrolled': 'ENROLLED',
         'edu_graduated': 'GRADUATED',
         'edu_mcgill_degree': 'Computer Science | Bachelor of Science',
+        'edu_mcgill_years': '2026 (Est.) - 2029 (Est.)',
         'edu_dawson_degree': 'Science, Computer Science & Mathematics',
         'edu_rosemount_degree': 'Secondary School Diploma',
         'edu_deans_list': "Dean's List",
@@ -207,6 +208,7 @@ TRANSLATIONS = {
         'edu_enrolled': '재학 중',
         'edu_graduated': '졸업',
         'edu_mcgill_degree': '컴퓨터 과학 | 학사',
+        'edu_mcgill_years': '2026 (예정) - 2029 (예정)',
         'edu_dawson_degree': '과학, 컴퓨터 과학 및 수학',
         'edu_rosemount_degree': '고등학교 졸업장',
         'edu_deans_list': '학장 명단',
@@ -367,6 +369,7 @@ TRANSLATIONS = {
         'edu_enrolled': 'INSCRIT',
         'edu_graduated': 'DIPLÔMÉ',
         'edu_mcgill_degree': 'Informatique | Baccalauréat ès sciences',
+        'edu_mcgill_years': '2026 (Prévu) - 2029 (Prévu)',
         'edu_dawson_degree': 'Sciences, informatique et mathématiques',
         'edu_rosemount_degree': "Diplôme d'études secondaires",
         'edu_deans_list': "Liste d'honneur du doyen",
@@ -925,24 +928,24 @@ PROJECTS = [
 
 COURSES = {
     'dawson': [
-        { 'name': 'Introduction to Programming', 'code': '420-SF1-RE', 'semester': 'Fall 2024', 'group': 'programming' },
-        { 'name': 'Differential Calculus', 'code': '201-SN2-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 140', 'group': 'math' },
-        { 'name': 'Discrete Mathematics', 'code': '201-SF5-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 240', 'group': 'math' },
-        { 'name': 'Data Structure and Object Oriented Programming', 'code': '420-SF2-RE', 'semester': 'Winter 2025', 'group': 'programming' },
-        { 'name': 'Integral Calculus', 'code': '201-SN3-RE', 'semester': 'Winter 2025', 'mcgill': 'MATH 141', 'group': 'math' },
-        { 'name': 'Mechanics', 'code': '203-SN1-RE', 'semester': 'Winter 2025', 'mcgill': 'PHYS 131', 'group': 'physics' },
-        { 'name': 'Program Development in a Graphical Environment', 'code': '420-SF3-RE', 'semester': 'Fall 2025', 'group': 'programming' },
-        { 'name': 'Probability and Statistics', 'code': '201-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'MATH 203', 'group': 'math' },
-        { 'name': 'Electricity and Magnetism', 'code': '203-SN2-RE', 'semester': 'Fall 2025', 'mcgill': 'PHYS 142', 'group': 'physics' },
-        { 'name': 'General Chemistry', 'code': '202-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'CHEM 110', 'group': 'chemistry' },
-        { 'name': 'Integrative Project in Computer Science and Mathematics', 'code': '420-SF4-RE', 'semester': 'Winter 2026', 'group': 'programming' },
-        { 'name': 'Linear Algebra and Vector Geometry', 'code': '201-SN4-RE', 'semester': 'Winter 2026', 'mcgill': 'MATH 133', 'group': 'math' },
-        { 'name': 'Waves and Modern Physics', 'code': '203-SN3-RE', 'semester': 'Winter 2026', 'mcgill': 'PHYS 131 & 142', 'group': 'physics' }
+        { 'name': {'en': 'Introduction to Programming', 'ko': '프로그래밍 개론', 'fr': 'Introduction à la programmation'}, 'code': '420-SF1-RE', 'semester': {'en': 'Fall 2024', 'ko': '2024년 가을학기', 'fr': 'Automne 2024'}, 'group': 'programming' },
+        { 'name': {'en': 'Differential Calculus', 'ko': '미분적분학', 'fr': 'Calcul différentiel'}, 'code': '201-SN2-RE', 'semester': {'en': 'Fall 2024', 'ko': '2024년 가을학기', 'fr': 'Automne 2024'}, 'mcgill': 'MATH 140', 'group': 'math' },
+        { 'name': {'en': 'Discrete Mathematics', 'ko': '이산수학', 'fr': 'Mathématiques discrètes'}, 'code': '201-SF5-RE', 'semester': {'en': 'Fall 2024', 'ko': '2024년 가을학기', 'fr': 'Automne 2024'}, 'mcgill': 'MATH 240', 'group': 'math' },
+        { 'name': {'en': 'Data Structure and Object Oriented Programming', 'ko': '자료구조 및 객체지향 프로그래밍', 'fr': 'Structures de données et programmation orientée objet'}, 'code': '420-SF2-RE', 'semester': {'en': 'Winter 2025', 'ko': '2025년 겨울학기', 'fr': 'Hiver 2025'}, 'group': 'programming' },
+        { 'name': {'en': 'Integral Calculus', 'ko': '적분학', 'fr': 'Calcul intégral'}, 'code': '201-SN3-RE', 'semester': {'en': 'Winter 2025', 'ko': '2025년 겨울학기', 'fr': 'Hiver 2025'}, 'mcgill': 'MATH 141', 'group': 'math' },
+        { 'name': {'en': 'Mechanics', 'ko': '역학', 'fr': 'Mécanique'}, 'code': '203-SN1-RE', 'semester': {'en': 'Winter 2025', 'ko': '2025년 겨울학기', 'fr': 'Hiver 2025'}, 'mcgill': 'PHYS 131', 'group': 'physics' },
+        { 'name': {'en': 'Program Development in a Graphical Environment', 'ko': '그래픽 환경에서의 프로그램 개발', 'fr': 'Développement de programmes dans un environnement graphique'}, 'code': '420-SF3-RE', 'semester': {'en': 'Fall 2025', 'ko': '2025년 가을학기', 'fr': 'Automne 2025'}, 'group': 'programming' },
+        { 'name': {'en': 'Probability and Statistics', 'ko': '확률과 통계', 'fr': 'Probabilités et statistiques'}, 'code': '201-SN1-RE', 'semester': {'en': 'Fall 2025', 'ko': '2025년 가을학기', 'fr': 'Automne 2025'}, 'mcgill': 'MATH 203', 'group': 'math' },
+        { 'name': {'en': 'Electricity and Magnetism', 'ko': '전자기학', 'fr': 'Électricité et magnétisme'}, 'code': '203-SN2-RE', 'semester': {'en': 'Fall 2025', 'ko': '2025년 가을학기', 'fr': 'Automne 2025'}, 'mcgill': 'PHYS 142', 'group': 'physics' },
+        { 'name': {'en': 'General Chemistry', 'ko': '일반화학', 'fr': 'Chimie générale'}, 'code': '202-SN1-RE', 'semester': {'en': 'Fall 2025', 'ko': '2025년 가을학기', 'fr': 'Automne 2025'}, 'mcgill': 'CHEM 110', 'group': 'chemistry' },
+        { 'name': {'en': 'Integrative Project in Computer Science and Mathematics', 'ko': '컴퓨터 과학 및 수학 통합 프로젝트', 'fr': 'Projet d\'intégration en informatique et mathématiques'}, 'code': '420-SF4-RE', 'semester': {'en': 'Winter 2026', 'ko': '2026년 겨울학기', 'fr': 'Hiver 2026'}, 'group': 'programming' },
+        { 'name': {'en': 'Linear Algebra and Vector Geometry', 'ko': '선형대수학 및 벡터기하학', 'fr': 'Algèbre linéaire et géométrie vectorielle'}, 'code': '201-SN4-RE', 'semester': {'en': 'Winter 2026', 'ko': '2026년 겨울학기', 'fr': 'Hiver 2026'}, 'mcgill': 'MATH 133', 'group': 'math' },
+        { 'name': {'en': 'Waves and Modern Physics', 'ko': '파동 및 현대물리학', 'fr': 'Ondes et physique moderne'}, 'code': '203-SN3-RE', 'semester': {'en': 'Winter 2026', 'ko': '2026년 겨울학기', 'fr': 'Hiver 2026'}, 'mcgill': 'PHYS 131 & 142', 'group': 'physics' }
     ],
     'mcgill': [
-        { 'name': 'Introduction to Computer Science (Est.)', 'code': 'COMP 250', 'semester': 'Fall 2026', 'group': 'programming' },
-        { 'name': 'Introduction to Software Systems (Est.)', 'code': 'COMP 206', 'semester': 'Fall 2026', 'group': 'programming' },
-        { 'name': 'Calculus 3 (Est.)', 'code': 'MATH 222', 'semester': 'Fall 2026', 'group': 'math' }
+        { 'name': {'en': 'Introduction to Computer Science (Est.)', 'ko': '컴퓨터 과학 개론 (예정)', 'fr': 'Introduction à l\'informatique (Prévu)'}, 'code': 'COMP 250', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming' },
+        { 'name': {'en': 'Introduction to Software Systems (Est.)', 'ko': '소프트웨어 시스템 개론 (예정)', 'fr': 'Introduction aux systèmes logiciels (Prévu)'}, 'code': 'COMP 206', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming' },
+        { 'name': {'en': 'Calculus 3 (Est.)', 'ko': '미적분학 3 (예정)', 'fr': 'Calcul 3 (Prévu)'}, 'code': 'MATH 222', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math' }
     ]
 }
 
@@ -960,7 +963,7 @@ EDUCATION_SCHOOLS = {
         'id': 'mcgill',
         'name': 'McGill University',
         'accent': '#ED1B2F',
-        'years': '2026 (Est.) - 2029 (Est.)',
+        'years': {'en': '2026 (Est.) - 2029 (Est.)', 'ko': '2026 (예정) - 2029 (예정)', 'fr': '2026 (Prévu) - 2029 (Prévu)'},
         'status_key': 'edu_expected',
         'degree_key': 'edu_mcgill_degree',
         'badges': [],
@@ -968,11 +971,11 @@ EDUCATION_SCHOOLS = {
 }
 
 COURSE_GROUP_LABELS = {
-    'programming': 'Programming',
-    'math': 'Math',
-    'physics': 'Physics',
-    'chemistry': 'Chemistry',
-    'general': 'General',
+    'programming': {'en': 'Programming', 'ko': '프로그래밍', 'fr': 'Programmation'},
+    'math': {'en': 'Math', 'ko': '수학', 'fr': 'Mathématiques'},
+    'physics': {'en': 'Physics', 'ko': '물리학', 'fr': 'Physique'},
+    'chemistry': {'en': 'Chemistry', 'ko': '화학', 'fr': 'Chimie'},
+    'general': {'en': 'General', 'ko': '일반', 'fr': 'Général'},
 }
 
 
@@ -992,8 +995,12 @@ def normalize_course_group(group):
 def group_courses_by_semester(courses):
     grouped = {}
     for course in courses:
-        semester = course.get('semester') or 'Other'
-        grouped.setdefault(semester, []).append(course)
+        semester_dict = course.get('semester')
+        if isinstance(semester_dict, dict):
+            sem_key = semester_dict.get('en', 'Other')
+        else:
+            sem_key = semester_dict or 'Other'
+        grouped.setdefault(sem_key, []).append(course)
     return grouped
 
 @app.route('/')
