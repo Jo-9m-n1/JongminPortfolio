@@ -2471,14 +2471,13 @@ body.dark-mode .education-card-link:hover .timeline-card {
     align-items: center;
     justify-content: center;
     min-width: 5.5rem;
-    padding: 0.35rem 0.65rem;
+    padding: 0.35rem 0.6rem;
     border-radius: 999px;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
     white-space: nowrap;
     background: #ED1B2F;
-    color: #fff;
+    color: #ffffff;
 }
 
 .course-item--programming {
@@ -2555,10 +2554,48 @@ body.dark-mode .course-item {
     border-color: rgba(255, 255, 255, 0.08);
 }
 
+body.dark-mode .course-item--programming {
+    border-color: rgba(37, 99, 235, 0.3);
+    background: rgba(37, 99, 235, 0.15);
+}
+body.dark-mode .course-item--programming:hover { border-color: rgba(37, 99, 235, 0.5); }
+
+body.dark-mode .course-item--math {
+    border-color: rgba(22, 163, 74, 0.3);
+    background: rgba(22, 163, 74, 0.15);
+}
+body.dark-mode .course-item--math:hover { border-color: rgba(22, 163, 74, 0.5); }
+
+body.dark-mode .course-item--physics {
+    border-color: rgba(124, 58, 237, 0.3);
+    background: rgba(124, 58, 237, 0.15);
+}
+body.dark-mode .course-item--physics:hover { border-color: rgba(124, 58, 237, 0.5); }
+
+body.dark-mode .course-item--chemistry {
+    border-color: rgba(234, 88, 12, 0.3);
+    background: rgba(234, 88, 12, 0.15);
+}
+body.dark-mode .course-item--chemistry:hover { border-color: rgba(234, 88, 12, 0.5); }
+
+body.dark-mode .course-item--general {
+    border-color: rgba(100, 116, 139, 0.3);
+    background: rgba(148, 163, 184, 0.15);
+}
+
 body.dark-mode .course-item__name { color: #e2e8f0; }
 body.dark-mode .course-code {
     background: rgba(255, 255, 255, 0.08);
     color: #cbd5e1;
+}
+
+.filter-btn.school-filter {
+    color: var(--school-accent) !important;
+}
+.filter-btn.school-filter.active {
+    background: var(--school-accent) !important;
+    border-color: var(--school-accent) !important;
+    color: white !important;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
