@@ -925,23 +925,23 @@ PROJECTS = [
 
 COURSES = {
     'dawson': [
-        { 'name': 'Introduction to Programming', 'code': '420-SF1-RE', 'semester': 'Fall 2024', 'group': 'coding' },
+        { 'name': 'Introduction to Programming', 'code': '420-SF1-RE', 'semester': 'Fall 2024', 'group': 'programming' },
         { 'name': 'Differential Calculus', 'code': '201-SN2-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 140', 'group': 'math' },
         { 'name': 'Discrete Mathematics', 'code': '201-SF5-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 240', 'group': 'math' },
-        { 'name': 'Data Structure and Object Oriented Programming', 'code': '420-SF2-RE', 'semester': 'Winter 2025', 'group': 'coding' },
+        { 'name': 'Data Structure and Object Oriented Programming', 'code': '420-SF2-RE', 'semester': 'Winter 2025', 'group': 'programming' },
         { 'name': 'Integral Calculus', 'code': '201-SN3-RE', 'semester': 'Winter 2025', 'mcgill': 'MATH 141', 'group': 'math' },
         { 'name': 'Mechanics', 'code': '203-SN1-RE', 'semester': 'Winter 2025', 'mcgill': 'PHYS 131', 'group': 'physics' },
-        { 'name': 'Program Development in a Graphical Environment', 'code': '420-SF3-RE', 'semester': 'Fall 2025', 'group': 'coding' },
+        { 'name': 'Program Development in a Graphical Environment', 'code': '420-SF3-RE', 'semester': 'Fall 2025', 'group': 'programming' },
         { 'name': 'Probability and Statistics', 'code': '201-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'MATH 203', 'group': 'math' },
         { 'name': 'Electricity and Magnetism', 'code': '203-SN2-RE', 'semester': 'Fall 2025', 'mcgill': 'PHYS 142', 'group': 'physics' },
         { 'name': 'General Chemistry', 'code': '202-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'CHEM 110', 'group': 'chemistry' },
-        { 'name': 'Integrative Project in Computer Science and Mathematics', 'code': '420-SF4-RE', 'semester': 'Winter 2026', 'group': 'coding' },
+        { 'name': 'Integrative Project in Computer Science and Mathematics', 'code': '420-SF4-RE', 'semester': 'Winter 2026', 'group': 'programming' },
         { 'name': 'Linear Algebra and Vector Geometry', 'code': '201-SN4-RE', 'semester': 'Winter 2026', 'mcgill': 'MATH 133', 'group': 'math' },
         { 'name': 'Waves and Modern Physics', 'code': '203-SN3-RE', 'semester': 'Winter 2026', 'mcgill': 'PHYS 131 & 142', 'group': 'physics' }
     ],
     'mcgill': [
-        { 'name': 'Introduction to Computer Science (Est.)', 'code': 'COMP 250', 'semester': 'Fall 2026', 'group': 'coding' },
-        { 'name': 'Introduction to Software Systems (Est.)', 'code': 'COMP 206', 'semester': 'Fall 2026', 'group': 'coding' },
+        { 'name': 'Introduction to Computer Science (Est.)', 'code': 'COMP 250', 'semester': 'Fall 2026', 'group': 'programming' },
+        { 'name': 'Introduction to Software Systems (Est.)', 'code': 'COMP 206', 'semester': 'Fall 2026', 'group': 'programming' },
         { 'name': 'Calculus 3 (Est.)', 'code': 'MATH 222', 'semester': 'Fall 2026', 'group': 'math' }
     ]
 }
@@ -968,7 +968,7 @@ EDUCATION_SCHOOLS = {
 }
 
 COURSE_GROUP_LABELS = {
-    'coding': 'Coding',
+    'programming': 'Programming',
     'math': 'Math',
     'physics': 'Physics',
     'chemistry': 'Chemistry',
@@ -978,8 +978,8 @@ COURSE_GROUP_LABELS = {
 
 def normalize_course_group(group):
     key = str(group or 'general').strip().lower()
-    if key.startswith('cod'):
-        return 'coding'
+    if key.startswith('prog'):
+        return 'programming'
     if key.startswith('math'):
         return 'math'
     if key.startswith('phys') or key.startswith('pyh'):
