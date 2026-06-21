@@ -1002,9 +1002,9 @@ def home():
 
 @app.route('/education')
 def education():
-    school = request.args.get('school', 'dawson')
+    school = request.args.get('school', 'mcgill')
     if school not in EDUCATION_SCHOOLS:
-        school = 'dawson'
+        school = 'mcgill'
     school_info = EDUCATION_SCHOOLS[school]
     courses = COURSES.get(school, [])
     grouped_courses = group_courses_by_semester(courses)

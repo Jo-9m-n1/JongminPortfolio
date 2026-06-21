@@ -2429,7 +2429,7 @@ body.dark-mode .education-card-link:hover .timeline-card {
 
 .course-item__name {
     display: block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #0f172a;
     line-height: 1.35;
@@ -2448,7 +2448,7 @@ body.dark-mode .education-card-link:hover .timeline-card {
     align-items: center;
     padding: 0.18rem 0.55rem;
     border-radius: 999px;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -2470,8 +2470,8 @@ body.dark-mode .education-card-link:hover .timeline-card {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 5.5rem;
-    padding: 0.35rem 0.6rem;
+    min-width: 5.7rem;
+    padding: 0.35rem 0.55rem;
     border-radius: 999px;
     font-size: 0.65rem;
     font-weight: 700;
