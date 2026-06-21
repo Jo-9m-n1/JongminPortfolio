@@ -101,7 +101,7 @@
                 <div class="d-flex align-items-center gap-3 gap-sm-4">
                     <div class="lang-toggle" data-current-lang="{{ lang }}">
                         {% for code in LANGUAGES %}
-                        <a href="{{ url_for('set_language', lang=code, next=request.path) }}"
+                        <a href="{{ url_for('set_language', lang=code, next=request.full_path) }}"
                            data-turbo-action="replace"
                            data-lang="{{ code }}"
                            class="lang-link{% if lang == code %} active{% endif %}">{{ code|upper }}</a>
@@ -392,7 +392,8 @@
                             </h3>
                             <div class="row g-3">
                                 <div class="col-12 col-xl-4">
-                                    <div class="timeline-card h-100">
+                                    <a href="{{ url_for('education', school='mcgill') }}" class="education-card-link text-decoration-none text-dark d-block h-100">
+                                    <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">
                                         <div class="d-flex justify-content-between align-items-start mb-3">
                                             <div>
                                                 <h3 class="h5 fw-bold mb-0" style="color: #ED1B2F;">McGill University</h3>
@@ -403,9 +404,14 @@
                                         <div class="mb-3">
                                             <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_mcgill_degree }}</p>
                                         </div>
+                                        <div class="mt-auto pt-3 text-end">
+                                            <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                        </div>
                                     </div>
+                                    </a>
                                 </div>
                                 <div class="col-12 col-xl-4">
+                                    <a href="{{ url_for('education', school='dawson') }}" class="education-card-link text-decoration-none text-dark d-block h-100">
                                     <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">
                                         <div class="d-flex justify-content-between align-items-start mb-3">
                                             <div>
@@ -422,7 +428,11 @@
                                                 <span class="badge border text-dark shadow-sm">{{ t.edu_recognition }}</span>
                                             </div>
                                         </div>
+                                        <div class="mt-auto pt-3 text-end">
+                                            <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                        </div>
                                     </div>
+                                    </a>
                                 </div>
                                 <div class="col-12 col-xl-4">
                                     <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">

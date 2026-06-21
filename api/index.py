@@ -156,7 +156,11 @@ TRANSLATIONS = {
         'no_milestones_match': 'No milestones match these filters.',
         'try_different_combination': 'Try selecting a different combination of tags.',
         'section_competitions': 'Competitions',
-        'section_certificates': 'Certificates, Awards & Experience'
+        'section_certificates': 'Certificates, Awards & Experience',
+        'view_courses': 'View Courses',
+        'non_elective_courses': 'Non-elective courses',
+        'semesters': 'Semesters',
+        'courses_label': 'Courses'
     },
 
     'ko': {
@@ -313,7 +317,11 @@ TRANSLATIONS = {
         'no_milestones_match': '조건에 맞는 성과가 없습니다.',
         'try_different_combination': '다른 태그 조합을 선택해 보세요.',
         'section_competitions': '대회',
-        'section_certificates': '자격증, 수료증 및 경력'
+        'section_certificates': '자격증, 수료증 및 경력',
+        'view_courses': '과목 보기',
+        'non_elective_courses': '필수 과목',
+        'semesters': '학기',
+        'courses_label': '과목'
     },
 
     'fr': {
@@ -468,7 +476,11 @@ TRANSLATIONS = {
         'no_milestones_match': 'Aucun jalon ne correspond à ces filtres.',
         'try_different_combination': "Essayez une autre combinaison d'étiquettes.",
         'section_competitions': 'Compétitions',
-        'section_certificates': 'Certificats, prix et expériences'
+        'section_certificates': 'Certificats, prix et expériences',
+        'view_courses': 'Voir les cours',
+        'non_elective_courses': 'Cours non optionnels',
+        'semesters': 'Semestres',
+        'courses_label': 'Cours',
     },
 }
 
@@ -911,9 +923,102 @@ PROJECTS = [
     }
 ]
 
+COURSES = {
+    'dawson': [
+        { 'name': 'Introduction to Programming', 'code': '420-SF1-RE', 'semester': 'Fall 2024', 'group': 'coding' },
+        { 'name': 'Differential Calculus', 'code': '201-SN2-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 140', 'group': 'math' },
+        { 'name': 'Discrete Mathematics', 'code': '201-SF5-RE', 'semester': 'Fall 2024', 'mcgill': 'MATH 240', 'group': 'math' },
+        { 'name': 'Data Structure and Object Oriented Programming', 'code': '420-SF2-RE', 'semester': 'Winter 2025', 'group': 'coding' },
+        { 'name': 'Integral Calculus', 'code': '201-SN3-RE', 'semester': 'Winter 2025', 'mcgill': 'MATH 141', 'group': 'math' },
+        { 'name': 'Mechanics', 'code': '203-SN1-RE', 'semester': 'Winter 2025', 'mcgill': 'PHYS 131', 'group': 'physics' },
+        { 'name': 'Program Development in a Graphical Environment', 'code': '420-SF3-RE', 'semester': 'Fall 2025', 'group': 'coding' },
+        { 'name': 'Probability and Statistics', 'code': '201-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'MATH 203', 'group': 'math' },
+        { 'name': 'Electricity and Magnetism', 'code': '203-SN2-RE', 'semester': 'Fall 2025', 'mcgill': 'PHYS 142', 'group': 'physics' },
+        { 'name': 'General Chemistry', 'code': '202-SN1-RE', 'semester': 'Fall 2025', 'mcgill': 'CHEM 110', 'group': 'chemistry' },
+        { 'name': 'Integrative Project in Computer Science and Mathematics', 'code': '420-SF4-RE', 'semester': 'Winter 2026', 'group': 'coding' },
+        { 'name': 'Linear Algebra and Vector Geometry', 'code': '201-SN4-RE', 'semester': 'Winter 2026', 'mcgill': 'MATH 133', 'group': 'math' },
+        { 'name': 'Waves and Modern Physics', 'code': '203-SN3-RE', 'semester': 'Winter 2026', 'mcgill': 'PHYS 131 & 142', 'group': 'physics' }
+    ],
+    'mcgill': [
+        { 'name': 'Introduction to Computer Science (Est.)', 'code': 'COMP 250', 'semester': 'Fall 2026', 'group': 'coding' },
+        { 'name': 'Introduction to Software Systems (Est.)', 'code': 'COMP 206', 'semester': 'Fall 2026', 'group': 'coding' },
+        { 'name': 'Calculus 3 (Est.)', 'code': 'MATH 222', 'semester': 'Fall 2026', 'group': 'math' }
+    ]
+}
+
+EDUCATION_SCHOOLS = {
+    'dawson': {
+        'id': 'dawson',
+        'name': 'Dawson College',
+        'accent': '#145CB1',
+        'years': '2024 - 2026',
+        'status_key': 'edu_graduated',
+        'degree_key': 'edu_dawson_degree',
+        'badges': ['edu_deans_list', 'edu_space', 'edu_recognition'],
+    },
+    'mcgill': {
+        'id': 'mcgill',
+        'name': 'McGill University',
+        'accent': '#ED1B2F',
+        'years': '2026 (Est.) - 2029 (Est.)',
+        'status_key': 'edu_expected',
+        'degree_key': 'edu_mcgill_degree',
+        'badges': [],
+    },
+}
+
+COURSE_GROUP_LABELS = {
+    'coding': 'Coding',
+    'math': 'Math',
+    'physics': 'Physics',
+    'chemistry': 'Chemistry',
+    'general': 'General',
+}
+
+
+def normalize_course_group(group):
+    key = str(group or 'general').strip().lower()
+    if key.startswith('cod'):
+        return 'coding'
+    if key.startswith('math'):
+        return 'math'
+    if key.startswith('phys') or key.startswith('pyh'):
+        return 'physics'
+    if key.startswith('chem'):
+        return 'chemistry'
+    return key if key in COURSE_GROUP_LABELS else 'general'
+
+
+def group_courses_by_semester(courses):
+    grouped = {}
+    for course in courses:
+        semester = course.get('semester') or 'Other'
+        grouped.setdefault(semester, []).append(course)
+    return grouped
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/education')
+def education():
+    school = request.args.get('school', 'dawson')
+    if school not in EDUCATION_SCHOOLS:
+        school = 'dawson'
+    school_info = EDUCATION_SCHOOLS[school]
+    courses = COURSES.get(school, [])
+    grouped_courses = group_courses_by_semester(courses)
+    return render_template(
+        'education.html',
+        school=school,
+        school_info=school_info,
+        schools=EDUCATION_SCHOOLS,
+        school_order=['mcgill', 'dawson'],
+        grouped_courses=grouped_courses,
+        courses=courses,
+        course_group_labels=COURSE_GROUP_LABELS,
+        normalize_group=normalize_course_group,
+    )
 
 @app.route('/projects')
 def projects():
