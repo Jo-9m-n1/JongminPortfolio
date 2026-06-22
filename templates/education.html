@@ -95,12 +95,15 @@
                                     <div class="course-item__main">
                                         <span class="course-item__name">{{ course.name|tr }}</span>
                                         <div class="course-item__meta">
-                                            <span class="course-code">{{ course.code }}</span>
+                                            <span class="course-group-tag">{{ course.code }}</span>
                                             <span class="course-group-tag">{{ course_group_labels[group]|tr }}</span>
                                         </div>
                                     </div>
+                                    {% if course.gpa %}
+                                    <span class="course-group-tag" title="GPA">GPA {{ course.gpa }}/4.0</span>
+                                    {% endif %}
                                     {% if course.mcgill %}
-                                    <span class="course-mcgill-badge" title="McGill equivalent">{{ course.mcgill }}</span>
+                                    <span class="course-group-tag" title="McGill equivalent">{{ course.mcgill }}</span>
                                     {% endif %}
                                 </article>
                                 {% endfor %}

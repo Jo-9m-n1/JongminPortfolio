@@ -943,9 +943,9 @@ COURSES = {
         { 'name': {'en': 'Waves and Modern Physics', 'ko': '파동 및 현대물리학', 'fr': 'Ondes et physique moderne'}, 'code': '203-SN3-RE', 'semester': {'en': 'Winter 2026', 'ko': '2026년 겨울학기', 'fr': 'Hiver 2026'}, 'mcgill': 'PHYS 131 & 142', 'group': 'physics' }
     ],
     'mcgill': [
-        { 'name': {'en': 'Introduction to Computer Science (Est.)', 'ko': '컴퓨터 과학 개론 (예정)', 'fr': 'Introduction à l\'informatique (Prévu)'}, 'code': 'COMP 250', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming' },
-        { 'name': {'en': 'Introduction to Software Systems (Est.)', 'ko': '소프트웨어 시스템 개론 (예정)', 'fr': 'Introduction aux systèmes logiciels (Prévu)'}, 'code': 'COMP 206', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming' },
-        { 'name': {'en': 'Calculus 3 (Est.)', 'ko': '미적분학 3 (예정)', 'fr': 'Calcul 3 (Prévu)'}, 'code': 'MATH 222', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math' }
+        { 'name': {'en': 'Introduction to Computer Science (Est.)', 'ko': '컴퓨터 과학 개론 (예정)', 'fr': 'Introduction à l\'informatique (Prévu)'}, 'code': 'COMP 250', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming', 'gpa': '--' },
+        { 'name': {'en': 'Introduction to Software Systems (Est.)', 'ko': '소프트웨어 시스템 개론 (예정)', 'fr': 'Introduction aux systèmes logiciels (Prévu)'}, 'code': 'COMP 206', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming', 'gpa': '--' },
+        { 'name': {'en': 'Calculus 3 (Est.)', 'ko': '미적분학 3 (예정)', 'fr': 'Calcul 3 (Prévu)'}, 'code': 'MATH 222', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math', 'gpa': '--' }
     ]
 }
 

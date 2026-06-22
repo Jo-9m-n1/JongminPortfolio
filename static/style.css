@@ -2443,41 +2443,14 @@ body.dark-mode .education-card-link:hover .timeline-card {
     gap: 0.45rem;
 }
 
-.course-code {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.18rem 0.55rem;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    background: rgba(15, 23, 42, 0.06);
-    color: #334155;
-}
-
 .course-group-tag {
     display: inline-flex;
     align-items: center;
     padding: 0.18rem 0.55rem;
     border-radius: 999px;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
     text-transform: capitalize;
-}
-
-.course-mcgill-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 5.7rem;
-    padding: 0.35rem 0.55rem;
-    border-radius: 999px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    white-space: nowrap;
-    background: #ED1B2F;
-    color: #ffffff;
 }
 
 .course-item--programming {

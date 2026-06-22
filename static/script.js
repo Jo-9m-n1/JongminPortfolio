@@ -491,6 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     box-sizing: border-box; margin: 0; 
                     background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : 'rgba(0, 0, 0, 0.02)'};
                     border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)'))};
+                    ${isHover ? 'transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);' : ''}
                 `;
             };
 
