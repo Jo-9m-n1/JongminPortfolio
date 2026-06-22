@@ -1,0 +1,39 @@
+{
+    "dawson": {
+        "id": "dawson",
+        "name": "Dawson College",
+        "accent": "#145CB1",
+        "years": "2024 - 2026",
+        "status_key": "edu_graduated",
+        "degree_key": "edu_dawson_degree",
+        "badges": [
+            "edu_deans_list",
+            "edu_space",
+            "edu_recognition"
+        ]
+    },
+    "mcgill": {
+        "id": "mcgill",
+        "name": "McGill University",
+        "accent": "#ED1B2F",
+        "years": {
+            "en": "2026 (Est.) - 2029 (Est.)",
+            "ko": "2026 (예정) - 2029 (예정)",
+            "fr": "2026 (Prévu) - 2029 (Prévu)"
+        },
+        "status_key": "edu_expected",
+        "degree_key": "edu_mcgill_degree",
+        "badges": []
+    },
+    "rosemount": {
+        "id": "rosemount",
+        "name": "Rosemount High School",
+        "accent": "#800000",
+        "years": "2019 - 2024",
+        "status_key": "edu_graduated",
+        "degree_key": "edu_rosemount_degree",
+        "badges": [
+            "edu_high_honor_roll"
+        ]
+    }
+}

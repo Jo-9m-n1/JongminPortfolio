@@ -1,0 +1,13 @@
+{
+    "PORTFOLIO_STATS": {
+        "competitions": 20,
+        "hackathons": 11,
+        "prize": 4000,
+        "projects": 9
+    },
+    "LANGUAGES": [
+        "en",
+        "ko",
+        "fr"
+    ]
+}

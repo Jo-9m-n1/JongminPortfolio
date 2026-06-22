@@ -1,0 +1,749 @@
+[
+    {
+        "id": "CashFlux",
+        "tags": [
+            "hackathon",
+            "team"
+        ],
+        "title": {
+            "en": "CashFlux",
+            "ko": "CashFlux",
+            "fr": "CashFlux"
+        },
+        "award": {
+            "en": "2nd Place | Brim Track at MPC Hacks",
+            "ko": "2등 | Brim 부문 MPC Hacks",
+            "fr": "2ᵉ Place | Piste Brim à MPC Hacks"
+        },
+        "second_award": {
+            "en": "Best Use of ElevenLabs | MPC Hacks",
+            "ko": "ElevenLabs 최고 활용상 | MPC Hacks",
+            "fr": "Meilleure utilisation d'ElevenLabs | MPC Hacks"
+        },
+        "tech": [
+            "Python",
+            "JavaScript",
+            "Gemini API",
+            "ElevenLabs"
+        ],
+        "description": {
+            "en": "An ultimate AI powered expense tracking application.",
+            "ko": " ",
+            "fr": " "
+        },
+        "full_story": {
+            "en": "",
+            "ko": "",
+            "fr": ""
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "JavaScript",
+            "Gemini API",
+            "ElevenLabs",
+            "Vultr",
+            "MongoDB"
+        ],
+        "troubles": {
+            "en": "",
+            "ko": "",
+            "fr": ""
+        },
+        "collaborators": [
+            {
+                "name": "Juan",
+                "linkedin": "https://www.linkedin.com/in/juan-duran-6aa742205/"
+            },
+            {
+                "name": "Kunya",
+                "linkedin": "https://www.linkedin.com/in/kunya-zhang-19aa50250/"
+            },
+            {
+                "name": "Édouard",
+                "linkedin": "https://www.linkedin.com/in/edouardchasse/"
+            }
+        ],
+        "images": [
+            "/static/CashFlux/CashFlux1.png",
+            "/static/CashFlux/CashFlux2.png",
+            "/static/CashFlux/CashFlux3.png",
+            "/static/CashFlux/CashFlux4.png",
+            "/static/CashFlux/CashFlux5.png",
+            "/static/CashFlux/CashFlux6.png"
+        ],
+        "thumbnail": "/static/CashFlux/CashFlux.png",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project on Devpost",
+                    "ko": "Devpost에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur Devpost"
+                },
+                "url": "https://devpost.com/software/mpc-hacks-2026",
+                "icon": "fa-solid fa-code-branch"
+            },
+            {
+                "name": {
+                    "en": "View Demo Video on YouTube",
+                    "ko": "YouTube에서 데모 영상 보기",
+                    "fr": "Voir la Vidéo de Démo sur YouTube"
+                },
+                "url": "https://youtu.be/_azDjQU3Vx4",
+                "icon": "fa-brands fa-youtube"
+            }
+        ]
+    },
+    {
+        "id": "chemically-bonded",
+        "tags": [
+            "school",
+            "team"
+        ],
+        "title": {
+            "en": "Chemically Bonded",
+            "ko": "Chemically Bonded",
+            "fr": "Chemically Bonded"
+        },
+        "category": {
+            "en": "School Project 2026",
+            "ko": "학교 프로젝트 2026",
+            "fr": "Projet Scolaire 2026"
+        },
+        "tech": [
+            "Python",
+            "JavaScript",
+            "Gemini API"
+        ],
+        "description": {
+            "en": "A specialized AI chatbot for chemistry, achieving a <strong>27.1x reduction in latency</strong> for generating 3D molecular models compared to Claude Sonnet 4.6 (internal testing).",
+            "ko": "화학에 특화된 AI 챗봇을 개발하여, 3D 분자 모델 생성 지연 시간을 Claude Sonnet 4.6 대비 <strong>27.1배 단축</strong>시켰습니다 (자체 테스트).",
+            "fr": "Conçu un chatbot IA spécialisé en chimie, atteignant une <strong>réduction de latence de 27,1x</strong> pour la génération de modèles moléculaires 3D par rapport à Claude Sonnet 4.6 (tests internes)."
+        },
+        "full_story": {
+            "en": "This chemistry-related AI chatbot (similar to Dr. Bob) was developped as part of an Integrative Project (IP) at Dawson College in collaboration with James and Alex. It is designed to help students struggling in General Chemistry (202-SN1-RE), by displaying interactive 3D VSEPR models and Lewis structure with explanation genreated by Gemini API.",
+            "ko": "현재 James, Alex와 함께 Dawson College의 통합 프로젝트(IP) 과제로 화학 관련 AI 웹사이트를 개발하고 있습니다.",
+            "fr": "Je développe actuellement, avec James et Alex, un site web IA lié à la chimie pour notre Projet d'intégration (PI) au Collège Dawson."
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "JavaScript",
+            "Gemini API",
+            "SQLite",
+            "RDKit"
+        ],
+        "troubles": {
+            "en": "Currently developing the website.",
+            "ko": "현재 웹사이트를 개발 중입니다.",
+            "fr": "Le site est actuellement en cours de développement."
+        },
+        "collaborators": [
+            {
+                "name": "James",
+                "linkedin": "https://www.linkedin.com/in/james-ferdinand-combista-88039b316/"
+            },
+            {
+                "name": "Alex",
+                "linkedin": "https://www.linkedin.com/in/alexander-derderian-43b21836b/"
+            }
+        ],
+        "images": [
+            "/static/ChemicallyBonded/ChemicallyBonded1.png",
+            "/static/ChemicallyBonded/ChemicallyBonded2.png",
+            "/static/ChemicallyBonded/ChemicallyBonded3.png"
+        ],
+        "thumbnail": "/static/ChemicallyBonded/ChemicallyBonded.png",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project on GitHub",
+                    "ko": "GitHub에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur GitHub"
+                },
+                "url": "https://github.com/Jo-9m-n1/ChemicallyBonded",
+                "icon": "fa-brands fa-github"
+            },
+            {
+                "name": {
+                    "en": "View Report",
+                    "ko": "보고서 보기",
+                    "fr": "Voir le Rapport"
+                },
+                "url": "/static/ChemicallyBonded/Chemically_Bonded_report.pdf",
+                "icon": "fa-solid fa-file-pdf"
+            },
+            {
+                "name": {
+                    "en": "View Poster",
+                    "ko": "포스터 보기",
+                    "fr": "Voir l'Affiche"
+                },
+                "url": "/static/ChemicallyBonded/Chemically_Bonded_poster.pdf",
+                "icon": "fa-solid fa-file-pdf"
+            }
+        ]
+    },
+    {
+        "id": "ourcampus",
+        "tags": [
+            "hackathon",
+            "team"
+        ],
+        "title": {
+            "en": "OurCampus",
+            "ko": "OurCampus",
+            "fr": "OurCampus"
+        },
+        "award": {
+            "en": "1st Place | JACHacks",
+            "ko": "1위 | JACHacks",
+            "fr": "1ʳᵉ Place | JACHacks"
+        },
+        "second_award": {
+            "en": "Best Science Students Project | JACHacks",
+            "ko": "최우수 과학 학생 프로젝트상 | JACHacks",
+            "fr": "Meilleur projet d'étudiants en sciences | JACHacks"
+        },
+        "tech": [
+            "Next.js",
+            "Python",
+            "Gemini API"
+        ],
+        "description": {
+            "en": "An award-winning project, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.",
+            "ko": "해커톤에서 개발한 수상작 OurCampus는 공통 휴식 시간과 캠퍼스 인구 히트맵을 통해 학생들이 커뮤니티를 형성할 수 있도록 도와줍니다.",
+            "fr": "Projet primé développé lors d'un hackathon, OurCampus aide les étudiants à créer une communauté en affichant les pauses communes et une carte thermique de la population sur le campus."
+        },
+        "full_story": {
+            "en": "Our team developed a web platform designed to optimize the student campus experience. Building on the foundation of my previous project, \"Meeting App\", the application leverages the Gemini API to convert uploaded PDF schedules into structured digital formats. The platform also streamlines club management by identifying optimal meeting times based on mutual availability. Additionally, I developed a Campus Heat Map feature that provides real-time visualization of the room occupancy by integrating the Unifi API to track device connectivity across 100+ campus access points. To ensure long-term utility, I architected a data pipeline to export access point metrics into CSV files, enabling the IT and security department to audit traffic patterns without specialized software.",
+            "ko": "우리 팀은 학생들의 캠퍼스 경험을 향상시키기 위한 웹 플랫폼을 개발했습니다. 이전 프로젝트인 \"Meeting App\"을 기반으로, Gemini API를 활용해 업로드된 PDF 시간표를 정형화된 디지털 데이터로 변환합니다. 또한 서로의 가능한 시간을 분석해 최적의 모임 시간을 찾아주어 동아리 운영을 효율화합니다. 추가로 캠퍼스 내 100개 이상의 액세스 포인트의 기기 연결 상태를 Unifi API로 추적해 강의실 점유율을 실시간으로 시각화하는 Campus Heat Map 기능을 개발했습니다. 장기적인 활용을 위해, 액세스 포인트 데이터를 CSV로 추출하는 데이터 파이프라인을 설계하여 IT 및 보안팀이 별도의 전문 소프트웨어 없이도 트래픽 패턴을 분석할 수 있도록 했습니다.",
+            "fr": "Notre équipe a développé une plateforme web visant à optimiser l'expérience étudiante sur le campus. S'appuyant sur mon précédent projet « Meeting App », l'application utilise l'API Gemini pour convertir les horaires PDF téléversés en formats numériques structurés. La plateforme simplifie aussi la gestion des clubs en identifiant les meilleurs créneaux de réunion selon les disponibilités communes. J'ai également développé une fonctionnalité « Campus Heat Map » qui visualise en temps réel l'occupation des salles en intégrant l'API Unifi pour suivre la connectivité des appareils sur plus de 100 points d'accès du campus. Pour assurer une utilité à long terme, j'ai conçu un pipeline de données qui exporte les métriques des points d'accès en CSV, permettant aux équipes TI et sécurité d'auditer les flux sans logiciel spécialisé."
+        },
+        "full_tech": [
+            "Next.js",
+            "Chart.js",
+            "Node.js",
+            "TypeScript",
+            "Python",
+            "Gemini API",
+            "Elevenlabs API",
+            "Prisma",
+            "React",
+            "Socket.io",
+            "Supabase",
+            "Tailwind"
+        ],
+        "troubles": {
+            "en": "The primary challenge with overlaying data (number of devices) onto a map image is the fluidity of the web. When using standard pixel values, the dots remain fixed while the map image scales up or down to fit different screen sizes. This causes the markers to drift from their intended landmarks. To solve this, I developed a Python script that calculates the position as a ratio of the image's dimensions instead of recording a static pixel location. This ensures the dots stay pinned to the exact location regardless of the screen size and allows new access points to be added easily, providing better <strong>scalability</strong> to departements in need.",
+            "ko": "데이터(기기 수)를 지도 이미지 위에 오버레이할 때의 가장 큰 어려움은 웹의 가변성이었습니다. 픽셀 값을 고정으로 사용하면 화면 크기에 따라 지도 이미지가 확대·축소되어도 점들은 그대로 머물러, 의도한 위치에서 벗어나게 됩니다. 이를 해결하기 위해 정적인 픽셀 좌표가 아닌, 이미지의 크기에 대한 비율로 위치를 계산하는 Python 스크립트를 개발했습니다. 덕분에 화면 크기와 상관없이 점이 정확한 위치에 고정되며, 새로운 액세스 포인트도 손쉽게 추가할 수 있어 필요한 부서에 더 나은 <strong>확장성</strong>을 제공합니다.",
+            "fr": "Le principal défi pour superposer des données (nombre d'appareils) sur une image de carte est la fluidité du web. Avec des valeurs en pixels fixes, les points restent figés tandis que l'image de la carte s'agrandit ou se réduit selon la taille de l'écran, ce qui décale les marqueurs de leurs repères. Pour résoudre cela, j'ai développé un script Python qui calcule la position comme un ratio des dimensions de l'image plutôt qu'une coordonnée en pixels statique. Les points restent ainsi épinglés exactement au bon endroit, peu importe la taille de l'écran, et de nouveaux points d'accès peuvent être ajoutés facilement, offrant une meilleure <strong>évolutivité</strong> aux départements qui en ont besoin."
+        },
+        "collaborators": [
+            {
+                "name": "Brian",
+                "linkedin": "https://www.linkedin.com/in/brian-kim-33348a354/"
+            },
+            {
+                "name": "Deven"
+            },
+            {
+                "name": "Matteo",
+                "linkedin": "https://www.linkedin.com/in/matteo-rombola-287a3b402/"
+            }
+        ],
+        "images": [
+            "/static/OurCampus/OurCampus1.png",
+            "/static/OurCampus/OurCampus2.png",
+            "/static/OurCampus/OurCampus3.png",
+            "/static/OurCampus/OurCampus4.png",
+            "/static/OurCampus/OurCampus5.png",
+            "/static/OurCampus/OurCampus6.png"
+        ],
+        "thumbnail": "/static/OurCampus/OurCampus.png/",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project on Devpost",
+                    "ko": "Devpost에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur Devpost"
+                },
+                "url": "https://devpost.com/software/ourcampus-t2u5fs",
+                "icon": "fa-solid fa-code-branch"
+            },
+            {
+                "name": {
+                    "en": "View Demo Video on YouTube",
+                    "ko": "YouTube에서 데모 영상 보기",
+                    "fr": "Voir la Vidéo de Démo sur YouTube"
+                },
+                "url": "https://www.youtube.com/watch?v=IXy2J-jF7Ec",
+                "icon": "fa-brands fa-youtube"
+            }
+        ],
+        "published": {
+            "en": "April 13, 2026",
+            "ko": "2026년 4월 13일",
+            "fr": "le 13 avril 2026"
+        },
+        "updated": {
+            "en": "April 18, 2026",
+            "ko": "2026년 4월 18일",
+            "fr": "le 18 avril 2026"
+        }
+    },
+    {
+        "id": "liminal",
+        "tags": [
+            "hackathon",
+            "team"
+        ],
+        "title": {
+            "en": "Liminal",
+            "ko": "Liminal",
+            "fr": "Liminal"
+        },
+        "category": {
+            "en": "Hackathon 2026",
+            "ko": "해커톤 2026",
+            "fr": "Hackathon 2026"
+        },
+        "tech": [
+            "Python",
+            "mmBERT",
+            "NLP",
+            "Cohere Command-R"
+        ],
+        "description": {
+            "en": "A dual-tier AI guardrail system to detect mental health crises in youth facing virtual assistants, <strong>improving crisis recall by 9x</strong> (102 dataset test).",
+            "ko": "AI 챗봇을 사용하는 청소년의 정신 건강 위기를 감지하는 2단계 AI 가드레일 시스템으로, 위기 상황 재현율(recall)을 <strong>9배 향상</strong>시켰습니다 (102개 데이터셋 기준).",
+            "fr": "Un système de garde-fou IA à deux niveaux pour détecter les crises de santé mentale chez les jeunes face à des assistants virtuels, <strong>améliorant le rappel des crises de 9×</strong> (test sur 102 données)."
+        },
+        "full_story": {
+            "en": "During spring break, my team and I developed an AI guardrail system designed to detect mental health crisis in youth interacting with our AI model. Initially, we trained the model on the provided seed dataset; however, we soon realized it was overfitting, as evidenced by perfect 1.000 recall and precision scores. To address this, we engineered a synthetic data pipeline that stress-tested our ungoverned model, successfully diversifying the training data and resolving the overfitting issues.This project taught me a great deal, as it was my first time working with an AI model as a developer. Through this experience, I learned the fundamentals of how to train and refine an AI model, which is an important asset these days.",
+            "ko": "봄방학 동안, 저희 팀은 AI 모델과 상호작용하는 청소년의 정신 건강 위기를 감지하는 AI 가드레일 시스템을 개발했습니다. 처음에는 제공된 시드 데이터셋으로 모델을 학습시켰지만, recall과 precision이 모두 1.000으로 완벽하게 나오는 것을 보고 과적합 문제를 발견했습니다. 이를 해결하기 위해 가드레일이 없는 모델을 스트레스 테스트하는 합성 데이터 파이프라인을 구축하여 학습 데이터를 다양화하고 과적합 문제를 해결했습니다. 개발자로서 AI 모델을 직접 다뤄본 것은 이번이 처음이었기에 많은 것을 배울 수 있었습니다. 이 경험을 통해 AI 모델을 학습하고 개선하는 방법의 기본을 익혔으며, 이는 요즘 매우 중요한 자산이 되었습니다.",
+            "fr": "Pendant la semaine de relâche, mon équipe et moi avons développé un système de garde-fou IA conçu pour détecter les crises de santé mentale chez les jeunes interagissant avec notre modèle d'IA. Au départ, nous avons entraîné le modèle sur le jeu de données de départ fourni; nous avons cependant rapidement constaté un surapprentissage, avec des scores parfaits de 1,000 en rappel et en précision. Pour résoudre cela, nous avons conçu un pipeline de données synthétiques qui a soumis notre modèle non régulé à des tests de stress, diversifiant ainsi efficacement les données d'entraînement et corrigeant le surapprentissage. Ce projet m'a beaucoup appris, car c'était la première fois que je travaillais avec un modèle d'IA en tant que développeur. J'y ai appris les bases de l'entraînement et du raffinement d'un modèle d'IA, une compétence essentielle de nos jours."
+        },
+        "full_tech": [
+            "Python",
+            "PyTorch",
+            "Cohere API",
+            "HuggingFace Transformers",
+            "Mistral AI",
+            "Regex Safety-Nets",
+            "Synthetic Data Pipelining"
+        ],
+        "troubles": {
+            "en": "Initially, we trained our model on the provided seed dataset (n=98), achieving a near-perfect F1 score. However, we suspected overfitting due to the small sample size. Test run against an external dataset (n=102) confirmed that our concerns were valid, as performance dropped significantly. To improve the generalization, we leveraged Gemini to generate synthetic data, <strong>diversifying</strong> our training set and <strong>robustifying</strong> the model.",
+            "ko": "처음에는 제공된 시드 데이터셋(n=98)으로 모델을 학습시켜 거의 완벽한 F1 점수를 얻었습니다. 그러나 표본 크기가 작아 과적합이 의심됐고, 외부 데이터셋(n=102)으로 테스트해 본 결과 성능이 크게 떨어져 우려가 사실로 확인됐습니다. 일반화 성능을 높이기 위해 Gemini를 활용해 합성 데이터를 생성하여 학습 데이터를 <strong>다양화</strong>하고 모델을 <strong>견고하게</strong> 만들었습니다.",
+            "fr": "Au départ, nous avons entraîné notre modèle sur le jeu de données de départ fourni (n=98), obtenant un score F1 quasi parfait. Nous soupçonnions toutefois un surapprentissage en raison de la petite taille de l'échantillon. Un test sur un jeu de données externe (n=102) a confirmé nos doutes : les performances ont chuté de façon significative. Pour améliorer la généralisation, nous avons utilisé Gemini pour générer des données synthétiques, <strong>diversifiant</strong> ainsi notre ensemble d'entraînement et <strong>renforçant</strong> le modèle."
+        },
+        "collaborators": [
+            {
+                "name": "Édouard",
+                "linkedin": "https://www.linkedin.com/in/edouardchasse/"
+            },
+            {
+                "name": "Natalia",
+                "linkedin": "https://www.linkedin.com/in/natalia-sendrea/"
+            },
+            {
+                "name": "Nashra",
+                "linkedin": "https://www.linkedin.com/in/nashra-babar/"
+            }
+        ],
+        "thumbnail": "/static/Liminal.png",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Report",
+                    "ko": "보고서 보기",
+                    "fr": "Voir le Rapport"
+                },
+                "url": "/static/Mila_report.pdf",
+                "icon": "fa-solid fa-file-pdf"
+            },
+            {
+                "name": {
+                    "en": "View Certificate",
+                    "ko": "수료증 보기",
+                    "fr": "Voir le Certificat"
+                },
+                "url": "/static/LiminalCertificate.pdf",
+                "icon": "fa-solid fa-file-pdf"
+            }
+        ],
+        "published": {
+            "en": "April 15, 2026",
+            "ko": "2026년 4월 15일",
+            "fr": "le 15 avril 2026"
+        }
+    },
+    {
+        "id": "deckmots",
+        "tags": [
+            "hackathon",
+            "team"
+        ],
+        "title": {
+            "en": "DeckMots",
+            "ko": "DeckMots",
+            "fr": "DeckMots"
+        },
+        "category": {
+            "en": "Hackathon 2026",
+            "ko": "해커톤 2026",
+            "fr": "Hackathon 2026"
+        },
+        "tech": [
+            "C#",
+            "Unity"
+        ],
+        "description": {
+            "en": "Developed with Unity at a French GameJam, DeckMots is a local 2-player game where you draft teams of unique characters. To block incoming attacks, the defending player must answer a timed French question.",
+            "ko": "프랑스어 게임잼에서 Unity로 개발한 2인용 로컬 멀티플레이 게임입니다. 고유한 캐릭터들로 팀을 구성하며, 상대의 공격을 방어하려면 제한 시간 내에 프랑스어 문제를 풀어야 합니다.",
+            "fr": "Créé avec Unity lors d'un GameJam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
+        },
+        "full_story": {
+            "en": "My teammates, James, Alex and I developed this game during a hackathon (GameJam) at the University of Montreal (UdeM). This was my first French hackathon and my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.",
+            "ko": "저는 팀원 James, Alex와 함께 Université de Montréal(UdeM)에서 열린 해커톤(GameJam)에서 이 게임을 개발했습니다. 저의 첫 프랑스어 해커톤이자 처음으로 실제로 동작하는 게임을 만드는 경험이어서 시야가 크게 넓어졌습니다. 과제는 11~12세 국제 학생들이 프랑스어를 배울 수 있는 교육용 게임을 만드는 것이었습니다. 포켓몬의 메커니즘에서 영감을 받아, 플레이어가 프랑스어 문제를 맞히며 상대의 공격을 방어하는 멀티플레이 카드 게임을 만들었습니다. 이 정도 규모의 프로젝트를 Unity로 진행하는 것은 어려웠지만 보람찬 학습이었습니다. 비록 수상하지는 못했지만, 짧은 시간 안에 완성된 게임을 만들어낸 팀의 효율성이 매우 자랑스럽습니다.",
+            "fr": "Mes coéquipiers James et Alex, et moi avons développé ce jeu lors d'un hackathon (GameJam) à l'Université de Montréal (UdeM). C'était mon premier hackathon en français et la première fois que je créais un jeu fonctionnel, une expérience qui a ouvert mes horizons. Le défi consistait à créer un jeu éducatif pour aider des élèves internationaux de 11 à 12 ans à apprendre le français. Inspirés par les mécaniques de Pokémon, nous avons conçu un jeu de cartes multijoueur où les joueurs se défendent contre les attaques en répondant correctement à des questions de français. Travailler sur un projet de cette envergure avec Unity a été difficile, mais l'apprentissage en a valu la peine. Même si nous n'avons rien gagné, je suis incroyablement fier de l'efficacité avec laquelle mon équipe a livré un jeu pleinement fonctionnel."
+        },
+        "full_tech": [
+            "C#",
+            "Unity",
+            "JSON"
+        ],
+        "troubles": {
+            "en": "Initially, we wanted to develop this as an online multiplayer game. However, after several hours of server development, we realized we did not have the necessary access to utilize Unity Relay. Consequently, we had to pivot our strategy to a local multiplayer format on one device. While an online experience would have been ideal, this constraint allowed us to focus on perfecting the core gameplay mechanics within the hackathon's timeframe of 3 days.",
+            "ko": "처음에는 온라인 멀티플레이 게임으로 개발하려 했습니다. 하지만 서버 개발에 몇 시간을 투자한 뒤에야 Unity Relay를 사용할 수 있는 권한이 없다는 사실을 알게 됐습니다. 그 결과 한 기기에서 진행하는 로컬 멀티플레이로 전략을 변경해야 했습니다. 온라인 환경이 이상적이었겠지만, 이 제약 덕분에 3일의 해커톤 기간 동안 핵심 게임플레이를 다듬는 데 집중할 수 있었습니다.",
+            "fr": "Au départ, nous voulions développer ce jeu en multijoueur en ligne. Toutefois, après plusieurs heures de développement côté serveur, nous avons réalisé que nous n'avions pas les accès nécessaires pour utiliser Unity Relay. Nous avons donc dû pivoter vers un format multijoueur local sur un seul appareil. Une expérience en ligne aurait été idéale, mais cette contrainte nous a permis de nous concentrer sur la mise au point des mécaniques de jeu principales dans les 3 jours du hackathon."
+        },
+        "collaborators": [
+            {
+                "name": "James",
+                "linkedin": "https://www.linkedin.com/in/james-ferdinand-combista-88039b316/"
+            },
+            {
+                "name": "Alex",
+                "linkedin": "https://www.linkedin.com/in/alexander-derderian-43b21836b/"
+            }
+        ],
+        "images": [
+            "/static/DeckMot/DeckMot1.png",
+            "/static/DeckMot/DeckMot2.png",
+            "/static/DeckMot/DeckMot3.png",
+            "/static/DeckMot/DeckMot4.png",
+            "/static/DeckMot/DeckMot5.png"
+        ],
+        "thumbnail": "/static/DeckMot/DeckMot.webp",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project on Itch.io",
+                    "ko": "Itch.io에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur Itch.io"
+                },
+                "url": "https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079",
+                "icon": "fa-solid fa-code-branch"
+            },
+            {
+                "name": {
+                    "en": "View Certificate",
+                    "ko": "수료증 보기",
+                    "fr": "Voir le Certificat"
+                },
+                "url": "/static/DeckMotCertificate.pdf",
+                "icon": "fa-solid fa-file-pdf"
+            }
+        ],
+        "published": {
+            "en": "March 3, 2026",
+            "ko": "2026년 3월 3일",
+            "fr": "le 3 mars 2026"
+        },
+        "updated": {
+            "en": "March 9, 2026",
+            "ko": "2026년 3월 9일",
+            "fr": "le 9 mars 2026"
+        }
+    },
+    {
+        "id": "personal-website",
+        "tags": [
+            "personal"
+        ],
+        "title": {
+            "en": "Personal Website",
+            "ko": "개인 웹사이트",
+            "fr": "Site Web Personnel"
+        },
+        "category": {
+            "en": "Personal Project 2026",
+            "ko": "개인 프로젝트 2026",
+            "fr": "Projet Personnel 2026"
+        },
+        "tech": [
+            "Python",
+            "JavaScript"
+        ],
+        "description": {
+            "en": "A responsive personal portfolio website using Flask and Python for backend.",
+            "ko": "Flask와 Python을 백엔드로 사용하는 반응형 개인 포트폴리오 웹사이트입니다.",
+            "fr": "Un site web portfolio personnel et adaptatif, utilisant Flask et Python en backend."
+        },
+        "full_story": {
+            "en": "I developed this interactive website to provide a deeper look into my background. It includes my key projects, skills, professional experiences and a collection of awards that I have earned throughout my journey (with more being added soon from my archives). As a bonus, I have hidden a few Easter eggs throughout my website for you to find them. Good luck :)",
+            "ko": "저는 저의 경력과 배경을 더 깊이 보여주기 위해 이 인터랙티브 웹사이트를 개발했습니다. 주요 프로젝트, 기술 스택, 경력, 그리고 지금까지 받아온 수상 기록(아카이브에서 곧 더 추가될 예정)이 포함되어 있습니다. 보너스로, 사이트 곳곳에 이스터에그를 숨겨두었으니 찾아보세요 :)",
+            "fr": "J'ai développé ce site web interactif pour offrir un regard plus approfondi sur mon parcours. Vous y trouverez mes projets clés, mes compétences, mes expériences professionnelles et une collection de prix obtenus tout au long de mon parcours (d'autres seront ajoutés sous peu depuis mes archives). En prime, j'ai caché quelques easter eggs un peu partout sur le site, à vous de les trouver :)"
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "JavaScript"
+        ],
+        "images": [
+            "/static/MyPersonalWebsite/MyPersonalWebsite1.png",
+            "/static/MyPersonalWebsite/MyPersonalWebsite2.png",
+            "/static/MyPersonalWebsite/MyPersonalWebsite3.png",
+            "/static/MyPersonalWebsite/MyPersonalWebsite4.png"
+        ],
+        "thumbnail": "/static/MyPersonalWebsite/MyPersonalWebsite.png",
+        "published": {
+            "en": "March 3, 2026",
+            "ko": "2026년 3월 3일",
+            "fr": "le 3 mars 2026"
+        },
+        "updated": {
+            "en": "March 4, 2026",
+            "ko": "2026년 3월 4일",
+            "fr": "le 4 mars 2026"
+        }
+    },
+    {
+        "id": "dr-bob",
+        "tags": [
+            "hackathon",
+            "team"
+        ],
+        "title": {
+            "en": "Dr. Bob",
+            "ko": "Bob 박사",
+            "fr": "Dr. Bob"
+        },
+        "award": {
+            "en": "2nd Place | Dialogue Track at ConUHacks",
+            "ko": "2등 | Dialogue 부문 ConUHacks",
+            "fr": "2ᵉ Place | Piste Dialogue à ConUHacks"
+        },
+        "tech": [
+            "Python",
+            "JavaScript",
+            "Twilio API",
+            "Gemini API"
+        ],
+        "description": {
+            "en": "An award-winning project, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.",
+            "ko": "해커톤에서 개발한 수상작 Bob 박사는 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.",
+            "fr": "Projet primé développé lors d'un hackathon, Dr. Bob utilise Twilio pour automatiser l'accueil des patients et le suivi des antécédents médicaux, en s'assurant que les données médicales sont bien organisées pour les médecins."
+        },
+        "full_story": {
+            "en": "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English and non-French speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in neither in English nor French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than we did during our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI (Gemini) chatbot, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses a same AI API.",
+            "ko": "Oliver와 저는 두 번째 해커톤에서 Dr. Bob을 개발했습니다. 10개의 스폰서 챌린지 중 Dialogue 트랙을 선택했는데, 둘 다 영어와 프랑스어를 못하시는 부모님이 계셔서 캐나다에서 영어나 프랑스어가 능숙하지 않을 때 진료 예약을 잡는 것이 얼마나 어려운지 잘 알기 때문입니다. 영어가 모국어가 아닌 커뮤니티(Allophone)를 돕고 싶었고, 그래서 저희 앱은 영어, 프랑스어, 한국어, 중국어, 아랍어의 5개 언어를 지원합니다. 두 번째 해커톤이라 처음보다 훨씬 효율적으로 작업할 수 있었지만, 복잡한 머지 충돌 등 여러 어려움도 있었습니다. AI(Gemini) 챗봇을 통합한 것도 이번이 처음이었기에 좋은 학습 기회였습니다. Bob의 답변이 정확하고 일관되도록 프롬프트 작성법을 익혀야 했고, 초기에는 답변이 예측 불가능할 때도 있었지만 프롬프트를 정교하게 다듬어 사용자에게 안정적인 경험을 제공할 수 있게 되었습니다. 이 경험은 같은 AI API를 사용하는 Chemically Bonded를 만드는 데에도 큰 도움이 되었습니다.",
+            "fr": "Oliver et moi avons développé Dr. Bob lors de notre deuxième hackathon. Parmi les 10 défis commandités proposés, nous avons choisi la piste Dialogue parce que nos parents respectifs ne parlent ni anglais ni français, et nous savons à quel point il peut être difficile de prendre un rendez-vous médical au Canada lorsqu'on ne maîtrise pas ces deux langues. Nous voulions soutenir la communauté allophone, c'est pourquoi notre application est offerte en 5 langues : anglais, français, coréen, chinois et arabe. Comme c'était notre deuxième hackathon, nous avons travaillé plus efficacement que la première fois. Nous avons tout de même rencontré quelques obstacles, comme des conflits de fusion (merge) complexes à résoudre. C'était aussi notre première intégration d'un chatbot IA (Gemini), ce qui a été une belle occasion d'apprentissage. Il a fallu apprendre à rédiger des prompts pour que les réponses de Bob restent précises et pertinentes. Au début, les réponses de l'IA étaient parfois imprévisibles, mais nous avons affiné nos prompts pour offrir une expérience fiable aux utilisateurs. Cette expérience m'a beaucoup aidé à bâtir Chemically Bonded, qui utilise la même API d'IA."
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "JavaScript",
+            "SQLite",
+            "SQLAlchemy",
+            "Twilio API",
+            "Gemini API",
+            "Web Speech API",
+            "Geolocation API",
+            "Werkzeug Security",
+            "Leaflet.js"
+        ],
+        "troubles": {
+            "en": "The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a <strong>low-latency</strong> user experience.",
+            "ko": "가장 복잡했던 기술적 난제는 Twilio 녹음을 Gemini API와 연결하는 것이었습니다. 환자의 음성을 캡처하고, 웹훅으로 원격 녹음을 가져온 뒤 바이너리 데이터를 AI 분석에 맞게 처리하면서도 <strong>낮은 지연 시간</strong>을 유지하는 파이프라인을 설계해야 했습니다.",
+            "fr": "Le défi technique le plus complexe a été de connecter l'enregistrement Twilio à l'API Gemini. J'ai dû concevoir un pipeline qui capturait l'audio du patient, récupérait l'enregistrement à distance via des webhooks et traitait les données binaires pour l'analyse par l'IA, tout en maintenant une <strong>faible latence</strong> côté utilisateur."
+        },
+        "collaborators": [
+            {
+                "name": "Oliver",
+                "linkedin": "https://www.linkedin.com/in/oliver-massaad-9765a0276"
+            }
+        ],
+        "images": [
+            "/static/DrBob/DrBob5.png",
+            "/static/DrBob/DrBob1.png",
+            "/static/DrBob/DrBob3.png",
+            "/static/DrBob/DrBob4.png",
+            "/static/DrBob/DrBob2.png",
+            "/static/DrBob/DrBob6.png",
+            "/static/DrBob/DrBob8.png",
+            "/static/DrBob/DrBob9.png",
+            "/static/DrBob/DrBob11.png"
+        ],
+        "thumbnail": "/static/DrBob/DrBob.png/",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project on Devpost",
+                    "ko": "Devpost에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur Devpost"
+                },
+                "url": "https://devpost.com/software/dr-bob",
+                "icon": "fa-solid fa-code-branch"
+            }
+        ],
+        "published": {
+            "en": "March 2, 2026",
+            "ko": "2026년 3월 2일",
+            "fr": "le 2 mars 2026"
+        },
+        "updated": {
+            "en": "March 23, 2026",
+            "ko": "2026년 3월 23일",
+            "fr": "le 23 mars 2026"
+        }
+    },
+    {
+        "id": "meeting-app",
+        "tags": [
+            "personal"
+        ],
+        "title": {
+            "en": "Meeting App",
+            "ko": "Meeting App",
+            "fr": "Meeting App"
+        },
+        "category": {
+            "en": "Personal Project 2025",
+            "ko": "개인 프로젝트 2025",
+            "fr": "Projet Personnel 2025"
+        },
+        "description": {
+            "en": "A social application to find mutual breaks with your friends by uploading the PDF version of your school schedule.",
+            "ko": "학교 시간표 PDF를 업로드해 친구들과 공통 휴식 시간을 찾을 수 있는 소셜 앱입니다.",
+            "fr": "Une application sociale qui permet de trouver des pauses communes avec vos amis en téléversant la version PDF de votre horaire scolaire."
+        },
+        "tech": [
+            "Python",
+            "JavaScript"
+        ],
+        "full_story": {
+            "en": "This project began as a 'Tinder-style' concept for Cégep students to discover mutual breaks and schedule some meetups. It eventually evolved into a more versatile application, allowing the users to find common free time with any of their friends.",
+            "ko": "이 프로젝트는 Cégep 학생들이 공통 휴식 시간을 찾아 모임을 잡을 수 있도록 돕는 '틴더 스타일' 콘셉트로 시작했습니다. 이후 어떤 친구와도 공통의 여가 시간을 쉽게 찾을 수 있는 보다 범용적인 애플리케이션으로 발전했습니다.",
+            "fr": "Ce projet a commencé comme un concept « à la Tinder » pour aider les étudiants du Cégep à découvrir leurs pauses communes et à organiser des rencontres. Il a ensuite évolué vers une application plus polyvalente, permettant aux utilisateurs de trouver du temps libre commun avec n'importe lequel de leurs amis."
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "SQLite",
+            "JavaScript",
+            "pdfplumber",
+            "Regex",
+            "Werkzeug Security"
+        ],
+        "images": [
+            "/static/MeetingApp/MeetingApp1.png",
+            "/static/MeetingApp/MeetingApp3.png",
+            "/static/MeetingApp/MeetingApp5.png"
+        ],
+        "thumbnail": "/static/MeetingApp/MeetingApp.png/",
+        "published": {
+            "en": "March 4, 2026",
+            "ko": "2026년 3월 4일",
+            "fr": "le 4 mars 2026"
+        }
+    },
+    {
+        "id": "j-score",
+        "tags": [
+            "school",
+            "team"
+        ],
+        "title": {
+            "en": "J-score*",
+            "ko": "J-score*",
+            "fr": "J-score*"
+        },
+        "category": {
+            "en": "School Project 2025",
+            "ko": "학교 프로젝트 2025",
+            "fr": "Projet Scolaire 2025"
+        },
+        "description": {
+            "en": "A precision tool for calculating academic standing (r-score) using the standard deviation, group-strength and more.",
+            "ko": "표준편차, 그룹 강도 등을 활용해 학업 성적(R-score)을 정밀하게 계산해 주는 도구입니다.",
+            "fr": "Un outil de précision pour calculer la cote scolaire (cote R) en utilisant l'écart-type, la force du groupe et plus encore."
+        },
+        "tech": [
+            "Python",
+            "JavaScript",
+            "CSV"
+        ],
+        "full_story": {
+            "en": "James and I developed J-score* as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me build applications within a team and eventually win a few hackathons.",
+            "ko": "James와 저는 Dawson College 3학기 프로그래밍 수업의 최종 프로젝트로 J-score*를 개발했습니다. 팀원과 함께 만든 첫 대규모 협업 웹 애플리케이션이었습니다. 둘 다 Git의 기본은 알고 있었지만, 이 프로젝트를 통해 개인 작업 흐름에서 동기화된 협업 개발 환경으로 전환해야 했습니다. 이 중요한 역량 덕분에 이후 팀으로 애플리케이션을 만들고 여러 해커톤에서 수상할 수 있었습니다.",
+            "fr": "James et moi avons développé J-score* comme projet final pour notre cours de programmation de troisième session au Collège Dawson; c'était la première application web collaborative à grande échelle que je bâtissais avec un coéquipier. Bien que nous connaissions tous les deux les bases de Git, ce projet nous a forcés à passer d'un flux de travail individuel à un environnement de développement synchronisé. Cette compétence essentielle m'a ensuite permis de bâtir des applications en équipe et de remporter quelques hackathons."
+        },
+        "full_tech": [
+            "Python",
+            "Flask",
+            "JavaScript",
+            "CSV",
+            "Supabase"
+        ],
+        "troubles": {
+            "en": "Initially, the Flask application couldn't distinguish which user was requesting a deletion; it would simply remove the top line of the CSV database, regardless of who it belonged to. This created a major data integrity issue. To solve this, I researched how to pass contextual data through the frontend without cluttering the UI. I implemented hidden HTML inputs to bind specific user metadata to the request. This allowed the backend to verify the user's identity and target the correct row in the CSV file, ensuring that users could only modify their own data. This challenge taught me the vital importance of state management and request context in web applications.",
+            "ko": "처음에는 Flask 애플리케이션이 어떤 사용자가 삭제를 요청했는지 구분하지 못하고, 사용자와 상관없이 CSV 데이터베이스의 맨 윗줄을 삭제해 버렸습니다. 이는 데이터 무결성에 큰 문제였습니다. 이를 해결하기 위해 UI를 어지럽히지 않으면서 컨텍스트 데이터를 프론트엔드를 통해 전달하는 방법을 조사했고, 숨겨진 HTML input을 사용해 요청에 사용자 메타데이터를 포함시켰습니다. 덕분에 백엔드가 사용자의 신원을 검증하고 CSV 파일에서 올바른 행을 대상으로 삼아, 사용자가 자신의 데이터만 수정할 수 있도록 보장할 수 있었습니다. 이 과정에서 웹 애플리케이션에서 상태 관리와 요청 컨텍스트가 얼마나 중요한지 배울 수 있었습니다.",
+            "fr": "Au départ, l'application Flask ne pouvait pas distinguer quel utilisateur demandait une suppression; elle retirait simplement la première ligne de la base de données CSV, peu importe à qui elle appartenait. Cela posait un grave problème d'intégrité des données. Pour résoudre cela, j'ai cherché comment transmettre des données contextuelles via le frontend sans encombrer l'interface. J'ai implémenté des champs HTML cachés pour lier des métadonnées spécifiques à l'utilisateur à la requête. Le backend pouvait ainsi vérifier l'identité de l'utilisateur et cibler la bonne ligne dans le fichier CSV, garantissant que les utilisateurs ne pouvaient modifier que leurs propres données. Ce défi m'a appris l'importance vitale de la gestion d'état et du contexte de requête dans les applications web."
+        },
+        "collaborators": [
+            {
+                "name": "James",
+                "linkedin": "https://www.linkedin.com/in/james-ferdinand-combista-88039b316/"
+            }
+        ],
+        "images": [
+            "/static/J-score/J-score1.png",
+            "/static/J-score/J-score2.png",
+            "/static/J-score/J-score3.png"
+        ],
+        "thumbnail": "/static/J-score/J-score.png/",
+        "external_links": [
+            {
+                "name": {
+                    "en": "View Project",
+                    "ko": "프로젝트 보기",
+                    "fr": "Voir le Projet"
+                },
+                "url": "https://j-score.vercel.app/",
+                "icon": "fa-solid fa-code-branch"
+            },
+            {
+                "name": {
+                    "en": "View Project on GitHub",
+                    "ko": "GitHub에서 프로젝트 보기",
+                    "fr": "Voir le Projet sur GitHub"
+                },
+                "url": "https://github.com/Jo-9m-n1/J-score",
+                "icon": "fa-brands fa-github"
+            }
+        ],
+        "published": {
+            "en": "February 15, 2026",
+            "ko": "2026년 2월 15일",
+            "fr": "le 15 février 2026"
+        },
+        "updated": {
+            "en": "March 4, 2026",
+            "ko": "2026년 3월 4일",
+            "fr": "le 4 mars 2026"
+        }
+    }
+]
