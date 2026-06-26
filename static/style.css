@@ -591,11 +591,15 @@ aside .card:hover {
 }
 
 .badge.border {
-    background: rgba(255, 255, 255, 0.5) !important;
+    background: rgba(255, 255, 255, 0.7) !important;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    color: #475569 !important;
-    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.01) !important;
+    color: #000000 !important;
+    border-radius: 50px;
+}
+
+body.dark-mode .badge.border, body.dark-mode .teammate-pill, body.dark-mode .h-badge {
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
 .bg-danger-subtle {
@@ -610,7 +614,7 @@ aside .card:hover {
     background: rgba(255, 255, 255, 0.6) !important;
     border: 1px solid #e2e8f0;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #475569;
     text-decoration: none;
     transition: all 0.2s ease;
