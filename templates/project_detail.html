@@ -126,7 +126,7 @@
                         <h5 class="fw-bold mb-3"><i class="fa-solid fa-layer-group text-primary me-2"></i>{{ t.full_tech_stack }}</h5>
                         <div class="d-flex flex-wrap gap-2">
                             {% for item in p.full_tech %}
-                            <span class="badge border text-dark fw-medium px-3 py-2" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(5px);">
+                            <span class="teammate-pill fw-medium">
                                 <i class="fa-solid fa-code text-primary me-1" style="font-size: 0.7rem;"></i> {{ item }}
                             </span>
                             {% endfor %}
@@ -150,17 +150,17 @@
                             {% for person in p.collaborators %}
                                 {% if person is mapping %} 
                                     {% if person.linkedin %}
-                                        <a href="{{ person.linkedin }}" target="_blank" class="teammate-pill linked text-decoration-none">
+                                        <a href="{{ person.linkedin }}" target="_blank" class="teammate-pill fw-medium linked text-decoration-none">
                                             <i class="fa-solid fa-user me-1"></i> {{ person.name }}
                                             <i class="fa-brands fa-linkedin ms-1 small-icon"></i>
                                         </a>
                                     {% else %}
-                                        <span class="teammate-pill">
+                                        <span class="teammate-pill fw-medium">
                                             <i class="fa-solid fa-user me-1"></i> {{ person.name }}
                                         </span>
                                     {% endif %}
                                 {% else %} 
-                                    <span class="teammate-pill">
+                                    <span class="teammate-pill fw-medium">
                                         <i class="fa-solid fa-user me-1"></i> {{ person }}
                                     </span>
                                 {% endif %}
