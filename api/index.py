@@ -3,29 +3,502 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from flask import Flask, render_template, request, redirect, make_response
-import json
-import os
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
+# For the main page stats only
+PORTFOLIO_STATS = {
+    'competitions': 20,
+    'hackathons': 11,
+    'prize': 4000,
+    'projects': 9
+}
 
-def load_json(filename):
-    with open(os.path.join(DATA_DIR, filename), 'r', encoding='utf-8') as f:
-        return json.load(f)
+LANGUAGES = ['en', 'ko', 'fr']
 
-stats_data = load_json('stats.json')
-PORTFOLIO_STATS = stats_data.get('PORTFOLIO_STATS', {})
-LANGUAGES = stats_data.get('LANGUAGES', [])
-TRANSLATIONS = load_json('translations.json')
-PROJECTS = load_json('projects.json')
-courses_data = load_json('courses.json')
-COURSES = courses_data.get('COURSES', [])
-COURSE_GROUP_LABELS = courses_data.get('COURSE_GROUP_LABELS', {})
-EDUCATION_SCHOOLS = load_json('education.json')
-achievements_data = load_json('achievements.json')
-ACHIEVEMENT_COMPETITIONS = achievements_data.get('competitions', [])
-ACHIEVEMENT_CERTIFICATES = achievements_data.get('certificates', [])
+TRANSLATIONS = {
+
+    'en': {
+        'terminal': 'Terminal',
+        'resume': 'Resume',
+        'nav_home': 'Home',
+        'nav_achievements': 'Achievements',
+        'nav_projects': 'Projects',
+        'nav_about_me': 'About Me',
+        'navigation': 'Navigation',
+        'back': 'Back',
+        'showing_results': 'Showing {n} of {total} milestones',
+        'showing_projects': 'Showing {n} of {total} projects',
+        'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
+
+        'name': 'Jongmin Lee',
+        'about': 'Incoming McGill Computer Science',
+        'btn_achievements': 'Achievements',
+        'btn_view_my_work': 'View My Work',
+
+        'stat_competition_wins': 'Competition Awards',
+        'stat_hackathon_wins': 'Hackathon Awards',
+        'stat_prize': 'Hackathon Prizes',
+        'stat_projects': 'Projects',
+
+        'section_highlights': 'Highlights',
+        'section_about_me': 'About Me',
+        'section_education': 'Education',
+
+        'scale_global': 'GLOBAL SCALE',
+        'scale_national': 'NATIONAL SCALE',
+        'scale_regional': 'REGIONAL SCALE',
+        'more_awards': 'MORE AWARDS',
+
+        'hl_cayley_subtitle': 'School Champion · Top 25% Worldwide',
+        'contest_HME': 'HME Math Contest',
+        'hl_hme_subtitle': 'National 1st Place · Top 1% in Korea',
+        'hl_conuhacks_subtitle': '2nd Place | Dialogue Track',
+        'hl_hack_subtitle': '3rd Place | Beginner Track',
+        'hl_jachacks_subtitle': '1st Place',
+        'hl_aerohacks_subtitle': '1st Place',
+
+        'edu_expected': 'EXPECTED',
+        'edu_enrolled': 'ENROLLED',
+        'edu_graduated': 'GRADUATED',
+        'edu_mcgill_university': 'McGill University',
+        'edu_mcgill_degree': 'Computer Science | Bachelor of Science',
+        'edu_mcgill_years': '2026 (Est.) - 2029 (Est.)',
+        'edu_dawson_college': 'Dawson College',
+        'edu_dawson_degree': 'Science, Computer Science & Mathematics',
+        'edu_rosemount_degree': 'Secondary School Diploma',
+        'edu_deans_list': "Dean's List",
+        'edu_recognition': 'Recognition of Student Involvement',
+        'edu_space': 'SPACE Certificate',
+        'edu_leadership': 'Campus Life Leadership Award',
+        'edu_rosemount_high_school': 'Rosemount High School',
+        'edu_high_honor_roll': 'High Honor Roll',
+        'edu_honor_roll': 'Honor Roll',
+        'edu_art_etudes': 'Art-Études Program',
+
+        'portfolio_insights' : 'Portfolio Insights',
+        'key_projects': 'Key Projects',
+        'award_distribution': 'Awards Distribution',
+        'hackathon_progress': 'Hackathon Progress',
+        'graph': 'Cumulative awards vs hackathons attended',
+
+        'about_html': (
+            'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
+            'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science at McGill University (U1). '
+            'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
+            'I am a <strong class="pop-up"> 9x hackathon winner'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
+            'JACHacks (1st · Special Award)<br>'
+            'McGill AeroHacks (1st)<br>'
+            'Brim Track at MPC Hacks (2nd · Special Award)<br>'
+            'Dialogue Track at ConUHacks (2nd)<br>'
+            'Dawson Robotics Hackathon 2025 (2nd)<br>'
+            'Dawson Robotics Hackathon 2026 (3rd)<br>'
+            'Beginner Track at @HACK (3rd)<br>'
+            'HackDécouverte (Special Award)<br>'
+            'Dialogue Internal (Special Award)<br>'
+            '</span></strong> with over '
+            '<strong class="pop-up">15 STEM competition awards'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">STEM Competition Awards:</strong><br>'
+            "HME Math Contest '14 (National 1st)<br>"
+            'Waterloo Cayley Math Contest (School Champion)<br>'
+            'JACHacks (1st · Special Award)<br>'
+            'McGill AeroHacks (1st)<br>'
+            'Brim Track MPC Hacks (2nd · Special Award)<br>'
+            'Dialogue Track at ConUHacks (2nd)<br>'
+            'Dawson Robotics Hackathon 2025 (2nd)<br>'
+            'Dawson Robotics Hackathon 2026 (3rd)<br>'
+            'Beginner Track at @HACK (3rd)<br>'
+            'HackDécouverte (Special Award)<br>'
+            'Dialogue Internal (Special Award)<br>'
+            'The Ultimate Math League (Special Award)<br>'
+            "HME Math Contest '16 (Special Award)<br>"
+            '</span></strong> in total. '
+            'I have experience coding in <strong>Python, JavaScript, C++, C#, and C</strong>.'
+        ),
+
+        'snow_hint': 'Type "snow"',
+
+        'projects_title': 'Projects',
+        'subtitle_journey': "Jongmin's journey from South Korea to Canada",
+        'filter_show_all': 'Show All',
+        'filter_gold': 'Gold',
+        'filter_team': 'Team',
+        'filter_hackathon': 'Hackathon',
+        'filter_school': 'School',
+        'filter_personal': 'Personal',
+        'no_projects_match': 'No projects match these filters.',
+        'reset_filters': 'Reset Filters',
+        'teammate': 'Teammate',
+        'teammates': 'Teammates',
+        'read_full_story': 'Read the full story',
+
+        'the_journey': 'The Journey',
+        'originally_published': 'Originally published',
+        'updated_label': 'Updated:',
+        'published_label': 'Published',
+        'project_gallery': 'Project Gallery',
+        'live_demo': 'Live Demonstration',
+        'full_tech_stack': 'Full Tech Stack',
+        'engineering_challenges': 'Engineering Challenges',
+        'link_singular': 'Link',
+        'link_plural': 'Links',
+        'launch_live_app': 'Launch Live App',
+
+        'achievements_title': 'Academic & Competitive Milestones',
+        'next_competition': 'MY NEXT COMPETITION',
+        'filter_canada': 'Canada',
+        'filter_experience': 'Experience',
+        'filter_stem': 'STEM',
+        'filter_arts': 'Arts',
+        'filter_software': 'Software',
+        'filter_hardware': 'Hardware',
+        'filter_math': 'Math',
+        'filter_health': 'Health',
+        'filter_academic': 'Academic',
+        'no_milestones_match': 'No milestones match these filters.',
+        'try_different_combination': 'Try selecting a different combination of tags.',
+        'section_competitions': 'Competitions',
+        'section_certificates': 'Certificates, Awards & Experience',
+        'view_courses': 'View Courses',
+        'non_elective_courses': 'Non-elective courses',
+        'semesters': 'Semesters',
+        'courses_label': 'Courses'
+    },
+
+    'ko': {
+        'terminal': '터미널',
+        'resume': '이력서',
+        'nav_home': '홈',
+        'nav_achievements': '수상',
+        'nav_projects': '프로젝트',
+        'nav_about_me': '소개',
+        'navigation': '메뉴',
+        'back': '뒤로',
+        'showing_results': '전체 {total}개 중 {n}개 표시',
+        'showing_projects': '전체 {total}개 프로젝트 중 {n}개 표시',
+        'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
+
+        'name': '이종민',
+        'about': '맥길 대학교 컴퓨터공학 예비 신입생',
+        'btn_achievements': '수상 보기',
+        'btn_view_my_work': '프로젝트 보기',
+
+        'stat_competition_wins': '대회 수상',
+        'stat_hackathon_wins': '해커톤 수상',
+        'stat_prize': '해커톤 상금',
+        'stat_projects': '프로젝트',
+
+        'section_highlights': '주요 성과',
+        'section_about_me': '소개',
+        'section_education': '학력',
+
+        'scale_global': '국제 규모',
+        'scale_national': '전국 규모',
+        'scale_regional': '지역 규모',
+        'more_awards': '수상 기록 보기',
+
+        'hl_cayley_subtitle': '전교 1위 · 전 세계 상위 25%',
+        'contest_HME': 'HME 수학경시대회',
+        'hl_hme_subtitle': '전국 1위 · 한국 상위 1%',
+        'hl_conuhacks_subtitle': '2위 | Dialogue 부문',
+        'hl_hack_subtitle': '3위 | 초보 부문',
+        'hl_jachacks_subtitle': '1위',
+        'hl_aerohacks_subtitle': '1위',
+
+        'edu_expected': '예정',
+        'edu_enrolled': '재학 중',
+        'edu_graduated': '졸업',
+        'edu_mcgill_university': '맥길 대학교',
+        'edu_mcgill_degree': '컴퓨터 과학 | 학사',
+        'edu_mcgill_years': '2026 (예정) - 2029 (예정)',
+        'edu_dawson_college': 'Dawson College',
+        'edu_dawson_degree': '과학, 컴퓨터 과학 및 수학',
+        'edu_rosemount_degree': '고등학교 졸업장',
+        'edu_deans_list': '학장 명단',
+        'edu_recognition': '교내 활동 인증',
+        'edu_space': 'SPACE 수료증',
+        'edu_leadership': '리더쉽 상',
+        'edu_rosemount_high_school': 'Rosemount 고등학교',
+        'edu_high_honor_roll': '최우수 명예 학생',
+        'edu_honor_roll': '명예 학생',
+        'edu_art_etudes': '예술 및 스터디 프로그램',
+
+        'portfolio_insights' : '포트폴리오 인사이트',
+        'key_projects': '주요 프로젝트',
+        'award_distribution': '수상 분포',
+        'hackathon_progress': '해커톤 성과 추이',
+        'graph': '해커톤 참가 횟수 대비 누적 수상 실적',
+        'chart_grade' : '학업',
+        'chart_webdev': '웹 개발',
+        'chart_math': '수학',
+        'chart_robotics': '로봇공학',
+        'chart_other': '기타',
+        'chart_attended': '참가한 해커톤',
+        'chart_awards': '해커톤 수상',
+        'chart_sequence': '해커톤 참가 회차',
+        'chart_cumulative': '누적 횟수',
+        'filter_all' : '전체',
+        'general': '일반',
+        'chart_art': '미술',
+        'chart_music': '음악',
+        'chart_leadership': '리더쉽',
+        'dialogue_hackathon': 'Dialogue 사내 해커톤',
+
+        'about_html': (
+            '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, McGill University에서 컴퓨터 과학을 공부할 예정인 <strong>이종민</strong>입니다. '
+            '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
+            '저는 <strong class="pop-up">해커톤 9회 우승자'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">해커톤 입상 기록:</strong><br>'
+            'JACHacks (1위 · 특별상)<br>'
+            'McGill AeroHacks (1위)<br>'
+            'Brim 부문 MPC Hacks (2위 · 특별상)<br>'
+            'Dialogue 부문 ConUHacks (2위)<br>'
+            'Dawson Robotics Hackathon 2025 (2위)<br>'
+            'Dawson Robotics Hackathon 2026 (3위)<br>'
+            '초보 부문 @HACK (3위)<br>'
+            'HackDécouverte (특별상)<br>'
+            'Dialogue Internal (특별상)<br>'
+            '</span></strong>이며, '
+            '<strong class="pop-up">STEM 관련 대회를 15회 이상 수상'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">STEM 대회 수상:</strong><br>'
+            "HME 수학 경시대회 '14 (전국 1위)<br>"
+            'Waterloo Cayley Math Contest (학교 챔피언)<br>'
+            'JACHacks (1위 · 특별상)<br>'
+            'McGill AeroHacks (1위)<br>'
+            'Brim 부문 MPC Hacks (2위 · 특별상)<br>'
+            'Dialogue Track at ConUHacks (2위)<br>'
+            'Dawson Robotics Hackathon 2025 (2위)<br>'
+            'Dawson Robotics Hackathon 2026 (3위)<br>'
+            'Beginner Track at @HACK (3위)<br>'
+            'HackDécouverte (특별상)<br>'
+            'Dialogue Internal (특별상)<br>'
+            'The Ultimate Math League (특별상)<br>'
+            "HME 수학 경시대회 '16 (특별상)<br>"
+            '</span></strong>한 경력이 있습니다. '
+            '또한 <strong>Python, JavaScript, C++, C#, C</strong> 코딩 경험이 있습니다.'
+        ),
+
+        'snow_hint': '"snow" 입력',
+
+        'vault': '트로피 진열장',
+        'vault_subtitle': '대회 우승',
+
+        'projects_title': '프로젝트',
+        'subtitle_journey': '한국에서 캐나다까지 종민의 여정',
+        'filter_show_all': '전체 보기',
+        'filter_gold': '골드',
+        'filter_team': '팀 프로젝트',
+        'filter_hackathon': '해커톤',
+        'filter_school': '학교',
+        'filter_personal': '개인',
+        'no_projects_match': '조건에 맞는 프로젝트가 없습니다.',
+        'reset_filters': '필터 초기화',
+        'teammate': '팀원',
+        'teammates': '팀원',
+        'read_full_story': '자세히 보기',
+
+        'the_journey': '여정',
+        'originally_published': '최초 게시',
+        'updated_label': '마지막 업데이트:',
+        'published_label': '게시',
+        'project_gallery': '프로젝트 갤러리',
+        'live_demo': '라이브 시연',
+        'full_tech_stack': '전체 기술 스택',
+        'engineering_challenges': '엔지니어링 난제',
+        'link_singular': '링크',
+        'link_plural': '링크',
+        'launch_live_app': '라이브 앱 실행',
+
+        'achievements_title': '학업 및 대회 성과',
+        'next_competition': '다가오는 대회',
+        'filter_canada': '캐나다',
+        'filter_experience': '경력',
+        'filter_stem': 'STEM',
+        'filter_arts': '예술',
+        'filter_software': '소프트웨어',
+        'filter_hardware': '하드웨어',
+        'filter_math': '수학',
+        'filter_health': '의학',
+        'filter_academic': '학업',
+        'no_milestones_match': '조건에 맞는 성과가 없습니다.',
+        'try_different_combination': '다른 태그 조합을 선택해 보세요.',
+        'section_competitions': '대회',
+        'section_certificates': '자격증, 수료증 및 경력',
+        'view_courses': '과목 보기',
+        'non_elective_courses': '필수 과목',
+        'semesters': '학기',
+        'courses_label': '과목'
+    },
+
+    'fr': {
+        'terminal': 'Terminal',
+        'resume': 'CV',
+        'nav_home': 'Accueil',
+        'nav_achievements': 'Réalisations',
+        'nav_projects': 'Projets',
+        'nav_about_me': 'À propos',
+        'navigation': 'Navigation',
+        'back': 'Retour',
+        'showing_results': 'Affichage de {n} sur {total} réalisations',
+        'showing_projects': 'Affichage de {n} sur {total} projets',
+
+        'name': 'Jongmin Lee',
+        'about': "Futur étudiant en informatique à McGill",
+        'btn_achievements': 'Réalisations',
+        'btn_view_my_work': 'Voir mes projets',
+
+        'stat_competition_wins': 'Compétitions remportées',
+        'stat_hackathon_wins': 'Hackathons remportés',
+        'stat_prize': 'Prix de hackathon',
+        'stat_projects': 'Projets',
+
+        'section_highlights': 'Faits saillants',
+        'section_about_me': 'À propos',
+        'section_education': 'Formation',
+
+        'scale_global': 'ÉCHELLE MONDIALE',
+        'scale_national': 'ÉCHELLE NATIONALE',
+        'scale_regional': 'ÉCHELLE RÉGIONALE',
+        'more_awards': 'PLUS DE PRIX',
+
+        'hl_cayley_subtitle': "Champion de l'école · Top 25 % mondial",
+        'contest_HME': 'HME Math Contest',
+        'hl_hme_subtitle': '1ʳᵉ Place Nationale · Top 1 % en Corée',
+        'hl_conuhacks_subtitle': '2ᵉ Place | Piste Dialogue',
+        'hl_hack_subtitle': '3ᵉ place | Piste débutant',
+        'hl_jachacks_subtitle': '1ʳᵉ Place',
+        'hl_aerohacks_subtitle': '1ʳᵉ Place',
+
+        'edu_expected': 'PRÉVU',
+        'edu_enrolled': 'INSCRIT',
+        'edu_graduated': 'DIPLÔMÉ',
+        'edu_mcgill_university': 'Université McGill',
+        'edu_mcgill_degree': 'Informatique | Baccalauréat ès sciences',
+        'edu_mcgill_years': '2026 (Prévu) - 2029 (Prévu)',
+        'edu_dawson_college': 'Collège Dawson',
+        'edu_dawson_degree': 'Sciences, informatique et mathématiques',
+        'edu_rosemount_degree': "Diplôme d'études secondaires",
+        'edu_deans_list': "Liste d'honneur du doyen",
+        'edu_recognition': "Reconnaissance de l'engagement étudiant",
+        'edu_space': 'Certificat SPACE', 
+        'edu_leadership': 'Prix de leadership',
+        'edu_rosemount_high_school': 'École secondaire Rosemount',
+        'edu_high_honor_roll': "Tableau d'honneur supérieur",
+        'edu_honor_roll': "Tableau d'honneur",
+        'edu_art_etudes': 'Programme Arts-Études',
+
+        'portfolio_insights' : 'Aperçu du portfolio',
+        'key_projects': 'Projets Clés',
+        'award_distribution': 'Répartition des prix',
+        'hackathon_progress': 'Progression aux hackathons',
+        'graph': 'Récompenses cumulées vs participations aux hackathons',
+        'chart_grade' : 'Scolaire',
+        'chart_webdev': 'Dev Web',
+        'chart_robotics': 'Robotique',
+        'chart_other': 'Autre',
+        'chart_total': 'TOTAL',
+        'chart_attended': 'Hackathons participés',
+        'chart_awards': 'Prix remportés',
+        'chart_sequence': 'Séquence de hackathon',
+        'chart_cumulative': 'Compte cumulé',
+        'filter_all': 'Tous',
+        'general': 'Général',
+        'chart_music': 'Musique',
+        'dialogue_hackathon': 'Hackathon interne de Dialogue',
+
+        'about_html': (
+            "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
+            "Récemment diplômé en informatique du Collège Dawson, je poursuis mes études en informatique à l'Université McGill (U1). "
+            "Je suis fier d'être <strong>trilingue</strong>, parlant le coréen, l'anglais et le français. "
+            'Je suis <strong class="pop-up">9x gagnant de hackathons'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">Podiums de hackathons :</strong><br>'
+            'JACHacks (1ʳᵉ · Prix Spécial)<br>'
+            'McGill AeroHacks (1ʳᵉ)<br>'
+            'Brim Track à MPC Hacks (2ᵉ · Prix Spécial)<br>'
+            'Dialogue Track à ConUHacks (2ᵉ)<br>'
+            'Dawson Robotics Hackathon 2025 (2ᵉ)<br>'
+            'Dawson Robotics Hackathon 2026 (3ᵉ)<br>'
+            'Beginner Track à @HACK (3ᵉ)<br>'
+            'HackDécouverte (Prix spécial)<br>'
+            'Dialogue Internal (Prix Spécial)<br>'
+            '</span></strong> avec plus de '
+            '<strong class="pop-up">15 prix en STIM'
+            '<span class="pop-up-text">'
+            '<strong style="color: #0d6efd;">Prix en STIM :</strong><br>'
+            "HME Math Contest '14 (1ʳᵉ nationale)<br>"
+            "Waterloo Cayley Math Contest (Champion de l'école)<br>"
+            'JACHacks (1ʳᵉ · Prix spécial)<br>'
+            'McGill AeroHacks (1ʳᵉ)<br>'
+            'Brim Track à MPC Hacks (2ᵉ · Prix Spécial)<br>'
+            'Dialogue Track à ConUHacks (2ᵉ)<br>'
+            'Dawson Robotics Hackathon 2025 (2ᵉ)<br>'
+            'Dawson Robotics Hackathon 2026 (3ᵉ)<br>'
+            'Beginner Track à @HACK (3ᵉ)<br>'
+            'HackDécouverte (Prix Spécial)<br>'
+            'Dialogue Internal (Prix Spécial)<br>'
+            'The Ultimate Math League (Prix Spécial)<br>'
+            "HME Math Contest '16 (Prix Spécial)<br>"
+            '</span></strong> au total. '
+            "J'ai de l'expérience en programmation en <strong>Python, JavaScript, C++, C# et C</strong>."
+        ),
+
+        'snow_hint': 'Tapez « snow »',
+        'vault': 'La chambre des trophées',
+        'vault_subtitle': 'Victoires en compétition',
+
+        'projects_title': 'Projets',
+        'subtitle_journey': 'Le parcours de Jongmin, de la Corée du Sud au Canada',
+        'filter_show_all': 'Tout afficher',
+        'filter_gold': 'Or',
+        'filter_team': 'Équipe',
+        'filter_hackathon': 'Hackathon',
+        'filter_school': 'École',
+        'filter_personal': 'Personnel',
+        'no_projects_match': 'Aucun projet ne correspond à ces filtres.',
+        'reset_filters': 'Réinitialiser les filtres',
+        'teammate': 'Coéquipier',
+        'teammates': 'Coéquipiers',
+        'read_full_story': 'Lire le récit complet',
+
+        'the_journey': 'Le parcours',
+        'originally_published': "Publié à l'origine",
+        'updated_label': 'Mis à jour :',
+        'published_label': 'Publié',
+        'project_gallery': 'Galerie du projet',
+        'live_demo': 'Démonstration en direct',
+        'full_tech_stack': 'Pile technologique complète',
+        'engineering_challenges': 'Défis techniques',
+        'link_singular': 'Lien',
+        'link_plural': 'Liens',
+        'launch_live_app': "Lancer l'application en direct",
+
+        'achievements_title': 'Jalons Académiques et Compétitifs',
+        'next_competition': 'PROCHAINE COMPÉTITION',
+        'filter_canada': 'Canada',
+        'filter_experience': 'Expérience',
+        'filter_stem': 'STIM',
+        'filter_arts': 'Arts',
+        'filter_software': 'Logiciel',
+        'filter_hardware': 'Matériel',
+        'filter_math': 'Mathématiques',
+        'filter_health': 'Santé',
+        'filter_academic': 'Scolaire',
+        'no_milestones_match': 'Aucun jalon ne correspond à ces filtres.',
+        'try_different_combination': "Essayez une autre combinaison d'étiquettes.",
+        'section_competitions': 'Compétitions',
+        'section_certificates': 'Certificats, prix et expériences',
+        'view_courses': 'Voir les cours',
+        'non_elective_courses': 'Cours non optionnels',
+        'semesters': 'Semestres',
+        'courses_label': 'Cours',
+    },
+}
 
 def current_lang():
     lang = request.cookies.get('lang', 'en')
@@ -289,7 +762,7 @@ PROJECTS = [
             'fr': 'Hackathon 2026'
         },
         'tech': ['C#', 'Unity'],
-'description': {
+        'description': {
             'en': 'Developed with Unity at a French GameJam, DeckMots is a local 2-player game where you draft teams of unique characters. To block incoming attacks, the defending player must answer a timed French question.',
             'ko': '프랑스어 게임잼에서 Unity로 개발한 2인용 로컬 멀티플레이 게임입니다. 고유한 캐릭터들로 팀을 구성하며, 상대의 공격을 방어하려면 제한 시간 내에 프랑스어 문제를 풀어야 합니다.',
             'fr': "Créé avec Unity lors d'un GameJam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
@@ -492,16 +965,16 @@ COURSES = {
 EDUCATION_SCHOOLS = {
     'dawson': {
         'id': 'dawson',
-        'name': 'Dawson College',
+        'name': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
         'accent': '#145CB1',
         'years': '2024 - 2026',
         'status_key': 'edu_graduated',
         'degree_key': 'edu_dawson_degree',
-        'badges': ['edu_deans_list', 'edu_space', 'edu_recognition'],
+        'badges': ['edu_deans_list', 'edu_space', 'edu_recognition', 'edu_leadership'],
     },
     'mcgill': {
         'id': 'mcgill',
-        'name': 'McGill University',
+        'name': {'en': 'McGill University', 'ko': '맥길 대학교', 'fr': 'Université McGill'},
         'accent': '#ED1B2F',
         'years': {'en': '2026 (Est.) - 2029 (Est.)', 'ko': '2026 (예정) - 2029 (예정)', 'fr': '2026 (Prévu) - 2029 (Prévu)'},
         'status_key': 'edu_expected',
@@ -573,8 +1046,554 @@ def projects():
 
 @app.route('/achievements')
 def achievements():
+    competitions = [
+        {
+            'title': {'en': '2nd Place | Brim Track at MPC Hacks', 'ko': '2등 | Brim 부문 MPC Hacks', 'fr': '2ᵉ Place | Piste Brim à MPC Hacks'},
+            'event': {'en': 'Polytechnique Montréal', 'ko': 'Polytechnique Montréal', 'fr': 'Polytechnique Montréal'},
+            'date': '2026. 05. 30. - 2026. 05. 31.',
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                    'url': 'https://devpost.com/software/mpc-hacks-2026',
+                    'icon': 'fa-solid fa-code-branch'
+                },
+                {
+                    'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
+                    'url': 'https://www.youtube.com/watch?v=_azDjQU3Vx4&feature=youtu.be',
+                    'icon': 'fa-brands fa-youtube'
+                }
+            ]
+        },
+        {
+            'title': {'en': '3rd Place | Dawson Robotics Hackathon 2026', 'ko': '3등 | Dawson Robotics Hackathon 2026', 'fr': '3ᵉ Place | Dawson Robotics Hackathon 2026'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2026. 05. 06. - 2026. 05. 08.',
+            'desc': {
+                'en': 'Built and programmed an autonomous black line following robot with IR remote control functionality using Python and the Raspberry Pi Pico.',
+                'ko': 'Python과 Raspberry Pi Pico를 사용해 IR 리모컨 제어 기능을 갖춘 자율 검정선 추적 로봇을 제작하고 프로그래밍했습니다.',
+                'fr': "Construit et programmé un robot autonome de suivi de ligne noire avec contrôle par télécommande IR, en utilisant Python et le Raspberry Pi Pico."
+            },
+            'color': '#D4AF37',
+            'category': 'hardware software canada stem'
+        },
+        {
+            'title': {'en': 'Participated | Cursor Hackathon Montreal', 'ko': '참가 | Cursor Hackathon Montreal', 'fr': 'Participation | Cursor Hackathon Montreal'},
+            'event': 'Botpress Inc',
+            'date': '2026. 05. 02.',
+            'desc': {
+                'en': "Participated in a high intensity AI 'vibe-coding' hackathon, using Cursor to rapidly develop an application.",
+                'ko': 'Cursor를 활용해 빠르게 애플리케이션을 개발하는 고강도 AI "바이브 코딩" 해커톤에 참가했습니다.',
+                'fr': "Participation à un hackathon IA « vibe-coding » de haute intensité, en utilisant Cursor pour développer rapidement une application."
+            },
+            'category': 'software canada stem'
+        },
+        {
+            'title': {'en': '1st Place | JACHacks', 'ko': '1등 | JACHacks', 'fr': '1ʳᵉ Place | JACHacks'},
+            'event': {'en': 'John Abbott College', 'ko': 'John Abbott College', 'fr': 'Collège John Abbott'},
+            'date': '2026. 04. 11. - 2026. 04. 12.',
+            'desc': {
+                'en': 'Awarded First Place and Best Science Student Project, receiving an $800 cash prize.',
+                'ko': '1위와 최우수 과학 학생 프로젝트상을 수상하고 800달러의 상금을 받았습니다.',
+                'fr': "Lauréat de la 1ʳᵉ place et du prix du meilleur projet d'étudiant en sciences, avec un prix en argent de 800 $."
+            },
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                    'url': 'https://devpost.com/software/ourcampus-t2u5fs',
+                    'icon': 'fa-solid fa-code-branch'
+                },
+                {
+                    'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
+                    'url': 'https://www.youtube.com/watch?v=IXy2J-jF7Ec',
+                    'icon': 'fa-brands fa-youtube'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Participated | Championing AI for good', 'ko': '참가 | Championing AI for good', 'fr': 'Participation | Championing AI for good'},
+            'event': 'Mila',
+            'date': '2026. 03. 16. - 2026. 03. 23.',
+            'desc': {
+                'en': 'Collaborated with Team Liminal to develop an AI-driven solution for youth mental health. Implemented robust AI guardrails and adversarial red-teaming to ensure safe, empathetic interactions for high-stakes social impact, <strong>improving crisis recall by 9x</strong>.',
+                'ko': '팀 Liminal과 협업하여 청소년 정신 건강을 위한 AI 기반 솔루션을 개발했습니다. 견고한 AI 가드레일과 적대적 레드팀(red-team) 평가를 통해 사회적 영향력이 큰 상황에서도 안전하고 공감적인 상호작용을 보장했으며, <strong>위기 상황 재현율을 9배 향상</strong>시켰습니다.',
+                'fr': "Collaboration avec l'équipe Liminal pour développer une solution IA dédiée à la santé mentale des jeunes. Mise en place de garde-fous IA robustes et de tests adversariaux (red-teaming) pour garantir des interactions sûres et empathiques dans un contexte à fort impact social, <strong>améliorant le rappel des crises de 9×</strong>."
+            },
+            'category': 'software canada stem health',
+            'external_links': [
+                {
+                    'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
+                    'url': '/static/Mila_report.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                },
+                {
+                    'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
+                    'url': '/static/LiminalCertificate.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Participated | VanierHacks', 'ko': '참가 | VanierHacks', 'fr': 'Participation | VanierHacks'},
+            'event': {'en': 'Vanier College', 'ko': 'Vanier College', 'fr': 'Collège Vanier'},
+            'date': '2026. 03. 21. - 2026. 03. 22.',
+            'desc': {
+                'en': 'Achieved 8th place in a 25-team Cybersecurity CTF hackathon with a total score of 3,035 points.',
+                'ko': '25개 팀이 참가한 사이버보안 CTF 해커톤에서 총 3,035점을 획득해 8위에 올랐습니다.',
+                'fr': "Obtenu la 8ᵉ place dans un hackathon CTF de cybersécurité comptant 25 équipes, avec un total de 3 035 points."
+            },
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View the Progression Chart', 'ko': '점수 변동 차트 보기', 'fr': 'Voir le Graphique de Progression'},
+                    'url': '/static/Progression_Vanier.png',
+                    'icon': 'fa-solid fa-chart-line'
+                }
+            ]
+        },
+        {
+            'title': {'en': '1st Place | McGill AeroHacks', 'ko': '1등 | McGill AeroHacks', 'fr': '1ʳᵉ Place | McGill AeroHacks'},
+            'event': {'en': 'McGill University', 'ko': '맥길 대학교', 'fr': 'Université McGill'},
+            'date': '2026. 03. 13. - 2026. 03. 15.',
+            'desc': {
+                'en': "<strong>Won McGill's first drone hackathon with 220+ participants</strong> using a pocket-sized ESP32-powered drone and two webcams.",
+                'ko': '포켓 사이즈 ESP32 드론과 두 대의 웹캠을 사용하여 <strong>220명 이상이 참가한 McGill 최초의 드론 해커톤에서 우승</strong>했습니다.',
+                'fr': "<strong>Remporté le premier hackathon de drones de McGill avec plus de 220 participants</strong> en utilisant un drone de poche propulsé par un ESP32 et deux webcams."
+            },
+            'color': '#D4AF37',
+            'category': 'software hardware canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Award', 'ko': '상장 보기', 'fr': 'Voir le Prix'},
+                    'url': '/static/AeroHacks.pdf/',
+                    'icon': 'fa-solid fa-award'
+                },
+                {
+                    'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                    'url': 'https://devpost.com/software/the-ganders',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
+        },
+        {
+            'title': {'en': '3rd Place | Beginner Track at @HACK', 'ko': '3등 | 초보 부문 @HACK', 'fr': '3ᵉ Place | Piste Débutant à @HACK'},
+            'event': {'en': 'Concordia University', 'ko': '콩코디아 대학교', 'fr': 'Université Concordia'},
+            'date': '2026. 03. 07. - 2026. 03. 08.',
+            'desc': {
+                'en': 'Competed in my first-ever Cybersecurity CTF hackathon, placing 9th overall <strong>out of 120 teams</strong> and 3rd in the beginner track out of 87 teams. Scored 4,100 points and won an $800 cash prize.',
+                'ko': '저의 첫 사이버보안 CTF 해커톤에 참가해 <strong>120개 팀 중</strong> 종합 9위, 초보 부문 87개 팀 중 3위를 차지했습니다. 4,100점을 획득하고 800달러의 상금을 받았습니다.',
+                'fr': "Participation à mon tout premier hackathon CTF en cybersécurité : classé 9ᵉ au général <strong>sur 120 équipes</strong> et 3ᵉ dans la piste débutant sur 87 équipes. 4 100 points et un prix en argent de 800 $."
+            },
+            'color': '#D4AF37',
+            'category': 'software hardware canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View the Progression Chart', 'ko': '점수 변동 차트 보기', 'fr': 'Voir le Graphique de Progression'},
+                    'url': '/static/Progression_Concordia.png',
+                    'icon': 'fa-solid fa-chart-line'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Participated | GameJam de la FSÉ', 'ko': '참가 | GameJam de la FSÉ', 'fr': 'Participation | GameJam de la FSÉ'},
+            'event': {'en': 'University of Montreal', 'ko': '몬트리올 대학교', 'fr': 'Université de Montréal'},
+            'date': '2026. 02. 27. - 2026. 03. 01.',
+            'desc': {
+                'en': 'Participated in a French GameJam and made DeckMot, a card game to help users learn French in a fun way using Unity and C#.',
+                'ko': '프랑스어 GameJam에 참가해 Unity와 C#으로 프랑스어를 재미있게 배울 수 있는 카드 게임 DeckMot을 만들었습니다.',
+                'fr': "Participation à un GameJam francophone où j'ai créé DeckMot, un jeu de cartes pour aider les utilisateurs à apprendre le français de manière ludique avec Unity et C#."
+            },
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on Itch.io', 'ko': 'Itch.io에서 프로젝트 보기', 'fr': 'Voir le Projet sur Itch.io'},
+                    'url': 'https://itch.io/jam/hackathon-pedagogique-udem-2026/rate/4338079',
+                    'icon': 'fa-solid fa-code-branch'
+                },
+                {
+                    'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
+                    'url': '/static/DeckMotCertificate.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Best New Genre | Dialogue Internal Hackathon', 'ko': '최우수 신규 부문상 | Dialogue 사내 해커톤', 'fr': 'Meilleure nouvelle catégorie | Hackathon interne Dialogue'},
+            'event': 'Dialogue Health Technologies Inc',
+            'date': '2026. 02. 12. - 2026. 02. 13.',
+            'desc': {
+                'en': 'Got invited to their internal hackathon and integrated a skin analysis feature into the Dialogue application, enabling users to receive automated health assessments using Skinive API.',
+                'ko': 'Dialogue의 사내 해커톤에 초청받아, Skinive API를 활용해 Dialogue 앱에 피부 분석 기능을 통합하여 사용자가 자동 건강 평가를 받을 수 있도록 했습니다.',
+                'fr': "Invité à leur hackathon interne, j'ai intégré une fonctionnalité d'analyse de la peau à l'application Dialogue, permettant aux utilisateurs d'obtenir des évaluations de santé automatisées via l'API Skinive."
+            },
+            'color': '#D4AF37',
+            'category': 'software health canada stem'
+        },
+        {
+            'title': {'en': '2nd Place | Dialogue Track at ConUHacks', 'ko': '2등 | Dialogue 부문 ConUHacks', 'fr': '2ᵉ Place | Piste Dialogue à ConUHacks'},
+            'event': {'en': 'Concordia University', 'ko': '콩코디아 대학교', 'fr': 'Université Concordia'},
+            'date': '2026. 01. 24. - 2026. 01. 25.',
+            'desc': {
+                'en': "Competed in <strong>Quebec's largest and Canada's second-largest</strong> student-run hackathon with over <strong>900 participants</strong> and developed Dr. Bob, an AI medical assistant using Python and Gemini API for symptom analysis and a chatbot system. Integrated Leaflet.js and Geolocation APIs to provide real-time location tracking, enabling users to instantly find the nearest clinics.",
+                'ko': '<strong>900명 이상</strong>이 참가한 <strong>퀘벡 최대, 캐나다 2위 규모</strong>의 학생 주최 해커톤에서 Python과 Gemini API를 활용해 증상 분석과 챗봇 기능을 갖춘 AI 의료 어시스턴트 Dr. Bob을 개발했습니다. Leaflet.js와 Geolocation API를 연동해 실시간 위치 추적을 구현, 사용자가 가까운 병원을 즉시 찾을 수 있도록 했습니다.',
+                'fr': "Participation au <strong>plus grand hackathon étudiant du Québec et au deuxième en importance au Canada</strong>, avec plus de <strong>900 participants</strong>. J'y ai développé Dr. Bob, un assistant médical IA utilisant Python et l'API Gemini pour l'analyse de symptômes et un système de chatbot. J'ai intégré Leaflet.js et les API de géolocalisation pour offrir un suivi en temps réel, permettant aux utilisateurs de trouver instantanément les cliniques les plus proches."
+            },
+            'color': '#D4AF37',
+            'category': 'software health canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
+                    'url': 'https://devpost.com/software/dr-bob',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Best Use of Gemini API | HackDécouverte', 'ko': 'Gemini API 최우수 활용상 | HackDécouverte', 'fr': "Meilleure utilisation de l'API Gemini | HackDécouverte"},
+            'event': {'en': 'Concordia University', 'ko': '콩코디아 대학교', 'fr': 'Université Concordia'},
+            'date': '2025. 11. 29.',
+            'desc': {
+                'en': "Competed in Concordia's first pre-university hackathon. Developed BudgetX, an AI budeting website using Next.js, Gemini API and others.",
+                'ko': 'Concordia의 첫 대입 학생 전용 해커톤에 참가해 Next.js, Gemini API 등을 활용한 AI 가계부 웹사이트 BudgetX를 개발했습니다.',
+                'fr': "Participation au tout premier hackathon pré-universitaire de Concordia. Développé BudgetX, un site web de budget IA utilisant Next.js, l'API Gemini et d'autres outils."
+            },
+            'color': '#D4AF37',
+            'category': 'software canada stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Project on MentorMates', 'ko': 'MentorMates에서 프로젝트 보기', 'fr': 'Voir le Projet sur MentorMates'},
+                    'url': 'https://www.mentormates.ai/projects/public/8191e37d-b814-48a1-8389-6616ec1491bd',
+                    'icon': 'fa-solid fa-code-branch'
+                }
+            ]
+        },
+        {
+            'title': {'en': '2nd Place | Dawson Robotics Hackathon 2025', 'ko': '2등 | Dawson Robotics Hackathon 2025', 'fr': '2ᵉ Place | Dawson Robotics Hackathon 2025'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2025. 05. 09.',
+            'desc': {
+                'en': 'Built and programmed autonomous black line following robotic system and IR remoted control functionality using C++ and the Arduino framework.',
+                'ko': 'C++과 Arduino 프레임워크를 사용해 IR 리모컨 제어 기능을 갖춘 자율 검정선 추적 로봇 시스템을 제작하고 프로그래밍했습니다.',
+                'fr': "Construit et programmé un système robotique autonome de suivi de ligne noire avec contrôle par télécommande IR, en utilisant C++ et le framework Arduino."
+            },
+            'color': '#D4AF37',
+            'category': 'software hardware canada stem'
+        },
+        {
+            'title': {'en': 'Participated | Dawson Science On Tourne', 'ko': '참가 | Dawson Science On Tourne', 'fr': 'Participation | Dawson Science On Tourne'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2025. 04. 04.',
+            'desc': {
+                'en': 'Designed a drone using 3D printers.',
+                'ko': '3D 프린터를 활용해 드론을 설계했습니다.',
+                'fr': "Conception d'un drone à l'aide d'imprimantes 3D."
+            },
+            'category': 'software hardware canada stem'
+        },
+        {
+            'title': {'en': 'School Champion | Waterloo Cayley Math Contest', 'ko': '교내 1위 | Waterloo Cayley Math Contest', 'fr': "Champion de l'école | Waterloo Cayley Math Contest"},
+            'event': {'en': 'International', 'ko': '국제 대회', 'fr': 'International'},
+            'date': '2022. 02. 22.',
+            'desc': {
+                'en': 'Top 25% worldwide and school champion.',
+                'ko': '전 세계 상위 25%, 교내 1위.',
+                'fr': "Top 25 % mondial et champion de l'école."
+            },
+            'color': '#D4AF37',
+            'category': 'math academic canada stem'
+        },
+        {
+            'title': {'en': 'Excellence in Mathematics | The Ultimate Math League', 'ko': '수학 우수상 | The Ultimate Math League', 'fr': 'Excellence en mathématiques | The Ultimate Math League'},
+            'event': {'en': 'English Montreal School Board', 'ko': 'English Montreal School Board', 'fr': 'Commission scolaire English-Montréal'},
+            'date': '2019',
+            'desc': {
+                'en': 'Selected as a school representative and awarded for achieving a top-tier score in a board-wide competitive mathematics league. Recognized for elite problem-solving and analytical reasoning among selected representatives from schools across the English Montreal School Board (EMSB).',
+                'ko': '학교 대표로 선발되어 EMSB(English Montreal School Board) 전역의 학교 대표들이 참가한 수학 리그에서 최상위권 점수를 기록해 수상했습니다. 선발된 대표들 사이에서 뛰어난 문제 해결 능력과 분석적 사고력을 인정받았습니다.',
+                'fr': "Choisi comme représentant de l'école et récompensé pour avoir obtenu un score parmi les meilleurs dans une ligue de mathématiques à l'échelle de la commission scolaire. Reconnu pour son habileté élite en résolution de problèmes et en raisonnement analytique parmi les représentants sélectionnés des écoles de la Commission scolaire English-Montréal (EMSB)."
+            },
+            'color': '#D4AF37',
+            'category': 'math academic canada stem'
+        },
+        {
+            'title': {'en': "Honorable Mention | 'Bright Society' Creative Writing Contest", 'ko': "입선 | 밝은 사회를 위한 글짓기 대회", 'fr': "Mention honorable | Concours d'écriture créative « Bright Society »"},
+            'event': {'en': 'Ministry of Justice of the Republic of Korea', 'ko': '대한민국 법무부', 'fr': 'Ministère de la Justice de la République de Corée'},
+            'date': '2016. 07. 07.',
+            'desc': {
+                'en': 'Recognized by the Ministry of Justice for an essay on social ethics and civic values, demonstrating strong communication skills and a deep understanding of community justice.',
+                'ko': '사회 윤리와 시민적 가치에 관한 글로 법무부로부터 표창을 받았으며, 뛰어난 소통 능력과 공동체 정의에 대한 깊은 이해를 인정받았습니다.',
+                'fr': "Reconnu par le ministère de la Justice pour un essai sur l'éthique sociale et les valeurs civiques, démontrant de solides compétences en communication et une compréhension approfondie de la justice communautaire."
+            },
+            'color': '#D4AF37',
+            'category': 'arts'
+        },
+        {
+            'title': {'en': 'National Honors | National HME Math Contest', 'ko': '전국 우수상 | HME 수학경시대회', 'fr': 'Mention nationale | Concours national HME de mathématiques'},
+            'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
+            'date': '2016. 06. 08.',
+            'desc': {
+                'en': 'Recognized for outstanding mathematical logic and problem-solving skills at a national level.',
+                'ko': '전국 단위 대회에서 뛰어난 수리 논리와 문제 해결 능력을 인정받아 수상했습니다.',
+                'fr': "Reconnu pour une logique mathématique et des compétences de résolution de problèmes exceptionnelles à l'échelle nationale."
+            },
+            'color': '#D4AF37',
+            'category': 'math academic stem'
+        },
+        {
+            'title': {'en': 'Special Merit Award | Sekwang Student Piano Competition', 'ko': '학년준차상 | 세광 학생피아노 경연대회', 'fr': 'Mention spéciale | Concours de piano étudiant Sekwang'},
+            'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
+            'date': '2015. 11. 28.',
+            'desc': {
+                'en': 'Recognized for exceptional musical interpretation and technical proficiency at a national piano competition.',
+                'ko': '전국 피아노 경연대회에서 뛰어난 음악적 해석과 기교를 인정받아 수상했습니다.',
+                'fr': "Reconnu pour une interprétation musicale et une maîtrise technique exceptionnelles lors d'un concours national de piano."
+            },
+            'color': '#D4AF37',
+            'category': 'arts'
+        },
+        {
+            'title': {'en': 'National 1st Place | National HME Math Contest', 'ko': '전국 1위 | HME 수학경시대회', 'fr': '1ʳᵉ Place nationale | Concours national HME de mathématiques'},
+            'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
+            'date': '2014. 05. 24.',
+            'desc': {
+                'en': 'Top 1% in South Korea with a perfect score.',
+                'ko': '만점으로 한국 상위 1%를 기록했습니다.',
+                'fr': 'Top 1 % en Corée du Sud avec une note parfaite.'
+            },
+            'color': '#D4AF37',
+            'category': 'math academic stem'
+        },
+        {
+            'title': {'en': '3rd Place | Dental Health Awareness Art Contest', 'ko': '3등 | 치아 사랑 사생대회', 'fr': "3ᵉ Place | Concours d'art sur la sensibilisation à la santé dentaire"},
+            'event': {'en': 'Gwangju Dental Association', 'ko': '광주광역시치과의사회', 'fr': 'Association dentaire de Gwangju'},
+            'date': '2013. 06. 11.',
+            'desc': {
+                'en': 'Awarded for creative work in the "Oral Health Awareness" category.',
+                'ko': '"구강 건강 인식" 부문에서 창의적인 작품으로 수상했습니다.',
+                'fr': "Récompensé pour un travail créatif dans la catégorie « Sensibilisation à la santé buccodentaire »."
+            },
+            'color': '#D4AF37',
+            'category': 'health arts'
+        },
+        {
+            'title': {'en': "Special Merit Award | International Children's Art Grand Exhibition", 'ko': '특선상 | 국제 아동미술대제전', 'fr': "Mention spéciale | Grande exposition internationale d'art pour enfants"},
+            'event': {'en': 'International Culture and Art Education Association', 'ko': '국제 문화예술교육회', 'fr': "Association internationale d'éducation culturelle et artistique"},
+            'date': '2011. 07. 04.',
+            'desc': {
+                'en': 'Awarded for exceptional creative vision.',
+                'ko': '뛰어난 창의적 시각을 인정받아 수상했습니다.',
+                'fr': 'Récompensé pour une vision créative exceptionnelle.'
+            },
+            'color': '#D4AF37',
+            'category': 'arts'
+        },
+        {
+            'title': {'en': "1st Place | 10th Children's Day Art Competition", 'ko': '1등 | 제10회 어린이날 그림대회', 'fr': "1ʳᵉ Place | 10ᵉ concours d'art de la Fête des enfants"},
+            'event': {'en': 'Kwangju Bank', 'ko': '광주은행', 'fr': 'Banque Kwangju'},
+            'date': '2011. 05. 27.',
+            'desc': {
+                'en': 'Awarded the highest honor for exceptional creative expression among preschool participants.',
+                'ko': '미취학 아동 참가자 중 뛰어난 창의적 표현으로 최우수상을 받았습니다.',
+                'fr': "Récompensé du plus grand honneur pour une expression créative exceptionnelle parmi les participants d'âge préscolaire."
+            },
+            'color': '#D4AF37',
+            'category': 'arts'
+        }
+    ]
 
-    return render_template('achievements.html', competitions=ACHIEVEMENT_COMPETITIONS, certificates=ACHIEVEMENT_CERTIFICATES)
+    certificates = [
+        {
+            'title': {'en': 'Campus Life Leadership Award', 'ko': '리더십 상', 'fr': 'Prix de leadership'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2026. 06. 23.',
+            'desc': {
+                'en': 'This prestigious graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to student life and the campus community throughout their time at Dawson College.',
+                'ko': 'Dawson College 졸업생 전체 중 단 한 명에게만 수여되는 영예로운 상으로, 재학 기간 동안 탁월한 리더십을 발휘하여 학생 커뮤니티와 캠퍼스 생활 발전에 가장 크게 기여한 학생에게 주어집니다.',
+                'fr': "Ce prix de fin d'études prestigieux est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
+            },
+            'color': '#D4AF37',
+            'category': 'canada'
+        },
+        {
+            'title': {'en': 'SPACE Certificate', 'ko': 'SPACE 수료증', 'fr': 'SPACE Certificate'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2026. 05. 31.',
+            'desc': {
+                'en': 'The SPACE Certificate recognizes students for excellence in multidisciplinary projects that integrate science, technology, and the arts in Dawson College.',
+                'ko': 'SPACE Certificate는 Dawson College에서 과학, 기술, 예술을 통합한 다학제 프로젝트에서 우수성을 보인 학생들을 인증하는 자격입니다.',
+                'fr': "Le SPACE Certificate reconnaît les étudiants pour leur excellence dans des projets multidisciplinaires qui intègrent la science, la technologie et les arts au Collège Dawson."
+            },
+            'category': 'software hardware canada stem math arts'
+        },
+        {
+            'title': {'en': 'Volunteered more than 100 hours', 'ko': '봉사 시간 100시간 이상 달성', 'fr': 'Plus de 100 heures de bénévolat'},
+            'event': {'en': 'Montreal', 'ko': '몬트리올', 'fr': 'Montréal'},
+            'date': {'en': 'Ongoing', 'ko': '진행 중', 'fr': 'En cours'},
+            'desc': {
+                'en': '100+ hours of certified community service, demonstrating long-term civic commitment and leadership through various volunteer initiatives.',
+                'ko': '다양한 자원봉사 활동을 통해 시민적 책임과 리더십을 꾸준히 보여준 100시간 이상의 공인 지역사회 봉사활동을 하였습니다.',
+                'fr': "Plus de 100 heures de service communautaire certifié, témoignant d'un engagement civique et d'un leadership à long terme à travers diverses initiatives bénévoles."
+            },
+            'color': '#D4AF37',
+            'category': 'canada job'
+        },
+        {
+            'title': {'en': 'Recognition of Student Involvement', 'ko': '학생 활동 인증', 'fr': "Reconnaissance de l'engagement étudiant"},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': {'en': 'Winter 2026', 'ko': '2026년 겨울학기', 'fr': 'Hiver 2026'},
+            'desc': {
+                'en': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester (winter 2026).',
+                'ko': '2026년 겨울학기 한 학기 동안 적극적인 리더십과 지원을 통해 Dawson College 커뮤니티에 60시간 이상 기여했습니다.',
+                'fr': "Plus de 60 heures de contribution à la communauté du Collège Dawson grâce à un leadership actif et un soutien lors d'une session (Hiver 2026)."
+            },
+            'category': 'canada'
+        },
+        {
+            'title': {'en': 'Recognition of Student Involvement', 'ko': '학생 활동 인증', 'fr': "Reconnaissance de l'engagement étudiant"},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': {'en': 'Fall 2025', 'ko': '2025년 가을학기', 'fr': 'Automne 2025'},
+            'desc': {
+                'en': '60+ hours of contribution to the Dawson College community through active leadership and support in one semester (fall 2025).',
+                'ko': '2025년 가을학기 한 학기 동안 적극적인 리더십과 지원을 통해 Dawson College 커뮤니티에 60시간 이상 기여했습니다.',
+                'fr': "Plus de 60 heures de contribution à la communauté du Collège Dawson grâce à un leadership actif et un soutien lors d'une session (Automne 2025)."
+            },
+            'category': 'canada'
+        },
+        {
+            'title': {'en': 'Be There Certificate', 'ko': 'Be There Certificate', 'fr': 'Be There Certificate'},
+            'event': {'en': 'Online', 'ko': '온라인', 'fr': 'En ligne'},
+            'date': '2025. 08. 02.',
+            'desc': {
+                'en': 'Completed comprehensive mental health support training to better assist people in distress.',
+                'ko': '어려움을 겪는 사람들을 더 잘 돕기 위한 포괄적인 정신 건강 지원 훈련을 수료했습니다.',
+                'fr': "Formation complète en soutien en santé mentale, afin de mieux aider les personnes en détresse."
+            },
+            'category': 'health stem',
+            'external_links': [
+                {
+                    'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
+                    'url': '/static/BeThereCertificate.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Engineering Intern', 'ko': '엔지니어링 인턴', 'fr': 'Stagiaire en ingénierie'},
+            'event': {'en': 'GIO Engineering', 'ko': '지오 엔지니어링'},
+            'date': {'en': 'June 2025 - August 2025', 'ko': '2025년 6월 - 2025년 8월', 'fr': 'Juin 2025 - Août 2025'},
+            'desc': {
+                'en': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
+                'ko': '건축 프로젝트에 맞춘 CAD 파일을 개발하여, 설계 및 시공 단계의 기본 도면으로 활용될 수 있도록 했습니다.',
+                'fr': "Développement de fichiers CAO adaptés aux projets architecturaux, pouvant servir de plans de base pour les phases de conception et de construction."
+            },
+            'category': 'stem math software job'
+        },
+        {
+            'title': {'en': "Dean's List", 'ko': '학장 명단', 'fr': "Liste d'honneur du doyen"},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': {'en': 'Fall 2024', 'ko': '2024년 가을학기', 'fr': 'Automne 2024'},
+            'desc': {
+                'en': 'Achieved an academic average above 85% with a full course load and no failed components.',
+                'ko': '전체 과목을 이수하면서도 낙제 없이 평균 85% 이상의 성적을 달성했습니다.',
+                'fr': "Moyenne académique supérieure à 85 % avec une charge de cours complète et sans aucun échec."
+            },
+            'color': '#D4AF37',
+            'category': 'academic canada'
+        },
+        {
+            'title': {'en': 'Recognition of Volunteerism from the Dean', 'ko': '학장 자원봉사 표창', 'fr': 'Reconnaissance du doyen pour le bénévolat'},
+            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
+            'date': '2024. 10. 20.',
+            'desc': {
+                'en': "Volunteered for Dawson's science open house event.",
+                'ko': 'Dawson의 과학 오픈하우스 행사에 자원봉사로 참여했습니다.',
+                'fr': "Bénévole lors de la journée portes ouvertes en sciences de Dawson."
+            },
+            'category': 'canada',
+            'external_links': [
+                {
+                    'name': {'en': 'View Proof', 'ko': '증빙 보기', 'fr': 'Voir la Preuve'},
+                    'url': '/static/Volunteerism.pdf',
+                    'icon': 'fa-solid fa-file-pdf'
+                }
+            ]
+        },
+        {
+            'title': {'en': 'Peer Tutoring', 'ko': '동료 학생 과외', 'fr': 'Tutorat par les pairs'},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': {'en': 'February 2024 - June 2024', 'ko': '2024년 2월 - 2024년 6월', 'fr': 'Février 2024 - Juin 2024'},
+            'desc': {
+                'en': 'Tutored math and science to peers.',
+                'ko': '동료 학생들에게 수학과 과학을 가르쳤습니다.',
+                'fr': 'Tutorat en mathématiques et en sciences auprès de camarades de classe.'
+            },
+            'category': 'canada stem math job'
+        },
+        {
+            'title': {'en': 'Music achievement Award', 'ko': '음악 성취상', 'fr': 'Prix de réussite musicale'},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': '2023',
+            'desc': {
+                'en': 'Won a high school music award (trumpet).',
+                'ko': '고등학교 음악상(트럼펫)을 수상했습니다.',
+                'fr': 'Lauréat d\'un prix de musique au secondaire (trompette).'
+            },
+            'color': '#D4AF37',
+            'category': 'canada arts'
+
+        },
+        {
+            'title': {'en': 'Musician Award', 'ko': '음악인상', 'fr': 'Prix du musicien'},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': '2022',
+            'desc': {
+                'en': 'Won a high school music award (trumpet).',
+                'ko': '고등학교 음악상(트럼펫)을 수상했습니다.',
+                'fr': 'Lauréat d\'un prix de musique au secondaire (trompette).'
+            },
+            'color': '#D4AF37',
+            'category': 'canada arts'
+
+        },
+        {
+            'title': {'en': 'Junior Jazz Band', 'ko': '주니어 재즈 밴드', 'fr': 'Harmonie jazz junior'},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': {'en': 'Fall 2021 - Winter 2022', 'ko': '2021년 가을 - 2022년 겨울', 'fr': 'Automne 2021 - Hiver 2022'},
+            'desc': {
+                'en': 'Part of the junior jazz band and played the trumpet.',
+                'ko': '주니어 재즈 밴드에 소속되어 트럼펫을 연주했습니다.',
+                'fr': "Membre de l'harmonie jazz junior, à la trompette."
+            },
+            'category': 'canada arts'
+
+        },
+        {
+            'title': {'en': 'Art-Études Program', 'ko': '예술 및 스터디 프로그램', 'fr': 'Programme Arts-Études'},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': {'en': 'Fall 2019 - Winter 2024', 'ko': '2019년 가을 - 2024년 겨울', 'fr': 'Automne 2019 - Hiver 2024'},
+            'desc': {
+                'en': 'The Art-Études program is a specialized Quebec academic stream that compresses the standard curriculum into half-days to allow for intensive, professional-level training in the fine arts. It is designed for high-achieving students who possess the discipline to maintain top grades while dedicating significant daily hours to creative mastery and technical studio work.',
+                'ko': 'Art-Études(예술 및 스터디) 프로그램은 일반 교과 과정을 반나절로 압축해 미술 분야의 집중적이고 전문가 수준의 훈련을 가능하게 하는 퀘벡의 특화된 학업 과정입니다. 매일 상당한 시간을 창작과 스튜디오 작업에 쏟으면서도 최상위 성적을 유지할 수 있는 자기 관리 능력을 갖춘 우수 학생들을 위한 프로그램입니다.',
+                'fr': "Le programme Arts-Études est une filière scolaire québécoise spécialisée qui compresse le curriculum standard en demi-journées afin de permettre une formation intensive de niveau professionnel en beaux-arts. Il s'adresse aux élèves performants ayant la discipline nécessaire pour maintenir des notes élevées tout en consacrant chaque jour de longues heures à la maîtrise créative et au travail technique en studio."
+            },
+            'category': 'arts canada'
+        },
+        {
+            'title': {'en': 'High honor or honor roll', 'ko': '최우수/명예 학생 명단', 'fr': "Tableau d'honneur supérieur ou tableau d'honneur"},
+            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+            'date': {'en': 'Fall 2019 - Winter 2024', 'ko': '2019년 가을 - 2024년 겨울', 'fr': 'Automne 2019 - Hiver 2024'},
+            'desc': {
+                'en': 'High honor or honor roll in high school <strong>every semester</strong>, demonstrating a high performance academically.',
+                'ko': '고등학교 <strong>모든 학기</strong>에서 최우수 또는 명예 학생 명단에 올라 뛰어난 학업 성과를 보여주었습니다.',
+                'fr': "Inscrit au tableau d'honneur supérieur ou au tableau d'honneur <strong>chaque session</strong> du secondaire, témoignant d'une performance académique élevée."
+            },
+            'color': '#D4AF37',
+            'category': 'academic canada'
+        }
+    ]
+    return render_template('achievements.html', competitions=competitions, certificates=certificates)
 
 @app.route('/project/<int:project_id>')
 def project_detail(project_id):

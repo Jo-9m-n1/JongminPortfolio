@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         achievement: {
             'All': {
                 labels: [window.T?.chart_grade || 'Academic', window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-                data: [16, 7, 4, 3, 1, 7],
+                data: [16, 7, 4, 3, 1, 8],
                 colors: ['#ec4899', '#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Academic': {
@@ -368,8 +368,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#f97316'] 
             },
             'Other': {
-                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music'],
-                data: [4, 3],
+                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music', window.T?.chart_leadership || 'Leadership'],
+                data: [4, 3, 1],
                 colors: ['#747c86', '#a1a8af', '#dce1e6'] 
             }
         },
@@ -1535,7 +1535,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="trophy-content">
                 <button class="close-btn">✕</button>
                 <h2 class="trophy-title">${title}</h2>
-                <p class="trophy-subtitle">18+ ${subtitle}</p>
+                <p class="trophy-subtitle">${subtitle}</p>
                 <div class="shelf-grid">
                     ${currentTrophies.map(t => `
                         <div class="trophy-item">
