@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from datetime import datetime
 sys.path.append(str(Path(__file__).parent.parent))
 
 from flask import Flask, render_template, request, redirect, make_response
@@ -44,6 +45,7 @@ TRANSLATIONS = {
         'section_highlights': 'Highlights',
         'section_about_me': 'About Me',
         'section_education': 'Education',
+        'section_experience': 'Experience',
 
         'scale_global': 'GLOBAL SCALE',
         'scale_national': 'NATIONAL SCALE',
@@ -161,7 +163,7 @@ TRANSLATIONS = {
         'no_milestones_match': 'No milestones match these filters.',
         'try_different_combination': 'Try selecting a different combination of tags.',
         'section_competitions': 'Competitions',
-        'section_certificates': 'Certificates, Awards & Experience',
+        'section_certificates': 'Certificates & Awards',
         'view_courses': 'View Courses',
         'non_elective_courses': 'Non-elective courses',
         'semesters': 'Semesters',
@@ -194,6 +196,7 @@ TRANSLATIONS = {
         'section_highlights': '주요 성과',
         'section_about_me': '소개',
         'section_education': '학력',
+        'section_experience': '경력',
 
         'scale_global': '국제 규모',
         'scale_national': '전국 규모',
@@ -328,7 +331,7 @@ TRANSLATIONS = {
         'no_milestones_match': '조건에 맞는 성과가 없습니다.',
         'try_different_combination': '다른 태그 조합을 선택해 보세요.',
         'section_competitions': '대회',
-        'section_certificates': '자격증, 수료증 및 경력',
+        'section_certificates': '자격증 및 수료증',
         'view_courses': '과목 보기',
         'non_elective_courses': '필수 과목',
         'semesters': '학기',
@@ -360,6 +363,7 @@ TRANSLATIONS = {
         'section_highlights': 'Faits saillants',
         'section_about_me': 'À propos',
         'section_education': 'Formation',
+        'section_experience': 'Expérience',
 
         'scale_global': 'ÉCHELLE MONDIALE',
         'scale_national': 'ÉCHELLE NATIONALE',
@@ -492,7 +496,7 @@ TRANSLATIONS = {
         'no_milestones_match': 'Aucun jalon ne correspond à ces filtres.',
         'try_different_combination': "Essayez une autre combinaison d'étiquettes.",
         'section_competitions': 'Compétitions',
-        'section_certificates': 'Certificats, prix et expériences',
+        'section_certificates': 'Certificats et prix',
         'view_courses': 'Voir les cours',
         'non_elective_courses': 'Cours non optionnels',
         'semesters': 'Semestres',
@@ -522,7 +526,8 @@ def inject_lang():
         'lang': lang,
         'LANGUAGES': LANGUAGES,
         'theme': current_theme(),
-        'stats': PORTFOLIO_STATS
+        'stats': PORTFOLIO_STATS,
+        'experiences': get_processed_experiences()
     }
 
 app.jinja_env.filters['tr'] = tr
@@ -545,6 +550,148 @@ def set_language(lang):
         httponly=False,
     )
     return response
+
+EXPERIENCES = [
+    {
+        'company': {'en': 'GIO Engineering', 'ko': '지오 엔지니어링', 'fr': 'GIO Engineering'},
+        'roles': [
+            {
+                'title': {'en': 'Engineering Intern', 'ko': '엔지니어링 인턴', 'fr': 'Stagiaire en ingénierie'},
+                'start_date': (2025, 6),
+                'end_date': (2025, 8),
+                'description': {
+                    'en': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
+                    'ko': '건축 프로젝트를 위한 CAD 파일을 개발했으며, 이는 설계 및 건설 단계를 위한 기초 청사진 역할을 합니다.',
+                },
+            }
+        ]
+    },
+    {
+        'company': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
+        'roles': [
+            {
+                'title': {'en': 'Peer Tutor', 'ko': '교내 과외 선생님', 'fr': 'Tuteur scolaire'},
+                'start_date': (2024, 2),
+                'end_date': (2024, 6),
+                'description': {
+                    'en': 'Provided academic support in mathematics and science to fellow students, helping them improve their understanding and performance.',
+                    'ko': '도움이 필요한 동료 학생들에게 수학과 과학을 가르쳤습니다.',
+                },
+            }
+        ]
+    }
+]
+
+MONTHS = {
+    'en': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    'ko': ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    'fr': ['Janv', 'Févr', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc']
+}
+
+def format_duration(start_year, start_month, end_year, end_month):
+    total_months = (end_year - start_year) * 12 + (end_month - start_month) + 1
+    years = total_months // 12
+    months = total_months % 12
+    
+    res = {'en': '', 'ko': '', 'fr': ''}
+    
+    if years > 0:
+        res['en'] += f"{years} yr{'s' if years > 1 else ''}"
+        res['ko'] += f"{years}년"
+        res['fr'] += f"{years} an{'s' if years > 1 else ''}"
+    if months > 0:
+        if years > 0:
+            res['en'] += " "
+            res['ko'] += " "
+            res['fr'] += " "
+        res['en'] += f"{months} mo{'s' if months > 1 else ''}"
+        res['ko'] += f"{months}개월"
+        res['fr'] += f"{months} mois"
+        
+    if years == 0 and months == 0:
+        res = {'en': '0 mos', 'ko': '0개월', 'fr': '0 mois'}
+    
+    return res
+
+def format_date_str(start_year, start_month, end_year, end_month, is_present=False, show_duration=True):
+    s_m_en = MONTHS['en'][start_month - 1]
+    s_m_ko = MONTHS['ko'][start_month - 1]
+    s_m_fr = MONTHS['fr'][start_month - 1]
+    
+    if is_present:
+        e_en = "Present"
+        e_ko = "현재"
+        e_fr = "Présent"
+    else:
+        e_en = f"{MONTHS['en'][end_month - 1]} {end_year}"
+        e_ko = f"{end_year}년 {MONTHS['ko'][end_month - 1]}"
+        e_fr = f"{MONTHS['fr'][end_month - 1]} {end_year}"
+        
+    dur_str_en = ""
+    dur_str_ko = ""
+    dur_str_fr = ""
+    
+    if show_duration:
+        dur = format_duration(start_year, start_month, end_year, end_month)
+        dur_str_en = f" · {dur['en']}"
+        dur_str_ko = f" · {dur['ko']}"
+        dur_str_fr = f" · {dur['fr']}"
+    
+    return {
+        'en': f"{s_m_en} {start_year} - {e_en}{dur_str_en}",
+        'ko': f"{start_year}년 {s_m_ko} - {e_ko}{dur_str_ko}",
+        'fr': f"{s_m_fr} {start_year} - {e_fr}{dur_str_fr}"
+    }
+
+def get_processed_experiences():
+    now = datetime.now()
+    curr_year = now.year
+    curr_month = now.month
+    
+    processed = []
+    for exp in EXPERIENCES:
+        earliest_start = (9999, 12)
+        latest_end = (0, 1)
+        is_current_company = False
+        
+        show_dur = len(exp['roles']) > 1
+        proc_roles = []
+        for role in exp['roles']:
+            sy, sm = role['start_date']
+            
+            is_present_tuple = isinstance(role['end_date'], tuple) and len(role['end_date']) == 2 and str(role['end_date'][1]).lower() == 'present'
+            if role['end_date'] is None or role['end_date'] == 'present' or is_present_tuple:
+                ey, em = curr_year, curr_month
+                is_present = True
+                is_current_company = True
+            else:
+                ey, em = role['end_date']
+                is_present = False
+            
+            if (sy, sm) < earliest_start:
+                earliest_start = (sy, sm)
+                
+            if is_present or (ey, em) > latest_end:
+                if not is_current_company or is_present: 
+                    latest_end = (ey, em)
+            
+            date_str = format_date_str(sy, sm, ey, em, is_present, show_dur)
+            
+            proc_roles.append({
+                'title': role['title'],
+                'date': date_str,
+                'description': role['description']
+            })
+            
+        comp_dur = format_duration(earliest_start[0], earliest_start[1], latest_end[0], latest_end[1])
+        
+        processed.append({
+            'company': exp['company'],
+            'duration': comp_dur,
+            'roles': proc_roles
+        })
+        
+    return processed
 
 PROJECTS = [
     {
@@ -1409,9 +1556,9 @@ def achievements():
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
             'date': '2026. 06. 23.',
             'desc': {
-                'en': 'This prestigious graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to student life and the campus community throughout their time at Dawson College.',
-                'ko': 'Dawson College 졸업생 전체 중 단 한 명에게만 수여되는 영예로운 상으로, 재학 기간 동안 탁월한 리더십을 발휘하여 학생 커뮤니티와 캠퍼스 생활 발전에 가장 크게 기여한 학생에게 주어집니다.',
-                'fr': "Ce prix de fin d'études prestigieux est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
+                'en': 'This prestigious $750 graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to student life and the campus community throughout their time at Dawson College.',
+                'ko': 'Dawson College 졸업생 전체 중 단 한 명에게만 수여되는 750달러 상당의 영예로운 상으로, 재학 기간 동안 탁월한 리더십을 발휘하여 학생 커뮤니티와 캠퍼스 생활 발전에 가장 크게 기여한 학생에게 주어집니다.',
+                'fr': "Ce prestigieux prix de fin d'études de 750 $ est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
             },
             'color': '#D4AF37',
             'category': 'canada'
@@ -1480,17 +1627,6 @@ def achievements():
             ]
         },
         {
-            'title': {'en': 'Engineering Intern', 'ko': '엔지니어링 인턴', 'fr': 'Stagiaire en ingénierie'},
-            'event': {'en': 'GIO Engineering', 'ko': '지오 엔지니어링'},
-            'date': {'en': 'June 2025 - August 2025', 'ko': '2025년 6월 - 2025년 8월', 'fr': 'Juin 2025 - Août 2025'},
-            'desc': {
-                'en': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
-                'ko': '건축 프로젝트에 맞춘 CAD 파일을 개발하여, 설계 및 시공 단계의 기본 도면으로 활용될 수 있도록 했습니다.',
-                'fr': "Développement de fichiers CAO adaptés aux projets architecturaux, pouvant servir de plans de base pour les phases de conception et de construction."
-            },
-            'category': 'stem math software job'
-        },
-        {
             'title': {'en': "Dean's List", 'ko': '학장 명단', 'fr': "Liste d'honneur du doyen"},
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
             'date': {'en': 'Fall 2024', 'ko': '2024년 가을학기', 'fr': 'Automne 2024'},
@@ -1519,17 +1655,6 @@ def achievements():
                     'icon': 'fa-solid fa-file-pdf'
                 }
             ]
-        },
-        {
-            'title': {'en': 'Peer Tutoring', 'ko': '동료 학생 과외', 'fr': 'Tutorat par les pairs'},
-            'event': {'en': 'Rosemount High School', 'ko': 'Rosemount 고등학교', 'fr': 'École secondaire Rosemount'},
-            'date': {'en': 'February 2024 - June 2024', 'ko': '2024년 2월 - 2024년 6월', 'fr': 'Février 2024 - Juin 2024'},
-            'desc': {
-                'en': 'Tutored math and science to peers.',
-                'ko': '동료 학생들에게 수학과 과학을 가르쳤습니다.',
-                'fr': 'Tutorat en mathématiques et en sciences auprès de camarades de classe.'
-            },
-            'category': 'canada stem math job'
         },
         {
             'title': {'en': 'Music achievement Award', 'ko': '음악 성취상', 'fr': 'Prix de réussite musicale'},

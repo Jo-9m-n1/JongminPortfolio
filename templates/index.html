@@ -242,6 +242,110 @@
                         </div>
                     </section>
 
+                    <div class="row gx-4 gy-5 mb-4">
+                        <div class="col-xl-6">
+                            <section id="experience" class="h-100 d-flex flex-column">
+                                <h3 class="h4 mb-3">
+                                    <i class="fa-solid fa-briefcase text-primary me-2"></i> {{ t.section_experience | default('Experience') }}
+                                </h3>
+                                <div class="d-flex flex-column gap-3 flex-grow-1">
+                                    {% for exp in experiences %}
+                                    <div class="timeline-card shadow-sm d-flex flex-column p-4 flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-start mb-4">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <h3 class="h5 fw-bold mb-0">{{ exp.company|tr }}</h3>
+                                                <span class="badge border shadow-sm">{{ exp.duration | tr }}</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="experience-roles position-relative flex-grow-1">
+                                            {% for role in exp.roles %}
+                                            <div class="role-item position-relative {% if not loop.last %}pb-4{% endif %}" style="padding-left: 24px; border-left: 2px solid var(--border-color);">
+                                                {% if 'Present' in role.date.en %}
+                                                <div style="position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background-color: var(--accent-color);"></div>
+                                                {% else %}
+                                                <div style="position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background-color: #cbd5e1;"></div>
+                                                {% endif %}
+                                                <h4 class="h6 fw-bold mb-1 text-dark">{{ role.title | tr }}</h4>
+                                                <div class="mb-2"><span class="badge border text-dark shadow-sm">{{ role.date | tr }}</span></div>
+                                                <p class="small text-muted mb-0">{{ role.description | tr }}</p>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div class="col-xl-6">
+                            <section id="education" class="h-100 d-flex flex-column">
+                                <h3 class="h4 mb-3">
+                                    <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
+                                </h3>
+                                <div class="d-flex flex-column gap-3 flex-grow-1">
+                                    <a href="{{ url_for('education', school='mcgill') }}" class="education-card-link text-decoration-none text-dark d-block flex-grow-1 d-flex flex-column">
+                                        <div class="timeline-card shadow-sm d-flex flex-column p-4 flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                                <div>
+                                                    <h3 class="h5 fw-bold mb-0" style="color: #ED1B2F;">{{ t.edu_mcgill_university|tr }}</h3>
+                                                    <span class="text-muted small">{{ t.edu_mcgill_years }}</span>
+                                                </div>
+                                                <span class="badge rounded-pill" style="background: #ED1B2F !important; color: white; font-size: 0.65rem;">{{ t.edu_expected }}</span>
+                                            </div>
+                                            <div class="mb-3 flex-grow-1">
+                                                <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_mcgill_degree }}</p>
+                                            </div>
+                                            <div class="mt-auto pt-3 text-end">
+                                                <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{{ url_for('education', school='dawson') }}" class="education-card-link text-decoration-none text-dark d-block flex-grow-1 d-flex flex-column">
+                                        <div class="timeline-card shadow-sm d-flex flex-column p-4 flex-grow-1">
+                                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                                <div>
+                                                    <h3 class="h5 fw-bold mb-0" style="color: #145CB1;">{{ t.edu_dawson_college|tr }}</h3>
+                                                    <span class="text-muted small">2024 - 2026</span>
+                                                </div>
+                                                <span class="badge rounded-pill" style="background: #145CB1 !important; color: white; font-size: 0.65rem;">{{ t.edu_graduated }}</span>
+                                            </div>
+                                            <div class="mb-3 flex-grow-1">
+                                                <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_dawson_degree }}</p>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge border text-dark shadow-sm">{{ t.edu_deans_list }}</span>
+                                                    <span class="badge border text-dark shadow-sm">{{ t.edu_space }}</span>
+                                                    <span class="badge border text-dark shadow-sm">{{ t.edu_recognition }}</span>
+                                                    <span class="badge border text-dark shadow-sm">{{ t.edu_leadership }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="mt-auto pt-3 text-end">
+                                                <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="timeline-card shadow-sm d-flex flex-column p-4 flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h3 class="h5 fw-bold mb-0" style="color: #741814;">{{ t.edu_rosemount_high_school|tr }}</h3>
+                                                <span class="text-muted small">2019 - 2024</span>
+                                            </div>
+                                            <span class="badge rounded-pill" style="background: #741814; color: white; font-size: 0.65rem;">{{ t.edu_graduated }}</span>
+                                        </div>
+                                        <div class="mb-3 flex-grow-1">
+                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_rosemount_degree }}</p>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_high_honor_roll }}</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_honor_roll }}</span>
+                                                <span class="badge border text-dark shadow-sm">{{ t.edu_art_etudes }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
                     <section id="highlights" class="py-4">
                         <div class="mb-4">
                             <h3 class="h4 mb-3">
@@ -396,78 +500,6 @@
                         </div>
                     </section>
 
-                    <section id="education" class="py-4">
-                        <div class="mb-4">
-                            <h3 class="h4 mb-3">
-                                <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
-                            </h3>
-                            <div class="row g-3">
-                                <div class="col-12 col-xl-4">
-                                    <a href="{{ url_for('education', school='mcgill') }}" class="education-card-link text-decoration-none text-dark d-block h-100">
-                                    <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h3 class="h5 fw-bold mb-0" style="color: #ED1B2F;">{{ t.edu_mcgill_university|tr }}</h3>
-                                                <span class="text-muted small">{{ t.edu_mcgill_years }}</span>
-                                            </div>
-                                            <span class="badge rounded-pill" style="background: #ED1B2F !important; color: white; font-size: 0.65rem;">{{ t.edu_expected }}</span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_mcgill_degree }}</p>
-                                        </div>
-                                        <div class="mt-auto pt-3 text-end">
-                                            <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-xl-4">
-                                    <a href="{{ url_for('education', school='dawson') }}" class="education-card-link text-decoration-none text-dark d-block h-100">
-                                    <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h3 class="h5 fw-bold mb-0" style="color: #145CB1;">{{ t.edu_dawson_college|tr }}</h3>
-                                                <span class="text-muted small">2024 - 2026</span>
-                                            </div>
-                                            <span class="badge rounded-pill" style="background: #145CB1 !important; color: white; font-size: 0.65rem;">{{ t.edu_graduated }}</span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_dawson_degree }}</p>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_deans_list }}</span>
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_space }}</span>
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_recognition }}</span>
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_leadership }}</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-auto pt-3 text-end">
-                                            <span class="small fw-bold text-primary">{{ t.view_courses | default('View Courses') }} <i class="fa-solid fa-chevron-right ms-1"></i></span>
-                                        </div>
-                                    </div>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-xl-4">
-                                    <div class="timeline-card shadow-sm h-100 d-flex flex-column p-4">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h3 class="h5 fw-bold mb-0" style="color: #741814;">{{ t.edu_rosemount_high_school|tr }}</h3>
-                                                <span class="text-muted small">2019 - 2024</span>
-                                            </div>
-                                            <span class="badge rounded-pill" style="background: #741814; color: white; font-size: 0.65rem;">{{ t.edu_graduated }}</span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <p class="fw-bold mb-1" style="font-size: 0.95rem;">{{ t.edu_rosemount_degree }}</p>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_high_honor_roll }}</span>
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_honor_roll }}</span>
-                                                <span class="badge border text-dark shadow-sm">{{ t.edu_art_etudes }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>   
-                    </section>
                 </div>
             </div>
         </section>

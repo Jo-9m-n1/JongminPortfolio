@@ -116,12 +116,12 @@
                             
                             <div class="mb-3">
                                 {% for tech_item in p.tech|tr %}
-                                <span class="badge bg-secondary-subtle text-secondary border rounded-1 me-1 mb-1" style="font-size: 0.7rem;">{{ tech_item }}</span>
+                                <span class="badge border text-dark shadow-sm">{{ tech_item }}</span>
                                 {% endfor %}
                             </div>
 
-                            <div class="mt-auto pt-2 text-end">
-                                <span class="small fw-bold text-primary" style="font-size: 0.8rem;">
+                            <div class="mt-auto pt-3 text-end">
+                                <span class="small fw-bold text-primary">
                                     {{ t.read_full_story }} <i class="fa-solid fa-chevron-right ms-1"></i>
                                 </span>
                             </div>

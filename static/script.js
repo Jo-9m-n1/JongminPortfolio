@@ -223,7 +223,7 @@ document.addEventListener('mouseup', () => {
 
 const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
-    const duration = 1500;
+    const duration = 1300;
 
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
