@@ -1561,7 +1561,14 @@ def achievements():
                 'fr': "Ce prestigieux prix de fin d'études de 750 $ est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
             },
             'color': '#D4AF37',
-            'category': 'canada'
+            'category': 'canada',
+            'external_links': [
+                {
+                    'name': {'en': 'View Award', 'ko': '상장 보기', 'fr': 'Voir le Prix'},
+                    'url': 'https://www.dawsoncollege.qc.ca/awards-scholarships/award-recipients/lee-jongmin//',
+                    'icon': 'fa-solid fa-award'
+                }
+            ]
         },
         {
             'title': {'en': 'SPACE Certificate', 'ko': 'SPACE 수료증', 'fr': 'SPACE Certificate'},
