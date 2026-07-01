@@ -562,7 +562,8 @@ EXPERIENCES = [
                 'description': {
                     'en': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
                     'ko': '건축 프로젝트를 위한 CAD 파일을 개발했으며, 이는 설계 및 건설 단계를 위한 기초 청사진 역할을 합니다.',
-                },
+                    'fr': 'J\'ai développé des fichiers CAO adaptés aux projets architecturaux, servant de plans directeurs fondamentaux pour les phases de conception et de construction.'
+                }
             }
         ]
     },
@@ -576,6 +577,7 @@ EXPERIENCES = [
                 'description': {
                     'en': 'Provided academic support in mathematics and science to fellow students, helping them improve their understanding and performance.',
                     'ko': '도움이 필요한 동료 학생들에게 수학과 과학을 가르쳤습니다.',
+                    'fr': 'Accompagnement académique de pairs pour renforcer leur compréhension des concepts complexes en mathématiques et en sciences.'
                 },
             }
         ]
