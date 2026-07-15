@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         achievement: {
             'All': {
                 labels: [window.T?.chart_grade || 'Academic', window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-                data: [16, 7, 4, 3, 1, 8],
+                data: [16, 7, 7, 3, 1, 8],
                 colors: ['#ec4899', '#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Academic': {
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             'Math': {
                 labels: ['HME', 'Waterloo Math', 'The Ultimate Math League'],
-                data: [2, 1, 1],
+                data: [5, 1, 1],
                 colors: ['#1d4ed8', '#3b82f6', '#93c5fd'] 
             },
             'Robotics': {

@@ -54,7 +54,7 @@ TRANSLATIONS = {
 
         'hl_cayley_subtitle': 'School Champion · Top 25% Worldwide',
         'contest_HME': 'HME Math Contest',
-        'hl_hme_subtitle': 'National 1st Place · Top 1% in Korea',
+        'hl_hme_subtitle': 'National 1st Place · Top 0.1% in Korea',
         'hl_conuhacks_subtitle': '2nd Place | Dialogue Track',
         'hl_hack_subtitle': '3rd Place | Beginner Track',
         'hl_jachacks_subtitle': '1st Place',
@@ -205,7 +205,7 @@ TRANSLATIONS = {
 
         'hl_cayley_subtitle': '전교 1위 · 전 세계 상위 25%',
         'contest_HME': 'HME 수학경시대회',
-        'hl_hme_subtitle': '전국 1위 · 한국 상위 1%',
+        'hl_hme_subtitle': '전국 1위 · 한국 상위 0.1%',
         'hl_conuhacks_subtitle': '2위 | Dialogue 부문',
         'hl_hack_subtitle': '3위 | 초보 부문',
         'hl_jachacks_subtitle': '1위',
@@ -372,7 +372,7 @@ TRANSLATIONS = {
 
         'hl_cayley_subtitle': "Champion de l'école · Top 25 % mondial",
         'contest_HME': 'HME Math Contest',
-        'hl_hme_subtitle': '1ʳᵉ Place Nationale · Top 1 % en Corée',
+        'hl_hme_subtitle': '1ʳᵉ Place Nationale · Top 0.1 % en Corée',
         'hl_conuhacks_subtitle': '2ᵉ Place | Piste Dialogue',
         'hl_hack_subtitle': '3ᵉ place | Piste débutant',
         'hl_jachacks_subtitle': '1ʳᵉ Place',
@@ -1507,9 +1507,9 @@ def achievements():
             'event': {'en': 'South Korea', 'ko': '대한민국', 'fr': 'Corée du Sud'},
             'date': '2014. 05. 24.',
             'desc': {
-                'en': 'Top 1% in South Korea with a perfect score.',
-                'ko': '만점으로 한국 상위 1%를 기록했습니다.',
-                'fr': 'Top 1 % en Corée du Sud avec une note parfaite.'
+                'en': 'Top 0.1% in South Korea with a perfect score.',
+                'ko': '만점으로 한국 상위 0.1%를 기록했습니다.',
+                'fr': 'Top 0.1 % en Corée du Sud avec une note parfaite.'
             },
             'color': '#D4AF37',
             'category': 'math academic stem'
