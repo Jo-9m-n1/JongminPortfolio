@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         achievement: {
             'All': {
                 labels: [window.T?.chart_grade || 'Academic', window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-                data: [16, 7, 7, 3, 1, 8],
+                data: [16, 7, 7, 3, 1, 9],
                 colors: ['#ec4899', '#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Academic': {
@@ -368,9 +368,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#f97316'] 
             },
             'Other': {
-                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music', window.T?.chart_leadership || 'Leadership'],
-                data: [4, 3, 1],
-                colors: ['#747c86', '#a1a8af', '#dce1e6'] 
+                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music', window.T?.chart_leadership || 'Leadership', 'AI Dev'],
+                data: [4, 3, 1, 1],
+                colors: ['#747c86', '#93989c', '#c7cacd', '#d2d2da'] 
             }
         },
 
@@ -388,7 +388,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: "JACHacks", type: "General", awards: 2 },
             { name: "Cursor Hackathon", type: "Other", awards: 0 },
             { name: "Dawson Robotics Hackathon 2026", type: "Robotics", awards: 1 },
-            { name: "MPC Hacks", type: "General", awards: 2 }
+            { name: "MPC Hacks", type: "General", awards: 2 },
+            { name: "Band of Agents Hackathon", type: "Other", awards: 1 }
         ]
     };
 
