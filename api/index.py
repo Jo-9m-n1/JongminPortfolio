@@ -249,6 +249,7 @@ TRANSLATIONS = {
         'chart_music': '음악',
         'chart_leadership': '리더쉽',
         'dialogue_hackathon': 'Dialogue 사내 해커톤',
+        'AI_dev': 'AI 개발',
 
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, McGill University에서 컴퓨터 과학을 공부할 예정인 <strong>이종민</strong>입니다. '
@@ -414,6 +415,7 @@ TRANSLATIONS = {
         'general': 'Général',
         'chart_music': 'Musique',
         'dialogue_hackathon': 'Hackathon interne de Dialogue',
+        'AI_dev': 'Développement IA',
 
         'about_html': (
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "

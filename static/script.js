@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#f97316'] 
             },
             'Other': {
-                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music', window.T?.chart_leadership || 'Leadership', 'AI Dev'],
+                labels: [window.T?.chart_art || 'Art', window.T?.chart_music || 'Music', window.T?.chart_leadership || 'Leadership', window.T?.AI_dev ||'AI Dev'],
                 data: [4, 3, 1, 1],
                 colors: ['#747c86', '#93989c', '#c7cacd', '#d2d2da'] 
             }
