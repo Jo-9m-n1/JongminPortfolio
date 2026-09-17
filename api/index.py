@@ -588,7 +588,7 @@ EXPERIENCES = [
                 'start_date': (2024, 2),
                 'end_date': (2024, 6),
                 'description': {
-                    'en': 'Provided academic support in mathematics and science to fellow students, helping them improve their understanding and performance.',
+                    'en': 'Provided academic support in math and science to peers, helping them improve their understanding and performance.',
                     'ko': '도움이 필요한 동료 학생들에게 수학과 과학을 가르쳤습니다.',
                     'fr': 'Accompagnement académique de pairs pour renforcer leur compréhension des concepts complexes en mathématiques et en sciences.'
                 },
