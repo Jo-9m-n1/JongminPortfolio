@@ -1300,12 +1300,12 @@ function processCommand(cmd, outputArea, overlay) {
 
         case 'df':
             outputArea.innerHTML += 
-`Filesystem           Size      Used      Avail  Use%  Mounted on
-<span style="color:#FFD700;">/dev/hackathons      13.0G     9.0G      4.0G   69%   /mnt/trophy-case</span>
-/dev/other           16.0G     8.4G      7.6G   52%   /home/jongmin
+`Filesystem            Size     Used      Avail  Use%   Mounted on
+<span style="color:#FFD700;">/dev/hackathons      14.0G    10.0G       4.0G   71%   /mnt/trophy-case</span>
+/dev/other           16.0G     8.4G       7.6G   52%   /home/jongmin
 
-<span class="term-keyword">Status:</span> 9/13 Hackathons won 
-Win Rate: <span style="color:#00ff00;">69%</span> [██████░░░░]
+<span class="term-keyword">Status:</span> 10/14 Hackathons won 
+Win Rate: <span style="color:#00ff00;">71%</span> [███████░░░]
 `;
             break;
 

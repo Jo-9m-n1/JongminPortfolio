@@ -555,6 +555,17 @@ def set_language(lang):
 
 EXPERIENCES = [
     {
+        'company': 'McHacks',
+        'roles': [
+            {
+                'title': 'Development Coordinator',
+                'start_date': (2026, 6),
+                'end_date': 'present',
+                'description': ''
+            }
+        ]
+    },
+    {
         'company': {'en': 'GIO Engineering', 'ko': '지오 엔지니어링', 'fr': 'GIO Engineering'},
         'roles': [
             {
