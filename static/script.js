@@ -1484,6 +1484,7 @@ function closeTerminal(overlay) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const getTrophies = () => [
+        { name: "Band of Agents Hackathon", type: "Hackathon", year: "2026" },
         { name: "MPC Hacks", type: "Hackathon", year: "2026" },
         { name: "Dawson Robotics Hackathon 2026", type: "Hackathon", year: "2026" },
         { name: "JACHacks", type: "Hackathon", year: "2026" },
