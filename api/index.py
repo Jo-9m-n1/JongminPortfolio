@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # For the main page stats only
 PORTFOLIO_STATS = {
-    'competitions': 21,
+    'competitions': 26,
     'hackathons': 12,
     'prize': 4000,
     'projects': 9
