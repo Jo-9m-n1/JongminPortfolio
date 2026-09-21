@@ -1368,7 +1368,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 
         case 'cat':
             if (args[1] === 'skills.txt') {
-                outputArea.innerHTML += `[Languages] Python, JavaScript\n[Frameworks] Next.js, Flask\n`;
+                outputArea.innerHTML += `[Languages] Python, JavaScript, Java\n[Frameworks] Next.js, Flask\n`;
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
             } else if (args[1] === 'hackathons.txt') {

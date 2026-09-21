@@ -575,7 +575,7 @@ EXPERIENCES = [
                 'start_date': (2025, 6),
                 'end_date': (2025, 8),
                 'description': {
-                    'en': 'I developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
+                    'en': 'Developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
                     'ko': '건축 프로젝트를 위한 CAD 파일을 개발했으며, 이는 설계 및 건설 단계를 위한 기초 청사진 역할을 합니다.',
                     'fr': 'J\'ai développé des fichiers CAO adaptés aux projets architecturaux, servant de plans directeurs fondamentaux pour les phases de conception et de construction.'
                 }
