@@ -1123,7 +1123,11 @@ COURSES = {
         { 'name': {'en': 'Introduction to Computer Science', 'ko': '컴퓨터 과학 개론', 'fr': 'Introduction à l\'informatique'}, 'code': 'COMP 250', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming', 'gpa': '--' },
         { 'name': {'en': 'Introduction to Software Systems', 'ko': '소프트웨어 시스템 개론', 'fr': 'Introduction aux systèmes logiciels'}, 'code': 'COMP 206', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'programming', 'gpa': '--' },
         { 'name': {'en': 'Probability', 'ko': '확률론', 'fr': 'Probabilité'}, 'code': 'MATH 323', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math', 'gpa': '--' },
-        { 'name': {'en': 'Calculus 3', 'ko': '미적분학 3', 'fr': 'Calcul 3'}, 'code': 'MATH 222', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math', 'gpa': '--' }
+        { 'name': {'en': 'Calculus 3', 'ko': '미적분학 3', 'fr': 'Calcul 3'}, 'code': 'MATH 222', 'semester': {'en': 'Fall 2026', 'ko': '2026년 가을학기', 'fr': 'Automne 2026'}, 'group': 'math', 'gpa': '--' },
+        { 'name': {'en': 'Algorithms and Data Structures', 'ko': '알고리즘과 자료구조', 'fr': 'Algorithmes et structures de données'}, 'code': 'COMP 251', 'semester': {'en': 'Winter 2027 (EST.)', 'ko': '2027년 겨울학기 (예정)', 'fr': 'Hiver 2027 (Prévu)'}, 'group': 'programming', 'gpa': '--' },
+        { 'name': {'en': 'Introduction to Computer Systems', 'ko': '컴퓨터 시스템 개론', 'fr': 'Introduction aux systèmes informatiques'}, 'code': 'COMP 273', 'semester': {'en': 'Winter 2027 (EST.)', 'ko': '2027년 겨울학기 (예정)', 'fr': 'Hiver 2027 (Prévu)'}, 'group': 'programming', 'gpa': '--' },
+        { 'name': {'en': 'Software Design', 'ko': '소프트웨어 설계', 'fr': 'Conception logicielle'}, 'code': 'COMP 303', 'semester': {'en': 'Winter 2027 (EST.)', 'ko': '2027년 겨울학기 (예정)', 'fr': 'Hiver 2027 (Prévu)'}, 'group': 'programming', 'gpa': '--' },
+        { 'name': {'en': 'Linear Algebra', 'ko': '선형대수학', 'fr': 'Algèbre linéaire'}, 'code': 'MATH 223', 'semester': {'en': 'Winter 2027 (EST.)', 'ko': '2027년 겨울학기 (예정)', 'fr': 'Hiver 2027 (Prévu)'}, 'group': 'math', 'gpa': '--' },
     ]
 }
 
