@@ -218,7 +218,7 @@ TRANSLATIONS = {
         'edu_graduated': '졸업',
         'edu_mcgill_university': '맥길 대학교',
         'edu_mcgill_degree': '컴퓨터 과학 - 인공지능 | 학사',
-        'edu_mcgill_years': '2026 (예정) - 2029 (예정)',
+        'edu_mcgill_years': '2026 - 2029 (예정)',
         'edu_dawson_college': 'Dawson College',
         'edu_dawson_degree': '과학, 컴퓨터 과학 및 수학',
         'edu_rosemount_degree': '고등학교 졸업장',
@@ -254,7 +254,7 @@ TRANSLATIONS = {
         'AI_dev': 'AI 개발',
 
         'about_html': (
-            '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, McGill University에서 컴퓨터 과학을 공부하는 중인 <strong>이종민</strong>입니다. '
+            '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, 맥길 대학교에서 컴퓨터 과학을 공부하는 중인 <strong>이종민</strong>입니다. '
             '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
             '저는 <strong class="pop-up">해커톤 10회 우승자'
             '<span class="pop-up-text">'
@@ -386,7 +386,7 @@ TRANSLATIONS = {
         'edu_graduated': 'DIPLÔMÉ',
         'edu_mcgill_university': 'Université McGill',
         'edu_mcgill_degree': 'Informatique - Intelligence Artificielle | Baccalauréat ès sciences',
-        'edu_mcgill_years': '2026 (Prévu) - 2029 (Prévu)',
+        'edu_mcgill_years': '2026 - 2029 (Prévu)',
         'edu_dawson_college': 'Collège Dawson',
         'edu_dawson_degree': 'Sciences, informatique et mathématiques',
         'edu_rosemount_degree': "Diplôme d'études secondaires",
