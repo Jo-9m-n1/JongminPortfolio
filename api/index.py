@@ -269,7 +269,7 @@ TRANSLATIONS = {
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             '</span></strong>이며, '
-            '<strong class="pop-up">STEM 관련 대회를 15회 이상 수상'
+            '<strong class="pop-up">STEM 관련 대회를 16회 이상 수상'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">STEM 대회 수상:</strong><br>'
             "HME 수학 경시대회 '14 (전국 1위)<br>"
@@ -436,7 +436,7 @@ TRANSLATIONS = {
             'HackDécouverte (Prix spécial)<br>'
             'Dialogue Internal (Prix Spécial)<br>'
             '</span></strong> avec plus de '
-            '<strong class="pop-up">15 prix en STIM'
+            '<strong class="pop-up">16 prix en STIM'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Prix en STIM :</strong><br>'
             "HME Math Contest '14 (1ʳᵉ nationale)<br>"
