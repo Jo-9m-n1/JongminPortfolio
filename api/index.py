@@ -744,11 +744,11 @@ PROJECTS = [
             'fr': ''
         },
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'ElevenLabs', 'Vultr', 'MongoDB'],
-        'troubles': {
-            'en': '',
-            'ko': '',
-            'fr': ''
-        },
+#        'troubles': {
+#            'en': '',
+#            'ko': '',
+#            'fr': ''
+#        },
         'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
         'images': ["/static/CashFlux/CashFlux1.png",
             "/static/CashFlux/CashFlux2.png",
@@ -791,15 +791,15 @@ PROJECTS = [
         },
         'full_story': {
             'en': 'This chemistry-related AI chatbot (similar to Dr. Bob) was developped as part of an Integrative Project (IP) at Dawson College in collaboration with James and Alex. It is designed to help students struggling in General Chemistry (202-SN1-RE), by displaying interactive 3D VSEPR models and Lewis structure with explanation genreated by Gemini API.',
-            'ko': '현재 James, Alex와 함께 Dawson College의 통합 프로젝트(IP) 과제로 화학 관련 AI 웹사이트를 개발하고 있습니다.',
-            'fr': "Je développe actuellement, avec James et Alex, un site web IA lié à la chimie pour notre Projet d'intégration (PI) au Collège Dawson."
+            'ko': '이 화학 관련 AI 챗봇(Dr. Bob과 유사)은 James, Alex와의 협업을 통해 Dawson College의 통합 프로젝트(Integrative Project, IP)의 일환으로 개발되었습니다. 이 챗봇은 대화형 3D VSEPR(원자가껍질 전자쌍 반발 이론) 모델과 루이스 구조를 Gemini API로 생성된 설명과 함께 시각화하여, 일반화학(202-SN1-RE) 수강에 어려움을 겪는 학생들을 돕도록 설계되었습니다.',
+            'fr': "Ce chatbot IA dédié à la chimie (similaire à Dr. Bob) a été développé dans le cadre d'un projet intégrateur (IP) au Collège Dawson, en collaboration avec James et Alex. Il est conçu pour aider les étudiants en difficulté dans le cours de chimie générale (202-SN1-RE), en affichant des modèles VSEPR 3D interactifs et des structures de Lewis accompagnés d'explications générées par l'API Gemini."
         },
         'full_tech': ['Python', 'Flask', 'JavaScript', 'Gemini API', 'SQLite', 'RDKit'],
-        'troubles': {
-            'en': 'Currently developing the website.',
-            'ko': '현재 웹사이트를 개발 중입니다.',
-            'fr': 'Le site est actuellement en cours de développement.'
-        },
+#        'troubles': {
+#            'en': 'Currently developing the website.',
+#            'ko': '현재 웹사이트를 개발 중입니다.',
+#            'fr': 'Le site est actuellement en cours de développement.'
+#        },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
         'images': ["/static/ChemicallyBonded/ChemicallyBonded1.png",
             "/static/ChemicallyBonded/ChemicallyBonded2.png",
@@ -821,7 +821,9 @@ PROJECTS = [
                 'url': '/static/ChemicallyBonded/Chemically_Bonded_poster.pdf',
                 'icon': 'fa-solid fa-file-pdf'
             }
-        ]
+        ],
+        'published': {'en': 'May 20, 2026', 'ko': '2026년 5월 20일', 'fr': 'le 20 mai 2026'},
+        'updated': {'en': 'October 3, 2026', 'ko': '2026년 10월 3일', 'fr': 'le 3 octobre 2026'}
     },
     {
         'id': 'ourcampus',
