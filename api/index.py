@@ -997,7 +997,7 @@ PROJECTS = [
     {
         'id': 'dr-bob',
         'tags': ['hackathon', 'team'],
-        'title': {'en': 'Dr. Bob', 'ko': 'Bob 박사', 'fr': 'Dr. Bob'},
+        'title': 'Dr. Bob',
         'award': {
             'en': '2nd Place | Dialogue Track at ConUHacks',
             'ko': '2등 | Dialogue 부문 ConUHacks',
@@ -1006,12 +1006,12 @@ PROJECTS = [
         'tech': ['JavaScript', 'Python', 'Twilio API', 'Gemini API'],
         'description': {
             'en': 'An award-winning project, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-            'ko': '해커톤에서 개발한 수상작 Bob 박사는 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
+            'ko': '해커톤에서 개발한 수상작 Dr. Bob은 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
             'fr': "Projet primé développé lors d'un hackathon, Dr. Bob utilise Twilio pour automatiser l'accueil des patients et le suivi des antécédents médicaux, en s'assurant que les données médicales sont bien organisées pour les médecins."
         },
         'full_story': {
             'en': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English and non-French speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in neither in English nor French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than we did during our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI (Gemini) chatbot, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses a same AI API.",
-            'ko': 'Oliver와 저는 두 번째 해커톤에서 Dr. Bob을 개발했습니다. 10개의 스폰서 챌린지 중 Dialogue 트랙을 선택했는데, 둘 다 영어와 프랑스어를 못하시는 부모님이 계셔서 캐나다에서 영어나 프랑스어가 능숙하지 않을 때 진료 예약을 잡는 것이 얼마나 어려운지 잘 알기 때문입니다. 영어가 모국어가 아닌 커뮤니티(Allophone)를 돕고 싶었고, 그래서 저희 앱은 영어, 프랑스어, 한국어, 중국어, 아랍어의 5개 언어를 지원합니다. 두 번째 해커톤이라 처음보다 훨씬 효율적으로 작업할 수 있었지만, 복잡한 머지 충돌 등 여러 어려움도 있었습니다. AI(Gemini) 챗봇을 통합한 것도 이번이 처음이었기에 좋은 학습 기회였습니다. Bob의 답변이 정확하고 일관되도록 프롬프트 작성법을 익혀야 했고, 초기에는 답변이 예측 불가능할 때도 있었지만 프롬프트를 정교하게 다듬어 사용자에게 안정적인 경험을 제공할 수 있게 되었습니다. 이 경험은 같은 AI API를 사용하는 Chemically Bonded를 만드는 데에도 큰 도움이 되었습니다.',
+            'ko': 'Oliver와 저는 두 번째 해커톤에서 Dr. Bob을 개발했습니다. 10개의 스폰서 챌린지 중 Dialogue 트랙을 선택했는데, 둘 다 영어와 프랑스어를 못하시는 부모님이 계셔서 캐나다에서 영어나 프랑스어가 능숙하지 않을 때 진료 예약을 잡는 것이 얼마나 어려운지 잘 알기 때문입니다. 영어가 모국어가 아닌 커뮤니티를 돕고 싶었고, 그래서 저희 앱은 영어, 프랑스어, 한국어, 중국어, 아랍어의 5개 언어를 지원합니다. 두 번째 해커톤이라 처음보다 훨씬 효율적으로 작업할 수 있었지만, 복잡한 머지 충돌 등 여러 어려움도 있었습니다. AI(Gemini) 챗봇을 통합한 것도 이번이 처음이었기에 좋은 학습 기회였습니다. Dr. Bob의 답변이 정확하고 일관되도록 프롬프트 작성법을 익혀야 했고, 초기에는 답변이 예측 불가능할 때도 있었지만 프롬프트를 정교하게 다듬어 사용자에게 안정적인 경험을 제공할 수 있게 되었습니다. 이 경험은 같은 AI API를 사용하는 Chemically Bonded를 만드는 데에도 큰 도움이 되었습니다.',
             'fr': "Oliver et moi avons développé Dr. Bob lors de notre deuxième hackathon. Parmi les 10 défis commandités proposés, nous avons choisi la piste Dialogue parce que nos parents respectifs ne parlent ni anglais ni français, et nous savons à quel point il peut être difficile de prendre un rendez-vous médical au Canada lorsqu'on ne maîtrise pas ces deux langues. Nous voulions soutenir la communauté allophone, c'est pourquoi notre application est offerte en 5 langues : anglais, français, coréen, chinois et arabe. Comme c'était notre deuxième hackathon, nous avons travaillé plus efficacement que la première fois. Nous avons tout de même rencontré quelques obstacles, comme des conflits de fusion (merge) complexes à résoudre. C'était aussi notre première intégration d'un chatbot IA (Gemini), ce qui a été une belle occasion d'apprentissage. Il a fallu apprendre à rédiger des prompts pour que les réponses de Bob restent précises et pertinentes. Au début, les réponses de l'IA étaient parfois imprévisibles, mais nous avons affiné nos prompts pour offrir une expérience fiable aux utilisateurs. Cette expérience m'a beaucoup aidé à bâtir Chemically Bonded, qui utilise la même API d'IA."
         },
         'full_tech': ['JavaScript', 'Python', 'Flask', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
@@ -1039,7 +1039,7 @@ PROJECTS = [
             }
         ],
         'published': {'en': 'March 2, 2026', 'ko': '2026년 3월 2일', 'fr': 'le 2 mars 2026'},
-        'updated': {'en': 'March 23, 2026', 'ko': '2026년 3월 23일', 'fr': 'le 23 mars 2026'}
+        'updated': {'en': 'March 23, 2026', 'ko': '2026년 10월 3일', 'fr': 'le 23 mars 2026'}
     },
     {
         'id': 'meeting-app',
