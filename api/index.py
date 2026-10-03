@@ -20,6 +20,7 @@ LANGUAGES = ['en', 'ko', 'fr']
 TRANSLATIONS = {
 
     'en': {
+        'view_all': 'View All',
         'terminal': 'Terminal',
         'resume': 'Resume',
         'nav_home': 'Home',
@@ -173,6 +174,7 @@ TRANSLATIONS = {
     },
 
     'ko': {
+        'view_all': '모두 보기',
         'terminal': '터미널',
         'resume': '이력서',
         'nav_home': '홈',
@@ -342,6 +344,7 @@ TRANSLATIONS = {
     },
 
     'fr': {
+        'view_all': 'Voir tout',
         'terminal': 'Terminal',
         'resume': 'CV',
         'nav_home': 'Accueil',
@@ -834,7 +837,7 @@ PROJECTS = [
             'ko': '최우수 과학 학생 프로젝트상 | JACHacks',
             'fr': 'Meilleur projet d\'étudiants en sciences | JACHacks'
         },
-        'tech': ['Next.js', 'Python', 'Gemini API'],
+        'tech': ['TypeScript', 'Next.js', 'Python', 'Gemini API'],
         'description': {
             'en': 'An award-winning project, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
             'ko': '해커톤에서 개발한 수상작 OurCampus는 공통 휴식 시간과 캠퍼스 인구 히트맵을 통해 학생들이 커뮤니티를 형성할 수 있도록 도와줍니다.',
@@ -845,7 +848,7 @@ PROJECTS = [
             'ko': '우리 팀은 학생들의 캠퍼스 경험을 향상시키기 위한 웹 플랫폼을 개발했습니다. 이전 프로젝트인 "Meeting App"을 기반으로, Gemini API를 활용해 업로드된 PDF 시간표를 정형화된 디지털 데이터로 변환합니다. 또한 서로의 가능한 시간을 분석해 최적의 모임 시간을 찾아주어 동아리 운영을 효율화합니다. 추가로 캠퍼스 내 100개 이상의 액세스 포인트의 기기 연결 상태를 Unifi API로 추적해 강의실 점유율을 실시간으로 시각화하는 Campus Heat Map 기능을 개발했습니다. 장기적인 활용을 위해, 액세스 포인트 데이터를 CSV로 추출하는 데이터 파이프라인을 설계하여 IT 및 보안팀이 별도의 전문 소프트웨어 없이도 트래픽 패턴을 분석할 수 있도록 했습니다.',
             'fr': "Notre équipe a développé une plateforme web visant à optimiser l'expérience étudiante sur le campus. S'appuyant sur mon précédent projet « Meeting App », l'application utilise l'API Gemini pour convertir les horaires PDF téléversés en formats numériques structurés. La plateforme simplifie aussi la gestion des clubs en identifiant les meilleurs créneaux de réunion selon les disponibilités communes. J'ai également développé une fonctionnalité « Campus Heat Map » qui visualise en temps réel l'occupation des salles en intégrant l'API Unifi pour suivre la connectivité des appareils sur plus de 100 points d'accès du campus. Pour assurer une utilité à long terme, j'ai conçu un pipeline de données qui exporte les métriques des points d'accès en CSV, permettant aux équipes TI et sécurité d'auditer les flux sans logiciel spécialisé."
         },
-        'full_tech': ['Next.js', 'Chart.js', 'Node.js', 'TypeScript', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
+        'full_tech': ['TypeScript', 'Next.js', 'Chart.js', 'Node.js', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
         'troubles': {
             'en': "The primary challenge with overlaying data (number of devices) onto a map image is the fluidity of the web. When using standard pixel values, the dots remain fixed while the map image scales up or down to fit different screen sizes. This causes the markers to drift from their intended landmarks. To solve this, I developed a Python script that calculates the position as a ratio of the image's dimensions instead of recording a static pixel location. This ensures the dots stay pinned to the exact location regardless of the screen size and allows new access points to be added easily, providing better <strong>scalability</strong> to departements in need.",
             'ko': '데이터(기기 수)를 지도 이미지 위에 오버레이할 때의 가장 큰 어려움은 웹의 가변성이었습니다. 픽셀 값을 고정으로 사용하면 화면 크기에 따라 지도 이미지가 확대·축소되어도 점들은 그대로 머물러, 의도한 위치에서 벗어나게 됩니다. 이를 해결하기 위해 정적인 픽셀 좌표가 아닌, 이미지의 크기에 대한 비율로 위치를 계산하는 Python 스크립트를 개발했습니다. 덕분에 화면 크기와 상관없이 점이 정확한 위치에 고정되며, 새로운 액세스 포인트도 손쉽게 추가할 수 있어 필요한 부서에 더 나은 <strong>확장성</strong>을 제공합니다.',
@@ -998,7 +1001,7 @@ PROJECTS = [
             'ko': '2등 | Dialogue 부문 ConUHacks',
             'fr': '2ᵉ Place | Piste Dialogue à ConUHacks'
         },
-        'tech': ['Python', 'JavaScript', 'Twilio API', 'Gemini API'],
+        'tech': ['JavaScript', 'Python', 'Twilio API', 'Gemini API'],
         'description': {
             'en': 'An award-winning project, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
             'ko': '해커톤에서 개발한 수상작 Bob 박사는 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
@@ -1009,7 +1012,7 @@ PROJECTS = [
             'ko': 'Oliver와 저는 두 번째 해커톤에서 Dr. Bob을 개발했습니다. 10개의 스폰서 챌린지 중 Dialogue 트랙을 선택했는데, 둘 다 영어와 프랑스어를 못하시는 부모님이 계셔서 캐나다에서 영어나 프랑스어가 능숙하지 않을 때 진료 예약을 잡는 것이 얼마나 어려운지 잘 알기 때문입니다. 영어가 모국어가 아닌 커뮤니티(Allophone)를 돕고 싶었고, 그래서 저희 앱은 영어, 프랑스어, 한국어, 중국어, 아랍어의 5개 언어를 지원합니다. 두 번째 해커톤이라 처음보다 훨씬 효율적으로 작업할 수 있었지만, 복잡한 머지 충돌 등 여러 어려움도 있었습니다. AI(Gemini) 챗봇을 통합한 것도 이번이 처음이었기에 좋은 학습 기회였습니다. Bob의 답변이 정확하고 일관되도록 프롬프트 작성법을 익혀야 했고, 초기에는 답변이 예측 불가능할 때도 있었지만 프롬프트를 정교하게 다듬어 사용자에게 안정적인 경험을 제공할 수 있게 되었습니다. 이 경험은 같은 AI API를 사용하는 Chemically Bonded를 만드는 데에도 큰 도움이 되었습니다.',
             'fr': "Oliver et moi avons développé Dr. Bob lors de notre deuxième hackathon. Parmi les 10 défis commandités proposés, nous avons choisi la piste Dialogue parce que nos parents respectifs ne parlent ni anglais ni français, et nous savons à quel point il peut être difficile de prendre un rendez-vous médical au Canada lorsqu'on ne maîtrise pas ces deux langues. Nous voulions soutenir la communauté allophone, c'est pourquoi notre application est offerte en 5 langues : anglais, français, coréen, chinois et arabe. Comme c'était notre deuxième hackathon, nous avons travaillé plus efficacement que la première fois. Nous avons tout de même rencontré quelques obstacles, comme des conflits de fusion (merge) complexes à résoudre. C'était aussi notre première intégration d'un chatbot IA (Gemini), ce qui a été une belle occasion d'apprentissage. Il a fallu apprendre à rédiger des prompts pour que les réponses de Bob restent précises et pertinentes. Au début, les réponses de l'IA étaient parfois imprévisibles, mais nous avons affiné nos prompts pour offrir une expérience fiable aux utilisateurs. Cette expérience m'a beaucoup aidé à bâtir Chemically Bonded, qui utilise la même API d'IA."
         },
-        'full_tech': ['Python', 'Flask', 'JavaScript', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
+        'full_tech': ['JavaScript', 'Python', 'Flask', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': {
             'en': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a <strong>low-latency</strong> user experience.',
             'ko': '가장 복잡했던 기술적 난제는 Twilio 녹음을 Gemini API와 연결하는 것이었습니다. 환자의 음성을 캡처하고, 웹훅으로 원격 녹음을 가져온 뒤 바이너리 데이터를 AI 분석에 맞게 처리하면서도 <strong>낮은 지연 시간</strong>을 유지하는 파이프라인을 설계해야 했습니다.',
@@ -1185,7 +1188,7 @@ def group_courses_by_semester(courses):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', projects=PROJECTS)
 
 @app.route('/education')
 def education():

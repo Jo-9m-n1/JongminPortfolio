@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+﻿window.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const html = document.documentElement;
     const themeIcon = document.querySelector('#themeToggle i');
@@ -326,13 +326,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const getThemeColor = () => document.body.classList.contains('dark-mode') ? '#ffffff' : '#1e293b';
 
     const portfolioData = {
-        // Key Projects List
-        projects: [
-            { name: 'CashFlux', type: 'Python 60.5%', id: 0, awards: 2 },
-            { name: 'OurCampus', type: 'TypeScript 97.0%', id: 2, awards: 2 },
-            { name: 'Liminal', type: 'Python 87.1%', id: 3, awards: 0 },
-            { name: 'Dr. Bob', type: 'JavaScript 32.5%', id: 6, awards: 1 },
-            { name: 'J-score*', type: 'Python 50.0%', id: 8, awards: 0 }
+        volunteering: [
+            { name: 'McGill TechFair Volunteer', type: '4 hrs', url: 'https://www.mcgill.ca/careers4engineers/techfair' },
+            { name: 'Dawson Blue Ring Member', type: '120+ hrs', url: 'https://www.dawsoncollege.qc.ca/campus-life-leadership/blue-ring-society/' },
+            { name: 'Dawson Open House Volunteer', type: '5 hrs', url: '/static/Volunteerism.pdf' }
         ],
 
         // Awards Distribution Graph
@@ -478,9 +475,9 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsContainer.style.padding = '1px'; 
 
         projectsContainer.innerHTML = '';
-        portfolioData.projects.forEach((project) => {
+        portfolioData.volunteering.forEach((item) => {
             const projectItem = document.createElement('div');
-            const hasAward = project.awards > 0;
+            const hasAward = false;
             
             const setStyle = (isHover) => {
                 const isDark = document.body.classList.contains('dark-mode');
@@ -489,9 +486,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 projectItem.style.cssText = `
                     display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;
-                    box-sizing: border-box; margin: 0; 
-                    background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : 'rgba(0, 0, 0, 0.02)'};
-                    border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid rgba(0, 0, 0, 0.3)'))};
+                    box-sizing: border-box; margin: 0; color: inherit;
+                    background: ${isHover ? (hasAward ? 'rgba(212, 175, 55, 0.15)' : 'rgba(13, 110, 253, 0.08)') : (isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)')};
+                    border: ${hasAward ? (isHover ? `1px solid ${goldColor}` : `1px solid ${goldBorder}`) : (isHover ? '1px solid rgba(13, 110, 253, 0.3)' : (isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.06)'))};
                     ${isHover ? 'transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);' : ''}
                 `;
             };
@@ -500,21 +497,18 @@ document.addEventListener('DOMContentLoaded', function() {
             projectItem.onmouseover = () => setStyle(true);
             projectItem.onmouseout = () => setStyle(false);
             
-            const typeArray = Array.isArray(project.type) ? project.type : [project.type];
+            const typeArray = [item.type];
             const typeTags = typeArray.map(t => {
-                const color = t.includes('Python') ? '#2563eb' : 
-                              t.includes('JavaScript') ? '#669632' : 
-                              t.includes('TypeScript') ? '#8b5cf6' : '#8b5cf6';
-                return `<span style="background-color: ${color}; color: white; padding: 4px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
+                return `<span class="badge border text-dark shadow-sm" style="padding: 5px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; margin-left: 5px;">${t}</span>`;
             }).join('');
 
             projectItem.innerHTML = `
                 <span style="font-size: 0.95rem; font-weight: 500;">
-                    ${project.name}${`<i class="fa-solid fa-trophy ms-1" style="color: #D4AF37;"></i>`.repeat(project.awards)}
+                    ${item.name}
                 </span>
                 <div style="display: flex;">${typeTags}</div>
             `;
-            projectItem.addEventListener('click', () => window.location.href = `/project/${project.id}`);
+            projectItem.addEventListener('click', () => window.location.href = item.url);
             projectsContainer.appendChild(projectItem);
         });
     }
@@ -1814,3 +1808,73 @@ window.addEventListener('focus', () => {
         if (e.key === 'Escape') closeLightbox();
     });
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector('.featured-marquee-container');
+    if (!container) return;
+
+    const groups = container.querySelectorAll('.featured-marquee-group');
+    if (groups.length < 2) return;
+
+    let currentPos = 0;
+    let currentSpeed = 0;
+    const maxSpeed = 1.3; 
+    const ease = 0.05;    
+    
+    let isHovered = false;
+    let lastTime = performance.now();
+
+    const checkHover = (y) => {
+        const media = container.querySelector('.featured-project-media');
+        if (!media) return false;
+        const rect = media.getBoundingClientRect();
+        return y >= rect.top && y <= rect.bottom;
+    };
+
+    container.addEventListener('mousemove', (e) => {
+        isHovered = checkHover(e.clientY);
+    });
+    container.addEventListener('mouseleave', () => {
+        isHovered = false;
+    });
+    container.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) isHovered = checkHover(e.touches[0].clientY);
+    }, { passive: true });
+    container.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) isHovered = checkHover(e.touches[0].clientY);
+    }, { passive: true });
+    container.addEventListener('touchend', () => {
+        setTimeout(() => isHovered = false, 500);
+    });
+
+    function animate(time) {
+        const dt = time - lastTime;
+        lastTime = time;
+        const safeDt = Math.min(dt, 50);
+        const timeScale = safeDt / 16.666;
+        const targetSpeed = isHovered ? 0 : maxSpeed;
+        
+        currentSpeed += (targetSpeed - currentSpeed) * (ease * timeScale);
+        
+        if (Math.abs(currentSpeed) > 0.01) {
+            currentPos -= currentSpeed * timeScale;
+
+            const groupWidth = groups[0].getBoundingClientRect().width + 20; 
+
+            if (Math.abs(currentPos) >= groupWidth) {
+                currentPos += groupWidth;
+            }
+
+            groups.forEach(group => {
+                group.style.transform = `translate3d(${currentPos}px, 0, 0)`;
+            });
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    setTimeout(() => requestAnimationFrame(animate), 500);
+});
+
+
+
