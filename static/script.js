@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </span>
                 <div style="display: flex;">${typeTags}</div>
             `;
-            projectItem.addEventListener('click', () => window.location.href = item.url);
+            projectItem.addEventListener('click', () => window.open(item.url, item.target || '_blank'));
             projectsContainer.appendChild(projectItem);
         });
     }
