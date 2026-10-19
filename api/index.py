@@ -906,7 +906,7 @@ PROJECTS = [
             'fr': "Au départ, nous avons entraîné notre modèle sur le jeu de données de départ fourni (n=98), obtenant un score F1 quasi parfait. Nous soupçonnions toutefois un surapprentissage en raison de la petite taille de l'échantillon. Un test sur un jeu de données externe (n=102) a confirmé nos doutes : les performances ont chuté de façon significative. Pour améliorer la généralisation, nous avons utilisé Gemini pour générer des données synthétiques, <strong>diversifiant</strong> ainsi notre ensemble d'entraînement et <strong>renforçant</strong> le modèle."
         },
         'collaborators': [{'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}, {'name': 'Natalia', 'linkedin': 'https://www.linkedin.com/in/natalia-sendrea/'}, {'name': 'Nashra', 'linkedin': 'https://www.linkedin.com/in/nashra-babar/'}],
-        'thumbnail': "/static/Liminal.png",
+        'thumbnail': "/static/Liminal.webp",
         'external_links': [
             {
                 'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
@@ -986,10 +986,10 @@ PROJECTS = [
             'fr': "J'ai développé ce site web interactif pour offrir un regard plus approfondi sur mon parcours. Vous y trouverez mes projets clés, mes compétences, mes expériences professionnelles et une collection de prix obtenus tout au long de mon parcours (d'autres seront ajoutés sous peu depuis mes archives). En prime, j'ai caché quelques easter eggs un peu partout sur le site, à vous de les trouver :)"
         },
         'full_tech': ['Python', 'Flask', 'JavaScript'],
-        'images': ["/static/MyPersonalWebsite/MyPersonalWebsite1.png",
-                   "/static/MyPersonalWebsite/MyPersonalWebsite2.png",
-                   "/static/MyPersonalWebsite/MyPersonalWebsite3.png",
-                   "/static/MyPersonalWebsite/MyPersonalWebsite4.png"],
+        'images': ["/static/MyPersonalWebsite/MyPersonalWebsite1.webp",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite2.webp",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite3.webp",
+                   "/static/MyPersonalWebsite/MyPersonalWebsite4.webp"],
         'thumbnail': "/static/MyPersonalWebsite/MyPersonalWebsite.png",
         'published': {'en': 'March 3, 2026', 'ko': '2026년 3월 3일', 'fr': 'le 3 mars 2026'},
         'updated': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
@@ -1087,10 +1087,10 @@ PROJECTS = [
             'fr': "Au départ, l'application Flask ne pouvait pas distinguer quel utilisateur demandait une suppression; elle retirait simplement la première ligne de la base de données CSV, peu importe à qui elle appartenait. Cela posait un grave problème d'intégrité des données. Pour résoudre cela, j'ai cherché comment transmettre des données contextuelles via le frontend sans encombrer l'interface. J'ai implémenté des champs HTML cachés pour lier des métadonnées spécifiques à l'utilisateur à la requête. Le backend pouvait ainsi vérifier l'identité de l'utilisateur et cibler la bonne ligne dans le fichier CSV, garantissant que les utilisateurs ne pouvaient modifier que leurs propres données. Ce défi m'a appris l'importance vitale de la gestion d'état et du contexte de requête dans les applications web."
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
-        'images': ["/static/J-score/J-score1.png",
+        'images': ["/static/J-score/J-score1.webp",
                    "/static/J-score/J-score2.png",
-                   "/static/J-score/J-score3.png"],
-        'thumbnail': '/static/J-score/J-score.png/',
+                   "/static/J-score/J-score3.webp"],
+        'thumbnail': '/static/J-score/J-score.webp',
         'external_links': [
             {
                 'name': {'en': 'View Project', 'ko': '프로젝트 보기', 'fr': 'Voir le Projet'},
