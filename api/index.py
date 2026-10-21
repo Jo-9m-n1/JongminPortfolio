@@ -857,13 +857,13 @@ PROJECTS = [
             'fr': "Le principal défi pour superposer des données (nombre d'appareils) sur une image de carte est la fluidité du web. Avec des valeurs en pixels fixes, les points restent figés tandis que l'image de la carte s'agrandit ou se réduit selon la taille de l'écran, ce qui décale les marqueurs de leurs repères. Pour résoudre cela, j'ai développé un script Python qui calcule la position comme un ratio des dimensions de l'image plutôt qu'une coordonnée en pixels statique. Les points restent ainsi épinglés exactement au bon endroit, peu importe la taille de l'écran, et de nouveaux points d'accès peuvent être ajoutés facilement, offrant une meilleure <strong>évolutivité</strong> aux départements qui en ont besoin."
         },
         'collaborators': [{'name': 'Brian', 'linkedin': 'https://www.linkedin.com/in/brian-kim-33348a354/'}, {'name': 'Deven'}, {'name': 'Matteo', 'linkedin': 'https://www.linkedin.com/in/matteo-rombola-287a3b402/'}],
-        'images': ["/static/OurCampus/OurCampus1.png",
-                   "/static/OurCampus/OurCampus2.png",
-                   "/static/OurCampus/OurCampus3.png",
-                   "/static/OurCampus/OurCampus4.png",
-                   "/static/OurCampus/OurCampus5.png",
-                   "/static/OurCampus/OurCampus6.png"],
-        'thumbnail': '/static/OurCampus/OurCampus.png/',
+        'images': ["/static/OurCampus/OurCampus1.webp",
+                   "/static/OurCampus/OurCampus2.webp",
+                   "/static/OurCampus/OurCampus3.webp",
+                   "/static/OurCampus/OurCampus4.webp",
+                   "/static/OurCampus/OurCampus5.webp",
+                   "/static/OurCampus/OurCampus6.webp"],
+        'thumbnail': '/static/OurCampus/OurCampus.webp',
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -990,7 +990,7 @@ PROJECTS = [
                    "/static/MyPersonalWebsite/MyPersonalWebsite2.webp",
                    "/static/MyPersonalWebsite/MyPersonalWebsite3.webp",
                    "/static/MyPersonalWebsite/MyPersonalWebsite4.webp"],
-        'thumbnail': "/static/MyPersonalWebsite/MyPersonalWebsite.png",
+        'thumbnail': "/static/MyPersonalWebsite/MyPersonalWebsite.webp",
         'published': {'en': 'March 3, 2026', 'ko': '2026년 3월 3일', 'fr': 'le 3 mars 2026'},
         'updated': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
@@ -1021,16 +1021,16 @@ PROJECTS = [
             'fr': "Le défi technique le plus complexe a été de connecter l'enregistrement Twilio à l'API Gemini. J'ai dû concevoir un pipeline qui capturait l'audio du patient, récupérait l'enregistrement à distance via des webhooks et traitait les données binaires pour l'analyse par l'IA, tout en maintenant une <strong>faible latence</strong> côté utilisateur."
         },
         'collaborators': [{'name': 'Oliver', 'linkedin': 'https://www.linkedin.com/in/oliver-massaad-9765a0276'}],
-        'images': ["/static/DrBob/DrBob5.png", 
-                   "/static/DrBob/DrBob1.png", 
-                   "/static/DrBob/DrBob3.png",
-                   "/static/DrBob/DrBob4.png", 
-                   "/static/DrBob/DrBob2.png", 
-                   "/static/DrBob/DrBob6.png", 
-                   "/static/DrBob/DrBob8.png",
-                   "/static/DrBob/DrBob9.png",
-                   "/static/DrBob/DrBob11.png"],
-        'thumbnail': '/static/DrBob/DrBob.png/',
+        'images': ["/static/DrBob/DrBob5.webp", 
+                   "/static/DrBob/DrBob1.webp", 
+                   "/static/DrBob/DrBob3.webp",
+                   "/static/DrBob/DrBob4.webp", 
+                   "/static/DrBob/DrBob2.webp", 
+                   "/static/DrBob/DrBob6.webp", 
+                   "/static/DrBob/DrBob7.webp",
+                   "/static/DrBob/DrBob8.webp",
+                   "/static/DrBob/DrBob9.webp"],
+        'thumbnail': '/static/DrBob/DrBob.webp',
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -1321,7 +1321,7 @@ def achievements():
             'external_links': [
                 {
                     'name': {'en': 'View the Progression Chart', 'ko': '점수 변동 차트 보기', 'fr': 'Voir le Graphique de Progression'},
-                    'url': '/static/Progression_Vanier.png',
+                    'url': '/static/Progression_Vanier.webp',
                     'icon': 'fa-solid fa-chart-line'
                 }
             ]
@@ -1364,7 +1364,7 @@ def achievements():
             'external_links': [
                 {
                     'name': {'en': 'View the Progression Chart', 'ko': '점수 변동 차트 보기', 'fr': 'Voir le Graphique de Progression'},
-                    'url': '/static/Progression_Concordia.png',
+                    'url': '/static/Progression_Concordia.webp',
                     'icon': 'fa-solid fa-chart-line'
                 }
             ]

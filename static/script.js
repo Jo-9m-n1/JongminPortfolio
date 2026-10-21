@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const portfolioData = {
         volunteering: [
-            { name: 'McGill TechFair Volunteer', type: '4 hrs', url: 'https://www.mcgill.ca/careers4engineers/techfair' },
+            { name: 'McGill TechFair Volunteer', type: '4 hrs', url: '/static/TechFairCertificate.pdf' },
             { name: 'Dawson Blue Ring Member', type: '120+ hrs', url: 'https://www.dawsoncollege.qc.ca/campus-life-leadership/blue-ring-society/' },
             { name: 'Dawson Open House Volunteer', type: '5 hrs', url: '/static/Volunteerism.pdf' }
         ],
