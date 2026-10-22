@@ -291,7 +291,7 @@ TRANSLATIONS = {
             '또한 <strong>Python, JavaScript, C++, C#, C</strong> 코딩 경험이 있습니다.'
         ),
 
-        'snow_hint': '"snow" 입력',
+        'snow_hint': '"snow"를 입력해보세요',
 
         'vault': '트로피 진열장',
         'vault_subtitle': '대회 우승',
