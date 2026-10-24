@@ -246,7 +246,7 @@ TRANSLATIONS = {
         'chart_attended': '참가한 해커톤',
         'chart_awards': '해커톤 수상',
         'chart_sequence': '해커톤 참가 회차',
-        'chart_cumulative': '누적 횟수',
+        'chart_cumulative': '누적 수상 횟수',
         'filter_all' : '전체',
         'general': '일반',
         'chart_art': '미술',
