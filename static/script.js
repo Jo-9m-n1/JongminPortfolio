@@ -355,9 +355,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 colors: ['#1d4ed8', '#3b82f6', '#93c5fd'] 
             },
             'Robotics': {
-                labels: ['Dawson Robotics 2026', 'McGill AeroHacks', 'Dawson Robotics 2025'],
-                data: [1, 1, 1],
-                colors: ['#6d28d9', '#8b5cf6', '#c4b5fd'] 
+                labels: ['Dawson Robotics Hackathon', 'McGill AeroHacks'],
+                data: [2, 1],
+                colors: ['#6d28d9', '#c8b1fd'] 
             },
             'CTF': {
                 labels: ['@HACK'],
