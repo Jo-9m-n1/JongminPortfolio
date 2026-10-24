@@ -750,13 +750,13 @@ PROJECTS = [
 #            'fr': ''
 #        },
         'collaborators': [{'name': 'Juan', 'linkedin': 'https://www.linkedin.com/in/juan-duran-6aa742205/'}, {'name': 'Kunya', 'linkedin': 'https://www.linkedin.com/in/kunya-zhang-19aa50250/'}, {'name': 'Édouard', 'linkedin': 'https://www.linkedin.com/in/edouardchasse/'}],
-        'images': ["/static/CashFlux/CashFlux1.png",
-            "/static/CashFlux/CashFlux2.png",
-            "/static/CashFlux/CashFlux3.png",
-            "/static/CashFlux/CashFlux4.png",
-            "/static/CashFlux/CashFlux5.png",
-            "/static/CashFlux/CashFlux6.png"],
-        'thumbnail': "/static/CashFlux/CashFlux.png",
+        'images': ["/static/CashFlux/CashFlux1.webp",
+            "/static/CashFlux/CashFlux2.webp",
+            "/static/CashFlux/CashFlux3.webp",
+            "/static/CashFlux/CashFlux4.webp",
+            "/static/CashFlux/CashFlux5.webp",
+            "/static/CashFlux/CashFlux6.webp"],
+        'thumbnail': "/static/CashFlux/CashFlux.webp",
         'external_links': [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
@@ -801,10 +801,10 @@ PROJECTS = [
 #            'fr': 'Le site est actuellement en cours de développement.'
 #        },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': ["/static/ChemicallyBonded/ChemicallyBonded1.png",
-            "/static/ChemicallyBonded/ChemicallyBonded2.png",
-            "/static/ChemicallyBonded/ChemicallyBonded3.png"],
-        'thumbnail': "/static/ChemicallyBonded/ChemicallyBonded.png",
+        'images': ["/static/ChemicallyBonded/ChemicallyBonded1.webp",
+            "/static/ChemicallyBonded/ChemicallyBonded2.webp",
+            "/static/ChemicallyBonded/ChemicallyBonded3.webp"],
+        'thumbnail': "/static/ChemicallyBonded/ChemicallyBonded.webp",
         'external_links': [
             {
                 'name': {'en': 'View Project on GitHub', 'ko': 'GitHub에서 프로젝트 보기', 'fr': 'Voir le Projet sur GitHub'},
@@ -948,11 +948,11 @@ PROJECTS = [
             'fr': "Au départ, nous voulions développer ce jeu en multijoueur en ligne. Toutefois, après plusieurs heures de développement côté serveur, nous avons réalisé que nous n'avions pas les accès nécessaires pour utiliser Unity Relay. Nous avons donc dû pivoter vers un format multijoueur local sur un seul appareil. Une expérience en ligne aurait été idéale, mais cette contrainte nous a permis de nous concentrer sur la mise au point des mécaniques de jeu principales dans les 3 jours du hackathon."
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}, {'name': 'Alex', 'linkedin': 'https://www.linkedin.com/in/alexander-derderian-43b21836b/'}],
-        'images': ["/static/DeckMot/DeckMot1.png",
-                   "/static/DeckMot/DeckMot2.png",
-                   "/static/DeckMot/DeckMot3.png",
-                   "/static/DeckMot/DeckMot4.png",
-                   "/static/DeckMot/DeckMot5.png"],
+        'images': ["/static/DeckMot/DeckMot1.webp",
+                   "/static/DeckMot/DeckMot2.webp",
+                   "/static/DeckMot/DeckMot3.webp",
+                   "/static/DeckMot/DeckMot4.webp",
+                   "/static/DeckMot/DeckMot5.webp"],
         'thumbnail': "/static/DeckMot/DeckMot.webp",
         'external_links': [
             {
