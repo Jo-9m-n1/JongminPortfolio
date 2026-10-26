@@ -10,7 +10,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 # For the main page stats only
 PORTFOLIO_STATS = {
     'competitions': 26,
-    'hackathons': 12,
+    'hackathons': 11,
     'prize': 4000,
     'projects': 9
 }
@@ -65,7 +65,7 @@ TRANSLATIONS = {
         'edu_enrolled': 'ENROLLED',
         'edu_graduated': 'GRADUATED',
         'edu_mcgill_university': 'McGill University',
-        'edu_mcgill_degree': 'Computer Science - Artificial Intelligence (Statistics Minor) | Bachelor of Science',
+        'edu_mcgill_degree': 'Computer Science - Artificial Intelligence | Bachelor of Science',
         'edu_mcgill_years': '2026 - 2029 (Est.)',
         'edu_dawson_college': 'Dawson College',
         'edu_dawson_degree': 'Science, Computer Science & Mathematics',
@@ -89,7 +89,7 @@ TRANSLATIONS = {
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
             'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
-            'I am a <strong class="pop-up"> 10x hackathon winner'
+            'I am a <strong class="pop-up"> 9x hackathon winner'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
@@ -98,7 +98,6 @@ TRANSLATIONS = {
             'Dialogue Track at ConUHacks (2nd)<br>'
             'Dawson Robotics Hackathon 2025 (2nd)<br>'
             'Dawson Robotics Hackathon 2026 (3rd)<br>'
-            'Beginner Track at @HACK (3rd)<br>'
             'Band of Agents Hackathon (Special Award)<br>'
             'Dialogue Internal (Special Award)<br>'
             'HackDécouverte (Special Award)<br>'
@@ -132,6 +131,7 @@ TRANSLATIONS = {
         'filter_gold': 'Gold',
         'filter_team': 'Team',
         'filter_hackathon': 'Hackathon',
+        'filter_gamejam': 'GameJam',
         'filter_school': 'School',
         'filter_personal': 'Personal',
         'no_projects_match': 'No projects match these filters.',
@@ -219,7 +219,7 @@ TRANSLATIONS = {
         'edu_enrolled': '재학 중',
         'edu_graduated': '졸업',
         'edu_mcgill_university': '맥길 대학교',
-        'edu_mcgill_degree': '컴퓨터 과학 - 인공지능 (통계학 부전공) | 학사',
+        'edu_mcgill_degree': '컴퓨터 과학 - 인공지능 | 학사',
         'edu_mcgill_years': '2026 - 2029 (예정)',
         'edu_dawson_college': 'Dawson College',
         'edu_dawson_degree': '과학, 컴퓨터 과학 및 수학',
@@ -258,7 +258,7 @@ TRANSLATIONS = {
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, 맥길 대학교에서 컴퓨터 과학을 공부하는 중인 <strong>이종민</strong>입니다. '
             '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
-            '저는 <strong class="pop-up">해커톤 10회 우승자'
+            '저는 <strong class="pop-up">해커톤 9회 우승자'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">해커톤 입상 기록:</strong><br>'
             'JACHacks (1위 · 특별상)<br>'
@@ -267,7 +267,6 @@ TRANSLATIONS = {
             'Dialogue 부문 ConUHacks (2위)<br>'
             'Dawson Robotics Hackathon 2025 (2위)<br>'
             'Dawson Robotics Hackathon 2026 (3위)<br>'
-            '초보 부문 @HACK (3위)<br>'
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             '</span></strong>이며, '
@@ -282,7 +281,7 @@ TRANSLATIONS = {
             'Dialogue Track at ConUHacks (2위)<br>'
             'Dawson Robotics Hackathon 2025 (2위)<br>'
             'Dawson Robotics Hackathon 2026 (3위)<br>'
-            'Beginner Track at @HACK (3위)<br>'
+            '초보 부문 @HACK (3위)<br>'
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             'The Ultimate Math League (특별상)<br>'
@@ -302,6 +301,7 @@ TRANSLATIONS = {
         'filter_gold': '골드',
         'filter_team': '팀 프로젝트',
         'filter_hackathon': '해커톤',
+        'filter_gamejam': '게임잼',
         'filter_school': '학교',
         'filter_personal': '개인',
         'no_projects_match': '조건에 맞는 프로젝트가 없습니다.',
@@ -388,7 +388,7 @@ TRANSLATIONS = {
         'edu_enrolled': 'INSCRIT',
         'edu_graduated': 'DIPLÔMÉ',
         'edu_mcgill_university': 'Université McGill',
-        'edu_mcgill_degree': 'Informatique - Intelligence Artificielle (Mineure en Statistiques) | Baccalauréat ès sciences',
+        'edu_mcgill_degree': 'Informatique - Intelligence Artificielle | Baccalauréat ès sciences',
         'edu_mcgill_years': '2026 - 2029 (Prévu)',
         'edu_dawson_college': 'Collège Dawson',
         'edu_dawson_degree': 'Sciences, informatique et mathématiques',
@@ -426,7 +426,7 @@ TRANSLATIONS = {
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
             "Récemment diplômé en informatique du Collège Dawson, je viens de débuter mes études en informatique à l'Université McGill (U1). "
             "Je suis fier d'être <strong>trilingue</strong>, parlant le coréen, l'anglais et le français. "
-            'Je suis <strong class="pop-up">10x gagnant de hackathons'
+            'Je suis <strong class="pop-up">9x gagnant de hackathons'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Podiums de hackathons :</strong><br>'
             'JACHacks (1ʳᵉ · Prix Spécial)<br>'
@@ -435,7 +435,6 @@ TRANSLATIONS = {
             'Dialogue Track à ConUHacks (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2025 (2ᵉ)<br>'
             'Dawson Robotics Hackathon 2026 (3ᵉ)<br>'
-            'Beginner Track à @HACK (3ᵉ)<br>'
             'HackDécouverte (Prix spécial)<br>'
             'Dialogue Internal (Prix Spécial)<br>'
             '</span></strong> avec plus de '
@@ -469,6 +468,7 @@ TRANSLATIONS = {
         'filter_gold': 'Or',
         'filter_team': 'Équipe',
         'filter_hackathon': 'Hackathon',
+        'filter_gamejam': 'GameJam',
         'filter_school': 'École',
         'filter_personal': 'Personnel',
         'no_projects_match': 'Aucun projet ne correspond à ces filtres.',
@@ -923,7 +923,7 @@ PROJECTS = [
     },
     {
         'id': 'deckmots',
-        'tags': ['hackathon', 'team'],
+        'tags': ['gamejam', 'team'],
         'title': {'en': 'DeckMots', 'ko': 'DeckMots', 'fr': 'DeckMots'},
         'category': {
             'en': 'Hackathon 2026',

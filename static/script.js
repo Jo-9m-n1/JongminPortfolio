@@ -377,10 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: "HackDécouverte", type: "General", awards: 1 },
             { name: "ConUHacks", type: "General", awards: 1 },
             { name: window.T?.dialogue_hackathon || "Dialogue Internal Hackathon", type: "General", awards: 1 },
-            { name: "GameJam de la FSÉ", type: "Other", awards: 0 },
-            { name: "@HACK", type: "CTF", awards: 1 },
             { name: "McGill AeroHacks", type: "Robotics", awards: 1 },
-            { name: "VanierHacks", type: "CTF", awards: 0 },
             { name: "Championing AI for good", type: "Other", awards: 0 },
             { name: "JACHacks", type: "General", awards: 2 },
             { name: "Cursor Hackathon", type: "Other", awards: 0 },
@@ -651,7 +648,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { value: 'All', text: window.T?.filter_all || 'All' },
                 { value: 'General', text: window.T?.chart_general || 'General' },
                 { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' },
-                { value: 'CTF', text: 'CTF' }
             ],
             onSelect: (value) => updateHackathonChartData(value)
         });
@@ -1009,7 +1005,7 @@ Type 'help' to see a list of available commands.
     
     const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
     const directories = ['projects', 'achievements'];
-    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'education.txt', 'projects.txt'];
+    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'gamejam.txt', 'ctf.txt', 'education.txt', 'projects.txt'];
 
     inputField.addEventListener('keydown', function(e) {
         if (e.key === 'Tab') {
@@ -1356,7 +1352,7 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 -rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
 `;
             } else {
-                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt   education.txt   projects.txt\n`;
+                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   gamejam.txt   ctf.txt   contact.txt   education.txt   projects.txt\n`;
             }
             break;
 
@@ -1365,6 +1361,15 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
                 outputArea.innerHTML += `[Languages] Python, JavaScript, Java\n[Frameworks] Next.js, Flask\n`;
             } else if (args[1] === 'contact.txt') {
                 outputArea.innerHTML += `LinkedIn: linkedin.com/in/jo-9m-n1\nGithub: github.com/jo-9m-n1\nGitLab: gitlab.com/jo_9m_n1\n`;
+            } else if (args[1] === 'ctf.txt') {
+                outputArea.innerHTML += 
+`Mar 2026 | VanierHacks
+Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
+`;
+            } else if (args[1] === 'gamejam.txt') {
+                outputArea.innerHTML += 
+`Mar 2026 | GameJam de la FSÉ
+`;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
 `Jun 2026 | Band of Agents Hackaton <i class="fa-solid fa-trophy"></i>
@@ -1373,10 +1378,7 @@ May 2026 | Dawson Robotics Hackathon 2026 <i class="fa-solid fa-trophy"></i>
 May 2026 | Cursor Hackathon Montreal
 Apr 2026 | JACHacks <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Championing AI for good
-Mar 2026 | VanierHacks
 Mar 2026 | McGill AeroHacks <i class="fa-solid fa-trophy"></i>
-Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
-Mar 2026 | GameJam de la FSÉ
 Feb 2026 | Dialogue Internal Hackathon <i class="fa-solid fa-trophy"></i>
 Jan 2026 | ConUHacks <i class="fa-solid fa-trophy"></i>
 Nov 2025 | HackDécouverte <i class="fa-solid fa-trophy"></i>
