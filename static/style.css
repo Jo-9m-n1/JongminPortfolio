@@ -769,14 +769,14 @@ body.dark-mode .timeline-row:hover .timeline-dot {
     gap: 10px;
     padding: 12px 30px;
     
-    border-radius: 100px !important;
+    border-radius: 100px;
     
-    background: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1.5px solid rgba(255, 255, 255, 0.7) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
     
-    color: var(--black) !important;
+    color: var(--black);
     font-weight: 800;
     font-size: 0.95rem;
     text-decoration: none;
@@ -788,23 +788,23 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 
 .reset-btn-pill:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.6) !important;
-    border-color: var(--accent-color) !important;
-    color: var(--accent-color) !important;
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .reset-btn-pill {
-    background: rgba(15, 23, 42, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    color: #cbd5e1 !important;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #cbd5e1;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .reset-btn-pill:hover {
-    background: rgba(30, 41, 59, 0.9) !important;
-    border-color: #60a5fa !important;
-    color: #ffffff !important;
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #60a5fa;
+    color: #ffffff;
 }
 
 .filter-btn {
@@ -827,7 +827,7 @@ body.dark-mode .reset-btn-pill:hover {
 }
 
 .filter-btn:hover {
-    transform-origin: center center !important;
+    transform-origin: center center;
     transform: translateY(-4px) !important; 
     box-shadow: 
         0 12px 24px rgba(0, 0, 0, 0.08);
@@ -835,13 +835,13 @@ body.dark-mode .reset-btn-pill:hover {
 
 .filter-btn.btn-gold {
     background: rgba(255, 255, 255, 0.5); 
-    color: var(--gold-dark) !important;
+    color: var(--gold-dark);
 }
 
 .filter-btn.btn-canada {
-    border-color: transparent !important;
-    background: rgba(255, 255, 255, 0.5) !important;
-    color: var(--canada-red) !important;
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--canada-red);
 }
 
 .filter-btn.active {
@@ -903,7 +903,7 @@ body.dark-mode .reset-btn-pill:hover {
     opacity: 0.2;
     transform: rotate(-15deg);
     pointer-events: none;
-    border-color: var(--canada-red) !important;
+    border-color: var(--canada-red);
 }
 
 .btn-canada.active::after {
@@ -1114,7 +1114,7 @@ body.dark-mode {
 }
 
 body.dark-mode .interactive-bg {
-    background: #020617 !important;
+    background: #020617;
     filter: blur(100px) brightness(1.2);
 }
 
@@ -1375,6 +1375,10 @@ a.snow:hover {
     color: #24292E;
 }
 
+.devpost:hover {
+    color: #003e54; 
+}
+
 body.dark-mode .pill-menu-content a { color: #cbd5e1; }
 body.dark-mode .theme-toggle { color: #fbbf24; }
 body.dark-mode .dynamic-menu-title { color: rgba(255, 255, 255, 0.6); }
@@ -1561,9 +1565,13 @@ body.dark-mode .next-challenge-widget {
     text-align: right;
 }
 
+.countdown-display .day-part {
+    margin-right: 0.35rem;
+}
+
 .next-challenge-widget {
     padding: 3rem 4rem !important;
-    border-radius: 24px;
+    border-radius: 30px;
 }
 
 @media (max-width: 992px) {
@@ -1890,14 +1898,10 @@ body.dark-mode .terminal-prompt {
     font-size: 0.85rem;
 }
 
-.footer-social-row {
-    margin-top: 5px !important;
-}
-
 .footer-link {
     color: inherit;
     opacity: 0.6;
-    margin: 0 8px;
+    margin: 0 5px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
