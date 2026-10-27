@@ -1901,8 +1901,8 @@ body.dark-mode .terminal-prompt {
 .footer-link {
     color: inherit;
     opacity: 0.6;
-    margin: 0 2px;
-    font-size: 1.1rem;
+    margin: 0 3px;
+    font-size: 1.15rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
