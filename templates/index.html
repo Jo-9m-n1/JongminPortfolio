@@ -53,13 +53,13 @@
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://jongmin.tech/">
         <meta property="og:title" content="Jongmin Lee | Software Engineer">
-        <meta property="og:description" content="Portfolio of Jongmin Lee, McGill Computer Science student and 10x hackathon winner based in Montreal.">
+        <meta property="og:description" content="Portfolio of Jongmin Lee, McGill CS student and 9x hackathon winner based in Montreal.">
         <meta property="og:image" content="https://jongmin.tech/static/MyPersonalWebsite/MyPersonalWebsite.webp">
 
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="https://jongmin.tech/">
         <meta property="twitter:title" content="Jongmin Lee | Software Engineer">
-        <meta property="twitter:description" content="Portfolio of Jongmin Lee, McGill Computer Science student and 10x hackathon winner based in Montreal.">
+        <meta property="twitter:description" content="Portfolio of Jongmin Lee, McGill CS student and 9x hackathon winner based in Montreal.">
         <meta property="twitter:image" content="https://jongmin.tech/static/MyPersonalWebsite/MyPersonalWebsite.webp">
         <title>Jongmin Lee | Computer Science Portfolio</title>
         <script type="module" src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-esm.min.js"></script>
@@ -251,7 +251,7 @@
                                 <div class="d-flex flex-column gap-3 flex-grow-1">
                                     {% for exp in experiences %}
                                     <div class="timeline-card shadow-sm d-flex flex-column p-4 flex-grow-1">
-                                        <div class="d-flex justify-content-between align-items-start mb-4">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
                                             <div class="d-flex align-items-center gap-2">
                                                 <h3 class="h5 fw-bold mb-0">{{ exp.company|tr }}</h3>
                                                 <span class="badge border shadow-sm">{{ exp.duration | tr }}</span>
@@ -263,12 +263,21 @@
                                             <div class="role-item position-relative {% if not loop.last %}pb-4{% endif %}" style="padding-left: 24px; border-left: 2px solid var(--border-color);">
                                                 {% if 'Present' in role.date.en %}
                                                 <div style="position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background-color: var(--accent-color);"></div>
-                                                <h4 class="h6 fw-bold mb-1" style="color: var(--accent-color) !important;">{{ role.title | tr }}</h4>
                                                 {% else %}
                                                 <div style="position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background-color: #cbd5e1;"></div>
-                                                <h4 class="h6 fw-bold mb-1 text-dark">{{ role.title | tr }}</h4>
                                                 {% endif %}
-                                                <div class="mb-2"><span class="badge border text-dark shadow-sm">{{ role.date | tr }}</span></div>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    {% if 'Present' in role.date.en %}
+                                                        <h4 class="h6 fw-bold mb-0" style="color: var(--accent-color) !important;">
+                                                            {{ role.title | tr }}
+                                                        </h4>
+                                                    {% else %}
+                                                        <h4 class="h6 fw-bold mb-0 text-dark">
+                                                            {{ role.title | tr }}
+                                                        </h4>
+                                                    {% endif %}
+                                                    <span class="badge border text-dark shadow-sm">{{ role.date | tr }}</span>
+                                                </div>
                                                 <p class="small text-muted mb-0">{{ role.description | tr }}</p>
                                             </div>
                                             {% endfor %}
