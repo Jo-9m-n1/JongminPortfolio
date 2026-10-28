@@ -1577,11 +1577,23 @@ def achievements():
 
     certificates = [
         {
+            'title': {'en': 'Volunteered more than 120 hours', 'ko': '봉사 시간 120시간 이상 달성', 'fr': 'Plus de 120 heures de bénévolat'},
+            'event': {'en': 'Montreal', 'ko': '몬트리올', 'fr': 'Montréal'},
+            'date': {'en': 'Ongoing', 'ko': '진행 중', 'fr': 'En cours'},
+            'desc': {
+                'en': '120+ hours of community service, demonstrating long-term civic commitment and leadership.',
+                'ko': '120시간 이상의 자원봉사 활동을 통해 시민적 책임과 리더십을 꾸준히 보여줬습니다.',
+                'fr': "Plus de 120 heures de service communautaire, témoignant d'un engagement civique et d'un leadership à long terme."
+            },
+            'color': '#D4AF37',
+            'category': 'canada job'
+        },
+        {
             'title': {'en': 'Campus Life Leadership Award', 'ko': '리더십 상', 'fr': 'Prix de leadership'},
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
             'date': '2026. 06. 23.',
             'desc': {
-                'en': 'This prestigious $750 graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to student life and the campus community throughout their time at Dawson College.',
+                'en': 'This prestigious $750 graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to the campus community throughout their time at Dawson College.',
                 'ko': 'Dawson College 졸업생 전체 중 단 한 명에게만 수여되는 750달러 상당의 영예로운 상으로, 재학 기간 동안 탁월한 리더십을 발휘하여 학생 커뮤니티와 캠퍼스 생활 발전에 가장 크게 기여한 학생에게 주어집니다.',
                 'fr': "Ce prestigieux prix de fin d'études de 750 $ est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
             },
@@ -1605,18 +1617,6 @@ def achievements():
                 'fr': "Le SPACE Certificate reconnaît les étudiants pour leur excellence dans des projets multidisciplinaires qui intègrent la science, la technologie et les arts au Collège Dawson."
             },
             'category': 'software hardware canada stem math arts'
-        },
-        {
-            'title': {'en': 'Volunteered more than 100 hours', 'ko': '봉사 시간 100시간 이상 달성', 'fr': 'Plus de 100 heures de bénévolat'},
-            'event': {'en': 'Montreal', 'ko': '몬트리올', 'fr': 'Montréal'},
-            'date': {'en': 'Ongoing', 'ko': '진행 중', 'fr': 'En cours'},
-            'desc': {
-                'en': '100+ hours of certified community service, demonstrating long-term civic commitment and leadership through various volunteer initiatives.',
-                'ko': '다양한 자원봉사 활동을 통해 시민적 책임과 리더십을 꾸준히 보여준 100시간 이상의 공인 지역사회 봉사활동을 하였습니다.',
-                'fr': "Plus de 100 heures de service communautaire certifié, témoignant d'un engagement civique et d'un leadership à long terme à travers diverses initiatives bénévoles."
-            },
-            'color': '#D4AF37',
-            'category': 'canada job'
         },
         {
             'title': {'en': 'Recognition of Student Involvement', 'ko': '학생 활동 인증', 'fr': "Reconnaissance de l'engagement étudiant"},
