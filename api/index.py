@@ -1058,10 +1058,10 @@ PROJECTS = [
             'fr': "Ce projet a commencé comme un concept « à la Tinder » pour aider les étudiants du Cégep à découvrir leurs pauses communes et à organiser des rencontres. Il a ensuite évolué vers une application plus polyvalente, permettant aux utilisateurs de trouver du temps libre commun avec n'importe lequel de leurs amis."
         },
         'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'pdfplumber', 'Regex', 'Werkzeug Security'],
-        'images': ["/static/MeetingApp/MeetingApp1.png",
-                   "/static/MeetingApp/MeetingApp3.png",
-                   "/static/MeetingApp/MeetingApp5.png"],
-        'thumbnail': '/static/MeetingApp/MeetingApp.png/',
+        'images': ["/static/MeetingApp/MeetingApp1.webp",
+                   "/static/MeetingApp/MeetingApp3.webp",
+                   "/static/MeetingApp/MeetingApp5.webp"],
+        'thumbnail': '/static/MeetingApp/MeetingApp.webp',
         'published': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
     {
@@ -1088,7 +1088,7 @@ PROJECTS = [
         },
         'collaborators': [{'name': 'James', 'linkedin': 'https://www.linkedin.com/in/james-ferdinand-combista-88039b316/'}],
         'images': ["/static/J-score/J-score1.webp",
-                   "/static/J-score/J-score2.png",
+                   "/static/J-score/J-score2.webp",
                    "/static/J-score/J-score3.webp"],
         'thumbnail': '/static/J-score/J-score.webp',
         'external_links': [
