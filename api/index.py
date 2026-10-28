@@ -814,12 +814,12 @@ PROJECTS = [
             {
                 'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
                 'url': '/static/ChemicallyBonded/Chemically_Bonded_report.pdf',
-                'icon': 'fa-solid fa-file-pdf'
+                'icon': 'fa-regular fa-file-pdf'
             },
             {
                 'name': {'en': 'View Poster', 'ko': '포스터 보기', 'fr': "Voir l'Affiche"},
                 'url': '/static/ChemicallyBonded/Chemically_Bonded_poster.pdf',
-                'icon': 'fa-solid fa-file-pdf'
+                'icon': 'fa-regular fa-file-pdf'
             }
         ],
         'published': {'en': 'May 20, 2026', 'ko': '2026년 5월 20일', 'fr': 'le 20 mai 2026'},
@@ -911,12 +911,12 @@ PROJECTS = [
             {
                 'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
                 'url': '/static/Mila_report.pdf',
-                'icon': 'fa-solid fa-file-pdf'
+                'icon': 'fa-regular fa-file-pdf'
             },
             {
                 'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
                 'url': '/static/LiminalCertificate.pdf',
-                'icon': 'fa-solid fa-file-pdf'
+                'icon': 'fa-regular fa-file-pdf'
             }
         ],
         'published': {'en': 'April 15, 2026', 'ko': '2026년 4월 15일', 'fr': 'le 15 avril 2026'}
@@ -963,7 +963,7 @@ PROJECTS = [
             {
                 'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
                 'url': '/static/DeckMotCertificate.pdf',
-                'icon': 'fa-solid fa-file-pdf'
+                'icon': 'fa-regular fa-file-pdf'
             }
         ],
         'published': {'en': 'March 3, 2026', 'ko': '2026년 3월 3일', 'fr': 'le 3 mars 2026'},
@@ -1070,7 +1070,7 @@ PROJECTS = [
         'title': {'en': 'J-score*', 'ko': 'J-score*', 'fr': 'J-score*'},
         'category': {'en': 'School Project 2025', 'ko': '학교 프로젝트 2025', 'fr': 'Projet Scolaire 2025'},
         'description': {
-            'en': 'A precision tool for calculating academic standing (r-score) using the standard deviation, group-strength and more.',
+            'en': 'A precision tool for calculating academic standing (R-score) using the standard deviation, group-strength and more.',
             'ko': '표준편차, 그룹 강도 등을 활용해 학업 성적(R-score)을 정밀하게 계산해 주는 도구입니다.',
             'fr': "Un outil de précision pour calculer la cote scolaire (cote R) en utilisant l'écart-type, la force du groupe et plus encore."
         },
@@ -1299,12 +1299,12 @@ def achievements():
                 {
                     'name': {'en': 'View Report', 'ko': '보고서 보기', 'fr': 'Voir le Rapport'},
                     'url': '/static/Mila_report.pdf',
-                    'icon': 'fa-solid fa-file-pdf'
+                    'icon': 'fa-regular fa-file-pdf'
                 },
                 {
                     'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
                     'url': '/static/LiminalCertificate.pdf',
-                    'icon': 'fa-solid fa-file-pdf'
+                    'icon': 'fa-regular fa-file-pdf'
                 }
             ]
         },
@@ -1388,7 +1388,7 @@ def achievements():
                 {
                     'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
                     'url': '/static/DeckMotCertificate.pdf',
-                    'icon': 'fa-solid fa-file-pdf'
+                    'icon': 'fa-regular fa-file-pdf'
                 }
             ]
         },
@@ -1654,7 +1654,7 @@ def achievements():
                 {
                     'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
                     'url': '/static/BeThereCertificate.pdf',
-                    'icon': 'fa-solid fa-file-pdf'
+                    'icon': 'fa-regular fa-file-pdf'
                 }
             ]
         },
@@ -1684,7 +1684,7 @@ def achievements():
                 {
                     'name': {'en': 'View Proof', 'ko': '증빙 보기', 'fr': 'Voir la Preuve'},
                     'url': '/static/Volunteerism.pdf',
-                    'icon': 'fa-solid fa-file-pdf'
+                    'icon': 'fa-regular fa-file-pdf'
                 }
             ]
         },
