@@ -1675,9 +1675,9 @@ def achievements():
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
             'date': '2024. 10. 20.',
             'desc': {
-                'en': "Volunteered for Dawson's science open house event.",
-                'ko': 'Dawson의 과학 오픈하우스 행사에 자원봉사로 참여했습니다.',
-                'fr': "Bénévole lors de la journée portes ouvertes en sciences de Dawson."
+                'en': "Volunteered for Dawson's open house event.",
+                'ko': 'Dawson의 오픈하우스 행사에 자원봉사로 참여했습니다.',
+                'fr': "Bénévole lors de la journée portes ouvertes de Dawson."
             },
             'category': 'canada',
             'external_links': [
