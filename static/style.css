@@ -2456,6 +2456,15 @@ body.dark-mode .course-code {
     color: #cbd5e1;
 }
 
+.filter-btn.school-filter {
+    color: var(--school-accent);
+}
+.filter-btn.school-filter.active {
+    background: var(--school-accent) !important;
+    border-color: var(--school-accent);
+    color: white !important;
+}
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .featured-marquee-container {
