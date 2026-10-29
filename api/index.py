@@ -80,7 +80,7 @@ TRANSLATIONS = {
         'edu_art_etudes': 'Art-Études Program',
 
         'portfolio_insights' : 'Portfolio Insights',
-        'key_projects': 'Key Projects',
+        'volunteering': 'Volunteering',
         'award_distribution': 'Awards Distribution',
         'hackathon_progress': 'Hackathon Progress',
         'graph': 'Cumulative awards vs hackathons attended',
@@ -234,7 +234,7 @@ TRANSLATIONS = {
         'edu_art_etudes': '예술 및 스터디 프로그램',
 
         'portfolio_insights' : '포트폴리오 인사이트',
-        'key_projects': '주요 프로젝트',
+        'volunteering': '봉사활동',
         'award_distribution': '수상 분포',
         'hackathon_progress': '해커톤 성과 추이',
         'graph': '해커톤 참가 횟수 대비 누적 수상 실적',
@@ -403,7 +403,7 @@ TRANSLATIONS = {
         'edu_art_etudes': 'Programme Arts-Études',
 
         'portfolio_insights' : 'Aperçu du portfolio',
-        'key_projects': 'Projets Clés',
+        'volunteering': 'Bénévolat',
         'award_distribution': 'Répartition des prix',
         'hackathon_progress': 'Progression aux hackathons',
         'graph': 'Récompenses cumulées vs participations aux hackathons',
