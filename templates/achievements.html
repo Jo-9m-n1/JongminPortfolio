@@ -90,11 +90,11 @@
                         <div class="line-segment"></div>
                         <div class="timeline-dot"></div> 
                         <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
-                            <div class="card-header-custom">
-                                <span class="timeline-date">{{ honor.date|tr }}</span>
-                            </div>
                             <h3 class="h6 fw-bold text-dark">{{ honor.title|tr }}</h3>
-                            <p class="event-name" style="color: var(--accent-color) !important; font-size: 0.88rem;">{{ honor.event|tr }}</p>
+                            <div class="d-flex flex-wrap align-items-center gap-2">
+                                <p class="event-name mb-0" style="color: var(--accent-color) !important; font-size: 0.88rem;">{{ honor.event|tr }}</p>
+                                <span class="badge border text-dark shadow-sm">{{ honor.date|tr }}</span>
+                            </div>
                             <p class="desc-text text-muted small">{{ honor.desc|tr|safe }}</p>
 
                             {% if honor.external_links %}
@@ -124,11 +124,11 @@
                         <div class="line-segment"></div>
                         <div class="timeline-dot"></div> 
                         <div class="timeline-card shadow-sm {{ 'award-border' if honor.award or honor.color == '#D4AF37' else 'border-0' }}"> 
-                            <div class="card-header-custom">
-                                <span class="timeline-date">{{ honor.date|tr }}</span>
-                            </div>
                             <h3 class="h6 fw-bold text-dark">{{ honor.title|tr }}</h3>
-                            <p class="event-name" style="color: var(--accent-color) !important; font-size: 0.88rem;">{{ honor.event|tr }}</p>
+                            <div class="d-flex flex-wrap align-items-center gap-2">
+                                <p class="event-name mb-0" style="color: var(--accent-color) !important; font-size: 0.88rem;">{{ honor.event|tr }}</p>
+                                <span class="badge border text-dark shadow-sm">{{ honor.date|tr }}</span>
+                            </div>
                             <p class="desc-text text-muted small">{{ honor.desc|tr|safe }}</p>
 
                             {% if honor.external_links %}
