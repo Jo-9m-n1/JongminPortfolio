@@ -2471,9 +2471,8 @@ body.dark-mode .course-code {
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    background-color: rgba(0,0,0,0.02);
     border: 1px solid rgba(0, 0, 0, 0.04);
     transition: box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -2493,16 +2492,12 @@ body.dark-mode .course-code {
     font-size: 0.95rem;
     font-weight: 500;
     margin: 0 0 2px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #1d1d1f; 
     letter-spacing: -0.01em;
     width: 100%;
 }
 
 .featured-project-category {
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     color: #86868b;
     margin: 0;
     white-space: nowrap;
