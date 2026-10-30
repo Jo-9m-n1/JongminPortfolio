@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', function() {
             defaultText: window.T?.filter_all || 'All',
             options: [
                 { value: 'All', text: window.T?.filter_all || 'All' },
-                { value: 'General', text: window.T?.chart_general || 'General' },
+                { value: 'General', text: window.T?.general || 'General' },
                 { value: 'Robotics', text: window.T?.chart_robotics || 'Robotics' },
             ],
             onSelect: (value) => updateHackathonChartData(value)
