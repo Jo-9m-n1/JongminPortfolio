@@ -563,7 +563,7 @@ EXPERIENCES = [
         'company': 'McHacks',
         'roles': [
             {
-                'title': 'Development Coordinator',
+                'title': {'en': 'Development Coordinator', 'ko': '개발자', 'fr': 'Coordonnateur du Développement'},
                 'start_date': (2026, 6),
                 'end_date': 'present',
                 'description': ''
