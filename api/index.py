@@ -34,7 +34,7 @@ TRANSLATIONS = {
         'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
         'name': 'Jongmin Lee',
-        'about': 'McGill Computer Science',
+        'about': 'McGill Computer Science Student',
         'btn_achievements': 'Achievements',
         'btn_view_my_work': 'View My Work',
 
@@ -87,7 +87,7 @@ TRANSLATIONS = {
 
         'about_html': (
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
-            'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science at McGill University (U1). '
+            'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science (AI) at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
             'I am a <strong class="pop-up"> 9x hackathon winner'
             '<span class="pop-up-text">'
@@ -120,7 +120,7 @@ TRANSLATIONS = {
             'The Ultimate Math League (Special Award)<br>'
             "HME Math Contest '16 (Special Award)<br>"
             '</span></strong> in total. '
-            'I have experience coding in <strong>Python, JavaScript, C++, C#, and C</strong>.'
+            'I have experience coding in <strong>Python, JavaScript, Java, C++, C#, and C</strong>.'
         ),
 
         'snow_hint': 'Type "snow"',
@@ -256,7 +256,7 @@ TRANSLATIONS = {
         'AI_dev': 'AI 개발',
 
         'about_html': (
-            '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, 맥길 대학교에서 컴퓨터 과학을 공부하는 중인 <strong>이종민</strong>입니다. '
+            '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, 맥길 대학교에서 컴퓨터 과학(AI)을 공부하는 중인 <strong>이종민</strong>입니다. '
             '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
             '저는 <strong class="pop-up">해커톤 9회 우승자'
             '<span class="pop-up-text">'
@@ -287,7 +287,7 @@ TRANSLATIONS = {
             'The Ultimate Math League (특별상)<br>'
             "HME 수학 경시대회 '16 (특별상)<br>"
             '</span></strong>한 경력이 있습니다. '
-            '또한 <strong>Python, JavaScript, C++, C#, C</strong> 코딩 경험이 있습니다.'
+            '또한 <strong>Python, JavaScript, Java, C++, C#, C</strong> 코딩 경험이 있습니다.'
         ),
 
         'snow_hint': '"snow"를 입력해보세요',
@@ -424,7 +424,7 @@ TRANSLATIONS = {
 
         'about_html': (
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
-            "Récemment diplômé en informatique du Collège Dawson, je viens de débuter mes études en informatique à l'Université McGill (U1). "
+            "Récemment diplômé en informatique du Collège Dawson, je viens de débuter mes études en informatique (IA) à l'Université McGill (U1). "
             "Je suis fier d'être <strong>trilingue</strong>, parlant le coréen, l'anglais et le français. "
             'Je suis <strong class="pop-up">9x gagnant de hackathons'
             '<span class="pop-up-text">'
@@ -455,7 +455,7 @@ TRANSLATIONS = {
             'The Ultimate Math League (Prix Spécial)<br>'
             "HME Math Contest '16 (Prix Spécial)<br>"
             '</span></strong> au total. '
-            "J'ai de l'expérience en programmation en <strong>Python, JavaScript, C++, C# et C</strong>."
+            "J'ai de l'expérience en programmation en <strong>Python, JavaScript, Java, C++, C# et C</strong>."
         ),
 
         'snow_hint': 'Tapez « snow »',
@@ -593,9 +593,9 @@ EXPERIENCES = [
                 'start_date': (2024, 2),
                 'end_date': (2024, 6),
                 'description': {
-                    'en': 'Provided academic support in math and science to peers, helping them improve their understanding and performance.',
+                    'en': 'Provided academic support in math and science to peers, helping them improve their performance.',
                     'ko': '도움이 필요한 동료 학생들에게 수학과 과학을 가르쳤습니다.',
-                    'fr': 'Accompagnement académique de pairs pour renforcer leur compréhension des concepts complexes en mathématiques et en sciences.'
+                    'fr': 'Accompagnement académique de pairs pour renforcer leur compréhension des concepts en mathématiques et en sciences.'
                 },
             }
         ]
@@ -962,7 +962,7 @@ PROJECTS = [
             },
             {
                 'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
-                'url': '/static/DeckMotCertificate.pdf',
+                'url': '/static/DeckMot/DeckMotCertificate.pdf',
                 'icon': 'fa-regular fa-file-pdf'
             }
         ],
@@ -1387,7 +1387,7 @@ def achievements():
                 },
                 {
                     'name': {'en': 'View Certificate', 'ko': '수료증 보기', 'fr': 'Voir le Certificat'},
-                    'url': '/static/DeckMotCertificate.pdf',
+                    'url': '/static/DeckMot/DeckMotCertificate.pdf',
                     'icon': 'fa-regular fa-file-pdf'
                 }
             ]
