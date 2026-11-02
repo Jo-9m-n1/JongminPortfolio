@@ -174,8 +174,8 @@
                     {{ t.about }}
                 </p>        
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                    <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg custom-hero-btn">{{ t.btn_achievements }}</a>
-                    <a href="/projects" class="btn btn-outline-dark btn-lg custom-hero-btn">{{ t.btn_view_my_work }}</a>
+                    <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg">{{ t.btn_achievements }}</a>
+                    <a href="/projects" class="btn btn-outline-dark btn-lg ">{{ t.btn_view_my_work }}</a>
                 </div>
             </div>
         </header>
@@ -243,7 +243,7 @@
                     </section>
 
                     <div class="row gx-4 gy-5 py-4">
-                        <div class="col-xl-6">
+                        <div class="col-xl-7">
                             <section id="experience" class="h-100 d-flex flex-column">
                                 <h3 class="h4 mb-3">
                                     <i class="fa-solid fa-briefcase text-primary me-2"></i> {{ t.section_experience | default('Experience') }}
@@ -288,7 +288,7 @@
                             </section>
                         </div>
                         
-                        <div class="col-xl-6">
+                        <div class="col-xl-5">
                             <section id="education" class="h-100 d-flex flex-column">
                                 <h3 class="h4 mb-3">
                                     <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
