@@ -1372,7 +1372,7 @@ Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 `;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
-`Jun 2026 | Band of Agents Hackaton <i class="fa-solid fa-trophy"></i>
+`Jun 2026 | Band of Agents Hackathon <i class="fa-solid fa-trophy"></i>
 May 2026 | MPC Hacks <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 May 2026 | Dawson Robotics Hackathon 2026 <i class="fa-solid fa-trophy"></i>
 May 2026 | Cursor Hackathon Montreal
