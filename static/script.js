@@ -1003,9 +1003,9 @@ Type 'help' to see a list of available commands.
         }, 50); 
      });
     
-    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'npm', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'sudo', 'cal'];
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'cal'];
     const directories = ['projects', 'achievements'];
-    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'gamejam.txt', 'ctf.txt', 'education.txt', 'projects.txt'];
+    const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'gamejam.txt', 'ctf.txt', 'education.txt', 'projects.txt', 'experience.txt'];
 
     inputField.addEventListener('keydown', function(e) {
         if (e.key === 'Tab') {
@@ -1081,8 +1081,6 @@ function processCommand(cmd, outputArea, overlay) {
         case 'help':
             outputArea.innerHTML += 
 `Available commands:
-  <span class="term-keyword">npm install</span>   - Install a new package
-  <span class="term-keyword">npm run dev</span>   - Start local development server
   <span class="term-keyword">neofetch</span>      - Display system information
   <span class="term-keyword">whoami</span>        - Display current user info
   <span class="term-keyword">ls</span>            - List directory contents
@@ -1096,7 +1094,6 @@ function processCommand(cmd, outputArea, overlay) {
   <span class="term-keyword">echo</span>          - Display a line of text or a string
   <span class="term-keyword">ping</span>          - Send ICMP ECHO_REQUEST
   <span class="term-keyword">cal</span>           - Display a calendar
-  <span class="term-keyword">sudo</span>          - Execute a command as the superuser
   <span class="term-keyword">reboot</span>        - Restart the system (Reload page)
   <span class="term-keyword">clear</span>         - Clear the terminal screen
   <span class="term-keyword">exit</span>          - Close the terminal
@@ -1109,80 +1106,10 @@ function processCommand(cmd, outputArea, overlay) {
 <span style="color:#D80621;">      /\\      </span>   <span class="term-keyword">Host:</span> Montreal, QC
 <span style="color:#D80621;">     /  \\     </span>   <span class="term-keyword">Kernel:</span> 19.0.0-student
 <span style="color:#D80621;">    /____\\    </span>   <span class="term-keyword">Uptime:</span> 19 years
-<span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask
+<span style="color:#D80621;">   /_|  |_\\   </span>   <span class="term-keyword">Packages:</span> Python, Next.js, Flask and more
 <span style="color:#D80621;">     |  |     </span>   <span class="term-keyword">Languages:</span> KR, EN, FR
                  <span class="term-keyword">Hobbies:</span> Badminton, Piano, Movies
 `;
-            break;
-
-        case 'npm':
-            const subCmd = args[1];
-            const pkg = args[2];
-
-            if (subCmd === 'install' || subCmd === 'i') {
-                if (!pkg) {
-                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> install: Provide a package name.\n`;
-                    break;
-                }
-
-                if (virtualPackages.includes(pkg)) {
-                    outputArea.innerHTML += `npm <span style="color: #fbbf24;">info</span> ${pkg} is already installed in the virtual_registry.\n`;
-                    break;
-                }
-                
-                outputArea.innerHTML += `npm <span style="color: #4ade80;">installing</span> ${pkg}...\n`;
-                
-                const progressId = 'progress-' + Math.random().toString(36).substr(2, 9);
-                outputArea.innerHTML += `<div id="${progressId}">[          ] 0%</div>`;
-                overlay.scrollTop = overlay.scrollHeight;
-
-                let progress = 0;
-                const progressBar = document.getElementById(progressId);
-                
-                const interval = setInterval(() => {
-                    progress += 10;
-                    const dots = "=".repeat(progress / 10);
-                    const spaces = " ".repeat(10 - (progress / 10));
-                    if (progressBar) progressBar.innerHTML = `[${dots}${spaces}] ${progress}%`;
-
-                    if (progress >= 100) {
-                        clearInterval(interval);
-                        
-                        if (!virtualPackages.includes(pkg)) {
-                            virtualPackages.push(pkg);
-                        }
-
-                        outputArea.innerHTML += `<span style="color: #4ade80;">added 1 package and audited 2 packages in 0.8s</span>\n`;
-                        outputArea.innerHTML += `found <span style="color: #4ade80;">0</span> vulnerabilities\n`;
-                        overlay.scrollTop = overlay.scrollHeight;
-                        
-                        const inputField = document.getElementById('terminal-input-field');
-                        if (inputField) inputField.focus();
-                    }
-                }, 150); 
-            } 
-            else if (subCmd === 'run') {
-                if (!pkg) {
-                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> run: Provide a script name\n`;
-                    break;
-                }
-
-                if (virtualPackages.includes(pkg)) {
-                    outputArea.innerHTML += `<span style="color: #4ade80;">> ${pkg}@1.0.0 start</span>\n`;
-                    outputArea.innerHTML += `<span style="color: #4ade80;">> node index.js</span>\n\n`;
-                    
-                    setTimeout(() => {
-                        outputArea.innerHTML += `[info] Initializing <span style="color: #3b82f6;">${pkg}</span> build...\n`;
-                        outputArea.innerHTML += `<span style="color: #4ade80;">[SUCCESS]</span> App is running on port ${Math.floor(Math.random() * 5000 + 3000)}\n`;
-                        overlay.scrollTop = overlay.scrollHeight;
-                    }, 600);
-                } else {
-                    outputArea.innerHTML += `npm <span style="color: #ff5f56;">ERR!</span> missing script: ${pkg}\n`;
-                    outputArea.innerHTML += `<span style="color: #666;">Tip: Try running 'npm install ${pkg}' first.</span>\n`;
-                }
-            } else {
-                outputArea.innerHTML += `Usage: npm install [package] | npm run [package]\n`;
-            }
             break;
 
         case 'sl':
@@ -1260,11 +1187,6 @@ function processCommand(cmd, outputArea, overlay) {
             outputArea.innerHTML += `<pre style="font-family: monospace; line-height: 1.2;">${calOutput}</pre>`;
             break;
 
-        case 'sudo':
-            outputArea.innerHTML += `<span class="term-error">[sudo] password for jongmin: </span>\n`;
-            outputArea.innerHTML += `<span class="term-error">Sorry, try again. This incident has been reported to the root user.</span>\n`;
-            break;
-
         case 'echo':
             const message = args.slice(1).join(' ');
             if (!message) {
@@ -1337,7 +1259,7 @@ Win Rate: <span style="color:#00ff00;">82%</span> [████████░�
             break;
 
         case 'whoami':
-            outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | CS Student at McGill University\n`;
+            outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | CS (AI) Student at McGill University\n`;
             break;
 
         case 'ls':
@@ -1350,9 +1272,10 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
+-rw-r--r--  1 jongmin jongmin  1024 Nov 04 experience.txt
 `;
             } else {
-                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   gamejam.txt   ctf.txt   contact.txt   education.txt   projects.txt\n`;
+                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   gamejam.txt   ctf.txt   contact.txt   education.txt   projects.txt   experience.txt\n`;
             }
             break;
 
@@ -1402,6 +1325,12 @@ Feb 2026 | Dr. Bob <i class="fa-solid fa-trophy"></i>
 Dec 2025 | Meeting App
 Dec 2025 | J-Score*
 ` 
+            } else if (args[1] === 'experience.txt') {
+                outputArea.innerHTML += 
+`Jun 2026 - Present  | McHacks               | Development Coordinator
+Jun 2025 - Aug 2025 | GIO Engineering       | Engineering Intern
+Feb 2024 - Jun 2024 | Rosemount High School | Peer Tutor
+`
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
@@ -1411,8 +1340,10 @@ Dec 2025 | J-Score*
 
         case 'ping':
             const target = args[1] || 'localhost';
-            if (target.includes('mcgill')) {
-                outputArea.innerHTML += `Pinging mcgill.ca [128.100.0.1]: time=12ms\n<span style="color:#00ff00;">Application status: Accepted</span>\n`;
+            if (target == 'mcgill') {
+                outputArea.innerHTML += `Pinging mcgill.ca [128.100.0.1]: time=12ms\n<span style="color:#00ff00;">Status: CS (U1)</span>\n`;
+            } else if (target == 'mchacks') {
+                outputArea.innerHTML += `Pinging mchacks.ca [128.100.0.1]: time=17ms\n<span style="color:#00ff00;">Status: Development Coordinator</span>\n`;
             } else {
                 outputArea.innerHTML += `Pinging ${target} [127.0.0.1]: time&lt;1ms\n`;
             }
