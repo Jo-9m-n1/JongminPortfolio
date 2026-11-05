@@ -1261,9 +1261,10 @@ Win Rate: <span style="color:#00ff00;">82%</span> [████████░�
         case 'whoami':
             outputArea.innerHTML += `Jongmin Lee\nFull-Stack Developer | CS (AI) Student at McGill University\n`;
             break;
-
-        case 'ls':
-            if (args[1] === '-la' || args[1] === '-l') {
+        
+        case 'ls': {
+            const flag = args[1];
+            if (flag === '-l' || flag === '-la' || flag === '-al') {
                 outputArea.innerHTML += 
 `drwxr-xr-x  2 jongmin jongmin  4096 Feb 25 23:52 <span class="term-keyword">projects</span>
 drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achievements</span>
@@ -1272,13 +1273,23 @@ drwxr-xr-x  2 jongmin jongmin  4096 Feb 10 09:15 <span class="term-keyword">achi
 -rw-r--r--  1 jongmin jongmin  1024 Feb 25 12:00 skills.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 22 11:30 hackathons.txt
 -rw-r--r--  1 jongmin jongmin  1024 Feb 20 18:45 contact.txt
--rw-r--r--  1 jongmin jongmin  1024 Nov 04 experience.txt
+-rw-r--r--  1 jongmin jongmin  1024 Nov 04 08:44 experience.txt
 `;
+            } else if (!flag) { 
+                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   contact.txt   education.txt   projects.txt   experience.txt\n`;
             } else {
-                outputArea.innerHTML += `<span class="term-keyword">projects/</span>   <span class="term-keyword">achievements/</span>   skills.txt   hackathons.txt   gamejam.txt   ctf.txt   contact.txt   education.txt   projects.txt   experience.txt\n`;
+                const filePath = args.slice(1).join(' ');
+                outputArea.innerHTML += 
+`<span style="color: #E74856;">ls : Cannot find path 'C:\\Users\\${filePath}' because it does not exist.
+At line:1 char:1
++ ls ${filePath}
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (Users\\${filePath}:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand</span>
+`;
             }
             break;
-
+        }
         case 'cat':
             if (args[1] === 'skills.txt') {
                 outputArea.innerHTML += `[Languages] Python, JavaScript, Java\n[Frameworks] Next.js, Flask\n`;
