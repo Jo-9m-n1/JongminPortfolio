@@ -62,11 +62,13 @@
                 <button class="filter-btn btn-gold" data-filter="award-filter" onclick="filterSelection('award-filter')">
                     <i class="fa-solid fa-trophy me-1"></i> {{ t.filter_gold }}
                 </button>
-                <button class="filter-btn" data-filter="team" onclick="filterSelection('team')">{{ t.filter_team }}</button>
                 <button class="filter-btn" data-filter="hackathon" onclick="filterSelection('hackathon')">{{ t.filter_hackathon }}</button>
-                <button class="filter-btn" data-filter="gamejam" onclick="filterSelection('gamejam')">{{ t.filter_gamejam }}</button>
                 <button class="filter-btn" data-filter="school" onclick="filterSelection('school')">{{ t.filter_school }}</button>
                 <button class="filter-btn" data-filter="personal" onclick="filterSelection('personal')">{{ t.filter_personal }}</button>
+                <button class="filter-btn" data-filter="Python" onclick="filterSelection('Python')">Python</button>
+                <button class="filter-btn" data-filter="JavaScript" onclick="filterSelection('JavaScript')">JavaScript</button>
+                <button class="filter-btn" data-filter="Gemini-API" onclick="filterSelection('Gemini-API')">Gemini API</button>
+                <button class="filter-btn" data-filter="ElevenLabs" onclick="filterSelection('ElevenLabs')">ElevenLabs</button>
             </div>
             <p class="filter-count text-center text-muted small mb-0"
                id="filterCount"
@@ -99,7 +101,7 @@
                                     {% if p.award %}
                                     <div class="badge bg-warning text-dark rounded-pill px-2 py-1 text-wrap d-inline-block" 
                                         style="font-size: 0.7rem; width: fit-content;">
-                                        <i class="fa-solid fa-trophy me-1"></i> {{ p.award|tr }}
+                                        <i class="fa-solid fa-trophy"></i> {{ p.award|tr }}
                                     </div>
                                     {% endif %}
 
@@ -112,7 +114,7 @@
                                 </div>
                             </div>
                             
-                            <h3 class="card-title h4 fw-bold">{{ p.title|tr }}</h3>
+                            <h4 class="card-title fw-bold">{{ p.title|tr }}</h4>
                             <p class="card-text text-muted mb-3" style="font-size: 0.85rem;">{{ p.description|tr|safe }}</p>
                             
                             <div class="mb-3">

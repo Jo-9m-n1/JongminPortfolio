@@ -31,7 +31,6 @@ TRANSLATIONS = {
         'back': 'Back',
         'showing_results': 'Showing {n} of {total} milestones',
         'showing_projects': 'Showing {n} of {total} projects',
-        'lang_beta_tooltip': 'Translation feature is in BETA — descriptions are still being translated.',
 
         'name': 'Jongmin Lee',
         'about': 'McGill Computer Science Student',
@@ -61,7 +60,6 @@ TRANSLATIONS = {
         'hl_jachacks_subtitle': '1st Place',
         'hl_aerohacks_subtitle': '1st Place',
 
-        'edu_expected': 'EXPECTED',
         'edu_enrolled': 'ENROLLED',
         'edu_graduated': 'GRADUATED',
         'edu_mcgill_university': 'McGill University',
@@ -79,7 +77,7 @@ TRANSLATIONS = {
         'edu_honor_roll': 'Honor Roll',
         'edu_art_etudes': 'Art-Études Program',
 
-        'portfolio_insights' : 'Portfolio Insights',
+        'portfolio_insights': 'Portfolio Insights',
         'volunteering': 'Volunteering',
         'award_distribution': 'Awards Distribution',
         'hackathon_progress': 'Hackathon Progress',
@@ -129,9 +127,7 @@ TRANSLATIONS = {
         'subtitle_journey': "Jongmin's journey from South Korea to Canada",
         'filter_show_all': 'Show All',
         'filter_gold': 'Gold',
-        'filter_team': 'Team',
         'filter_hackathon': 'Hackathon',
-        'filter_gamejam': 'GameJam',
         'filter_school': 'School',
         'filter_personal': 'Personal',
         'no_projects_match': 'No projects match these filters.',
@@ -185,7 +181,6 @@ TRANSLATIONS = {
         'back': '뒤로',
         'showing_results': '전체 {total}개 중 {n}개 표시',
         'showing_projects': '전체 {total}개 프로젝트 중 {n}개 표시',
-        'lang_beta_tooltip': '번역 기능은 베타 단계입니다 — 일부 설명만 번역되어 있습니다.',
 
         'name': '이종민',
         'about': '맥길 대학교 컴퓨터과학 신입생',
@@ -215,7 +210,6 @@ TRANSLATIONS = {
         'hl_jachacks_subtitle': '1위',
         'hl_aerohacks_subtitle': '1위',
 
-        'edu_expected': '예정',
         'edu_enrolled': '재학 중',
         'edu_graduated': '졸업',
         'edu_mcgill_university': '맥길 대학교',
@@ -299,9 +293,7 @@ TRANSLATIONS = {
         'subtitle_journey': '한국에서 캐나다까지 종민의 여정',
         'filter_show_all': '전체 보기',
         'filter_gold': '골드',
-        'filter_team': '팀 프로젝트',
         'filter_hackathon': '해커톤',
-        'filter_gamejam': '게임잼',
         'filter_school': '학교',
         'filter_personal': '개인',
         'no_projects_match': '조건에 맞는 프로젝트가 없습니다.',
@@ -384,7 +376,6 @@ TRANSLATIONS = {
         'hl_jachacks_subtitle': '1ʳᵉ Place',
         'hl_aerohacks_subtitle': '1ʳᵉ Place',
 
-        'edu_expected': 'PRÉVU',
         'edu_enrolled': 'INSCRIT',
         'edu_graduated': 'DIPLÔMÉ',
         'edu_mcgill_university': 'Université McGill',
@@ -466,9 +457,7 @@ TRANSLATIONS = {
         'subtitle_journey': 'Le parcours de Jongmin, de la Corée du Sud au Canada',
         'filter_show_all': 'Tout afficher',
         'filter_gold': 'Or',
-        'filter_team': 'Équipe',
         'filter_hackathon': 'Hackathon',
-        'filter_gamejam': 'GameJam',
         'filter_school': 'École',
         'filter_personal': 'Personnel',
         'no_projects_match': 'Aucun projet ne correspond à ces filtres.',
@@ -716,7 +705,7 @@ def get_processed_experiences():
 PROJECTS = [
     {
         'id': 'CashFlux',
-        'tags': ['hackathon', 'team'],
+        'tags': ['hackathon', 'Python', 'JavaScript', 'Gemini-API', 'ElevenLabs', 'MongoDB'],
         'title': {
             'en': 'CashFlux',
             'ko': 'CashFlux',
@@ -772,7 +761,7 @@ PROJECTS = [
     },
     {
         'id': 'chemically-bonded',
-        'tags': ['school', 'team'],
+        'tags': ['school', 'Python', 'JavaScript', 'Gemini-API'],
         'title': {
             'en': 'Chemically Bonded',
             'ko': 'Chemically Bonded',
@@ -827,7 +816,7 @@ PROJECTS = [
     },
     {
         'id': 'ourcampus',
-        'tags': ['hackathon', 'team'],
+        'tags': ['hackathon', 'Python', 'Gemini-API', 'ElevenLabs', 'JavaScript'],
         'title': {'en': 'OurCampus', 'ko': 'OurCampus', 'fr': 'OurCampus'},
         'award': {
             'en': '1st Place | JACHacks',
@@ -841,16 +830,16 @@ PROJECTS = [
         },
         'tech': ['TypeScript', 'Next.js', 'Python', 'Gemini API'],
         'description': {
-            'en': 'An award-winning project, OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
-            'ko': '해커톤에서 개발한 수상작 OurCampus는 공통 휴식 시간과 캠퍼스 인구 히트맵을 통해 학생들이 커뮤니티를 형성할 수 있도록 도와줍니다.',
-            'fr': "Projet primé développé lors d'un hackathon, OurCampus aide les étudiants à créer une communauté en affichant les pauses communes et une carte thermique de la population sur le campus."
+            'en': 'OurCampus is designed to help students find community by showing mutual breaks and a population heatmap of a campus.',
+            'ko': 'OurCampus는 공통 휴식 시간과 캠퍼스 인구 히트맵을 통해 학생들이 커뮤니티를 형성할 수 있도록 도와줍니다.',
+            'fr': "OurCampus aide les étudiants à créer une communauté en affichant les pauses communes et une carte thermique de la population sur le campus."
         },
         'full_story': {
-            'en': 'Our team developed a web platform designed to optimize the student campus experience. Building on the foundation of my previous project, "Meeting App", the application leverages the Gemini API to convert uploaded PDF schedules into structured digital formats. The platform also streamlines club management by identifying optimal meeting times based on mutual availability. Additionally, I developed a Campus Heat Map feature that provides real-time visualization of the room occupancy by integrating the Unifi API to track device connectivity across 100+ campus access points. To ensure long-term utility, I architected a data pipeline to export access point metrics into CSV files, enabling the IT and security department to audit traffic patterns without specialized software.',
-            'ko': '우리 팀은 학생들의 캠퍼스 경험을 향상시키기 위한 웹 플랫폼을 개발했습니다. 이전 프로젝트인 "Meeting App"을 기반으로, Gemini API를 활용해 업로드된 PDF 시간표를 정형화된 디지털 데이터로 변환합니다. 또한 서로의 가능한 시간을 분석해 최적의 모임 시간을 찾아주어 동아리 운영을 효율화합니다. 추가로 캠퍼스 내 100개 이상의 액세스 포인트의 기기 연결 상태를 Unifi API로 추적해 강의실 점유율을 실시간으로 시각화하는 Campus Heat Map 기능을 개발했습니다. 장기적인 활용을 위해, 액세스 포인트 데이터를 CSV로 추출하는 데이터 파이프라인을 설계하여 IT 및 보안팀이 별도의 전문 소프트웨어 없이도 트래픽 패턴을 분석할 수 있도록 했습니다.',
-            'fr': "Notre équipe a développé une plateforme web visant à optimiser l'expérience étudiante sur le campus. S'appuyant sur mon précédent projet « Meeting App », l'application utilise l'API Gemini pour convertir les horaires PDF téléversés en formats numériques structurés. La plateforme simplifie aussi la gestion des clubs en identifiant les meilleurs créneaux de réunion selon les disponibilités communes. J'ai également développé une fonctionnalité « Campus Heat Map » qui visualise en temps réel l'occupation des salles en intégrant l'API Unifi pour suivre la connectivité des appareils sur plus de 100 points d'accès du campus. Pour assurer une utilité à long terme, j'ai conçu un pipeline de données qui exporte les métriques des points d'accès en CSV, permettant aux équipes TI et sécurité d'auditer les flux sans logiciel spécialisé."
+            'en': 'Our team developed a web platform designed to optimize the student campus experience. Building on the foundation of my previous project, "Meeting App", the application leverages the Gemini API to convert uploaded PDF schedules into structured digital formats. The platform also streamlines club management by identifying optimal meeting times based on mutual availability. Additionally, I developed a Campus Heat Map feature that provides real-time visualization of the room occupancy by integrating the UniFi API to track device connectivity across 100+ campus access points. To ensure long-term utility, I architected a data pipeline to export access point metrics into CSV files, enabling the IT and security department to audit traffic patterns without specialized software.',
+            'ko': '우리 팀은 학생들의 캠퍼스 경험을 향상시키기 위한 웹 플랫폼을 개발했습니다. 이전 프로젝트인 "Meeting App"을 기반으로, Gemini API를 활용해 업로드된 PDF 시간표를 정형화된 디지털 데이터로 변환합니다. 또한 서로의 가능한 시간을 분석해 최적의 모임 시간을 찾아주어 동아리 운영을 효율화합니다. 추가로 캠퍼스 내 100개 이상의 액세스 포인트의 기기 연결 상태를 UniFi API로 추적해 강의실 점유율을 실시간으로 시각화하는 Campus Heat Map 기능을 개발했습니다. 장기적인 활용을 위해, 액세스 포인트 데이터를 CSV로 추출하는 데이터 파이프라인을 설계하여 IT 및 보안팀이 별도의 전문 소프트웨어 없이도 트래픽 패턴을 분석할 수 있도록 했습니다.',
+            'fr': "Notre équipe a développé une plateforme web visant à optimiser l'expérience étudiante sur le campus. S'appuyant sur mon précédent projet « Meeting App », l'application utilise l'API Gemini pour convertir les horaires PDF téléversés en formats numériques structurés. La plateforme simplifie aussi la gestion des clubs en identifiant les meilleurs créneaux de réunion selon les disponibilités communes. J'ai également développé une fonctionnalité « Campus Heat Map » qui visualise en temps réel l'occupation des salles en intégrant l'API UniFi pour suivre la connectivité des appareils sur plus de 100 points d'accès du campus. Pour assurer une utilité à long terme, j'ai conçu un pipeline de données qui exporte les métriques des points d'accès en CSV, permettant aux équipes TI et sécurité d'auditer les flux sans logiciel spécialisé."
         },
-        'full_tech': ['TypeScript', 'Next.js', 'Chart.js', 'Node.js', 'Python', 'Gemini API', 'Elevenlabs API', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind'],
+        'full_tech': ['TypeScript', 'Next.js', 'Chart.js', 'Node.js', 'Python', 'Gemini API', 'ElevenLabs', 'Prisma', 'React', 'Socket.io', 'Supabase', 'Tailwind CSS', 'UniFi'],
         'troubles': {
             'en': "The primary challenge with overlaying data (number of devices) onto a map image is the fluidity of the web. When using standard pixel values, the dots remain fixed while the map image scales up or down to fit different screen sizes. This causes the markers to drift from their intended landmarks. To solve this, I developed a Python script that calculates the position as a ratio of the image's dimensions instead of recording a static pixel location. This ensures the dots stay pinned to the exact location regardless of the screen size and allows new access points to be added easily, providing better <strong>scalability</strong> to departements in need.",
             'ko': '데이터(기기 수)를 지도 이미지 위에 오버레이할 때의 가장 큰 어려움은 웹의 가변성이었습니다. 픽셀 값을 고정으로 사용하면 화면 크기에 따라 지도 이미지가 확대·축소되어도 점들은 그대로 머물러, 의도한 위치에서 벗어나게 됩니다. 이를 해결하기 위해 정적인 픽셀 좌표가 아닌, 이미지의 크기에 대한 비율로 위치를 계산하는 Python 스크립트를 개발했습니다. 덕분에 화면 크기와 상관없이 점이 정확한 위치에 고정되며, 새로운 액세스 포인트도 손쉽게 추가할 수 있어 필요한 부서에 더 나은 <strong>확장성</strong>을 제공합니다.',
@@ -881,14 +870,14 @@ PROJECTS = [
     },
     {
         'id': 'liminal',
-        'tags': ['hackathon', 'team'],
+        'tags': ['hackathon', 'Python'],
         'title': {'en': 'Liminal', 'ko': 'Liminal', 'fr': 'Liminal'},
         'category': {
             'en': 'Hackathon 2026',
             'ko': '해커톤 2026',
             'fr': 'Hackathon 2026'
         },
-        'tech': ['Python', 'mmBERT', 'NLP', 'Cohere Command-R'],
+        'tech': ['Python', 'mmBERT', 'NLP', 'Mistral AI'],
         'description': {
             'en': 'A dual-tier AI guardrail system to detect mental health crises in youth facing virtual assistants, <strong>improving crisis recall by 9x</strong> (102 dataset test).',
             'ko': 'AI 챗봇을 사용하는 청소년의 정신 건강 위기를 감지하는 2단계 AI 가드레일 시스템으로, 위기 상황 재현율(recall)을 <strong>9배 향상</strong>시켰습니다 (102개 데이터셋 기준).',
@@ -899,7 +888,7 @@ PROJECTS = [
             'ko': '봄방학 동안, 저희 팀은 AI 모델과 상호작용하는 청소년의 정신 건강 위기를 감지하는 AI 가드레일 시스템을 개발했습니다. 처음에는 제공된 시드 데이터셋으로 모델을 학습시켰지만, recall과 precision이 모두 1.000으로 완벽하게 나오는 것을 보고 과적합 문제를 발견했습니다. 이를 해결하기 위해 가드레일이 없는 모델을 스트레스 테스트하는 합성 데이터 파이프라인을 구축하여 학습 데이터를 다양화하고 과적합 문제를 해결했습니다. 개발자로서 AI 모델을 직접 다뤄본 것은 이번이 처음이었기에 많은 것을 배울 수 있었습니다. 이 경험을 통해 AI 모델을 학습하고 개선하는 방법의 기본을 익혔으며, 이는 요즘 매우 중요한 자산이 되었습니다.',
             'fr': "Pendant la semaine de relâche, mon équipe et moi avons développé un système de garde-fou IA conçu pour détecter les crises de santé mentale chez les jeunes interagissant avec notre modèle d'IA. Au départ, nous avons entraîné le modèle sur le jeu de données de départ fourni; nous avons cependant rapidement constaté un surapprentissage, avec des scores parfaits de 1,000 en rappel et en précision. Pour résoudre cela, nous avons conçu un pipeline de données synthétiques qui a soumis notre modèle non régulé à des tests de stress, diversifiant ainsi efficacement les données d'entraînement et corrigeant le surapprentissage. Ce projet m'a beaucoup appris, car c'était la première fois que je travaillais avec un modèle d'IA en tant que développeur. J'y ai appris les bases de l'entraînement et du raffinement d'un modèle d'IA, une compétence essentielle de nos jours."
         },
-        'full_tech': ['Python', 'PyTorch', 'Cohere API', 'HuggingFace Transformers', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
+        'full_tech': ['Python', 'PyTorch', 'Cohere Command-R', 'HuggingFace Transformers', 'Mistral AI', 'Regex Safety-Nets', 'Synthetic Data Pipelining'],
         'troubles': {
             'en': 'Initially, we trained our model on the provided seed dataset (n=98), achieving a near-perfect F1 score. However, we suspected overfitting due to the small sample size. Test run against an external dataset (n=102) confirmed that our concerns were valid, as performance dropped significantly. To improve the generalization, we leveraged Gemini to generate synthetic data, <strong>diversifying</strong> our training set and <strong>robustifying</strong> the model.',
             'ko': '처음에는 제공된 시드 데이터셋(n=98)으로 모델을 학습시켜 거의 완벽한 F1 점수를 얻었습니다. 그러나 표본 크기가 작아 과적합이 의심됐고, 외부 데이터셋(n=102)으로 테스트해 본 결과 성능이 크게 떨어져 우려가 사실로 확인됐습니다. 일반화 성능을 높이기 위해 Gemini를 활용해 합성 데이터를 생성하여 학습 데이터를 <strong>다양화</strong>하고 모델을 <strong>견고하게</strong> 만들었습니다.',
@@ -923,23 +912,23 @@ PROJECTS = [
     },
     {
         'id': 'deckmots',
-        'tags': ['gamejam', 'team'],
+        'tags': [],
         'title': {'en': 'DeckMots', 'ko': 'DeckMots', 'fr': 'DeckMots'},
         'category': {
-            'en': 'Hackathon 2026',
-            'ko': '해커톤 2026',
-            'fr': 'Hackathon 2026'
+            'en': 'Game Jam 2026',
+            'ko': '게임 잼 2026',
+            'fr': 'Game Jam 2026'
         },
         'tech': ['C#', 'Unity'],
         'description': {
-            'en': 'Developed with Unity at a French GameJam, DeckMots is a local 2-player game where you draft teams of unique characters. To block incoming attacks, the defending player must answer a timed French question.',
-            'ko': '프랑스어 게임잼에서 Unity로 개발한 2인용 로컬 멀티플레이 게임입니다. 고유한 캐릭터들로 팀을 구성하며, 상대의 공격을 방어하려면 제한 시간 내에 프랑스어 문제를 풀어야 합니다.',
-            'fr': "Créé avec Unity lors d'un GameJam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
+            'en': 'Developed with Unity at a French Game Jam, DeckMots is a local 2-player game where you draft teams of unique characters. To block incoming attacks, the defending player must answer a timed French question.',
+            'ko': '프랑스어 게임 잼에서 Unity로 개발한 2인용 로컬 멀티플레이 게임입니다. 고유한 캐릭터들로 팀을 구성하며, 상대의 공격을 방어하려면 제한 시간 내에 프랑스어 문제를 풀어야 합니다.',
+            'fr': "Créé avec Unity lors d'un Game Jam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
         },
         'full_story': {
-            'en': 'My teammates, James, Alex and I developed this game during a hackathon (GameJam) at the University of Montreal (UdeM). This was my first French hackathon and my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
-            'ko': '저는 팀원 James, Alex와 함께 Université de Montréal(UdeM)에서 열린 해커톤(GameJam)에서 이 게임을 개발했습니다. 저의 첫 프랑스어 해커톤이자 처음으로 실제로 동작하는 게임을 만드는 경험이어서 시야가 크게 넓어졌습니다. 과제는 11~12세 국제 학생들이 프랑스어를 배울 수 있는 교육용 게임을 만드는 것이었습니다. 포켓몬의 메커니즘에서 영감을 받아, 플레이어가 프랑스어 문제를 맞히며 상대의 공격을 방어하는 멀티플레이 카드 게임을 만들었습니다. 이 정도 규모의 프로젝트를 Unity로 진행하는 것은 어려웠지만 보람찬 학습이었습니다. 비록 수상하지는 못했지만, 짧은 시간 안에 완성된 게임을 만들어낸 팀의 효율성이 매우 자랑스럽습니다.',
-            'fr': "Mes coéquipiers James et Alex, et moi avons développé ce jeu lors d'un hackathon (GameJam) à l'Université de Montréal (UdeM). C'était mon premier hackathon en français et la première fois que je créais un jeu fonctionnel, une expérience qui a ouvert mes horizons. Le défi consistait à créer un jeu éducatif pour aider des élèves internationaux de 11 à 12 ans à apprendre le français. Inspirés par les mécaniques de Pokémon, nous avons conçu un jeu de cartes multijoueur où les joueurs se défendent contre les attaques en répondant correctement à des questions de français. Travailler sur un projet de cette envergure avec Unity a été difficile, mais l'apprentissage en a valu la peine. Même si nous n'avons rien gagné, je suis incroyablement fier de l'efficacité avec laquelle mon équipe a livré un jeu pleinement fonctionnel."
+            'en': 'My teammates, James, Alex and I developed this game during a Game Jam at the University of Montreal (UdeM). This was my first French hackathon and my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
+            'ko': '저는 팀원 James, Alex와 함께 Université de Montréal(UdeM)에서 열린 게임 잼에서 이 게임을 개발했습니다. 저의 첫 프랑스어 해커톤이자 처음으로 실제로 동작하는 게임을 만드는 경험이어서 시야가 크게 넓어졌습니다. 과제는 11~12세 국제 학생들이 프랑스어를 배울 수 있는 교육용 게임을 만드는 것이었습니다. 포켓몬의 메커니즘에서 영감을 받아, 플레이어가 프랑스어 문제를 맞히며 상대의 공격을 방어하는 멀티플레이 카드 게임을 만들었습니다. 이 정도 규모의 프로젝트를 Unity로 진행하는 것은 어려웠지만 보람찬 학습이었습니다. 비록 수상하지는 못했지만, 짧은 시간 안에 완성된 게임을 만들어낸 팀의 효율성이 매우 자랑스럽습니다.',
+            'fr': "Mes coéquipiers James et Alex, et moi avons développé ce jeu lors d'une Game Jam à l'Université de Montréal (UdeM). C'était mon premier hackathon en français et la première fois que je créais un jeu fonctionnel, une expérience qui a ouvert mes horizons. Le défi consistait à créer un jeu éducatif pour aider des élèves internationaux de 11 à 12 ans à apprendre le français. Inspirés par les mécaniques de Pokémon, nous avons conçu un jeu de cartes multijoueur où les joueurs se défendent contre les attaques en répondant correctement à des questions de français. Travailler sur un projet de cette envergure avec Unity a été difficile, mais l'apprentissage en a valu la peine. Même si nous n'avons rien gagné, je suis incroyablement fier de l'efficacité avec laquelle mon équipe a livré un jeu pleinement fonctionnel."
         },
         'full_tech': ['C#', 'Unity', 'JSON'],
         'troubles': {
@@ -971,7 +960,7 @@ PROJECTS = [
     },
     {
         'id': 'personal-website',
-        'tags': ['personal'],
+        'tags': ['personal', 'Python', 'JavaScript'],
         'title': {'en': 'Personal Website', 'ko': '개인 웹사이트', 'fr': 'Site Web Personnel'},
         'category': {'en': 'Personal Project 2026', 'ko': '개인 프로젝트 2026', 'fr': 'Projet Personnel 2026'},
         'tech': ['Python', 'JavaScript'],
@@ -996,25 +985,25 @@ PROJECTS = [
     },
     {
         'id': 'dr-bob',
-        'tags': ['hackathon', 'team'],
+        'tags': ['hackathon', 'JavaScript', 'Python', 'Gemini-API'],
         'title': 'Dr. Bob',
         'award': {
             'en': '2nd Place | Dialogue Track at ConUHacks',
             'ko': '2등 | Dialogue 부문 ConUHacks',
             'fr': '2ᵉ Place | Piste Dialogue à ConUHacks'
         },
-        'tech': ['JavaScript', 'Python', 'Twilio API', 'Gemini API'],
+        'tech': ['JavaScript', 'Python', 'Twilio', 'Gemini API'],
         'description': {
-            'en': 'An award-winning project, Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
-            'ko': '해커톤에서 개발한 수상작 Dr. Bob은 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
-            'fr': "Projet primé développé lors d'un hackathon, Dr. Bob utilise Twilio pour automatiser l'accueil des patients et le suivi des antécédents médicaux, en s'assurant que les données médicales sont bien organisées pour les médecins."
+            'en': 'Dr. Bob uses Twilio to automate patient intake and history tracking, ensuring medical data is organized for doctors.',
+            'ko': 'Dr. Bob은 Twilio를 활용해 환자 접수와 진료 이력 관리를 자동화하여, 의사가 의료 데이터를 체계적으로 확인할 수 있도록 합니다.',
+            'fr': "Dr. Bob utilise Twilio pour automatiser l'accueil des patients et le suivi des antécédents médicaux, en s'assurant que les données médicales sont bien organisées pour les médecins."
         },
         'full_story': {
             'en': "Oliver and I developed Dr. Bob for our second hackathon. Out of 10 sponsor challenges offered, we picked the Dialogue Track because we both have non-English and non-French speaking parents and understand how difficult it is to make a medical appointment in Canada when you are not fluent in neither in English nor French. We wanted to support the Allophone community, which is why our application is offered in 5 languages: English, French, Korean, Chinese and Arabic. Since this was our second hackathon, we worked more efficiently than we did during our first one. However, we still ran into some hurdles, such as complex merge conflicts that we had to resolve. This was also our first time integrating an AI (Gemini) chatbot, which provided a great learning opportunity. We had to learn how to write prompts to ensure that Bob's responses remained accurate and on-track. Initially, the AI's replies were occasionally unpredictable, but we refined our prompts to ensure that the application delivered a reliable experience to our users. This experience helped me build Chemically Bonded which also uses a same AI API.",
             'ko': 'Oliver와 저는 두 번째 해커톤에서 Dr. Bob을 개발했습니다. 10개의 스폰서 챌린지 중 Dialogue 트랙을 선택했는데, 둘 다 영어와 프랑스어를 못하시는 부모님이 계셔서 캐나다에서 영어나 프랑스어가 능숙하지 않을 때 진료 예약을 잡는 것이 얼마나 어려운지 잘 알기 때문입니다. 영어가 모국어가 아닌 커뮤니티를 돕고 싶었고, 그래서 저희 앱은 영어, 프랑스어, 한국어, 중국어, 아랍어의 5개 언어를 지원합니다. 두 번째 해커톤이라 처음보다 훨씬 효율적으로 작업할 수 있었지만, 복잡한 머지 충돌 등 여러 어려움도 있었습니다. AI(Gemini) 챗봇을 통합한 것도 이번이 처음이었기에 좋은 학습 기회였습니다. Dr. Bob의 답변이 정확하고 일관되도록 프롬프트 작성법을 익혀야 했고, 초기에는 답변이 예측 불가능할 때도 있었지만 프롬프트를 정교하게 다듬어 사용자에게 안정적인 경험을 제공할 수 있게 되었습니다. 이 경험은 같은 AI API를 사용하는 Chemically Bonded를 만드는 데에도 큰 도움이 되었습니다.',
             'fr': "Oliver et moi avons développé Dr. Bob lors de notre deuxième hackathon. Parmi les 10 défis commandités proposés, nous avons choisi la piste Dialogue parce que nos parents respectifs ne parlent ni anglais ni français, et nous savons à quel point il peut être difficile de prendre un rendez-vous médical au Canada lorsqu'on ne maîtrise pas ces deux langues. Nous voulions soutenir la communauté allophone, c'est pourquoi notre application est offerte en 5 langues : anglais, français, coréen, chinois et arabe. Comme c'était notre deuxième hackathon, nous avons travaillé plus efficacement que la première fois. Nous avons tout de même rencontré quelques obstacles, comme des conflits de fusion (merge) complexes à résoudre. C'était aussi notre première intégration d'un chatbot IA (Gemini), ce qui a été une belle occasion d'apprentissage. Il a fallu apprendre à rédiger des prompts pour que les réponses de Bob restent précises et pertinentes. Au début, les réponses de l'IA étaient parfois imprévisibles, mais nous avons affiné nos prompts pour offrir une expérience fiable aux utilisateurs. Cette expérience m'a beaucoup aidé à bâtir Chemically Bonded, qui utilise la même API d'IA."
         },
-        'full_tech': ['JavaScript', 'Python', 'Flask', 'SQLite', 'SQLAlchemy', 'Twilio API', 'Gemini API', 'Web Speech API', 'Geolocation API', 'Werkzeug Security', 'Leaflet.js'],
+        'full_tech': ['JavaScript', 'Python', 'Flask', 'SQLite', 'SQLAlchemy', 'Twilio', 'Gemini API', 'Web Speech', 'Geolocation', 'Werkzeug Security', 'Leaflet.js'],
         'troubles': {
             'en': 'The most complex technical trouble was connecting the Twilio recording with the Gemini API. I had to architect a pipeline that captured patient audio, retrieved the remote recording via webhooks and processed the binary data for AI analysis, while maintaining a <strong>low-latency</strong> user experience.',
             'ko': '가장 복잡했던 기술적 난제는 Twilio 녹음을 Gemini API와 연결하는 것이었습니다. 환자의 음성을 캡처하고, 웹훅으로 원격 녹음을 가져온 뒤 바이너리 데이터를 AI 분석에 맞게 처리하면서도 <strong>낮은 지연 시간</strong>을 유지하는 파이프라인을 설계해야 했습니다.',
@@ -1043,7 +1032,7 @@ PROJECTS = [
     },
     {
         'id': 'meeting-app',
-        'tags': ['personal'],
+        'tags': ['personal', 'Python', 'JavaScript'],
         'title': {'en': 'Meeting App', 'ko': 'Meeting App', 'fr': 'Meeting App'},
         'category': {'en': 'Personal Project 2025', 'ko': '개인 프로젝트 2025', 'fr': 'Projet Personnel 2025'},
         'description': {
@@ -1066,7 +1055,7 @@ PROJECTS = [
     },
     {
         'id': 'j-score',
-        'tags': ['school', 'team'],
+        'tags': ['school', 'Python', 'JavaScript'],
         'title': {'en': 'J-score*', 'ko': 'J-score*', 'fr': 'J-score*'},
         'category': {'en': 'School Project 2025', 'ko': '학교 프로젝트 2025', 'fr': 'Projet Scolaire 2025'},
         'description': {
@@ -1074,7 +1063,7 @@ PROJECTS = [
             'ko': '표준편차, 그룹 강도 등을 활용해 학업 성적(R-score)을 정밀하게 계산해 주는 도구입니다.',
             'fr': "Un outil de précision pour calculer la cote scolaire (cote R) en utilisant l'écart-type, la force du groupe et plus encore."
         },
-        'tech': ['Python', 'JavaScript', 'CSV'],
+        'tech': ['Python', 'JavaScript', 'Supabase'],
         'full_story': {
             'en': 'James and I developed J-score* as the final project for our third-semester programming class at Dawson College, it was the first large-scale collaborative web application I built with a teammate. While we were both familiar with the basics of Git, this project forced us to move from individual workflows to a synchronized development environment. This important skill helped me build applications within a team and eventually win a few hackathons.',
             'ko': 'James와 저는 Dawson College 3학기 프로그래밍 수업의 최종 프로젝트로 J-score*를 개발했습니다. 팀원과 함께 만든 첫 대규모 협업 웹 애플리케이션이었습니다. 둘 다 Git의 기본은 알고 있었지만, 이 프로젝트를 통해 개인 작업 흐름에서 동기화된 협업 개발 환경으로 전환해야 했습니다. 이 중요한 역량 덕분에 이후 팀으로 애플리케이션을 만들고 여러 해커톤에서 수상할 수 있었습니다.',
@@ -1428,7 +1417,7 @@ def achievements():
             'event': {'en': 'Concordia University', 'ko': '콩코디아 대학교', 'fr': 'Université Concordia'},
             'date': '2025. 11. 29.',
             'desc': {
-                'en': "Competed in Concordia's first pre-university hackathon. Developed BudgetX, an AI budeting website using Next.js, Gemini API and others.",
+                'en': "Competed in Concordia's first pre-university hackathon. Developed BudgetX, an AI budeting website using Next.js, Gemini API and more.",
                 'ko': 'Concordia의 첫 대입 학생 전용 해커톤에 참가해 Next.js, Gemini API 등을 활용한 AI 가계부 웹사이트 BudgetX를 개발했습니다.',
                 'fr': "Participation au tout premier hackathon pré-universitaire de Concordia. Développé BudgetX, un site web de budget IA utilisant Next.js, l'API Gemini et d'autres outils."
             },
@@ -1452,17 +1441,6 @@ def achievements():
                 'fr': "Construit et programmé un système robotique autonome de suivi de ligne noire avec contrôle par télécommande IR, en utilisant C++ et le framework Arduino."
             },
             'color': '#D4AF37',
-            'category': 'software hardware canada stem'
-        },
-        {
-            'title': {'en': 'Participated | Dawson Science On Tourne', 'ko': '참가 | Dawson Science On Tourne', 'fr': 'Participation | Dawson Science On Tourne'},
-            'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
-            'date': '2025. 04. 04.',
-            'desc': {
-                'en': 'Designed a drone using 3D printers.',
-                'ko': '3D 프린터를 활용해 드론을 설계했습니다.',
-                'fr': "Conception d'un drone à l'aide d'imprimantes 3D."
-            },
             'category': 'software hardware canada stem'
         },
         {
@@ -1577,13 +1555,13 @@ def achievements():
 
     certificates = [
         {
-            'title': {'en': 'Volunteered more than 120 hours', 'ko': '봉사 시간 120시간 이상 달성', 'fr': 'Plus de 120 heures de bénévolat'},
+            'title': {'en': 'Volunteered more than 130 hours', 'ko': '봉사 시간 130시간 이상 달성', 'fr': 'Plus de 130 heures de bénévolat'},
             'event': {'en': 'Montreal', 'ko': '몬트리올', 'fr': 'Montréal'},
             'date': {'en': 'Ongoing', 'ko': '진행 중', 'fr': 'En cours'},
             'desc': {
-                'en': '120+ hours of community service, demonstrating long-term civic commitment and leadership.',
-                'ko': '120시간 이상의 자원봉사 활동을 통해 시민적 책임과 리더십을 꾸준히 보여줬습니다.',
-                'fr': "Plus de 120 heures de service communautaire, témoignant d'un engagement civique et d'un leadership à long terme."
+                'en': '130+ hours of community service, demonstrating long-term civic commitment and leadership.',
+                'ko': '130시간 이상의 자원봉사 활동을 통해 시민적 책임과 리더십을 꾸준히 보여줬습니다.',
+                'fr': "Plus de 130 heures de service communautaire, témoignant d'un engagement civique et d'un leadership à long terme."
             },
             'color': '#D4AF37',
             'category': 'canada job'
@@ -1593,7 +1571,7 @@ def achievements():
             'event': {'en': 'Dawson College', 'ko': 'Dawson College', 'fr': 'Collège Dawson'},
             'date': '2026. 06. 23.',
             'desc': {
-                'en': 'This prestigious $750 graduation award is presented to a single graduating student who has demonstrated exceptional leadership and made the most significant contribution to the campus community throughout their time at Dawson College.',
+                'en': 'This prestigious $750 graduation award is presented to a graduating student who has demonstrated exceptional leadership and made the most significant contribution to the campus community throughout their time at Dawson College.',
                 'ko': 'Dawson College 졸업생 전체 중 단 한 명에게만 수여되는 750달러 상당의 영예로운 상으로, 재학 기간 동안 탁월한 리더십을 발휘하여 학생 커뮤니티와 캠퍼스 생활 발전에 가장 크게 기여한 학생에게 주어집니다.',
                 'fr': "Ce prestigieux prix de fin d'études de 750 $ est décerné à un seul étudiant diplômé ayant fait preuve d'un leadership exceptionnel et ayant apporté la contribution la plus significative à la vie étudiante et à la communauté du Collège Dawson tout au long de son parcours."
             },
