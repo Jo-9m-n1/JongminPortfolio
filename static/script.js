@@ -1338,9 +1338,10 @@ Dec 2025 | J-Score*
 ` 
             } else if (args[1] === 'experience.txt') {
                 outputArea.innerHTML += 
-`Jun 2026 - Present  | McHacks               | Development Coordinator
-Jun 2025 - Aug 2025 | GIO Engineering       | Engineering Intern
-Feb 2024 - Jun 2024 | Rosemount High School | Peer Tutor
+`Oct 2026 - Present  | McGill Computer Science Undergraduate Society | Tech Team Member
+Jun 2026 - Present  | McHacks                                       | Development Coordinator
+Jun 2025 - Aug 2025 | GIO Engineering                               | Engineering Intern
+Feb 2024 - Jun 2024 | Rosemount High School                         | Peer Tutor
 `
             } else if (!args[1]) {
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;

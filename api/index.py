@@ -549,6 +549,17 @@ def set_language(lang):
 
 EXPERIENCES = [
     {
+        'company': 'McGill Computer Science Undergraduate Society',
+        'roles': [
+            {
+                'title': {'en': 'Tech Team Member', 'ko': 'Tech Team 멤버', 'fr': 'Membre du Tech Team'},
+                'start_date': (2026, 10),
+                'end_date': 'present',
+                'description': ''
+            }
+        ]
+    },
+    {
         'company': 'McHacks',
         'roles': [
             {
