@@ -21,6 +21,10 @@
     user-select: none;
 }
 
+.dark-mode .lang-toggle {
+    border: 1px solid rgba(62, 61, 65, 0.5);
+}
+
 .lang-toggle .lang-link {
     position: relative;
     display: inline-flex;
@@ -68,7 +72,6 @@
 
 @media (max-width: 575.98px) {
     .lang-toggle .lang-link { min-width: 26px; padding: 0.12rem 0.35rem; font-size: 0.7rem; }
-    .lang-beta-badge { font-size: 0.48rem; top: -7px; right: -8px; }
     .navbar-brand { font-size: 1.3rem; flex-shrink: 0; }
     .navbar .container { flex-wrap: nowrap; }
     .navbar .container > .d-flex {
@@ -670,12 +673,10 @@ body.dark-mode .badge.border, body.dark-mode .teammate-pill, body.dark-mode .h-b
 
 .competition-line::before {
     background-color: #2563eb;
-    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
 }
 
 .certificate-line::before {
     background-color: #10b981;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
 }
 
 .line-segment {
@@ -700,11 +701,6 @@ body.dark-mode .badge.border, body.dark-mode .teammate-pill, body.dark-mode .h-b
     
     padding: 1.3rem;
     position: relative;
-    
-    box-shadow: 
-        0 10px 25px rgba(0, 0, 0, 0.04),
-        inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
-        
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 2;
 }
@@ -713,16 +709,10 @@ body.dark-mode .badge.border, body.dark-mode .teammate-pill, body.dark-mode .h-b
     background: color-mix(in srgb, var(--accent-color), transparent 85%) !important;
     border-color: var(--accent-color) !important;
     transform: translateY(-8px);
-    
-    box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 80%) !important;
 }
 
 body.dark-mode .timeline-row:hover .timeline-dot {
     background-color: var(--accent-color) !important;
-    
-    box-shadow: 0 0 15px var(--accent-color), 
-                0 0 5px rgba(255, 255, 255, 0.5) !important;
-    
     transform: translateX(-50%) scale(1.2);
 }
 
@@ -743,12 +733,6 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 .timeline-row:hover .timeline-dot {
     background-color: var(--accent-color) !important;
     transform: translateX(-50%) scale(1.2);
-
-}
-
-@keyframes gold-breath {
-    0%, 100% { box-shadow: inset 0 0 8px rgba(212, 175, 55, 0.3), 0 0 12px var(--gold), 0 0 20px rgba(212, 175, 55, 0.4); }
-    50% { box-shadow: inset 0 0 12px rgba(212, 175, 55, 0.7), 0 0 20px var(--gold), 0 0 35px rgba(212, 175, 55, 0.7); }
 }
 
 .reset-btn-pill {
@@ -776,22 +760,16 @@ body.dark-mode .timeline-row:hover .timeline-dot {
 
 .reset-btn-pill:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.6);
-    border-color: var(--accent-color);
     color: var(--accent-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .reset-btn-pill {
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #cbd5e1;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .reset-btn-pill:hover {
-    background: rgba(30, 41, 59, 0.9);
-    border-color: #60a5fa;
     color: #ffffff;
 }
 
@@ -1369,7 +1347,6 @@ body.dark-mode .gold-glow .timeline-card {
     background: rgba(255, 253, 240, 0.4) !important;
     border-color: #D4AF37 !important;
     transform: translateY(-8px);
-    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.35) !important;
 }
 
 
@@ -1377,11 +1354,7 @@ body.dark-mode .gold-glow .timeline-card {
     background: rgba(255, 253, 240, 0.25) !important;
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    
     border: 2px solid rgba(212, 175, 55, 0.6) !important;
-    
-    animation: gold-breath 3s infinite ease-in-out !important;
-    
     overflow: visible !important;
 }
 
@@ -1394,9 +1367,6 @@ body.dark-mode .project-card.award-border {
     animation: none !important;
     transform: translateY(-12px) !important;
     border-color: #D4AF37 !important;
-    box-shadow: 
-        0 20px 45px rgba(212, 175, 55, 0.35), 
-        inset 0 0 20px rgba(212, 175, 55, 0.2) !important;
 }
 
 body.dark-mode .project-card.award-border .badge.bg-warning {
@@ -1710,12 +1680,8 @@ body.dark-mode .terminal-prompt {
 .site-footer {
     margin-top: 5rem;
     padding: 0 0 20px;
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    color: #1e293b;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .footer-main-row {
@@ -1773,7 +1739,7 @@ body.dark-mode .terminal-prompt {
 }
 
 .close-btn:hover {
-    opacity: 1; transform: scale(1.1); color: #ffae00;
+    opacity: 1; color: #ffae00;
 }
 
 .trophy-title {
@@ -1825,35 +1791,12 @@ body.dark-mode .terminal-prompt {
     margin-top: auto;
 }
 
-.trophy-item:hover .trophy-icon {
-    color: #ffae00; filter: drop-shadow(0 0 15px rgba(255,174,0,0.6));
-}
-
 .t-name {
     font-size: 0.75rem; color: #ddd; font-weight: bold; margin-bottom: 3px; line-height: 1.2;
 }
 
 .trophy-content::-webkit-scrollbar {
-    width: 14px;
-}
-
-.trophy-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
-    margin-block: 25px;
-}
-
-.trophy-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 174, 0, 0.3);
-    border-radius: 10px;
-    border: 4px solid transparent;
-    background-clip: padding-box;
-}
-
-.trophy-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 174, 0, 0.8);
-    border: 4px solid transparent;
-    background-clip: padding-box;
+    width: 0px;
 }
 
 #android-toast {
@@ -1996,7 +1939,6 @@ body.dark-mode .pill-menu-content a.active-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
@@ -2098,10 +2040,6 @@ body.dark-mode .no-hover-card:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
     background: rgba(30, 30, 30, 0.6) !important;
-}
-
-.education-page {
-    padding-bottom: 3rem;
 }
 
 .education-page-inner {
@@ -2284,7 +2222,6 @@ body.dark-mode .education-card-link:hover .timeline-card {
     border-radius: 999px;
     font-size: 0.66rem;
     font-weight: 700;
-    text-transform: capitalize;
 }
 
 .course-item--programming {
