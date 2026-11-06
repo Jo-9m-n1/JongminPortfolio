@@ -86,7 +86,7 @@
         <div class="row g-4" id="projects-row">
             {% for p in projects %}
             <div class="col-lg-4 col-md-6 filter-item {% for tag in p.tags %}{{ tag }} {% endfor %} {{ 'award-filter' if p.award }}">
-                <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark h-100 d-block">
+                <a href="{{ url_for('project_detail', project_id=p.id) }}" class="text-decoration-none text-dark h-100 d-block">
                     <div class="card h-100 project-card shadow-sm transition-up overflow-hidden" style="box-sizing: border-box;">      
                         
                         {% if p.thumbnail %}

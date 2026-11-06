@@ -771,7 +771,7 @@ PROJECTS = [
         ]
     },
     {
-        'id': 'chemically-bonded',
+        'id': 'Chemically-Bonded',
         'tags': ['school', 'Python', 'JavaScript', 'Gemini-API'],
         'title': {
             'en': 'Chemically Bonded',
@@ -826,7 +826,7 @@ PROJECTS = [
         'updated': {'en': 'October 3, 2026', 'ko': '2026년 10월 3일', 'fr': 'le 3 octobre 2026'}
     },
     {
-        'id': 'ourcampus',
+        'id': 'OurCampus',
         'tags': ['hackathon', 'Python', 'Gemini-API', 'ElevenLabs', 'JavaScript'],
         'title': {'en': 'OurCampus', 'ko': 'OurCampus', 'fr': 'OurCampus'},
         'award': {
@@ -880,7 +880,7 @@ PROJECTS = [
         'updated': {'en': 'April 18, 2026', 'ko': '2026년 4월 18일', 'fr': 'le 18 avril 2026'}
     },
     {
-        'id': 'liminal',
+        'id': 'Liminal',
         'tags': ['hackathon', 'Python'],
         'title': {'en': 'Liminal', 'ko': 'Liminal', 'fr': 'Liminal'},
         'category': {
@@ -922,7 +922,7 @@ PROJECTS = [
         'published': {'en': 'April 15, 2026', 'ko': '2026년 4월 15일', 'fr': 'le 15 avril 2026'}
     },
     {
-        'id': 'deckmots',
+        'id': 'DeckMots',
         'tags': [],
         'title': {'en': 'DeckMots', 'ko': 'DeckMots', 'fr': 'DeckMots'},
         'category': {
@@ -970,7 +970,7 @@ PROJECTS = [
         'updated': {'en': 'March 9, 2026', 'ko': '2026년 3월 9일', 'fr': 'le 9 mars 2026'}
     },
     {
-        'id': 'personal-website',
+        'id': 'Personal-Website',
         'tags': ['personal', 'Python', 'JavaScript'],
         'title': {'en': 'Personal Website', 'ko': '개인 웹사이트', 'fr': 'Site Web Personnel'},
         'category': {'en': 'Personal Project 2026', 'ko': '개인 프로젝트 2026', 'fr': 'Projet Personnel 2026'},
@@ -995,7 +995,7 @@ PROJECTS = [
         'updated': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
     {
-        'id': 'dr-bob',
+        'id': 'Dr-Bob',
         'tags': ['hackathon', 'JavaScript', 'Python', 'Gemini-API'],
         'title': 'Dr. Bob',
         'award': {
@@ -1042,7 +1042,7 @@ PROJECTS = [
         'updated': {'en': 'March 23, 2026', 'ko': '2026년 10월 3일', 'fr': 'le 23 mars 2026'}
     },
     {
-        'id': 'meeting-app',
+        'id': 'Meeting-App',
         'tags': ['personal', 'Python', 'JavaScript'],
         'title': {'en': 'Meeting App', 'ko': 'Meeting App', 'fr': 'Meeting App'},
         'category': {'en': 'Personal Project 2025', 'ko': '개인 프로젝트 2025', 'fr': 'Projet Personnel 2025'},
@@ -1065,7 +1065,7 @@ PROJECTS = [
         'published': {'en': 'March 4, 2026', 'ko': '2026년 3월 4일', 'fr': 'le 4 mars 2026'}
     },
     {
-        'id': 'j-score',
+        'id': 'J-Score*',
         'tags': ['school', 'Python', 'JavaScript'],
         'title': {'en': 'J-score*', 'ko': 'J-score*', 'fr': 'J-score*'},
         'category': {'en': 'School Project 2025', 'ko': '학교 프로젝트 2025', 'fr': 'Projet Scolaire 2025'},
@@ -1741,10 +1741,11 @@ def achievements():
     ]
     return render_template('achievements.html', competitions=competitions, certificates=certificates)
 
-@app.route('/project/<int:project_id>')
+@app.route('/project/<string:project_id>')
 def project_detail(project_id):
-    if 0 <= project_id < len(PROJECTS):
-        project = PROJECTS[project_id]
+    project = next((p for p in PROJECTS if p.get('id', '').lower() == project_id.lower()), None)
+    
+    if project:
         return render_template('project_detail.html', p=project)
     return "Project not found", 404
 
