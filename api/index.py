@@ -84,7 +84,7 @@ TRANSLATIONS = {
         'graph': 'Cumulative awards vs hackathons attended',
 
         'about_html': (
-            'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old Korean student living in Montreal, Canada. '
+            'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old student living in Montreal, Canada. '
             'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science (AI) at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
             'I am a <strong class="pop-up"> 9x hackathon winner'
@@ -414,7 +414,7 @@ TRANSLATIONS = {
         'AI_dev': 'Développement IA',
 
         'about_html': (
-            "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant coréen de 19 ans vivant à Montréal, au Canada. "
+            "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant de 19 ans vivant à Montréal, au Canada. "
             "Récemment diplômé en informatique du Collège Dawson, je viens de débuter mes études en informatique (IA) à l'Université McGill (U1). "
             "Je suis fier d'être <strong>trilingue</strong>, parlant le coréen, l'anglais et le français. "
             'Je suis <strong class="pop-up">9x gagnant de hackathons'
@@ -750,7 +750,7 @@ PROJECTS = [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                 'url': 'https://devpost.com/software/mpc-hacks-2026',
-                'icon': 'fa-solid fa-code-branch'
+                'icon': 'fa-brands fa-devpost'
             },
             {
                 'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
@@ -857,7 +857,7 @@ PROJECTS = [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                 'url': 'https://devpost.com/software/ourcampus-t2u5fs',
-                'icon': 'fa-solid fa-code-branch'
+                'icon': 'fa-brands fa-devpost'
             },
             {
                 'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
@@ -926,9 +926,9 @@ PROJECTS = [
             'fr': "Créé avec Unity lors d'un Game Jam, DeckMots est un jeu multijoueur local où deux joueurs forment des équipes de personnages uniques. Pour bloquer une attaque, le défenseur doit répondre à une question de français chronométrée."
         },
         'full_story': {
-            'en': 'My teammates, James, Alex and I developed this game during a Game Jam at the University of Montreal (UdeM). This was my first French hackathon and my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
-            'ko': '저는 팀원 James, Alex와 함께 Université de Montréal(UdeM)에서 열린 게임 잼에서 이 게임을 개발했습니다. 저의 첫 프랑스어 해커톤이자 처음으로 실제로 동작하는 게임을 만드는 경험이어서 시야가 크게 넓어졌습니다. 과제는 11~12세 국제 학생들이 프랑스어를 배울 수 있는 교육용 게임을 만드는 것이었습니다. 포켓몬의 메커니즘에서 영감을 받아, 플레이어가 프랑스어 문제를 맞히며 상대의 공격을 방어하는 멀티플레이 카드 게임을 만들었습니다. 이 정도 규모의 프로젝트를 Unity로 진행하는 것은 어려웠지만 보람찬 학습이었습니다. 비록 수상하지는 못했지만, 짧은 시간 안에 완성된 게임을 만들어낸 팀의 효율성이 매우 자랑스럽습니다.',
-            'fr': "Mes coéquipiers James et Alex, et moi avons développé ce jeu lors d'une Game Jam à l'Université de Montréal (UdeM). C'était mon premier hackathon en français et la première fois que je créais un jeu fonctionnel, une expérience qui a ouvert mes horizons. Le défi consistait à créer un jeu éducatif pour aider des élèves internationaux de 11 à 12 ans à apprendre le français. Inspirés par les mécaniques de Pokémon, nous avons conçu un jeu de cartes multijoueur où les joueurs se défendent contre les attaques en répondant correctement à des questions de français. Travailler sur un projet de cette envergure avec Unity a été difficile, mais l'apprentissage en a valu la peine. Même si nous n'avons rien gagné, je suis incroyablement fier de l'efficacité avec laquelle mon équipe a livré un jeu pleinement fonctionnel."
+            'en': 'My teammates, James, Alex and I developed this game during a Game Jam at the University of Montreal (UdeM). This was my first time building a functional game, which was an eye-opening moment for me. The challenge was to create an educational game for international students aged 11 - 12 to learn French. Inspired by the mechanics of Pokémon, we built a multiplayer card game where players defend against attacks by correctly answering French language questions. Working with Unity on a project of this scale was difficult but it was a rewarding learning curve. Although we did not win anything, I am incredibly proud of how efficiently my team worked to deliver a fully functional game.',
+            'ko': '저는 팀원 James, Alex와 함께 Université de Montréal(UdeM)에서 열린 게임 잼에서 이 게임을 개발했습니다. 처음으로 실제로 동작하는 게임을 만드는 경험이어서 시야가 크게 넓어졌습니다. 과제는 11~12세 국제 학생들이 프랑스어를 배울 수 있는 교육용 게임을 만드는 것이었습니다. 포켓몬의 메커니즘에서 영감을 받아, 플레이어가 프랑스어 문제를 맞히며 상대의 공격을 방어하는 멀티플레이 카드 게임을 만들었습니다. 이 정도 규모의 프로젝트를 Unity로 진행하는 것은 어려웠지만 보람찬 학습이었습니다. 비록 수상하지는 못했지만, 짧은 시간 안에 완성된 게임을 만들어낸 팀의 효율성이 매우 자랑스럽습니다.',
+            'fr': "Mes coéquipiers James et Alex, et moi avons développé ce jeu lors d'une Game Jam à l'Université de Montréal (UdeM). C'était la première fois que je créais un jeu fonctionnel, une expérience qui a ouvert mes horizons. Le défi consistait à créer un jeu éducatif pour aider des élèves internationaux de 11 à 12 ans à apprendre le français. Inspirés par les mécaniques de Pokémon, nous avons conçu un jeu de cartes multijoueur où les joueurs se défendent contre les attaques en répondant correctement à des questions de français. Travailler sur un projet de cette envergure avec Unity a été difficile, mais l'apprentissage en a valu la peine. Même si nous n'avons rien gagné, je suis incroyablement fier de l'efficacité avec laquelle mon équipe a livré un jeu pleinement fonctionnel."
         },
         'full_tech': ['C#', 'Unity', 'JSON'],
         'troubles': {
@@ -1024,7 +1024,7 @@ PROJECTS = [
             {
                 'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                 'url': 'https://devpost.com/software/dr-bob',
-                'icon': 'fa-solid fa-code-branch'
+                'icon': 'fa-brands fa-devpost'
             }
         ],
         'published': {'en': 'March 2, 2026', 'ko': '2026년 3월 2일', 'fr': 'le 2 mars 2026'},
@@ -1218,7 +1218,7 @@ def achievements():
                 {
                     'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                     'url': 'https://devpost.com/software/mpc-hacks-2026',
-                    'icon': 'fa-solid fa-code-branch'
+                    'icon': 'fa-brands fa-devpost'
                 },
                 {
                     'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
@@ -1265,7 +1265,7 @@ def achievements():
                 {
                     'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                     'url': 'https://devpost.com/software/ourcampus-t2u5fs',
-                    'icon': 'fa-solid fa-code-branch'
+                    'icon': 'fa-brands fa-devpost'
                 },
                 {
                     'name': {'en': 'View Demo Video on YouTube', 'ko': 'YouTube에서 데모 영상 보기', 'fr': 'Voir la Vidéo de Démo sur YouTube'},
@@ -1335,7 +1335,7 @@ def achievements():
                 {
                     'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                     'url': 'https://devpost.com/software/the-ganders',
-                    'icon': 'fa-solid fa-code-branch'
+                    'icon': 'fa-brands fa-devpost'
                 }
             ]
         },
@@ -1408,7 +1408,7 @@ def achievements():
                 {
                     'name': {'en': 'View Project on Devpost', 'ko': 'Devpost에서 프로젝트 보기', 'fr': 'Voir le Projet sur Devpost'},
                     'url': 'https://devpost.com/software/dr-bob',
-                    'icon': 'fa-solid fa-code-branch'
+                    'icon': 'fa-brands fa-devpost'
                 }
             ]
         },
