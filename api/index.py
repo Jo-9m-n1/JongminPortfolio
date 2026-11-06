@@ -1057,7 +1057,7 @@ PROJECTS = [
             'ko': "이 프로젝트는 Cégep 학생들이 공통 휴식 시간을 찾아 모임을 잡을 수 있도록 돕는 '틴더 스타일' 콘셉트로 시작했습니다. 이후 어떤 친구와도 공통의 여가 시간을 쉽게 찾을 수 있는 보다 범용적인 애플리케이션으로 발전했습니다.",
             'fr': "Ce projet a commencé comme un concept « à la Tinder » pour aider les étudiants du Cégep à découvrir leurs pauses communes et à organiser des rencontres. Il a ensuite évolué vers une application plus polyvalente, permettant aux utilisateurs de trouver du temps libre commun avec n'importe lequel de leurs amis."
         },
-        'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'pdfplumber', 'Regex', 'Werkzeug Security'],
+        'full_tech': ['Python', 'Flask', 'SQLite', 'JavaScript', 'PDFPlumber', 'Regex', 'Werkzeug Security'],
         'images': ["/static/MeetingApp/MeetingApp1.webp",
                    "/static/MeetingApp/MeetingApp3.webp",
                    "/static/MeetingApp/MeetingApp5.webp"],
