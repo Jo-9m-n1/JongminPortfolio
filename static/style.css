@@ -50,7 +50,6 @@
 .lang-toggle .lang-link.active {
     color: #ffffff;
     background: var(--accent-color, #2563eb);
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
 }
 
 .navbar-light .lang-toggle,
@@ -1932,8 +1931,6 @@ body.dark-mode .pill-menu-content a.active-page {
     border-radius: 50%;
     border: 1.5px solid rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
     color: #1e293b;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -2421,7 +2418,5 @@ body.dark-mode .featured-project-category {
 }
 
 body.dark-mode .featured-project-media {
-    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
 }

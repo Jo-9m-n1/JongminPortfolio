@@ -275,6 +275,13 @@
                                                     <span class="badge border text-dark shadow-sm">{{ role.date | tr }}</span>
                                                 </div>
                                                 <p class="small text-muted mb-0">{{ role.description | tr }}</p>
+                                                {% if role.tech_stack %}
+                                                <div class="d-flex flex-wrap gap-2 mt-2">
+                                                    {% for tech_item in role.tech_stack %}
+                                                    <span class="badge border text-dark shadow-sm">{{ tech_item }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endif %}
                                             </div>
                                             {% endfor %}
                                         </div>
@@ -287,7 +294,7 @@
                         <div class="col-xl-5">
                             <section id="education" class="h-100 d-flex flex-column">
                                 <h3 class="h4 mb-3">
-                                    <i class="fa-solid fas fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
+                                    <i class="fa-solid fa-graduation-cap text-warning me-2"></i> {{ t.section_education }}
                                 </h3>
                                 <div class="d-flex flex-column gap-3 flex-grow-1">
                                     <a href="{{ url_for('education', school='mcgill') }}" class="education-card-link text-decoration-none text-dark d-block flex-grow-1 d-flex flex-column">
