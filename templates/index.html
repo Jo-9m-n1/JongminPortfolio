@@ -166,13 +166,9 @@
         <header class="hero text-center">
             <div class="container px-4 px-sm-3"> 
                 <h1 class="display-3 fw-bold">{{ t.name }}</h1> 
-                <p class="lead text-muted" style="font-size: 1.15rem; font-weight: 600;">
+                <p class="lead text-muted;">
                     {{ t.about }}
-                </p>        
-                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                    <a href="{{ url_for('achievements') }}" class="btn btn-primary btn-lg">{{ t.btn_achievements }}</a>
-                    <a href="/projects" class="btn btn-outline-dark btn-lg ">{{ t.btn_view_my_work }}</a>
-                </div>
+                </p>
             </div>
         </header>
 
@@ -184,7 +180,7 @@
                         <div class="col-6 col-md-3">
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100">
-                                    <div class="display-6 fw-bold text-warning counter" data-target="{{ stats.competitions }}">0</div>
+                                    <div class="display-6 fw-bold text-warning">{{ stats.competitions }}</div>
                                     <div class="small text-muted fw-bold">{{ t.stat_competition_wins }}</div>
                                 </div>
                             </a>
@@ -192,7 +188,7 @@
                         <div class="col-6 col-md-3">
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100 gold-glow">
-                                    <div class="display-6 fw-bold text-primary counter" data-target="{{ stats.hackathons }}">0</div>
+                                    <div class="display-6 fw-bold text-primary">{{ stats.hackathons }}</div>
                                     <div class="small text-muted fw-bold">{{ t.stat_hackathon_wins }}</div>
                                 </div>
                             </a>
@@ -201,8 +197,7 @@
                             <a href="/achievements" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100 text-center">
                                     <div class="display-6 fw-bold text-success d-flex justify-content-center align-items-center">
-                                        <span>$</span>
-                                        <span class="counter" data-target="{{ stats.prize }}" data-plus="true">0</span>
+                                        <span>{{ stats.prize }}</span>
                                     </div>
                                     <div class="small text-muted fw-bold">{{ t.stat_prize}}</div>
                                 </div>
@@ -211,7 +206,7 @@
                         <div class="col-6 col-md-3">
                             <a href="/projects" class="text-decoration-none d-block h-100 hologram-btn">
                                 <div class="timeline-card p-3 h-100">
-                                    <div class="display-6 fw-bold text-info counter" data-target="{{ stats.projects }}">0</div>
+                                    <div class="display-6 fw-bold text-info">{{ stats.projects }}</div>
                                     <div class="small text-muted fw-bold">{{ t.stat_projects }}</div>
                                 </div>
                             </a>

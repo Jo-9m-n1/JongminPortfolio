@@ -9,10 +9,10 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # For the main page stats only
 PORTFOLIO_STATS = {
-    'competitions': 26,
-    'hackathons': 11,
-    'prize': 4000,
-    'projects': 9
+    'competitions': '26',
+    'hackathons': '11',
+    'prize': '$4,000+',
+    'projects': '9'
 }
 
 LANGUAGES = ['en', 'ko', 'fr']
@@ -555,7 +555,8 @@ EXPERIENCES = [
                 'title': {'en': 'Tech Team Member', 'ko': 'Tech Team 멤버', 'fr': 'Membre du Tech Team'},
                 'start_date': (2026, 10),
                 'end_date': 'present',
-                'description': ''
+                'description': '',
+                'tech_stack': ['']
             }
         ]
     },
@@ -566,7 +567,8 @@ EXPERIENCES = [
                 'title': {'en': 'Development Coordinator', 'ko': '개발자', 'fr': 'Coordonnateur du Développement'},
                 'start_date': (2026, 6),
                 'end_date': 'present',
-                'description': ''
+                'description': '',
+                'tech_stack': ['']
             }
         ]
     },
@@ -696,11 +698,17 @@ def get_processed_experiences():
                     latest_end = (ey, em)
             
             date_str = format_date_str(sy, sm, ey, em, is_present, show_dur)
+
+            raw_stack = role.get('tech_stack') or []
+            if isinstance(raw_stack, str):
+                raw_stack = [raw_stack]
+            tech_stack = [item for item in raw_stack if item]
             
             proc_roles.append({
                 'title': role['title'],
                 'date': date_str,
-                'description': role['description']
+                'description': role['description'],
+                'tech_stack': tech_stack
             })
             
         comp_dur = format_duration(earliest_start[0], earliest_start[1], latest_end[0], latest_end[1])
@@ -716,7 +724,7 @@ def get_processed_experiences():
 PROJECTS = [
     {
         'id': 'CashFlux',
-        'tags': ['hackathon', 'Python', 'JavaScript', 'Gemini-API', 'ElevenLabs', 'MongoDB'],
+        'tags': ['hackathon', 'Python', 'JavaScript', 'Gemini-API', 'MongoDB'],
         'title': {
             'en': 'CashFlux',
             'ko': 'CashFlux',
@@ -827,7 +835,7 @@ PROJECTS = [
     },
     {
         'id': 'OurCampus',
-        'tags': ['hackathon', 'Python', 'Gemini-API', 'ElevenLabs', 'JavaScript'],
+        'tags': ['hackathon', 'Python', 'Gemini-API', 'JavaScript'],
         'title': {'en': 'OurCampus', 'ko': 'OurCampus', 'fr': 'OurCampus'},
         'award': {
             'en': '1st Place | JACHacks',

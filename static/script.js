@@ -222,30 +222,7 @@ document.addEventListener('mouseup', () => {
 });
 
 const animateCounters = () => {
-    const counters = document.querySelectorAll('.counter');
-    const duration = 1300;
-
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const hasPlus = counter.getAttribute('data-plus') === 'true';
-        let startTime = null;
-
-        const step = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const currentValue = Math.floor(progress * target);
-            counter.innerText = currentValue.toLocaleString();
-
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                counter.innerText = target.toLocaleString() + (hasPlus ? "+" : "");
-            }
-        };
-
-        requestAnimationFrame(step);
-    });
+    requestAnimationFrame(step);
 };
 
 window.addEventListener('scroll', () => {
@@ -764,7 +741,7 @@ Type 'help' to see a list of available commands.
         }, 50); 
      });
     
-    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'ping', 'history', 'env', 'df', 'echo', 'reboot', 'cal'];
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'history', 'env', 'df', 'echo', 'reboot', 'cal'];
     const directories = ['projects', 'achievements'];
     const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'gamejam.txt', 'ctf.txt', 'education.txt', 'projects.txt', 'experience.txt'];
 
@@ -853,7 +830,6 @@ function processCommand(cmd, outputArea, overlay) {
   <span class="term-keyword">uptime</span>        - Display how long the system has been running
   <span class="term-keyword">env</span>           - List environment variables
   <span class="term-keyword">echo</span>          - Display a line of text or a string
-  <span class="term-keyword">ping</span>          - Send ICMP ECHO_REQUEST
   <span class="term-keyword">cal</span>           - Display a calendar
   <span class="term-keyword">reboot</span>        - Restart the system (Reload page)
   <span class="term-keyword">clear</span>         - Clear the terminal screen
@@ -1108,17 +1084,6 @@ Feb 2024 - Jun 2024 | Rosemount High School                         | Peer Tutor
                 outputArea.innerHTML += `<span class="term-error">cat: missing file operand</span>\n`;
             } else {
                 outputArea.innerHTML += `<span class="term-error">cat: ${args[1]}: No such file</span>\n`;
-            }
-            break;
-
-        case 'ping':
-            const target = args[1] || 'localhost';
-            if (target == 'mcgill') {
-                outputArea.innerHTML += `Pinging mcgill.ca [128.100.0.1]: time=12ms\n<span style="color:#00ff00;">Status: CS (U1)</span>\n`;
-            } else if (target == 'mchacks') {
-                outputArea.innerHTML += `Pinging mchacks.ca [128.100.0.1]: time=17ms\n<span style="color:#00ff00;">Status: Development Coordinator</span>\n`;
-            } else {
-                outputArea.innerHTML += `Pinging ${target} [127.0.0.1]: time&lt;1ms\n`;
             }
             break;
 
