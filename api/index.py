@@ -34,8 +34,6 @@ TRANSLATIONS = {
 
         'name': 'Jongmin Lee',
         'about': 'McGill Computer Science Student',
-        'btn_achievements': 'Achievements',
-        'btn_view_my_work': 'View My Work',
 
         'stat_competition_wins': 'Competition Awards',
         'stat_hackathon_wins': 'Hackathon Awards',
@@ -184,8 +182,6 @@ TRANSLATIONS = {
 
         'name': '이종민',
         'about': '맥길 대학교 컴퓨터과학 신입생',
-        'btn_achievements': '수상 보기',
-        'btn_view_my_work': '프로젝트 보기',
 
         'stat_competition_wins': '대회 수상',
         'stat_hackathon_wins': '해커톤 수상',
@@ -350,8 +346,6 @@ TRANSLATIONS = {
 
         'name': 'Jongmin Lee',
         'about': "Étudiant en informatique à McGill",
-        'btn_achievements': 'Réalisations',
-        'btn_view_my_work': 'Voir mes projets',
 
         'stat_competition_wins': 'Compétitions remportées',
         'stat_hackathon_wins': 'Hackathons remportés',
@@ -552,7 +546,19 @@ EXPERIENCES = [
         'company': 'McGill Computer Science Undergraduate Society',
         'roles': [
             {
-                'title': {'en': 'Tech Team Member', 'ko': 'Tech Team 멤버', 'fr': 'Membre du Tech Team'},
+                'title': {'en': 'Software Developer', 'ko': '소프트웨어 개발자', 'fr': 'Développeur Logiciel'},
+                'start_date': (2026, 10),
+                'end_date': 'present',
+                'description': '',
+                'tech_stack': ['']
+            }
+        ]
+    },
+    {
+        'company': 'McGill Science Computer TaskForce',
+        'roles': [
+            {
+                'title': {'en': 'Contributor', 'ko': '활동 맴버', 'fr': 'Contributor'},
                 'start_date': (2026, 10),
                 'end_date': 'present',
                 'description': '',
