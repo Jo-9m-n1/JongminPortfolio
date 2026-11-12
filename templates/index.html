@@ -459,7 +459,7 @@
                             <div class="featured-marquee-group">
                                 {% for p in projects[:8] %}
                                 <div class="featured-project-card">
-                                    <a href="{{ url_for('project_detail', project_id=loop.index0) }}" class="text-decoration-none text-dark d-block h-100">
+                                    <a href="{{ url_for('project_detail', project_id=p.id) }}" class="text-decoration-none text-dark d-block h-100">
                                         <div class="featured-project-media">
                                             <img src="{{ p.thumbnail }}" alt="{{ p.title|tr }}" loading="lazy">
                                         </div>
