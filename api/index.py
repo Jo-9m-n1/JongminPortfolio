@@ -9,9 +9,9 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # For the main page stats only
 PORTFOLIO_STATS = {
-    'competitions': '26',
-    'hackathons': '11',
-    'prize': '$4,000+',
+    'competitions': '27',
+    'hackathons': '12',
+    'prize': '$4,200+',
     'projects': '9'
 }
 
@@ -85,7 +85,7 @@ TRANSLATIONS = {
             'My name is <strong>Jongmin Lee</strong>. I am a 19-year-old student living in Montreal, Canada. '
             'Having recently graduated from Dawson College in Computer Science, I am continuing my studies in Computer Science (AI) at McGill University (U1). '
             'I am proud to be <strong>trilingual</strong>, speaking Korean, English, and French. '
-            'I am a <strong class="pop-up"> 9x hackathon winner'
+            'I am a <strong class="pop-up"> 10x hackathon winner'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Hackathon Podium Finishes:</strong><br>'
             'JACHacks (1st · Special Award)<br>'
@@ -98,7 +98,7 @@ TRANSLATIONS = {
             'Dialogue Internal (Special Award)<br>'
             'HackDécouverte (Special Award)<br>'
             '</span></strong> with over '
-            '<strong class="pop-up">16 STEM competition awards'
+            '<strong class="pop-up">17 STEM competition awards'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">STEM Competition Awards:</strong><br>'
             "HME Math Contest '14 (National 1st)<br>"
@@ -248,7 +248,7 @@ TRANSLATIONS = {
         'about_html': (
             '안녕하세요, 캐나다 몬트리올 Dawson College에서 컴퓨터 과학을 졸업후, 맥길 대학교에서 컴퓨터 과학(AI)을 공부하는 중인 <strong>이종민</strong>입니다. '
             '저는 한국어, 영어, 프랑스어를 모두 구사하는 <strong>3개 국어 사용자</strong>입니다. '
-            '저는 <strong class="pop-up">해커톤 9회 우승자'
+            '저는 <strong class="pop-up">해커톤 10회 우승자'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">해커톤 입상 기록:</strong><br>'
             'JACHacks (1위 · 특별상)<br>'
@@ -260,7 +260,7 @@ TRANSLATIONS = {
             'HackDécouverte (특별상)<br>'
             'Dialogue Internal (특별상)<br>'
             '</span></strong>이며, '
-            '<strong class="pop-up">STEM 관련 대회를 16회 이상 수상'
+            '<strong class="pop-up">STEM 관련 대회를 17회 이상 수상'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">STEM 대회 수상:</strong><br>'
             "HME 수학 경시대회 '14 (전국 1위)<br>"
@@ -411,7 +411,7 @@ TRANSLATIONS = {
             "Je m'appelle <strong>Jongmin Lee</strong>. Je suis un étudiant de 19 ans vivant à Montréal, au Canada. "
             "Récemment diplômé en informatique du Collège Dawson, je viens de débuter mes études en informatique (IA) à l'Université McGill (U1). "
             "Je suis fier d'être <strong>trilingue</strong>, parlant le coréen, l'anglais et le français. "
-            'Je suis <strong class="pop-up">9x gagnant de hackathons'
+            'Je suis <strong class="pop-up">10x gagnant de hackathons'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Podiums de hackathons :</strong><br>'
             'JACHacks (1ʳᵉ · Prix Spécial)<br>'
@@ -423,7 +423,7 @@ TRANSLATIONS = {
             'HackDécouverte (Prix spécial)<br>'
             'Dialogue Internal (Prix Spécial)<br>'
             '</span></strong> avec plus de '
-            '<strong class="pop-up">16 prix en STIM'
+            '<strong class="pop-up">17 prix en STIM'
             '<span class="pop-up-text">'
             '<strong style="color: #0d6efd;">Prix en STIM :</strong><br>'
             "HME Math Contest '14 (1ʳᵉ nationale)<br>"
@@ -586,9 +586,9 @@ EXPERIENCES = [
                 'start_date': (2025, 6),
                 'end_date': (2025, 8),
                 'description': {
-                    'en': 'Developed CAD files tailored for architectural projects which can serve as the foundational blueprints for design and construction phases.',
-                    'ko': '건축 프로젝트를 위한 CAD 파일을 개발했으며, 이는 설계 및 건설 단계를 위한 기초 청사진 역할을 합니다.',
-                    'fr': 'J\'ai développé des fichiers CAO adaptés aux projets architecturaux, servant de plans directeurs fondamentaux pour les phases de conception et de construction.'
+                    'en': 'Developed CAD files tailored for architectural projects.',
+                    'ko': '건축 프로젝트를 위한 CAD 파일을 개발했습니다.',
+                    'fr': 'J\'ai développé des fichiers CAO adaptés aux projets architecturaux.'
                 }
             }
         ]
@@ -1327,9 +1327,9 @@ def achievements():
             'event': {'en': 'Vanier College', 'ko': 'Vanier College', 'fr': 'Collège Vanier'},
             'date': '2026. 03. 21. - 2026. 03. 22.',
             'desc': {
-                'en': 'Achieved 8th place in a 25-team Cybersecurity CTF hackathon with a total score of 3,035 points.',
-                'ko': '25개 팀이 참가한 사이버보안 CTF 해커톤에서 총 3,035점을 획득해 8위에 올랐습니다.',
-                'fr': "Obtenu la 8ᵉ place dans un hackathon CTF de cybersécurité comptant 25 équipes, avec un total de 3 035 points."
+                'en': 'Achieved 8th place in a CTF competition with a total score of 3,035 points.',
+                'ko': 'CTF 대회에서 총 3,035점을 획득해 8위에 올랐습니다.',
+                'fr': "Obtenu la 8ᵉ place dans une compétition CTF, avec un total de 3 035 points."
             },
             'category': 'software canada stem',
             'external_links': [
@@ -1369,9 +1369,9 @@ def achievements():
             'event': {'en': 'Concordia University', 'ko': '콩코디아 대학교', 'fr': 'Université Concordia'},
             'date': '2026. 03. 07. - 2026. 03. 08.',
             'desc': {
-                'en': 'Competed in my first-ever Cybersecurity CTF hackathon, placing 9th overall <strong>out of 120 teams</strong> and 3rd in the beginner track out of 87 teams. Scored 4,100 points and won an $800 cash prize.',
-                'ko': '저의 첫 사이버보안 CTF 해커톤에 참가해 <strong>120개 팀 중</strong> 종합 9위, 초보 부문 87개 팀 중 3위를 차지했습니다. 4,100점을 획득하고 800달러의 상금을 받았습니다.',
-                'fr': "Participation à mon tout premier hackathon CTF en cybersécurité : classé 9ᵉ au général <strong>sur 120 équipes</strong> et 3ᵉ dans la piste débutant sur 87 équipes. 4 100 points et un prix en argent de 800 $."
+                'en': 'Competed in my first-ever CTF competition, placing 9th overall <strong>out of 120 teams</strong> and 3rd in the beginner track out of 87 teams. Scored 4,100 points and won an $800 cash prize.',
+                'ko': '저의 첫 CTF 대회에 참가해 <strong>120개 팀 중</strong> 종합 9위, 초보 부문 87개 팀 중 3위를 차지했습니다. 4,100점을 획득하고 800달러의 상금을 받았습니다.',
+                'fr': "Participation à ma toute première compétition CTF : classé 9ᵉ au général <strong>sur 120 équipes</strong> et 3ᵉ dans la piste débutant sur 87 équipes. 4 100 points et un prix en argent de 800 $."
             },
             'color': '#D4AF37',
             'category': 'software hardware canada stem',

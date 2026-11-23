@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         achievement: {
             'All': {
                 labels: [window.T?.chart_grade || 'Academic', window.T?.chart_webdev || 'Web Dev', window.T?.chart_math || 'Math', window.T?.chart_robotics || 'Robotics', window.T?.chart_ctf || 'CTF', window.T?.chart_other || 'Other'],
-                data: [16, 7, 7, 3, 1, 9],
+                data: [16, 8, 7, 3, 1, 9],
                 colors: ['#ec4899', '#10b981', '#3b82f6', '#8b5cf6', '#f97316', '#707d8e'] 
             },
             'Academic': {
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             'Web Dev': {
                 labels: ['MPC Hacks', 'JACHacks', 'ConUHacks', window.T?.chart_other || 'Other'],
-                data: [2, 2, 1, 2],
+                data: [2, 2, 1, 3],
                 colors: ['#0a4a39', '#2b7d62', '#69d4a9', '#a7f3d0'] 
             },
             'Math': {
@@ -311,7 +311,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: "Cursor Hackathon", type: "Other", awards: 0 },
             { name: "Dawson Robotics Hackathon 2026", type: "Robotics", awards: 1 },
             { name: "MPC Hacks", type: "General", awards: 2 },
-            { name: "Band of Agents Hackathon", type: "Other", awards: 1 }
+            { name: "Band of Agents Hackathon", type: "Other", awards: 1 },
+            { name: "McGill Code.Jam()", type: "General", awards: 1 }
         ]
     };
 
@@ -741,7 +742,7 @@ Type 'help' to see a list of available commands.
         }, 50); 
      });
     
-    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'uptime', 'history', 'env', 'df', 'echo', 'reboot', 'cal'];
+    const commands = ['help', 'neofetch', 'whoami', 'ls', 'cd', 'cat', 'date', 'clear', 'exit', 'history', 'env', 'df', 'echo', 'reboot'];
     const directories = ['projects', 'achievements'];
     const files = ['skills.txt', 'contact.txt', 'hackathons.txt', 'gamejam.txt', 'ctf.txt', 'education.txt', 'projects.txt', 'experience.txt'];
 
@@ -827,10 +828,8 @@ function processCommand(cmd, outputArea, overlay) {
   <span class="term-keyword">df</span>            - Report disk space usage
   <span class="term-keyword">history</span>       - Display command history
   <span class="term-keyword">date</span>          - Print system date and time
-  <span class="term-keyword">uptime</span>        - Display how long the system has been running
   <span class="term-keyword">env</span>           - List environment variables
   <span class="term-keyword">echo</span>          - Display a line of text or a string
-  <span class="term-keyword">cal</span>           - Display a calendar
   <span class="term-keyword">reboot</span>        - Restart the system (Reload page)
   <span class="term-keyword">clear</span>         - Clear the terminal screen
   <span class="term-keyword">exit</span>          - Close the terminal
@@ -889,39 +888,6 @@ function processCommand(cmd, outputArea, overlay) {
             outputArea.innerHTML += `<span style="color: #666;">Look! A wild Steam Locomotive appeared!</span>\n`;
             overlay.scrollTop = overlay.scrollHeight;
             
-            break;
-
-        case 'cal':
-            const rightnow = new Date();
-            const year = rightnow.getFullYear();
-            const month = rightnow.getMonth();
-            const today = rightnow.getDate();
-
-            const monthName = rightnow.toLocaleString('default', { month: 'long' });
-            
-            const firstDay = new Date(year, month, 1).getDay();
-            const lastDate = new Date(year, month + 1, 0).getDate();
-
-            let calOutput = `      ${monthName} ${year}\n`;
-            calOutput += `Su Mo Tu We Th Fr Sa\n`;
-
-            for (let i = 0; i < firstDay; i++) {
-                calOutput += `   `;
-            }
-
-            for (let date = 1; date <= lastDate; date++) {
-                if (date === today) {
-                    calOutput += `<span style="color: #ffffff !important; font-weight: bold;">${date.toString().padStart(2, ' ')}</span> `;
-                } else {
-                    calOutput += `${date.toString().padStart(2, ' ')} `;
-                }
-
-                if ((date + firstDay) % 7 === 0) {
-                    calOutput += `\n`;
-                }
-            }
-
-            outputArea.innerHTML += `<pre style="font-family: monospace; line-height: 1.2;">${calOutput}</pre>`;
             break;
 
         case 'echo':
@@ -1043,7 +1009,8 @@ Mar 2026 | @HACK <i class="fa-solid fa-trophy"></i>
 `;
             } else if (args[1] === 'hackathons.txt') {
                 outputArea.innerHTML += 
-`Jun 2026 | Band of Agents Hackathon <i class="fa-solid fa-trophy"></i>
+`Nov 2026 | McGill Code.Jam() <i class="fa-solid fa-trophy"></i>
+Jun 2026 | Band of Agents Hackathon <i class="fa-solid fa-trophy"></i>
 May 2026 | MPC Hacks <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 May 2026 | Dawson Robotics Hackathon 2026 <i class="fa-solid fa-trophy"></i>
 May 2026 | Cursor Hackathon Montreal
@@ -1063,7 +1030,8 @@ May 2025 | Dawson Robotics Hackathon 2025 <i class="fa-solid fa-trophy"></i>
 `  
             } else if (args[1] === 'projects.txt') {
                 outputArea.innerHTML += 
-`May 2026 | CashFlux <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
+`Nov 2026 | Chalkolate <i class="fa-solid fa-trophy"></i>
+May 2026 | CashFlux <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 May 2026 | Chemically Bonded
 Apr 2026 | OurCampus <i class="fa-solid fa-trophy"></i> <i class="fa-solid fa-trophy"></i>
 Mar 2026 | Liminal
@@ -1075,7 +1043,7 @@ Dec 2025 | J-Score*
 ` 
             } else if (args[1] === 'experience.txt') {
                 outputArea.innerHTML += 
-`Oct 2026 - Present  | McGill Computer Science Undergraduate Society | Tech Team Member
+`Oct 2026 - Present  | McGill Computer Science Undergraduate Society | Software Developer
 Jun 2026 - Present  | McHacks                                       | Development Coordinator
 Jun 2025 - Aug 2025 | GIO Engineering                               | Engineering Intern
 Feb 2024 - Jun 2024 | Rosemount High School                         | Peer Tutor
@@ -1097,7 +1065,6 @@ Feb 2024 - Jun 2024 | Rosemount High School                         | Peer Tutor
                     setTimeout(() => { window.location.href = '/'; }, 350);
                 }, 800);
             } else {
-                const targetElement = document.getElementById(dest);
                 if (['projects', 'achievements'].includes(dest)) {
                     outputArea.innerHTML += `Navigating to /${dest}...\n`;
                     setTimeout(() => {
@@ -1128,12 +1095,6 @@ Feb 2024 - Jun 2024 | Rosemount High School                         | Peer Tutor
         case 'exit':
             outputArea.innerHTML += `Logging out...\n`;
             setTimeout(() => closeTerminal(overlay), 500);
-            break;
-
-        case 'uptime':
-            const date = new Date();
-            const timeString = date.toTimeString().split(' ')[0];
-            outputArea.innerHTML += ` ${timeString} up 19 years, 3 users, load average: 0.00, 0.01, 0.05\n`;
             break;
 
         default:
@@ -1294,24 +1255,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const style = document.createElement('style');
             style.id = styleId;
             style.innerHTML = `
-                body { animation: screenShake 0.4s ease-in-out; }
-                
                 .developer-mode *:not(#dev-badge):not(#dev-badge *) :hover {
                     outline: 2px solid #ffae00 !important;
                     outline-offset: 4px;
-                    background-color: rgba(255, 174, 0, 0.05) !important;
-                    cursor: text !important;
+                    cursor: text;
                 }
 
                 #dev-badge {
                     user-select: none !important;
                     -webkit-user-modify: read-only !important;
-                }
-
-                @keyframes screenShake {
-                    0%, 100% { transform: translateX(0); }
-                    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-                    20%, 40%, 60%, 80% { transform: translateX(2px); }
                 }
 
                 @keyframes badgeEntrance {
