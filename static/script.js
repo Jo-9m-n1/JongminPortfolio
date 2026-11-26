@@ -225,6 +225,55 @@ const animateCounters = () => {
     requestAnimationFrame(step);
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const funnyEmojis = ['🤓', '🤡', '🤪', '🥸', '🥴', '🍌'];
+    let typedKeys = "";
+    let isRaining = false;
+
+
+    function triggerRain() {
+        if (isRaining) return;
+        isRaining = true;
+
+        for (let i = 0; i < 80; i++) {
+            setTimeout(() => {
+                const emojiNode = document.createElement('div');
+                emojiNode.classList.add('emoji-drop');
+                emojiNode.innerText = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
+
+                emojiNode.style.left = Math.random() * 100 + 'vw';
+                emojiNode.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                emojiNode.style.animationDuration = (Math.random() * 2 + 2) + 's';
+
+                document.body.appendChild(emojiNode);
+
+                setTimeout(() => {
+                    emojiNode.remove();
+                }, 5000);
+            }, i * 60);
+        }
+
+        setTimeout(() => {
+            isRaining = false;
+        }, 3000);
+    }
+
+    window.addEventListener("keydown", (e) => {
+        if(e.key.length === 1) {
+            typedKeys += e.key.toLowerCase();
+        }
+
+        if (typedKeys.length > 5) {
+            typedKeys = typedKeys.slice(-5);
+        }
+
+        if (typedKeys === "emoji") {
+            triggerRain();
+            typedKeys = "";
+        }
+    });
+});
+
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
