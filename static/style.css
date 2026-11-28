@@ -1201,15 +1201,20 @@ p.snow {
     display: inline-block;
 }
 
-.git-lab:hover {
+.gitlab:hover {
     color: #FC6D26;
 }
-.git-hub:hover {
+
+.github:hover {
     color: #24292E;
 }
 
 .devpost:hover {
     color: #003e54; 
+}
+
+.youtube:hover {
+    color: #FF0033;
 }
 
 body.dark-mode .pill-menu-content a { color: #cbd5e1; }
